@@ -1,0 +1,63 @@
+/*==================================
+ --------- UTILITY CLASSES --------
+==================================*/
+
+.hidden {
+    display: none !important;
+}
+
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+
+.inline {
+    display: inline;
+}
+.block {
+    display: block;
+}
+.inline-block {
+    display: inline-block;
+}
+
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-justify {
+    text-align: justify;
+}
+
+.background-cover {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background-brand {
+    background-color: #006fba;
+}
+.background-dark {
+    background-color: #222222;
+}
+.background-grey {
+    background-color: #ececec;
+}
+
+.dark {
+    color: #fff;
+}

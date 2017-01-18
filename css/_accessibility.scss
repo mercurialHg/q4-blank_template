@@ -1,0 +1,51 @@
+/*==================================
+ --------- ACCESSIBILITY ----------
+==================================*/
+
+a:focus {
+  text-decoration: underline !important;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+#maincontent:focus {
+    outline: 0px;
+}
+
+/*------- SKIP LINK MODULE -------*/
+
+.module-skip {
+  &_link {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 200px;
+    padding: 15px 15px;
+    margin-left: -100px;
+    background: transparent;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    text-align: center;
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    z-index: 100;
+  }
+  &_link:focus,
+  &_link:active,
+  &_link:hover {
+    top: 0;
+    background: #0A457B;
+    outline:0;
+  }
+  &_link:visited {
+    color: #fff;
+  }
+}

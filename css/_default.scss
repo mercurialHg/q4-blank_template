@@ -1,0 +1,62 @@
+/*==================================
+ --------- DEFAULT STYLES ---------
+==================================*/
+
+body {
+    overflow-x: hidden;
+}
+
+/*---------- TYPOGRAPHY ----------*/
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: #006fba;
+}
+h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+h5 {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+a, a:visited {
+    text-decoration: none; 
+    color: #0F5CA3;
+}
+p {
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+}
+
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italic;
+}
+
+/*------------ COMMON ------------*/
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
