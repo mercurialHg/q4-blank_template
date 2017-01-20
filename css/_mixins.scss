@@ -1,0 +1,85 @@
+/// A function used to convert rem font sizes to pixel size. This is a supporting function for the font-size mixin.
+/// @param {px} $size font-size in pixels
+@function calculateRem($size) {
+  $remSize: $size / $body-size;
+  @return $remSize * 1rem;
+}
+
+/// Use to assign font-size using rem with px size fall-back.
+/// @param {px} $size font-size in pixels
+/// @example
+/// p {
+///   @include font-size(14px)
+/// }
+/// @output <pre>
+/// p {
+///   font-size: 14px; //Will be overridden if browser supports rem
+///   font-size: 0.8rem;
+/// }
+/// </pre>
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+/// Used to assign styling for certain breakpoints quickly.
+/// Has 3 other types: layout-legacy / layout-medium / layout-small
+/// @example
+/// .sidebar {
+///   width: 60%;
+///   float: left;
+///   margin: 0 2% 0 0;
+///   @include layout-small {
+///     width: 100%;
+///     float: none;
+///     margin: 0;
+///   }
+/// }
+@mixin layout-large {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin layout-legacy {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin layout-medium {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin layout-small {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+/// the equivalent of adding the clearfix class to an element
+/// @example
+/// .container-with-floated-children {
+///   @extend %clearfix;
+/// }
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/// used to set a max-width as well as center an element
+/// @example
+/// .pane_inner {
+///   @extend %fit-and-center;
+/// }
+%fit-and-center {
+  max-width: $layout-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+

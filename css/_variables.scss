@@ -1,1 +1,27 @@
+/// Local environment URL
+$host: 'http://localhost:8888' !default;
+
+/// The default layout width for the site.
+/// @example 
+/// .module_container--outer {
+///   max-width: $layout-width;
+///   margin: 0 auto;
+/// }
 $layout-width: 940px !default;
+
+$layout-large: 1200px !default;
+$layout-legacy: 1024px !default;
+$layout-medium: 768px !default;
+$layout-small: 480px !default;
+
+/// The default font family for the site.
+$body-font: 'Open Sans', sans-serif !default;
+
+/// The default font size for the site.
+$body-size: 16px !default;
+
+/// The default icon font on the site (icomoon).
+$icon-font: 'q4icons' !default;
+
+/// The default brand colour for the site.
+$brand-color: #006fba !default;

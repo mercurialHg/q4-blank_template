@@ -1,0 +1,123 @@
+/*==================================
+ ------------ BLANK CSS -----------
+==================================*/
+
+.pane {
+  &--header {
+    .pane_inner {
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .module-logo img {
+      margin-bottom: -10px;
+    }
+    .module, .nav {
+      vertical-align: baseline;
+    }
+    .nav {
+      text-align: right;
+      li {
+        display: inline-block;
+        a {
+          display: block;
+          padding: 50px 15px 30px;
+          color: #333;
+          font-weight: normal;
+        }
+        &.selected a,
+        a:hover,
+        a:focus {
+          padding: 50px 15px 28px;
+          border-bottom: 2px solid #0F5CA3;
+          color: #0F5CA3;
+          outline: none;
+        }
+      }
+    }
+    .module-navigation_close,
+    .mobile-toggle {
+      display: none;
+    }
+  }
+  &--banner {
+    background: rgba(0,0,0,0.1) url('https://s21.q4cdn.com/721433817/files/design/product-service-section-bg.jpg') 50% 85%;
+    color: #fff;
+    .pane_inner {
+      position: relative;
+      @extend %fit-and-center;
+      padding: 50px 0;
+    }
+    .module-breadcrumb {
+      .module_title {
+        @include font-size(50px);
+      }
+      .module_container--inner {
+        display: none;
+      }
+    }
+  }
+  &--navigation {
+    background: $brand-color;
+    .pane_inner {
+      @extend %fit-and-center;
+    }
+    .nav {
+      text-align: center;
+      .level1 {
+        display: table;
+        width: 100%;
+        li {
+          display: table-cell;
+          a {
+            display: block;
+            padding: 20px;
+            @include font-size(14px);
+            color: #fff;
+            &:hover, &:focus {
+              outline: none;
+              background: #005995;
+            }
+          }
+          &.selected {
+            a {
+              background: #005995;
+            }
+          }
+        }
+      }
+    }
+  }
+  &--content {
+    padding-top: 70px;
+    .module {
+      margin-bottom: 70px;
+      &_container {
+        &--outer { 
+          @extend %fit-and-center;
+        }
+      }
+    }
+  }
+  &--footer {
+    padding-top: 60px;
+    background: #222;
+    .pane_inner {
+      @extend %fit-and-center;
+    }
+    .module {
+      margin-bottom: 60px;
+      &_introduction {
+        display: none;
+      }
+    }
+  }
+  &--credits {
+    padding-bottom: 40px;
+    background: #222;
+    text-align: center;
+    .pane_inner {
+      @extend %fit-and-center;
+    }
+  }
+}

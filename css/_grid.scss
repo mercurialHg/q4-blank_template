@@ -1,3 +1,7 @@
+/*==================================
+ ----------- TOAST GRID -----------
+==================================*/
+
 // Namespaces
 // This stops me from being overzealous with enforcing classes
 $toast-grid-namespace: "grid" !default;
@@ -12,10 +16,10 @@ $toast-col-groups: (2, 3, 4, 5, 6, 8, 12) !default;
 $toast-gutter-width: 20px !default;
 
 // Breakpoints
-$toast-breakpoint-large: 1200px !default;
-$toast-breakpoint-legacy: 1024px !default;
-$toast-breakpoint-medium: 768px !default;
-$toast-breakpoint-small: 480px !default;
+$layout-large: 1200px !default;
+$layout-legacy: 1024px !default;
+$layout-medium: 768px !default;
+$layout-small: 480px !default;
 
 // Pushes and pulls
 $toast-pushes: true !default;
@@ -148,14 +152,14 @@ $toast-pulls: true !default;
 	padding-left: $toast-gutter-width;
 	vertical-align: top;
 
-	@media (max-width: $toast-breakpoint-medium) {
+	@media (max-width: $layout-small) {
 		display: block;
 		margin-left: 0;
 		margin-right: 0;
 		width: auto;
 	}
 
-	@media (max-width: $toast-breakpoint-large) and (min-width: $toast-breakpoint-legacy) {
+	@media (max-width: $layout-large) and (min-width: $layout-legacy) {
 		&[class*="#{$toast-grid-column-namespace}-lg-"] {
 			display: inline-block;
 			margin-right: -.24em;
@@ -186,7 +190,7 @@ $toast-pulls: true !default;
 		}
 	}
 
-	@media (max-width: $toast-breakpoint-legacy) and (min-width: $toast-breakpoint-medium) {
+	@media (max-width: $layout-legacy) and (min-width: $layout-medium) {
 		&[class*="#{$toast-grid-column-namespace}-lc-"] {
 			display: inline-block;
 			margin-right: -.24em;
@@ -217,7 +221,7 @@ $toast-pulls: true !default;
 		}
 	}
 
-	@media (max-width: $toast-breakpoint-medium) and (min-width: $toast-breakpoint-small) {
+	@media (max-width: $layout-medium) and (min-width: $layout-small) {
 		&[class*="#{$toast-grid-column-namespace}-md-"] {
 			display: inline-block;
 			margin-right: -.24em;
@@ -248,7 +252,7 @@ $toast-pulls: true !default;
 		}
 	}
 
-	@media (max-width: $toast-breakpoint-small) {
+	@media (max-width: $layout-small) {
 		&[class*="#{$toast-grid-column-namespace}-sm-"] {
 			display: inline-block;
 			margin-right: -.24em;

@@ -1,39 +1,123 @@
+/*==================================
+ ----------- MODULE CSS -----------
+==================================*/
+
 .module {
-  &_container {
-    &--outer {
-      max-width: $layout-width;
-      margin: 0 auto;
+  &-navigation {
+    &_close {
+      display: none;
+      @include layout-medium {
+        display: inline-block;
+      }
     }
   }
-}
 
-.nav--main {
-  .level1 {
-    > li {
+  &-skip {
+    &_link {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      width: 200px;
+      padding: 15px 15px;
+      margin-left: -100px;
+      background: transparent;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      color: white;
+      text-align: center;
+      -webkit-transition: 0.5s ease-in-out;
+      transition: 0.5s ease-in-out;
+      z-index: 100;
+    }
+    &_link:focus,
+    &_link:active,
+    &_link:hover {
+      top: 0;
+      background: #0A457B;
+      outline:0;
+    }
+    &_link:visited {
+      color: #fff;
+    }
+  }
+
+  &-search {
+    position: relative;
+    text-align: right;
+    &_input {
       display: inline-block;
+      width: 90%;
+      padding: 7px;
     }
-  }
-  .level2 {
-    display: none;
-    > li {
-      display: block;
+    &_button {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      width: 15px;
+      height: 15px;
+      border: 0;
+      background: #fff url($host+'/Projects/blank/icon-search.svg');
+      background-size: contain;
+      font-size: 0;
+      cursor: pointer;
     }
   }
 
-  li {
-    a {
-      display: block;
-      padding: 50px 15px 30px;
-      color: #333;
-      font-weight: normal;
+  &-stock-header {
+    text-align: right;
+    .module_container--outer {
+      display: inline-block;
+      padding: 40px 60px;
+      background: rgba(0,0,0,0.6);
+      text-align: center;
     }
-
-    &.selected a,
-    a:hover,
-    a:focus {
-      padding: 50px 15px 28px;
-      border-bottom: 2px solid #0F5CA3;
-      color: #0F5CA3;
+    &_description1 {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    &_stock-price {
+      &:before {
+        content: '$';
+      }
+      display: block;
+      margin-bottom: 0.5rem;
+      @include font-size(45px);
+      color: #fff;
+    }
+    &_change,
+    &_percent-change {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      @include font-size(20px);
+    }
+    &_percent-change {
+      &:before {
+        content: '(';
+      }
+      .module-stock-header_indicator {
+        display: none;
+      }
+      &:after {
+        content: ')';
+      }
+    }
+    &_volume {
+      &:before {
+        content: 'Volume ';
+        font-weight: bold;
+      }
+      display: block;
+      margin-bottom: 2rem;
+    }
+    &_description3 {
+      display: block;
+      @include font-size(12px);
+      color: #a9a9a9;
+    }
+    &_volume-text,
+    &_date {
+      display: none;
     }
   }
 }
