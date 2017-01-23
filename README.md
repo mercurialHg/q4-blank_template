@@ -2,24 +2,6 @@
 
 Project Blank
 
-## Getting Started
-Download the [production version][min] or the [development version][max].
-
-[min]: https://raw.github.com/q4mobile/q4-blank_template/master/dist/q4-blank_template.min.js
-[max]: https://raw.github.com/q4mobile/q4-blank_template/master/dist/q4-blank_template.js
-
-In your web page:
-
-```html
-<script src="jquery.js"></script>
-<script src="dist/q4-blank_template.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
-```
-
 ## Installing
 Please don't edit files in the `dist` subdirectory as they are generated via Grunt. You'll find source code in the `src` subdirectory!
 
