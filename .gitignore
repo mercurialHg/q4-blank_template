@@ -34,3 +34,8 @@ scss-lint-report.xml
 
 # grunt-contrib-sass cache
 .sass-cache
+
+# Node / Grunt
+node_modules
+libs
+.jshintrc

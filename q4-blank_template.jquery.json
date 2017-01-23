@@ -1,0 +1,16 @@
+{
+  "name": "q4-blank_template",
+  "title": "Q4 Blank Template",
+  "description": "Project Blank",
+  "version": "1.0.0",
+  "homepage": "https://github.com/q4mobile/q4-blank_template",
+  "author": {
+    "name": "Q4 Inc",
+    "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sustoid@github.com/q4mobile/q4-blank_template.git"
+  },
+  "bugs": "https://github.com/q4mobile/q4-blank_template/issues"
+}
