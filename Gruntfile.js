@@ -28,7 +28,7 @@
             },
             dist: {
                 src: 'js/*.js',
-                dest: 'dist/q4.core.<%= pkg.version %>.min.js'
+                dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
             },
         },
 
@@ -54,6 +54,18 @@
         //     tasks: ['jshint', 'qunit']
         // },
 
+        sass: {
+            dist: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'dist/css/global.css': 'css/global_master.scss',
+                    'dist/css/client.css': 'css/client_master.scss'
+                }
+            }
+        },
+
         sassdoc: {
             default: {
                 src: 'css/*.scss',
@@ -75,14 +87,16 @@
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-sassdoc');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
 
     grunt.registerTask('default', [
       'jshint',
       //'qunit',
-      'concat',
+      //'concat',
       'uglify',
+      'sass',
       'sassdoc'
     ]);
 
