@@ -17,4 +17,4 @@ Test that Grunt's CLI is installed by running `grunt --version`.  If the command
 Assuming that you don't see any red, you're ready to go. Just be sure to run `grunt` after making any changes, to ensure that nothing is broken.
 
 ## Documentation
-Update version in q4-blank_template.jquery.json
+Update version in package.json
