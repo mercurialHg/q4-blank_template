@@ -153,6 +153,16 @@ input {
   padding: 10px;
 }
 
+/*---------- Q4 SPECIFIC ---------*/
+.PreviewToolBar {
+  display: none;
+}
+
+body.PreviewBody {
+  margin: 0;
+  background-position: 0;
+}
+
 /*==================================
  ----------- TOAST GRID -----------
 ==================================*/
