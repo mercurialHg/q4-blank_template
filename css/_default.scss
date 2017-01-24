@@ -61,5 +61,8 @@ img {
   max-width: 100%;
 }
 
-input[type="text"] {
+input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
 }

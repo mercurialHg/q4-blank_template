@@ -53,6 +53,10 @@
     text-align: justify;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 .background-cover {
     background-position: center center;
     background-repeat: no-repeat;
@@ -70,4 +74,7 @@
 
 .dark {
     color: #fff;
+    a {
+        color: #fff;
+    }
 }
