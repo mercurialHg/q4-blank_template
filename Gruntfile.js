@@ -17,8 +17,11 @@
                 separator: ';'
             },
             dist: {
-                src: ['src/**/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
+                src: [
+                    'js/required/*.js',
+                    'js/add-ons/*.js'
+                ],
+                dest: 'dist/js/q4.core.<%= pkg.version %>.js'
             }
         },
 
@@ -27,7 +30,9 @@
                 banner: '<%= banner %>'
             },
             dist: {
-                src: 'js/*.js',
+                src: [
+                    'dist/js/q4.core.<%= pkg.version %>.js'
+                ],
                 dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
             },
         },
@@ -94,7 +99,7 @@
     grunt.registerTask('default', [
       'jshint',
       //'qunit',
-      //'concat',
+      'concat',
       'uglify',
       'sass',
       'sassdoc'
