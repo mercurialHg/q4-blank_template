@@ -5,9 +5,12 @@
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
         banner: (
+            '<% var subtask = uglify[grunt.task.current.target]; %>' +
             '/*!\n'+
-            'Name:     q4.core.js\n' +
+            'Project:  <%= pkg.name %>\n' +
+            'Name:     <%= subtask.name %>\n' +
             'Version:  <%= pkg.version %>\n' +
             'Compiled: <%= grunt.template.today("yyyy-mm-dd") %>\n*/\n'
         ),
@@ -18,10 +21,10 @@
             },
             dist: {
                 src: [
-                    'js/required/*.js',
-                    'js/add-ons/*.js'
+                    'js/core/required/*.js',
+                    'js/core/add-ons/*.js',
                 ],
-                dest: 'dist/js/q4.core.<%= pkg.version %>.js'
+                dest: 'js/q4.core.js'
             }
         },
 
@@ -29,12 +32,20 @@
             options: {
                 banner: '<%= banner %>'
             },
-            dist: {
-                src: [
-                    'dist/js/q4.core.<%= pkg.version %>.js'
-                ],
-                dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
+            core: {
+                name: 'q4.core.js',
+                files: [{
+                    src: 'js/q4.core.js',
+                    dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
+                }]
             },
+            app: {
+                name: 'q4.app.js',
+                files: [{
+                    src: 'js/q4.app.js',
+                    dest: 'dist/js/q4.app.<%= pkg.version %>.js'
+                }]
+            }
         },
 
         //qunit: {
@@ -42,7 +53,7 @@
         //},
 
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            files: ['Gruntfile.js'],
             options: {
                 // options here to override JSHint defaults
                 globals: {
@@ -75,7 +86,7 @@
             default: {
                 src: 'css/*.scss',
                 options: {
-                    dest: 'docs',
+                    dest: 'docs/css',
                     display: {
                         access: ['public', 'private'],
                         alias: true,
@@ -84,17 +95,30 @@
                 },
             },
         },
+
+        jsdoc : {
+            dist : {
+                src: ['js/q4.app.js'],
+                options: {
+                    destination: 'docs/js',
+                    template: "node_modules/minami"
+                    //configure : "node_modules/ink-docstrap/template/jsdoc.conf.json"
+                }
+            }
+         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     //grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-watch');
+
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-sassdoc');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
-    grunt.registerTask('test', ['jshint', 'qunit']);
+    //grunt.registerTask('test', ['jshint', 'qunit']);
 
     grunt.registerTask('default', [
       'jshint',
@@ -102,7 +126,8 @@
       'concat',
       'uglify',
       'sass',
-      'sassdoc'
+      'sassdoc',
+      'jsdoc'
     ]);
 
   };
