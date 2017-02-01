@@ -1,5 +1,5 @@
 /// Local environment URL
-$host: 'http://localhost:8888' !default;
+$host: 'http://192.168.2.199:8888/' !default;
 
 /// The default layout width for the site.
 /// @example 
@@ -23,5 +23,15 @@ $body-size: 16px !default;
 /// The default icon font on the site (icomoon).
 $icon-font: 'q4icons' !default;
 
+
+/// The default colour for text on the site
+$body-color: #333333 !default;
+
 /// The default brand colour for the site.
 $brand-color: #006fba !default;
+
+/// The default colour for error messages.
+$error-color: #b72121 !default;
+
+/// The default colour for success messages.
+$success-color: #23a217 !default;

@@ -151,6 +151,12 @@
         .module_actions {
           display: none;
         }
+        &_mailing-list--revealed {
+          display: table;
+        }
+        .module_actions--revealed {
+          display: block;
+        }
       }
       li {
         margin-bottom: 5px;

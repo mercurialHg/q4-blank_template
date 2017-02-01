@@ -4,6 +4,7 @@
 
 body {
   overflow-x: hidden;
+  color: $body-color;
 }
 
 /*---------- TYPOGRAPHY ----------*/
@@ -13,13 +14,12 @@ h1 {
   margin-bottom: 3rem;
 }
 h2 {
-  font-size: 2.25rem;
-  margin-bottom: 2rem;
+  @include font-size(36px);
+  margin-bottom: 40px;;
 }
 h3 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  font-weight: bold;
   color: #006fba;
 }
 h4 {
@@ -35,7 +35,7 @@ h5 {
 }
 a, a:visited {
   text-decoration: none; 
-  color: #0F5CA3;
+  color: $brand-color;
 }
 p {
   margin-bottom: 1rem;
@@ -61,11 +61,32 @@ img {
   max-width: 100%;
 }
 
-input {
+input[type="text"], input[type="textarea"] {
   width: 100%;
   max-width: 300px;
-  padding: 10px;
+  padding: 15px;
+  border: 1px solid #dfdfdf;
+  @include font-size(14px);
 }
+input[type="checkbox"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  height: 0.7rem;
+  width: 0.65rem;
+  margin: 0 5px 0 0;
+  border: 1px solid #fff;
+  vertical-align: baseline;
+    &:checked  {
+    border: 3px solid #fff;
+  }
+}
+input[type="checkbox"] + label {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
 
 /*---------- Q4 SPECIFIC ---------*/
 
@@ -75,4 +96,38 @@ input {
 body.PreviewBody {
   margin: 0;
   background-position: 0;
+}
+
+/*------------ BLOCKS ------------*/
+
+.button {
+  display: inline-block;
+  width: auto;
+  padding: 15px 30px;
+  background: transparent;
+  border: 2px solid $brand-color;
+  @include font-size(14px);
+  color: $brand-color;
+  font-weight: normal;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 15px 35px 15px 20px;
+  border: 1px solid #dfdfdf;
+  border-radius: 0;
+  background: transparent url($host+'/Projects/blank/icon-select.svg') no-repeat right 10px center;
+  background-size: 14px 14px;
+  @include font-size(14px);
+  font-weight: normal;
+  text-transform: uppercase;
+  &::-ms-expand {
+    display: none;
+  }
 }
