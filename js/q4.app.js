@@ -155,8 +155,8 @@ var q4Defaults = {
 
         $search.on('click', 'input:submit', function(e){
             if ( !$(this).closest(selector).find('input:text').val().length ){
-                return false;
                 e.preventDefault();
+                return false;
             }
         });
     },
@@ -178,7 +178,11 @@ var q4Defaults = {
 
     _onMenuClose: function(inst) {
         $('.LayoutDefaultInner').one('click', function(e) {
-            !$(e.target).closest('.PaneNavigation').length ? $(this).removeClass('mobile-toggled') : inst._onMenuClose(inst);
+            if ( !$(e.target).closest('.PaneNavigation').length ) {
+                $(this).removeClass('mobile-toggled');
+            } else {
+                inst._onMenuClose(inst);
+            }
         });
     },
 
@@ -273,11 +277,18 @@ var q4Defaults = {
         
         $item.on('click keypress', toggle, function(e) {
             if (e.which == 13 || e.type == 'click') {
-                accordion == true ? $this._accordionTrigger($(this), $container, item, toggle, panel):$this._toggleTrigger($(this), $container, item, panel);
+                if (accordion) {
+                    $this._accordionTrigger($(this), $container, item, toggle, panel);
+                } else {
+                    $this._toggleTrigger($(this), $container, item, panel);
+                }
             }
         });
 
-        allButton == true ? $this._toggleAll($container, item, toggle, panel) : null;
+        if (allButton) {
+            $this._toggleAll($container, item, toggle, panel);
+        }
+
         $item.first().find(toggle).attr('aria-expanded', true);
         $item.first().addClass('accordion-active').find(panel).show();
     },
@@ -313,7 +324,11 @@ var q4Defaults = {
             return attr == 'true' ? 'false' : 'true';
         }).closest(item).toggleClass('accordion-active').find(panel).slideToggle();
 
-        $container.find(item).not('.accordion-active').length ? $allToggle.removeClass('active') : $allToggle.addClass('active');
+        if ( $container.find(item).not('.accordion-active').length ) {
+            $allToggle.removeClass('active');
+        } else {
+            $allToggle.addClass('active');
+        }
     },
 
     /**
@@ -421,7 +436,7 @@ var q4Defaults = {
                             $(this).find('input:checkbox:first').prop('checked', true); 
                         }
                         else if ($(this).find('input:checkbox:not(":first")').is(':checked')){
-                            $(this).find('input:checkbox:first').prop('checked', false)
+                            $(this).find('input:checkbox:first').prop('checked', false);
                         }
                     });
 
@@ -459,7 +474,7 @@ var q4Defaults = {
             currentDomain;
 
         // Fix for IE8
-        window.hasOwnProperty = window.hasOwnProperty || Object.prototype.hasOwnProperty;
+        window.hasOwnProperty = window.hasOwnProperty || Object.prototype.hasOwnProperty; // jshint ignore:line
 
         // Check for Google Analytics
         if (!window.hasOwnProperty('ga')) {
@@ -542,4 +557,4 @@ var q4Defaults = {
             window.ga('Client.send','event', elEv.category, elEv.action, elEv.label.toLowerCase(), elEv.value,{'nonInteraction': elEv.non_i});
         });
     }
-}
+};

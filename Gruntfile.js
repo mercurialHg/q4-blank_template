@@ -53,7 +53,7 @@
         //},
 
         jshint: {
-            files: ['Gruntfile.js'],
+            files: ['Gruntfile.js', 'js/q4.app.js'],
             options: {
                 // options here to override JSHint defaults
                 globals: {
