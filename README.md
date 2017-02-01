@@ -37,10 +37,10 @@ For Window users using Apache 2.4+
 		</VirtualHost>
 
 		<VirtualHost *:80>
-		DocumentRoot "D:/q4-blank_template/"
+		DocumentRoot "D:/q4-blank_template/dist"
 		ServerName blank.dev
 		ServerAlias www.blank.dev
-		<Directory "D:/q4-blank_template/">
+		<Directory "D:/q4-blank_template/dist">
 		AllowOverride All
 		Require all Granted
 		</Directory>
