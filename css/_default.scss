@@ -76,10 +76,10 @@ input[type="checkbox"] {
   height: 0.7rem;
   width: 0.65rem;
   margin: 0 5px 0 0;
-  border: 1px solid #fff;
+  border: 1px solid $light-color;
   vertical-align: baseline;
     &:checked  {
-    border: 3px solid #fff;
+    border: 3px solid $light-color;
   }
 }
 input[type="checkbox"] + label {
@@ -122,7 +122,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 1px solid #dfdfdf;
   border-radius: 0;
-  background: transparent url($host+'/Projects/blank/icon-select.svg') no-repeat right 10px center;
+  background: transparent url($host+'/files/design/svg/icon-select.svg') no-repeat right 10px center;
   background-size: 14px 14px;
   @include font-size(14px);
   font-weight: normal;

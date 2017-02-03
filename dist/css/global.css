@@ -211,7 +211,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 1px solid #dfdfdf;
   border-radius: 0;
-  background: transparent url("http://192.168.2.199:8888//Projects/blank/icon-select.svg") no-repeat right 10px center;
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-select.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   font-size: 14px;
   font-size: 0.875rem;
@@ -830,6 +830,26 @@ a:focus {
 .module_reminder-success {
   color: #23a217;
 }
+.module_table {
+  width: 100%;
+}
+.module_table thead {
+  background-color: #006fba;
+  text-align: left;
+}
+.module_table tbody {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.module_table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.module_table th, .module_table td {
+  padding: 15px 8px;
+}
+.module_table th {
+  color: #fff;
+}
 .module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
   display: none;
 }
@@ -962,7 +982,7 @@ a:focus {
   height: 15px;
   padding: 0;
   border: 0;
-  background: #fff url("http://192.168.2.199:8888//Projects/blank/icon-search.svg");
+  background: #fff url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-search.svg");
   background-size: contain;
   font-size: 0;
   cursor: pointer;

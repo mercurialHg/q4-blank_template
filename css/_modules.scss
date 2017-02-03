@@ -29,7 +29,7 @@
       font-weight: normal;
       &.selected {
         background-color: $brand-color;
-        color: #fff;
+        color: $light-color;
       }
     }
   }
@@ -94,6 +94,26 @@
       color: $success-color;
     }
   }
+  &_table {
+    width: 100%;
+    thead {
+      background-color: $brand-color;
+      text-align: left;
+    }
+    tbody {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    tr:nth-child(even) {
+      background-color: rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 15px 8px;
+    }
+    th {
+      color: $light-color;
+    }
+  }
 
   &-event {
     .module {
@@ -156,7 +176,7 @@
         transform: translate(0,-50%);
       }
       a {
-        color: #fff;
+        color: $light-color;
       }
     }
     &_name {
@@ -224,7 +244,7 @@
       outline:0;
     }
     &_link:visited {
-      color: #fff;
+      color: $light-color;
     }
   }
 
@@ -244,7 +264,7 @@
       height: 15px;
       padding: 0;
       border: 0;
-      background: #fff url($host+'/Projects/blank/icon-search.svg');
+      background: $light-color url($host+'/files/design/svg/icon-search.svg');
       background-size: contain;
       font-size: 0;
       cursor: pointer;
@@ -275,7 +295,7 @@
       display: block;
       margin-bottom: 0.5rem;
       @include font-size(45px);
-      color: #fff;
+      color: $light-color;
     }
     &_change,
     &_percent-change {
