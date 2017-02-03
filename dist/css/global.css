@@ -746,10 +746,11 @@ a:focus {
 /*==================================
  ----------- MODULE CSS -----------
 ==================================*/
+/*-------- All Module CSS --------*/
 .module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link {
   display: none;
 }
-.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_error-container {
+.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_error-container, .module_options {
   margin-bottom: 15px;
 }
 .module_item {
@@ -850,9 +851,8 @@ a:focus {
 .module_table th {
   color: #fff;
 }
-.module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
-  display: none;
-}
+
+/*----- Download List Module -----*/
 .module-downloads_thumbnail, .module-downloads_description, .module-downloads_date {
   display: none;
 }
@@ -863,6 +863,18 @@ a:focus {
   float: right;
   cursor: pointer;
 }
+
+/*--------- Event Module ---------*/
+.module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
+  display: none;
+}
+
+/*----- Miscellaneous Modules ----*/
+.module-script {
+  display: none;
+}
+
+/*------- Navigation Module ------*/
 .module-navigation_close {
   display: none;
 }
@@ -871,6 +883,8 @@ a:focus {
     display: inline-block;
   }
 }
+
+/*------ Person List Module ------*/
 .module-person_description, .module-person_res-photo-container,
 .module-person .module_comma {
   display: none;
@@ -941,6 +955,32 @@ a:focus {
 .module-person-details_description-container {
   margin-top: 40px;
 }
+
+/*--------- Search Module --------*/
+.module-search {
+  position: relative;
+  text-align: right;
+}
+.module-search_input[type="text"] {
+  display: inline-block;
+  width: 90%;
+  padding: 7px;
+}
+.module-search_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 0;
+  background: #fff url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-search.svg");
+  background-size: contain;
+  font-size: 0;
+  cursor: pointer;
+}
+
+/*---- Accessibility Skip Link ---*/
 .module-skip_link {
   position: absolute;
   top: -50px;
@@ -965,31 +1005,8 @@ a:focus {
 .module-skip_link:visited {
   color: #fff;
 }
-.module-search {
-  position: relative;
-  text-align: right;
-}
-.module-search_input[type="text"] {
-  display: inline-block;
-  width: 90%;
-  padding: 7px;
-}
-.module-search_button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  border: 0;
-  background: #fff url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-search.svg");
-  background-size: contain;
-  font-size: 0;
-  cursor: pointer;
-}
-.module-script {
-  display: none;
-}
+
+/*------ Stock Header Module -----*/
 .module-stock-header {
   text-align: right;
 }
@@ -1046,6 +1063,9 @@ a:focus {
 .module-stock-header_volume-text, .module-stock-header_date {
   display: none;
 }
+
+/*------ Stock Quote Module ------*/
+/*- MailingList Subscribe Module -*/
 .module-subscribe_table {
   width: 100%;
 }
@@ -1063,6 +1083,7 @@ a:focus {
   width: 100%;
 }
 
+/* MailingList Unsubscribe Module */
 /*==================================
  ------------ BLANK CSS -----------
 ==================================*/

@@ -1,0 +1,24 @@
+/*--------- Search Module --------*/
+
+.module-search {
+  position: relative;
+  text-align: right;
+  &_input[type="text"] {
+    display: inline-block;
+    width: 90%;
+    padding: 7px;
+  }
+  &_button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    border: 0;
+    background: $light-color url($host+'/files/design/svg/icon-search.svg');
+    background-size: contain;
+    font-size: 0;
+    cursor: pointer;
+  }
+}

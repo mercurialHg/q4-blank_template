@@ -1,0 +1,22 @@
+/*- MailingList Subscribe Module -*/
+
+.module-subscribe {
+  &_table {
+    width: 100%;
+    &-row {
+      td {
+        padding-bottom: 10px;
+      }
+    }
+  }
+  &_form {
+    margin-bottom: 10px;
+    td {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  &_list {
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+/*--------- Event Module ---------*/
+
+.module-event {
+  .module {
+    &_location, &_speakers h4, &_body {
+      display: none;
+    }
+  }
+}
