@@ -1065,6 +1065,38 @@ a:focus {
 }
 
 /*------ Stock Quote Module ------*/
+.module-stock .module_options {
+  margin-bottom: 30px;
+}
+.module-stock .module_container--content {
+  border-top: 1px solid #ddd;
+}
+.module-stock_lookup-title {
+  padding-left: 20px;
+}
+.module-stock_label, .module-stock_value {
+  border-bottom: 1px solid #dddddd;
+}
+.module-stock_label > span, .module-stock_value > span {
+  display: block;
+  padding: 15px 20px;
+}
+.module-stock_value .module-stock_price:before, .module-stock_value .module-stock_high:before, .module-stock_value .module-stock_low:before,
+.module-stock_value .module-stock_open:before, .module-stock_value .module-stock_close:before,
+.module-stock_value .module-stock_week-low:before, .module-stock_value .module-stock_week-high:before {
+  content: "$";
+}
+.module-stock_date {
+  margin-top: 25px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: right;
+}
+.module-stock_date-text {
+  margin-right: 15px;
+}
+
 /*- MailingList Subscribe Module -*/
 .module-subscribe_table {
   width: 100%;
