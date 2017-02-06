@@ -81,12 +81,12 @@ var q4Defaults = {
         if (once) {
             $(container).one('click', trigger, function(e) {
                 e.preventDefault();
-                $(this).toggleClass(originalClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
+                $(this).toggleClass(triggerClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
             });
         } else {
             $(container).on('click', trigger, function(e) {
                 e.preventDefault();
-                $(this).toggleClass(originalClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
+                $(this).toggleClass(triggerClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
             });
         }
     },
