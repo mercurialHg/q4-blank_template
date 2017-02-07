@@ -1042,6 +1042,9 @@ a:focus {
 .module-subscribe_list {
   width: 100%;
 }
+.module-subscribe .CaptchaContainer {
+  display: none;
+}
 
 /*==================================
  ------------ BLANK CSS -----------
