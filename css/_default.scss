@@ -111,6 +111,9 @@ body.PreviewBody {
   font-weight: normal;
   text-transform: uppercase;
   cursor: pointer;
+  &--dark {
+    border: 2px solid $light-color;
+  }
 }
 
 .dropdown {

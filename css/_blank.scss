@@ -2,6 +2,14 @@
  ------------ BLANK CSS -----------
 ==================================*/
 
+.layout {
+  &--home {
+    .pane--content {
+      text-align: center;
+    }
+  }
+}
+
 .pane {
   &--header {
     .pane_inner {
@@ -45,7 +53,9 @@
     color: #fff;
     .pane_inner {
       position: relative;
-      @extend %fit-and-center;
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
       padding: 50px 0;
     }
     .module-breadcrumb {
@@ -60,10 +70,14 @@
   &--navigation {
     background: $brand-color;
     .pane_inner {
-      @extend %fit-and-center;
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
     }
     .nav {
-      @extend %fit-and-center;
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
       background: $brand-color;
       text-align: center;
       .level1 {
@@ -116,12 +130,29 @@
   }
   &--content {
     .module {
-      padding: 70px 0;
+      padding-top: $module-vspace;
+      padding-bottom: $module-vspace;
       &_container {
         &--outer { 
-          @extend %fit-and-center;
+          max-width: $layout-width;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
+      &--thin {
+        padding-top: $module-vspace--thin;
+        padding-bottom: $module-vspace--thin;
+      }
+      &--thick {
+        padding-top: $module-vspace--thick;
+        padding-bottom: $module-vspace--thick;
+      }
+    }
+    .nav--site {
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: $module-vspace;
     }
   }
   &--footer {
@@ -129,7 +160,9 @@
     background: #222;
     @include font-size(14px);
     .pane_inner {
-      @extend %fit-and-center;
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
     }
     .module {
       margin-bottom: 60px;
@@ -173,7 +206,9 @@
       color: #707070;
     }
     .pane_inner {
-      @extend %fit-and-center;
+      max-width: $layout-width;
+      margin-left: auto;
+      margin-right: auto;
     }
     .module {
       margin-bottom: 10px;

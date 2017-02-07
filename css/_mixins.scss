@@ -36,22 +36,22 @@
 ///   }
 /// }
 @mixin layout-large {
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: $layout-large) {
     @content;
   }
 }
 @mixin layout-legacy {
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: $layout-legacy) {
     @content;
   }
 }
 @mixin layout-medium {
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $layout-medium) {
     @content;
   }
 }
 @mixin layout-small {
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $layout-small) {
     @content;
   }
 }

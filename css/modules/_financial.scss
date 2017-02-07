@@ -1,0 +1,47 @@
+/* Latest Quarterly Result Widget */
+
+.module-latest-quarter {
+  .module {
+    &_item {
+      margin: 50px 0;
+      padding: 0;
+      & > div:first-child {
+        border-right: 2px solid rgba($light-color, 0.5);
+      }
+    }
+    &_links {
+      margin: 0;
+      text-align: left;
+      & > div {
+        text-align: center;
+      }
+    }
+    &_link {
+      margin: 15px 0 0;
+      @include font-size(16px);
+      text-transform: none;
+      font-weight: normal;
+    }
+  }
+  i {
+    display: block;
+    @include font-size(55px);
+  }
+  .module-financial_type-text,
+  .module-financial_year-text {
+    display: inline-block;
+    width: 100%;
+  }
+  .module-financial_type-text {
+    @include font-size(55px);
+    font-weight: normal;
+  }
+  .module-financial_year-text {
+    margin-top: 15px;
+    @include font-size(24px);
+  }
+  .grid_col {
+    vertical-align: bottom;
+  }
+}
+

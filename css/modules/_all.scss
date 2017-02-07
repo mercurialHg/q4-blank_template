@@ -12,7 +12,7 @@
   }
   &_headline, &_location, &_speakers,
   &_links, &_body, &_add-to-calendar, &_error-container,
-  &_options {
+  &_options, &_not-found {
     margin-bottom: 15px;
   }
   &_item {
@@ -95,6 +95,24 @@
     }
     &-success {
       color: $success-color;
+    }
+  }
+  &_slideshow {
+    &-viewer {
+      display: inline-block;
+      width: 100%;
+      max-width: 640px;
+    }
+    &-link-container {
+      margin-top: 25px;
+    }
+    &-link {
+      @include font-size(14px);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    iframe {
+      width: 100%;
     }
   }
   &_table {

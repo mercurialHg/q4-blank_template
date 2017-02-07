@@ -14,6 +14,15 @@ $layout-legacy: 1024px !default;
 $layout-medium: 768px !default;
 $layout-small: 480px !default;
 
+/// The default vertical spacing between modules within the content pane
+$module-vspace: 70px !default;
+
+/// The thin vertical spacing between modules within the content pane
+$module-vspace--thin: 35px !default;
+
+/// The thick vertical spacing between modules within the content pane
+$module-vspace--thick: 105px !default;
+
 /// The default font family for the site.
 $body-font: 'Open Sans', sans-serif !default;
 

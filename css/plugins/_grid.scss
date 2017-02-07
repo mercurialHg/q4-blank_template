@@ -305,7 +305,7 @@ $toast-pulls: true !default;
 // Removes gutters from the columns
 .#{$toast-grid-namespace}-no-gutter {
 	margin-left: 0;
-	width: 100%;
+	// width: 100%;
 
 	.#{$toast-grid-column-namespace} {
 		padding-left: 0;
