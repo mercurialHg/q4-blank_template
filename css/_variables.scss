@@ -1,5 +1,5 @@
 /// Local environment URL
-$host: 'http://192.168.2.199:8888/' !default;
+$host: 'https://q4blankdev.s3.q4web.com' !default;
 
 /// The default layout width for the site.
 /// @example 
@@ -29,6 +29,12 @@ $body-color: #333333 !default;
 
 /// The default brand colour for the site.
 $brand-color: #006fba !default;
+
+/// The default light text colour for the site.
+$light-color: #fff !default;
+
+/// The default dark text colour for the site.
+$dark-color: #222 !default;
 
 /// The default colour for error messages.
 $error-color: #b72121 !default;

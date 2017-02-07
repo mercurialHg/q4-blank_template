@@ -1,0 +1,16 @@
+/*----- Download List Module -----*/
+
+.module-downloads {
+  &_thumbnail, &_description, &_date {
+    display: none;
+  }
+  &_title {
+    &:after {
+      font-family: $icon-font;
+      content: "\e902";
+      display: inline-block;
+      float: right;
+      cursor: pointer;
+    }
+  }
+}

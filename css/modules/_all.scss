@@ -1,0 +1,120 @@
+/*==================================
+ ----------- MODULE CSS -----------
+==================================*/
+
+/*-------- All Module CSS --------*/
+
+.module {
+  &_header, &_back-to-top, &_anchor-target,
+  &_file-size, &_file-type, &_file-text,
+  &_view-all-link {
+    display: none;
+  }
+  &_headline, &_location, &_speakers,
+  &_links, &_body, &_add-to-calendar, &_error-container,
+  &_options {
+    margin-bottom: 15px;
+  }
+  &_item {
+    padding: 15px 0;
+    & ~ .module_item {
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+  }
+  &_nav {
+    margin-bottom: 10px;
+    &-link, .ModuleYearLink {
+      display: inline-block;
+      margin-right: 5px;
+      padding: 15px 20px;
+      border: 2px solid $brand-color;
+      color: $body-color;
+      font-weight: normal;
+      &.selected {
+        background-color: $brand-color;
+        color: $light-color;
+      }
+    }
+  }
+  &_title {
+    text-transform: uppercase;
+  }
+  &_rss {
+    float: right;
+  }
+  &_date-time {
+    margin-bottom: 5px;
+    @include font-size(14px);
+  }
+  &_headline {
+    font-weight: normal;
+    &-link, &-link:visited {
+      color: $body-color;
+    }
+  }
+  &_speakers {
+    li {
+      margin-bottom: 5px;
+    }
+  }
+  &_links {
+    > *, li, .module_presentation {
+      display: inline-block;
+    }
+  }
+  &_link {
+    display: inline-block;
+    margin: 0 10px 5px 0;
+    @include font-size(14px);
+    font-weight: bold;
+    text-transform: uppercase;
+    &:before {
+      margin-right: 5px;
+    }
+  }
+  &_view-all-link {
+    @include font-size(14px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &_required, &_error-container {
+    color: $error-color;
+  }
+  &_reminder {
+    &-error, &-success {
+      display: block;
+      margin: 15px 0 0;
+      font-style: italic;
+      //override backend functionality
+      &[style$="hidden;"] {
+        display: none;
+      }
+    }
+    &-error {
+      color: $error-color;
+    }
+    &-success {
+      color: $success-color;
+    }
+  }
+  &_table {
+    width: 100%;
+    thead {
+      background-color: $brand-color;
+      text-align: left;
+    }
+    tbody {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    tr:nth-child(even) {
+      background-color: rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 15px 8px;
+    }
+    th {
+      color: $light-color;
+    }
+  }
+}

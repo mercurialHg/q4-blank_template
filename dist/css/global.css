@@ -211,7 +211,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 1px solid #dfdfdf;
   border-radius: 0;
-  background: transparent url("http://192.168.2.199:8888//Projects/blank/icon-select.svg") no-repeat right 10px center;
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-select.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   font-size: 14px;
   font-size: 0.875rem;
@@ -746,10 +746,11 @@ a:focus {
 /*==================================
  ----------- MODULE CSS -----------
 ==================================*/
+/*-------- All Module CSS --------*/
 .module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link {
   display: none;
 }
-.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_error-container {
+.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_error-container, .module_options {
   margin-bottom: 15px;
 }
 .module_item {
@@ -830,9 +831,28 @@ a:focus {
 .module_reminder-success {
   color: #23a217;
 }
-.module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
-  display: none;
+.module_table {
+  width: 100%;
 }
+.module_table thead {
+  background-color: #006fba;
+  text-align: left;
+}
+.module_table tbody {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.module_table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.module_table th, .module_table td {
+  padding: 15px 8px;
+}
+.module_table th {
+  color: #fff;
+}
+
+/*----- Download List Module -----*/
 .module-downloads_thumbnail, .module-downloads_description, .module-downloads_date {
   display: none;
 }
@@ -843,6 +863,18 @@ a:focus {
   float: right;
   cursor: pointer;
 }
+
+/*--------- Event Module ---------*/
+.module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
+  display: none;
+}
+
+/*----- Miscellaneous Modules ----*/
+.module-script {
+  display: none;
+}
+
+/*------- Navigation Module ------*/
 .module-navigation_close {
   display: none;
 }
@@ -851,6 +883,8 @@ a:focus {
     display: inline-block;
   }
 }
+
+/*------ Person List Module ------*/
 .module-person_description, .module-person_res-photo-container,
 .module-person .module_comma {
   display: none;
@@ -921,6 +955,32 @@ a:focus {
 .module-person-details_description-container {
   margin-top: 40px;
 }
+
+/*--------- Search Module --------*/
+.module-search {
+  position: relative;
+  text-align: right;
+}
+.module-search_input[type="text"] {
+  display: inline-block;
+  width: 90%;
+  padding: 7px;
+}
+.module-search_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 0;
+  background: #fff url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-search.svg");
+  background-size: contain;
+  font-size: 0;
+  cursor: pointer;
+}
+
+/*---- Accessibility Skip Link ---*/
 .module-skip_link {
   position: absolute;
   top: -50px;
@@ -945,31 +1005,8 @@ a:focus {
 .module-skip_link:visited {
   color: #fff;
 }
-.module-search {
-  position: relative;
-  text-align: right;
-}
-.module-search_input[type="text"] {
-  display: inline-block;
-  width: 90%;
-  padding: 7px;
-}
-.module-search_button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  border: 0;
-  background: #fff url("http://192.168.2.199:8888//Projects/blank/icon-search.svg");
-  background-size: contain;
-  font-size: 0;
-  cursor: pointer;
-}
-.module-script {
-  display: none;
-}
+
+/*------ Stock Header Module -----*/
 .module-stock-header {
   text-align: right;
 }
@@ -1026,6 +1063,41 @@ a:focus {
 .module-stock-header_volume-text, .module-stock-header_date {
   display: none;
 }
+
+/*------ Stock Quote Module ------*/
+.module-stock .module_options {
+  margin-bottom: 30px;
+}
+.module-stock .module_container--content {
+  border-top: 1px solid #ddd;
+}
+.module-stock_lookup-title {
+  padding-left: 20px;
+}
+.module-stock_label, .module-stock_value {
+  border-bottom: 1px solid #dddddd;
+}
+.module-stock_label > span, .module-stock_value > span {
+  display: block;
+  padding: 15px 20px;
+}
+.module-stock_value .module-stock_price:before, .module-stock_value .module-stock_high:before, .module-stock_value .module-stock_low:before,
+.module-stock_value .module-stock_open:before, .module-stock_value .module-stock_close:before,
+.module-stock_value .module-stock_week-low:before, .module-stock_value .module-stock_week-high:before {
+  content: "$";
+}
+.module-stock_date {
+  margin-top: 25px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: right;
+}
+.module-stock_date-text {
+  margin-right: 15px;
+}
+
+/*- MailingList Subscribe Module -*/
 .module-subscribe_table {
   width: 100%;
 }
@@ -1042,10 +1114,8 @@ a:focus {
 .module-subscribe_list {
   width: 100%;
 }
-.module-subscribe .CaptchaContainer {
-  display: none;
-}
 
+/* MailingList Unsubscribe Module */
 /*==================================
  ------------ BLANK CSS -----------
 ==================================*/

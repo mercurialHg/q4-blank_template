@@ -72,13 +72,23 @@ var q4Defaults = {
      * @param {container} [selector]  the wrapping element
      * @param {trigger} [selector]  the element that will be clicked to reveal 
      * @param {panel} [selector]  the element to be revealed
-     * @example app.reveal('.read-more', '.read-more_button', '.read-more_panel');
+     * @param {once} [boolean]  (optional) whether or not the event will be triggered only once
+     * @example app.reveal('.read-more', '.read-more_button', '.read-more_panel', true);
      */
-    reveal: function(container, trigger, panel) {
-        $(container).one('click', trigger, function(e) {
-            e.preventDefault();
-            $(this).toggleClass(trigger.split('.').pop() + '--active').closest(container).find(panel).toggleClass(panel.split('.').pop() + '--revealed');
-        });
+    reveal: function(container, trigger, panel, once) {
+        var triggerClass = trigger.split('.').pop(),
+            panelClass = panel.split('.').pop();
+        if (once) {
+            $(container).one('click', trigger, function(e) {
+                e.preventDefault();
+                $(this).toggleClass(triggerClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
+            });
+        } else {
+            $(container).on('click', trigger, function(e) {
+                e.preventDefault();
+                $(this).toggleClass(triggerClass + '--active').closest(container).find(panel).toggleClass(panelClass + '--revealed');
+            });
+        }
     },
 
     /**
