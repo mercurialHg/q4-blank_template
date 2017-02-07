@@ -897,17 +897,18 @@ a:focus {
 .module-latest-quarter .module_links > div {
   text-align: center;
 }
-.module-latest-quarter .module_link {
+.module-latest-quarter .module_link i {
+  display: block;
+  font-size: 55px;
+  font-size: 3.4375rem;
+}
+.module-latest-quarter .module_link-text {
+  display: inline-block;
   margin: 15px 0 0;
   font-size: 16px;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;
-}
-.module-latest-quarter i {
-  display: block;
-  font-size: 55px;
-  font-size: 3.4375rem;
 }
 .module-latest-quarter .module-financial_type-text,
 .module-latest-quarter .module-financial_year-text {
@@ -1344,6 +1345,7 @@ a:focus {
   text-transform: uppercase;
 }
 .pane--footer .module-subscribe_table-label, .pane--footer .module-subscribe_mailing-list,
+.pane--footer .module-subscribe .CaptchaContainer,
 .pane--footer .module-subscribe .module_actions {
   display: none;
 }

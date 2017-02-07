@@ -181,6 +181,7 @@
       &-subscribe {
         &_table-label,
         &_mailing-list,
+        .CaptchaContainer,
         .module_actions {
           display: none;
         }

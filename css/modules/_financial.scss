@@ -17,15 +17,18 @@
       }
     }
     &_link {
-      margin: 15px 0 0;
-      @include font-size(16px);
-      text-transform: none;
-      font-weight: normal;
+      i {
+        display: block;
+        @include font-size(55px);
+      }
+      &-text {
+        display: inline-block;
+        margin: 15px 0 0;
+        @include font-size(16px);
+        text-transform: none;
+        font-weight: normal;
+      }
     }
-  }
-  i {
-    display: block;
-    @include font-size(55px);
   }
   .module-financial_type-text,
   .module-financial_year-text {
