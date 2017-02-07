@@ -486,11 +486,6 @@ var q4Defaults = {
         // Fix for IE8
         window.hasOwnProperty = window.hasOwnProperty || Object.prototype.hasOwnProperty; // jshint ignore:line
 
-        // Check for Google Analytics
-        if (!window.hasOwnProperty('ga')) {
-            return;
-        }
-
         baseHref = '';
         fileTypes = /\.(zip|exe|dmg|pdf|doc.*|xls.*|ppt.*|mp3|mp4|txt|rar|html|wma|mov|avi|wmv|flv|wav)(\?.*)?$/i;
         domainRegex = /^https?:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i;

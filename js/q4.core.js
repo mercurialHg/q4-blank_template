@@ -13394,10 +13394,10 @@ var widgetsDatepicker = $.datepicker;
 				if (!type && obj.isDom) {
 					type = element.data('fancybox-type');
 
-					if (!type) {
+					/*if (!type) {
 						rez  = element.prop('class').match(/fancybox\.(\w+)/);
 						type = rez ? rez[1] : null;
-					}
+					}*/
 				}
 
 				if (isString(href)) {
