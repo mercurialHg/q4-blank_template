@@ -1,10 +1,7 @@
-/*--------- Event Module ---------*/
+/*-------- News Module CSS -------*/
 
-.module-event {
+.module-news {
   .module {
-    &_location, &_speakers h4, &_body {
-      display: none;
-    }
   }
   &--latest {
     .module {
@@ -16,18 +13,29 @@
       }
       &_wrap {
         padding: 30px;
-        background: $grey-color;
+        background: $light-color;
       }
       &_date-time {
         margin-bottom: 15px;
         font-weight: normal;
+        color: $body-color;
       }
       &_headline {
-        line-height: 150%;
+        line-height: 1.5rem;
         font-weight: 200;
+        &-link {
+        	display: inline-block;
+        	color: $body-color;
+        	max-height: 3rem;
+        	overflow: hidden;
+   			text-overflow: ellipsis;
+        }
       }
       &_links {
         margin: 0;
+      }
+      &_link {
+      	color: $brand-color;
       }
     }
   }

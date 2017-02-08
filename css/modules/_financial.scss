@@ -8,6 +8,9 @@
       & > div:first-child {
         border-right: 2px solid rgba($light-color, 0.5);
       }
+      & ~ .module_item {
+        border: none;
+      }
     }
     &_links {
       margin: 0;

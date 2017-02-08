@@ -216,3 +216,20 @@
     }
   }
 }
+
+.overview {
+  p {
+    margin-bottom: 40px;
+  }
+  &_hidden {
+    display: none;
+  }
+  &_button {
+    &:before {
+      content: "Read More";
+    }
+    &--active:before {
+      content: "Show Less";
+    }
+  }
+}

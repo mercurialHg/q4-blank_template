@@ -3,3 +3,22 @@
 .module-script {
   display: none;
 }
+
+.module-slideshow {
+  &_viewer {
+    display: inline-block;
+    width: 100%;
+    max-width: 640px;
+  }
+  &_link-container {
+    margin-top: 25px;
+  }
+  &_link {
+    @include font-size(14px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  iframe {
+    width: 100%;
+  }
+}
