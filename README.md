@@ -52,6 +52,7 @@ For Window users using Apache 2.4+
 
 		127.0.0.1             localhost
 		127.0.0.1             blank.dev
+		127.0.0.1             www.blank.dev
 
 	8. Save
 	9. Restart Apache
@@ -66,10 +67,10 @@ For OSX users using Apache 2.4+
 			ServerName localhost
 		</VirtualHost>
 		<VirtualHost *:80>
-			DocumentRoot "/Volumes/Drive/q4-blank_template"
+			DocumentRoot "/Volumes/Drive/q4-blank_template/dist"
 			ServerName blank.dev
 			ServerAlias www.blank.dev
-			<Directory "/Volumes/Drive/q4-blank_template">
+			<Directory "/Volumes/Drive/q4-blank_template"/dist>
 				AllowOverride All
 				Require all Granted
 			</Directory>
@@ -81,6 +82,7 @@ For OSX users using Apache 2.4+
 
 		127.0.0.1             localhost
 		127.0.0.1             blank.dev
+		127.0.0.1             www.blank.dev
 
 	6. Save
 	7. Restart Apache

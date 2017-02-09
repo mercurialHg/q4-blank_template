@@ -6,7 +6,7 @@
   font-style: normal;
 }
 [class^="q4-icon_"]:before, [class*=" q4-icon_"]:before {
-  font-family: 'q4icons' !important;
+  font-family: 'q4-icons' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
