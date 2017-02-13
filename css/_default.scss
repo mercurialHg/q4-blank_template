@@ -86,6 +86,17 @@ input[type="checkbox"] + label {
     display: inline-block;
     vertical-align: baseline;
 }
+pre {
+  margin: 2rem 0;
+  padding: 20px 15px;
+  background: $grey-color;
+  border-left: 3px solid rgba($brand-color, 0.5);
+  font-family: monospace, serif;
+  @include font-size(14px);
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+}
 
 
 /*---------- Q4 SPECIFIC ---------*/
@@ -123,7 +134,7 @@ body.PreviewBody {
   -moz-appearance: none;
   appearance: none;
   padding: 15px 35px 15px 20px;
-  border: 1px solid #dfdfdf;
+  border: 2px solid $brand-color;
   border-radius: 0;
   background: transparent url($host+'/files/design/svg/icon-select.svg') no-repeat right 10px center;
   background-size: 14px 14px;

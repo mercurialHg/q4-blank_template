@@ -109,12 +109,23 @@
   content: "\e95c";
 }
 
-.q4-icon_pie:before {
+.q4-icon_pie:before,
+.q4-icon_file:before {
   content: "\eb81";
+}
+
+.q4-icon_video:before {
+  content: "\e95e";
 }
 
 .q4-icon_bars:before {
   content: "\eb8a";
+}
+
+.q4-icon_text:before,
+.q4-icon_news:before,
+.q4-icon_transcript:before {
+  content: "\e99b";
 }
 
 .q4-icon_table:before {

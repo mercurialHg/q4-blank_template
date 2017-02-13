@@ -13,9 +13,7 @@
 .pane {
   &--header {
     .pane_inner {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
     }
     .module-logo img {
       margin-bottom: -10px;
@@ -53,9 +51,7 @@
     color: #fff;
     .pane_inner {
       position: relative;
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
       padding: 50px 0;
     }
     .module-breadcrumb {
@@ -75,9 +71,7 @@
       margin-right: auto;
     }
     .nav {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
       background: $brand-color;
       text-align: center;
       .level1 {
@@ -96,7 +90,7 @@
               background: #005995;
             }
           }
-          &.selected {
+          &.selected, &.expanded {
             a {
               background: #005995;
             }
@@ -149,9 +143,7 @@
       }
     }
     .nav--site {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
       padding-bottom: $module-vspace;
     }
   }
@@ -160,9 +152,7 @@
     background: #222;
     @include font-size(14px);
     .pane_inner {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
     }
     .module {
       margin-bottom: 60px;
@@ -207,9 +197,7 @@
       color: #707070;
     }
     .pane_inner {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
     }
     .module {
       margin-bottom: 10px;

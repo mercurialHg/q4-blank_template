@@ -1,3 +1,47 @@
+/*--- Financial Report Modules ---*/
+
+.module-financial { 
+  &-year {
+    .module {
+      &_cover {
+        margin-bottom: 15px;
+        img {
+          display: inline-block;
+          border: 1px solid $brand-color;
+        }
+      }
+      &_item {
+        padding: 0;
+        & ~ .module_item {
+          border-top: none;
+        }
+      }
+      &_links {
+        margin: 0;
+      }
+    }
+    .module-financial {
+      &_year {
+        text-align: center;
+      }
+    }
+  }
+  &-quarter {
+    .module {
+      &_item {
+
+      }
+    }
+    .module-financial {
+      &_year-text {
+        background-color: $brand-color;
+        color: $light-color;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 /* Latest Quarterly Result Widget */
 
 .module-latest-quarter {

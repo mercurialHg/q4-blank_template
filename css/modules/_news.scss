@@ -1,9 +1,7 @@
 /*-------- News Module CSS -------*/
 
 .module-news {
-  .module {
-  }
-  &--latest {
+  &-latest {
     .module {
       &_item {
         margin: 10px 0 40px;
@@ -23,12 +21,10 @@
       &_headline {
         line-height: 1.5rem;
         font-weight: 200;
-        &-link {
+        &-link, &-link:visited {
         	display: inline-block;
-        	color: $body-color;
-        	max-height: 3rem;
-        	overflow: hidden;
-   			text-overflow: ellipsis;
+          // to overwrite the dark theme
+        	color: $body-color !important;
         }
       }
       &_links {
@@ -36,6 +32,14 @@
       }
       &_link {
       	color: $brand-color;
+      }
+    }
+  }
+  &-details {
+    .module {
+      &_view-all-link {
+        display: block;
+        margin-bottom: 25px;
       }
     }
   }

@@ -15,10 +15,43 @@
   &_options, &_not-found {
     margin-bottom: 15px;
   }
+  &_date-time {
+    margin-bottom: 5px;
+    @include font-size(14px);
+  }
+  &_headline {
+    font-weight: normal;
+    &-link, &-link:visited {
+      color: $body-color;
+    }
+  }
+  &_introduction {
+    margin-bottom: 35px;
+  }
   &_item {
-    padding: 15px 0;
+    padding: 30px 0 10px;
     & ~ .module_item {
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba($dark-color, 0.1);
+    }
+  }
+  &_links {
+    > *, li, .module_presentation {
+      display: inline-block;
+    }
+  }
+  &_link {
+    display: inline-block;
+    margin: 0 15px 5px 0;
+    @include font-size(14px);
+    font-weight: bold;
+    text-transform: uppercase;
+    i, &:before {
+      display: inline-block;
+      padding-right: 2px;
+    }
+    // CMS Module Definition work-around
+    &[style="DISPLAY:block;"] {
+        display: inline-block !important;
     }
   }
   &_nav {
@@ -36,49 +69,15 @@
       }
     }
   }
-  &_title {
-    text-transform: uppercase;
-  }
-  &_rss {
-    float: right;
-  }
-  &_date-time {
-    margin-bottom: 5px;
-    @include font-size(14px);
-  }
-  &_headline {
-    font-weight: normal;
-    &-link, &-link:visited {
-      color: $body-color;
+  &_options {
+    &-select {
+      margin-right: 10px;
     }
-  }
-  &_speakers {
-    li {
-      margin-bottom: 5px;
+    @include layout-small {
+      &-label {
+        display: none;
+      }
     }
-  }
-  &_links {
-    > *, li, .module_presentation {
-      display: inline-block;
-    }
-  }
-  &_link {
-    display: inline-block;
-    margin: 0 10px 5px 0;
-    @include font-size(14px);
-    font-weight: bold;
-    text-transform: uppercase;
-    &:before {
-      margin-right: 5px;
-    }
-  }
-  &_view-all-link {
-    @include font-size(14px);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  &_required, &_error-container {
-    color: $error-color;
   }
   &_reminder {
     &-error, &-success {
@@ -96,6 +95,20 @@
     &-success {
       color: $success-color;
     }
+    .module_input.module_reminder-period, .module_input.module_reminder-email {
+      margin-right: 10px;
+    }
+  }
+  &_required, &_error-container {
+    color: $error-color;
+  }
+  &_rss {
+    float: right;
+  }
+  &_speakers {
+    li {
+      margin-bottom: 5px;
+    }
   }
   &_table {
     width: 100%;
@@ -104,17 +117,51 @@
       text-align: left;
     }
     tbody {
-      border-top: 1px solid rgba(0,0,0,0.1);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba($dark-color, 0.1);
+      border-bottom: 1px solid rgba($dark-color, 0.1);
     }
     tr:nth-child(even) {
-      background-color: rgba(0,0,0,0.05);
+      background-color: rgba($dark-color, 0.05);
     }
     th, td {
       padding: 15px 8px;
     }
     th {
       color: $light-color;
+    }
+  }
+  &_title {
+    text-transform: uppercase;
+  }
+  &_view-all-link {
+    @include font-size(14px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  // Dark Theme
+  &.dark {
+    .module {
+      &_item {
+        & ~ .module_item {
+          border-top: 1px solid rgba($light-color, 0.1);
+        }
+      }
+      &_headline {
+        &-link, &-link:visited {
+          color: $light-color;
+        }
+      }
+      &_nav {
+        &-link, .ModuleYearLink {
+          border: 2px solid $light-color;
+          color: $light-color;
+          &.selected {
+            background-color: $light-color;
+            color: $brand-color;
+          }
+        }
+      }
     }
   }
 }

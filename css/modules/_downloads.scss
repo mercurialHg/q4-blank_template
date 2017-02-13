@@ -1,13 +1,17 @@
 /*----- Download List Module -----*/
 
 .module-downloads {
+  .module {
+    &_item {
+      padding: 15px 0;
+    }
+  }
   &_thumbnail, &_description, &_date {
     display: none;
   }
   &_title {
     &:after {
-      font-family: $icon-font;
-      content: "\e902";
+      @include icon("\e900");
       display: inline-block;
       float: right;
       cursor: pointer;
