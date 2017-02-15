@@ -1,6 +1,6 @@
 /*--------- Event Module ---------*/
 
-.module-event {
+.module.module-event {
   .module {
     &_location, &_speakers h4, &_body {
       display: none;
@@ -8,13 +8,16 @@
   }
   &-latest {
     .module {
+      &_container--content {
+        margin-bottom: 20px;
+      }
       &_item {
-        margin: 10px 0 40px;
+        margin: 10px 0 20px;
         padding: 0 0 0 20px;
         border: none;
         text-align: left;
       }
-      &_wrap {
+      &_item-wrap {
         padding: 30px;
         background: $grey-color;
       }

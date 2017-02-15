@@ -1,10 +1,7 @@
 /*------- Navigation Module ------*/
 
-.module-navigation {
+.nav {
   &_close {
     display: none;
-    @include layout-medium {
-      display: inline-block;
-    }
   }
 }

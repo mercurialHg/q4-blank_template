@@ -14,6 +14,8 @@ $layout-legacy: 1024px !default;
 $layout-medium: 768px !default;
 $layout-small: 480px !default;
 
+/// The default height of the header in mobile view
+$mobile-header-height: 100px !default;
 
 /// The default vertical spacing between modules within the content pane
 $module-vspace: 70px !default;

@@ -21,6 +21,11 @@
     .module, .nav {
       vertical-align: baseline;
     }
+    .layout_toggle {
+      display: none;
+      @include font-size(36px);
+      text-align: right;
+    }
     .nav {
       text-align: right;
       li {
@@ -41,9 +46,23 @@
         }
       }
     }
-    .module-navigation_close,
-    .mobile-toggle {
-      display: none;
+    // Mobile Styles
+    @include layout-legacy {
+      .pane_inner {
+        height: $mobile-header-height;
+      }
+      .module {
+        vertical-align: middle;
+      }
+      .module-logo img {
+        margin-bottom: 0;
+      }
+      .layout_toggle {
+        display: inline-block;
+      }
+      .nav, .module-search {
+        display: none;
+      }
     }
   }
   &--banner {
@@ -64,50 +83,57 @@
     }
   }
   &--navigation {
+    // Desktop Style
     background: $brand-color;
     .pane_inner {
-      max-width: $layout-width;
-      margin-left: auto;
-      margin-right: auto;
+      @include fit-and-center($layout-width);
+      @include layout-legacy {
+        max-width: none;
+      }
     }
     .nav {
-      @include fit-and-center($layout-width);
       background: $brand-color;
       text-align: center;
       .level1 {
-        display: table;
-        width: 100%;
-        li {
-          position: relative;
-          display: table-cell;
-          a {
+        & > li {
+          display: none;
+          &.expanded {
             display: block;
-            padding: 20px;
-            @include font-size(14px);
-            color: #fff;
-            &:hover, &:focus {
-              outline: none;
-              background: #005995;
-            }
-          }
-          &.selected, &.expanded {
-            a {
-              background: #005995;
-            }
+              & > a {
+                display: none;
+              }
           }
         }
       }
       .level2 {
+        display: table;
+        width: 100%;
+        & > li {
+          position: relative;
+          display: table-cell;
+          &:hover, &.selected, &.expanded {
+            background: darken($brand-color, 7.5%);
+          }
+          a {
+            display: block;
+            padding: 20px;
+            @include font-size(14px);
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+      .level3 {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        border-top: 2px solid #fff;
-        li {
-          display: block;
+        border-top: 2px solid $light-color;
+        & > li {
           text-align: left;
           a {
-            background: #005995;
+            background: darken($brand-color, 7.5%);
             &:hover, &:focus {
               outline: none;
               background: $brand-color;
@@ -121,6 +147,58 @@
         }
       }
     }
+    // Mobile Styles
+    @include layout-legacy {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      transition: 0.5s ease-in-out;
+      &--expanded {
+        top: $mobile-header-height;
+        bottom: 0;
+      }
+      .pane_inner {
+        padding: 0;
+      }
+      .nav {
+        text-align: left;
+        a {
+          display: block;
+          border-top: 1px solid darken($brand-color, 10%);
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+        .level1 {
+          & > li {
+            display: block;
+            &.expanded {
+              background: darken($brand-color, 7.5%);
+              a {
+                display: block;
+              }
+              .level2 {
+                display: block;
+              }
+            }
+            & > a {
+              padding: 24px 20px;
+            }
+          }
+        }
+        .level2 {
+          display: none;
+          & > li {
+            display: block;
+            & > a {
+              padding: 20px 48px;
+              @include font-size(16px);
+            }
+          }
+        }
+      }
+    }
   }
   &--content {
     .module {
@@ -128,9 +206,7 @@
       padding-bottom: $module-vspace;
       &_container {
         &--outer { 
-          max-width: $layout-width;
-          margin-left: auto;
-          margin-right: auto;
+          @include fit-and-center($layout-width);
         }
       }
       &--thin {

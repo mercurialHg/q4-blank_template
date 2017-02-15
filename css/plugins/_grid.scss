@@ -156,7 +156,7 @@ $toast-pulls: true !default;
 		display: block;
 		margin-left: 0;
 		margin-right: 0;
-		width: auto;
+		width: 100%;
 	}
 
 	@media (max-width: $layout-large) and (min-width: $layout-legacy) {

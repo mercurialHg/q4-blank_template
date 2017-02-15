@@ -29,14 +29,44 @@
   &-quarter {
     .module {
       &_item {
-
+        padding: 0;
+        & ~ .module_item {
+          border-top: none;
+        }
+        &.accordion-active {
+          h3:after {
+            content: "\ed5e";
+          }
+        }
+      }
+      &_links {
+        display: none;
+        margin: 0;
+        padding: 15px;
+        & > div {
+          display: block;
+        }
+      }
+      &_link {
+        margin-bottom: 10px;
+        @include font-size(16px);
+        font-weight: normal;
+        text-transform: none;
       }
     }
     .module-financial {
       &_year-text {
+        padding: 20px 15px;
+        margin-bottom: 10px;
         background-color: $brand-color;
         color: $light-color;
+        @include font-size(16px);
+        font-weight: bold;
         cursor: pointer;
+        &:after {
+          float: right;
+          @include icon("\ed5d");
+        }
       }
     }
   }
@@ -92,6 +122,29 @@
   }
   .grid_col {
     vertical-align: bottom;
+  }
+  @include layout-legacy {
+    .module {
+      &_link {
+        margin-bottom: 15px;
+      }
+    }
+    .grid_col {
+      vertical-align: middle;
+    }
+  }
+  @include layout-small {
+    .module {
+      &_item {
+        & > div:first-child {
+          margin-bottom: 30px;
+          border-right: none;
+        }
+      }
+      &_link {
+        margin-right: 0;
+      }
+    }
   }
 }
 
