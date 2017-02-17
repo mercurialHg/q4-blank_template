@@ -41,13 +41,35 @@
 /** @lends q4.app */
 var q4Defaults = {
     options: {
-        //scrollSpeed: 1000,
+        scrollSpeed: 1000,
+        /**
+         * Any mailing list with this class will have their validation overwritten
+         */
+        mailingListSignupCls: '.module-subscribe--fancy',
+        /**
+         * Custom template for email validation
+         */
         errorTpl: (
             '<ul>' +
                 '{{#.}}' +
                     '<li>{{name}} {{message}}</li>' +
                 '{{/.}}' +
             '</ul>'
+        ),
+        /**
+         * Template to overwrite mailing list signup confirmation html.
+         */
+        mailingListConfirmationTpl: (
+            '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col-3-of-6 grid_col-md-1-of-2">' +
+                '<div class="module_container--outer">' +
+                    '<h2 class="module_title">' +
+                        '<span class="ModuleTitle">Email Alerts</span>' +
+                    '</h2>' +
+                    '<div class="module_container--inner">' +
+                        'Thank you for signing up for the mailing lists.An activation email will be sent to you shortly.' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
         )
     },
     // Default init function
@@ -128,8 +150,12 @@ var q4Defaults = {
      * @example app.scrollTo( $('div[id*="SubscriberConfirmation"]') )
      */
     scrollTo: function($el, duration) {
-        var d = duration !== undefined && !isNaN(duration) ? duration : 1000;
+        var d = duration !== undefined && !isNaN(duration) ? duration : this.options.scrollSpeed;
         if ( $el.length ) {
+            if (history) { 
+                history.scrollRestoration = 'manual';
+            }
+
             $('html, body').animate({
                 scrollTop: $el.eq(0).offset().top
             }, d);
@@ -474,49 +500,57 @@ var q4Defaults = {
      * @param {$el} [element] The mailing list module
      * @example app.fancySignup( '.module-subscribe' );
      */
-    fancySignup: function( module ) {
-        var inst = this;
+    fancySignup: function() {
+        var inst = this,
+            signup = inst.options.mailingListSignupCls;
+            $signup = $(signup);
 
-        //$captcha.find('img').attr('alt', 'Captcha');
-        //$captcha.find('input[type="text"]').attr('aria-label', 'Captcha Text');
-        //$captcha.find('table').removeAttr('cellpadding cellspacing border width');
 
+        // Subscriber Confirmation fix
+        if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
+            $('div[id*="SubscriberConfirmation"]').removeAttr('class').removeAttr('style').html( inst.options.mailingListConfirmationTpl );
+        }
         // If a confirmation or error message is visible on page load, scroll to the module
-        if ( $('div[id*="SubscriberConfirmation"], .module_error-container').is(':visible') ){
-            // Remove scrollRestoration in Chrome. 
-            // This caused a problem where after the scrollTo has finished
-            // The orginial location would be restored
-            if (history) { 
-                history.scrollRestoration = 'manual';
-            }
-            inst.scrollTo( $(module), 0 );
+        //, .module_error-container?
+        if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module-subscribe_email').val().length){
+            console.log('scrolll');
+            inst.scrollTo( $(signup), 0 );
         }
 
-        // Create a second submit button to be displayed inside fancybox
-        $(module).find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $(module).find('.CaptchaContainer') );
+        if ( !$signup.length ) {
+            return;
+        }
 
-        $(module).on('click', 'input[type="submit"]', function(e){
+        // Accessibility fixes
+        $signup.find('img').attr('alt', 'Captcha');
+        $signup.find('input[type="text"]').attr('aria-label', 'Captcha Text');
+        $signup.find('table').removeAttr('cellpadding cellspacing border width');
+
+        // Create a second submit button to be displayed inside fancybox
+        $signup.find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $signup.find('.CaptchaContainer') );
+
+        $signup.on('click', 'input[type="submit"]', function(e){
             e.preventDefault();
 
-            var $module = $(this).closest( module ),
-                errors = inst._mailingListValidation( $module );
+            var $signup = $(this).closest( signup ),
+                errors = inst._mailingListValidation( $signup );
 
-            $module.find('.module_error-container').html('');
+            $signup.find('.module_error-container').html('');
 
             if ( !errors.length ) {
-                $module.find('.CaptchaContainer').data( 'container', $module.attr('id') );
-                $.fancybox.open([ $module.find('.CaptchaContainer') ], {
+                $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
+                $.fancybox.open([ $signup.find('.CaptchaContainer') ], {
                     parent: "#litPageDiv form:first"
                 });
             } else {
-                $module.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+                $signup.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
             }
 
             return false;
         });
 
         // Submit form on enter
-        $(module).find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
+        $signup.find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
             if (e.keyCode == 13) {
                 e.preventDefault();
                 $(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
@@ -525,22 +559,25 @@ var q4Defaults = {
         });
 
         // Make sure the Captcha is filled out
-        $(module).find('.CaptchaContainer')
+        $signup.find('.CaptchaContainer')
             .prepend('<div class="module_error-container"></div>')
             .find('input[type="submit"]').on('click', function(e){
                 var $container = $(this).closest('.CaptchaContainer');
 
-                if ( $container.find('input[type="text"]').val().length !== 6 ) {
+                if ( !$container.find('input[type="text"]').val().length ) {
                     e.preventDefault();
                     $container.find('.module_error-container').html('Captcha is required');
+                } else if ($container.find('input[type="text"]').val().length !== 6 ) {
+                    e.preventDefault();
+                    $container.find('.module_error-container').html('Captcha is invalid');
                 }
             });
 
-        // TODO: Improve
-        $(module).find('input[type="text"]').on('keydown', function(e){
+        // Validate submit on enter
+        $signup.find('input[type="text"]').on('keydown', function(e){
             if (e.keyCode == 13) {
                 e.preventDefault();
-                //$(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+                //$signup.find('.module_actions input[type="submit"]').trigger('click');
                 return false;
             }
         });
@@ -575,7 +612,7 @@ var q4Defaults = {
                     }
                 } 
                 // Does the input contain text?
-                else if ( $item.find('input').val().length === 0 ) {
+                else if ( !$item.find('input').val().length ) {
                     validation = false;
                 }
             } else if ( $item.find('select').length ) {
@@ -588,9 +625,8 @@ var q4Defaults = {
                 }
             }
 
-            // TODO - Add a class on on inputs if error?
-
             if (!validation) {
+                $item.addClass('module-subscribe_table-row--invalid');
                 errors.push({
                     name: field,
                     message: message
