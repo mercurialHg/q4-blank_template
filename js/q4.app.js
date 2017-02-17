@@ -40,6 +40,16 @@
 
 /** @lends q4.app */
 var q4Defaults = {
+    options: {
+        //scrollSpeed: 1000,
+        errorTpl: (
+            '<ul>' +
+                '{{#.}}' +
+                    '<li>{{name}} {{message}}</li>' +
+                '{{/.}}' +
+            '</ul>'
+        )
+    },
     // Default init function
     init: function() { },
 
@@ -113,16 +123,16 @@ var q4Defaults = {
     },
 
     /**
-     * Scroll to an element if a confirmation message is present
+     * Scroll to an element on the page
      * @param {$el}  [element] A selector containing the element to scroll to
-     * @param {confirmationText} [selector]  A selector containing text to confirm confirmation
-     * @example app.( $('.MailingListUnsubscribeContainer'), '.MailingListUnsubscribeMessage' );
+     * @example app.scrollTo( $('div[id*="SubscriberConfirmation"]') )
      */
-    confirmationScroll: function($el, confirmationText) {
-        if ( $el.find(confirmationText).text().trim().length ) {
+    scrollTo: function($el, duration) {
+        var d = duration !== undefined && !isNaN(duration) ? duration : 1000;
+        if ( $el.length ) {
             $('html, body').animate({
-                scrollTop: $el.offset().top
-            }, 1000);
+                scrollTop: $el.eq(0).offset().top
+            }, d);
         }
     },
 
@@ -458,6 +468,137 @@ var q4Defaults = {
         } else {
             inst.moduleNotFound($('.MessageSent'), $hidden);
         }
+    },
+    /**
+     * Opens the Mailing List Signup - Captcha inside a fancybox
+     * @param {$el} [element] The mailing list module
+     * @example app.fancySignup( '.module-subscribe' );
+     */
+    fancySignup: function( module ) {
+        var inst = this;
+
+        //$captcha.find('img').attr('alt', 'Captcha');
+        //$captcha.find('input[type="text"]').attr('aria-label', 'Captcha Text');
+        //$captcha.find('table').removeAttr('cellpadding cellspacing border width');
+
+        // If a confirmation or error message is visible on page load, scroll to the module
+        if ( $('div[id*="SubscriberConfirmation"], .module_error-container').is(':visible') ){
+            // Remove scrollRestoration in Chrome. 
+            // This caused a problem where after the scrollTo has finished
+            // The orginial location would be restored
+            if (history) { 
+                history.scrollRestoration = 'manual';
+            }
+            inst.scrollTo( $(module), 0 );
+        }
+
+        // Create a second submit button to be displayed inside fancybox
+        $(module).find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $(module).find('.CaptchaContainer') );
+
+        $(module).on('click', 'input[type="submit"]', function(e){
+            e.preventDefault();
+
+            var $module = $(this).closest( module ),
+                errors = inst._mailingListValidation( $module );
+
+            $module.find('.module_error-container').html('');
+
+            if ( !errors.length ) {
+                $module.find('.CaptchaContainer').data( 'container', $module.attr('id') );
+                $.fancybox.open([ $module.find('.CaptchaContainer') ], {
+                    parent: "#litPageDiv form:first"
+                });
+            } else {
+                $module.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+            }
+
+            return false;
+        });
+
+        // Submit form on enter
+        $(module).find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                $(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+                return false;
+            }
+        });
+
+        // Make sure the Captcha is filled out
+        $(module).find('.CaptchaContainer')
+            .prepend('<div class="module_error-container"></div>')
+            .find('input[type="submit"]').on('click', function(e){
+                var $container = $(this).closest('.CaptchaContainer');
+
+                if ( $container.find('input[type="text"]').val().length !== 6 ) {
+                    e.preventDefault();
+                    $container.find('.module_error-container').html('Captcha is required');
+                }
+            });
+
+        // TODO: Improve
+        $(module).find('input[type="text"]').on('keydown', function(e){
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                //$(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+                return false;
+            }
+        });
+    },
+    /**
+     * Validates all required fields.
+     * Used by default with fancySignup before displaying captcha.
+     * Returns an array of errors
+     * @param {$el} [element] The mailing list module
+     */
+    _mailingListValidation: function( $el ) {
+        var inst = this,
+            errors = [];
+
+        $el.find('.module_required').each(function(){
+            var $item = $(this).closest('.module-subscribe_table-row'),
+                message = 'is required',
+                field = $item.find('td:first label').text(),
+                validation = true;
+
+            // Does the input exist?
+            if ( $item.find('input').length ) {
+                if ( $item.find('input').hasClass('module-subscribe_email') ) {
+                    // Does the email address contain text?
+                    if ( !$item.find('input').val().length ) {
+                        validation = false;
+                    } 
+                    // Is the email address valid?
+                    else if ( !inst.isValidEmailAddress ( $item.find('input').val() ) ) {
+                        validation = false;
+                        message = 'is invalid';
+                    }
+                } 
+                // Does the input contain text?
+                else if ( $item.find('input').val().length === 0 ) {
+                    validation = false;
+                }
+            } else if ( $item.find('select').length ) {
+                if ( !$item.find('select option:selected').index() ) {
+                    validation = false;
+                }
+            } else {
+                if ( !$item.closest('table').find('input[type="checkbox"]:checked').length ) {
+                    validation = false;
+                }
+            }
+
+            // TODO - Add a class on on inputs if error?
+
+            if (!validation) {
+                errors.push({
+                    name: field,
+                    message: message
+                });
+            }
+        });
+
+        return errors;
     },
 
     /**

@@ -36,19 +36,19 @@
                 name: 'q4.core.js',
                 files: [{
                     src: [
-                        'js/q4.core.js',
-                        'js/q4.app.js'
+                        'js/q4.core.js'
+                        //'js/q4.app.js'
                     ],
                     dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
                 }]
             },
-            /*app: {
+            app: {
                 name: 'q4.app.js',
                 files: [{
                     src: 'js/q4.app.js',
                     dest: 'dist/js/q4.app.<%= pkg.version %>.js'
                 }]
-            }*/
+            }
         },
 
         //qunit: {
