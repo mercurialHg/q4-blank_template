@@ -510,10 +510,9 @@ var q4Defaults = {
         if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
             $('div[id*="SubscriberConfirmation"]').removeAttr('class').removeAttr('style').html( inst.options.mailingListConfirmationTpl );
         }
+
         // If a confirmation or error message is visible on page load, scroll to the module
-        //, .module_error-container?
         if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module-subscribe_email').val().length){
-            console.log('scrolll');
             inst.scrollTo( $(signup), 0 );
         }
 
@@ -592,6 +591,8 @@ var q4Defaults = {
         var inst = this,
             errors = [];
 
+        $el.find('.module-subscribe_table-row--invalid').removeClass('module-subscribe_table-row--invalid');
+
         $el.find('.module_required').each(function(){
             var $item = $(this).closest('.module-subscribe_table-row'),
                 message = 'is required',
@@ -621,6 +622,7 @@ var q4Defaults = {
                 }
             } else {
                 if ( !$item.closest('table').find('input[type="checkbox"]:checked').length ) {
+                    $item = $item.next();
                     validation = false;
                 }
             }
