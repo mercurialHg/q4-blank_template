@@ -40,6 +40,38 @@
 
 /** @lends q4.app */
 var q4Defaults = {
+    options: {
+        scrollSpeed: 1000,
+        /**
+         * Any mailing list with this class will have their validation overwritten
+         */
+        mailingListSignupCls: '.module-subscribe--fancy',
+        /**
+         * Custom template for email validation
+         */
+        errorTpl: (
+            '<ul>' +
+                '{{#.}}' +
+                    '<li>{{name}} {{message}}</li>' +
+                '{{/.}}' +
+            '</ul>'
+        ),
+        /**
+         * Template to overwrite mailing list signup confirmation html.
+         */
+        mailingListConfirmationTpl: (
+            '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col-3-of-6 grid_col-md-1-of-2">' +
+                '<div class="module_container--outer">' +
+                    '<h2 class="module_title">' +
+                        '<span class="ModuleTitle">Email Alerts</span>' +
+                    '</h2>' +
+                    '<div class="module_container--inner">' +
+                        'Thank you for signing up for the mailing lists.An activation email will be sent to you shortly.' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        )
+    },
     // Default init function
     init: function() { },
 
@@ -113,16 +145,20 @@ var q4Defaults = {
     },
 
     /**
-     * Scroll to an element if a confirmation message is present
+     * Scroll to an element on the page
      * @param {$el}  [element] A selector containing the element to scroll to
-     * @param {confirmationText} [selector]  A selector containing text to confirm confirmation
-     * @example app.( $('.MailingListUnsubscribeContainer'), '.MailingListUnsubscribeMessage' );
+     * @example app.scrollTo( $('div[id*="SubscriberConfirmation"]') )
      */
-    confirmationScroll: function($el, confirmationText) {
-        if ( $el.find(confirmationText).text().trim().length ) {
+    scrollTo: function($el, duration) {
+        var d = duration !== undefined && !isNaN(duration) ? duration : this.options.scrollSpeed;
+        if ( $el.length ) {
+            if (history) { 
+                history.scrollRestoration = 'manual';
+            }
+
             $('html, body').animate({
-                scrollTop: $el.offset().top
-            }, 1000);
+                scrollTop: $el.eq(0).offset().top
+            }, d);
         }
     },
 
@@ -458,6 +494,149 @@ var q4Defaults = {
         } else {
             inst.moduleNotFound($('.MessageSent'), $hidden);
         }
+    },
+    /**
+     * Opens the Mailing List Signup - Captcha inside a fancybox
+     * @param {$el} [element] The mailing list module
+     * @example app.fancySignup( '.module-subscribe' );
+     */
+    fancySignup: function() {
+        var inst = this,
+            signup = inst.options.mailingListSignupCls;
+            $signup = $(signup);
+
+
+        // Subscriber Confirmation fix
+        if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
+            $('div[id*="SubscriberConfirmation"]').removeAttr('class').removeAttr('style').html( inst.options.mailingListConfirmationTpl );
+        }
+
+        // If a confirmation or error message is visible on page load, scroll to the module
+        if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module-subscribe_email').val().length){
+            inst.scrollTo( $(signup), 0 );
+        }
+
+        if ( !$signup.length ) {
+            return;
+        }
+
+        // Accessibility fixes
+        $signup.find('img').attr('alt', 'Captcha');
+        $signup.find('input[type="text"]').attr('aria-label', 'Captcha Text');
+        $signup.find('table').removeAttr('cellpadding cellspacing border width');
+
+        // Create a second submit button to be displayed inside fancybox
+        $signup.find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $signup.find('.CaptchaContainer') );
+
+        $signup.on('click', 'input[type="submit"]', function(e){
+            e.preventDefault();
+
+            var $signup = $(this).closest( signup ),
+                errors = inst._mailingListValidation( $signup );
+
+            $signup.find('.module_error-container').html('');
+
+            if ( !errors.length ) {
+                $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
+                $.fancybox.open([ $signup.find('.CaptchaContainer') ], {
+                    parent: "#litPageDiv form:first"
+                });
+            } else {
+                $signup.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+            }
+
+            return false;
+        });
+
+        // Submit form on enter
+        $signup.find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                $(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+                return false;
+            }
+        });
+
+        // Make sure the Captcha is filled out
+        $signup.find('.CaptchaContainer')
+            .prepend('<div class="module_error-container"></div>')
+            .find('input[type="submit"]').on('click', function(e){
+                var $container = $(this).closest('.CaptchaContainer');
+
+                if ( !$container.find('input[type="text"]').val().length ) {
+                    e.preventDefault();
+                    $container.find('.module_error-container').html('Captcha is required');
+                } else if ($container.find('input[type="text"]').val().length !== 6 ) {
+                    e.preventDefault();
+                    $container.find('.module_error-container').html('Captcha is invalid');
+                }
+            });
+
+        // Validate submit on enter
+        $signup.find('input[type="text"]').on('keydown', function(e){
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                //$signup.find('.module_actions input[type="submit"]').trigger('click');
+                return false;
+            }
+        });
+    },
+    /**
+     * Validates all required fields.
+     * Used by default with fancySignup before displaying captcha.
+     * Returns an array of errors
+     * @param {$el} [element] The mailing list module
+     */
+    _mailingListValidation: function( $el ) {
+        var inst = this,
+            errors = [];
+
+        $el.find('.module-subscribe_table-row--invalid').removeClass('module-subscribe_table-row--invalid');
+
+        $el.find('.module_required').each(function(){
+            var $item = $(this).closest('.module-subscribe_table-row'),
+                message = 'is required',
+                field = $item.find('td:first label').text(),
+                validation = true;
+
+            // Does the input exist?
+            if ( $item.find('input').length ) {
+                if ( $item.find('input').hasClass('module-subscribe_email') ) {
+                    // Does the email address contain text?
+                    if ( !$item.find('input').val().length ) {
+                        validation = false;
+                    } 
+                    // Is the email address valid?
+                    else if ( !inst.isValidEmailAddress ( $item.find('input').val() ) ) {
+                        validation = false;
+                        message = 'is invalid';
+                    }
+                } 
+                // Does the input contain text?
+                else if ( !$item.find('input').val().length ) {
+                    validation = false;
+                }
+            } else if ( $item.find('select').length ) {
+                if ( !$item.find('select option:selected').index() ) {
+                    validation = false;
+                }
+            } else {
+                if ( !$item.closest('table').find('input[type="checkbox"]:checked').length ) {
+                    $item = $item.next();
+                    validation = false;
+                }
+            }
+
+            if (!validation) {
+                $item.addClass('module-subscribe_table-row--invalid');
+                errors.push({
+                    name: field,
+                    message: message
+                });
+            }
+        });
+
+        return errors;
     },
 
     /**
