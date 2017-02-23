@@ -11,8 +11,14 @@
         padding: 0 0 0 20px;
         border: none;
         text-align: left;
+        // Dark Theme Override
         & ~ .module_item {
           border: none;
+        }
+        @include layout-medium {
+          &:first-child {
+            width: 100%;
+          }
         }
       }
       &_item-wrap {

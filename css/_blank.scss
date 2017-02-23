@@ -81,6 +81,9 @@
         display: none;
       }
     }
+    @include layout-legacy {
+      text-align: center;
+    }
   }
   &--navigation {
     // Desktop Style
@@ -231,7 +234,7 @@
       @include fit-and-center($layout-width);
     }
     .module {
-      margin-bottom: 60px;
+      padding-bottom: 60px;
       &_title {
         margin-bottom: 20px;
         @include font-size(20px);
@@ -261,6 +264,11 @@
       li {
         margin-bottom: 5px;
       }
+    }
+    .button {
+      color: $light-color;
+      border: none;
+      background-color: $brand-color;
     }
   }
   &--credits {

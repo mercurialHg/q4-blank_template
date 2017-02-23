@@ -165,6 +165,10 @@ $toast-pulls: true !default;
 			margin-right: -.24em;
 		}
 
+		&.#{$toast-grid-column-namespace}-lg-1-of-1 {
+			width: percentage(1/1);
+		}
+
 		&.#{$toast-grid-column-namespace}-lg-1-of-2 {
 			width: percentage(1/2);
 		}
@@ -196,6 +200,10 @@ $toast-pulls: true !default;
 			margin-right: -.24em;
 		}
 
+		&.#{$toast-grid-column-namespace}-lc-1-of-1 {
+			width: percentage(1/1);
+		}
+
 		&.#{$toast-grid-column-namespace}-lc-1-of-2 {
 			width: percentage(1/2);
 		}
@@ -225,6 +233,10 @@ $toast-pulls: true !default;
 		&[class*="#{$toast-grid-column-namespace}-md-"] {
 			display: inline-block;
 			margin-right: -.24em;
+		}
+
+		&.#{$toast-grid-column-namespace}-md-1-of-1 {
+			width: percentage(1/1);
 		}
 
 		&.#{$toast-grid-column-namespace}-md-1-of-2 {
