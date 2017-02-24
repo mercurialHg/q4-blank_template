@@ -1,0 +1,23 @@
+/*------ Site Map Module CSS -----*/
+
+.module-sitemap {
+	&_list {
+		li.SiteMap-Level2 {
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+		li.SiteMap-Level3 {
+			margin-left: 15px;
+		}
+		li.SiteMap-Level4 {
+			margin-left: 30px
+		}
+		li.SiteMap-Level5 {
+			margin-left: 45px;
+		}
+	}
+	&_link {
+		display: inline-block;
+		padding: 10px 0;
+	}
+}

@@ -1,4 +1,4 @@
-/*--------- Search Module --------*/
+/*-------- Search Modules --------*/
 
 .module-search {
   position: relative;
@@ -20,5 +20,17 @@
     background-size: contain;
     font-size: 0;
     cursor: pointer;
+  }
+  &-result {
+    &_link {
+      margin-bottom: 15px;
+    }
+    &_description {
+      display: block;
+      margin-bottom: 15px;
+    }
+    &_url {
+      display: none;
+    }
   }
 }
