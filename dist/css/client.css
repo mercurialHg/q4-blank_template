@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'q4-icons';
-  src: url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.eot?ndlzw0");
-  src: url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.eot?ndlzw0#iefix") format("embedded-opentype"), url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.woff2?ndlzw0") format("woff2"), url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.ttf?ndlzw0") format("truetype"), url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.woff?ndlzw0") format("woff"), url("https://i.icomoon.io/public/274cfd2a17/_Q4BlankTemplate/q4-icons.svg?ndlzw0#q4-icons") format("svg");
+  src: url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.eot?55k1ah");
+  src: url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.eot?55k1ah#iefix") format("embedded-opentype"), url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.woff2?55k1ah") format("woff2"), url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.ttf?55k1ah") format("truetype"), url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.woff?55k1ah") format("woff"), url("https://s3.amazonaws.com/icomoon.io/50912/_Q4BlankTemplate/q4-icons.svg?55k1ah#q4-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -102,8 +102,12 @@
   content: "\ec9b";
 }
 
-.q4-icon_bell:before {
+.q4-icon_bell-line:before {
   content: "\ea57";
+}
+
+.q4-icon_bell-fill:before {
+  content: "\e908";
 }
 
 .q4-icon_presentation:before {
@@ -201,7 +205,11 @@
   content: "\eb09";
 }
 
-.q4-icon_briefcase:before {
+.q4-icon_briefcase-line:before {
+  content: "\e909";
+}
+
+.q4-icon_briefcase-fill:before {
   content: "\ec03";
 }
 

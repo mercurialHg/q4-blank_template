@@ -78,8 +78,11 @@ input[type="checkbox"] {
   margin: 0 5px 0 0;
   border: 1px solid $light-color;
   vertical-align: baseline;
-    &:checked  {
+  &:checked  {
     border: 3px solid $light-color;
+  }
+  &:focus {
+    outline: none;
   }
 }
 input[type="checkbox"] + label {
@@ -124,6 +127,7 @@ body.PreviewBody {
   cursor: pointer;
   &--dark {
     border: 2px solid $light-color;
+    color: $light-color;
   }
 }
 

@@ -7,13 +7,16 @@
 .module {
   &_header, &_back-to-top, &_anchor-target,
   &_file-size, &_file-type, &_file-text,
-  &_view-all-link {
+  &_view-all-link, &_more {
     display: none;
   }
   &_headline, &_location, &_speakers,
   &_links, &_body, &_add-to-calendar, &_error-container,
   &_options, &_not-found {
     margin-bottom: 15px;
+  }
+  &_actions, &_pager {
+    margin-top: 15px;
   }
   &_date-time {
     margin-bottom: 5px;
@@ -56,16 +59,20 @@
   }
   &_nav {
     margin-bottom: 10px;
-    &-link, .ModuleYearLink {
+    &-link, .ModuleYearLink,
+    &-link:visited, .ModuleYearLink:visited {
       display: inline-block;
       margin-right: 5px;
       padding: 15px 20px;
       border: 2px solid $brand-color;
       color: $body-color;
       font-weight: normal;
-      &.selected {
+      &.selected, &.selected:visited {
         background-color: $brand-color;
         color: $light-color;
+      }
+      @include layout-small {
+        margin-bottom: 10px;
       }
     }
   }
@@ -73,9 +80,27 @@
     &-select {
       margin-right: 10px;
     }
+    @include layout-medium {
+      &-label {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
     @include layout-small {
       &-label {
         display: none;
+      }
+      &-select, &-submit {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &_pager {
+    a {
+      color: $body-color;
+      &[href] {
+        color: $brand-color;
       }
     }
   }
