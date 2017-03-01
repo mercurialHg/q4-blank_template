@@ -1,7 +1,47 @@
-/*------- Navigation Module ------*/
+/*------ Navigation Modules ------*/
 
 .nav {
   &_close {
     display: none;
+  }
+  &--sitemap {
+    @include fit-and-center($layout-width);
+    padding-bottom: 35px;
+    a {
+      display: inline-block;
+    }
+    .level1 {
+      & > li:not(:last-of-type) {
+        margin-bottom: 35px;
+      }
+      & > li {
+        & > a, & > a:visited {
+          margin-bottom: 15px;
+          @include font-size(24px);
+          color: $dark-color;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .level2, .level3 {
+      & > li {
+        padding: 5px 0;
+        & > a {
+          @include font-size(14px);
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .level2 {
+      & > li > a {
+        margin-bottom: 5px;
+      }
+    }
+    .level3 {
+      & > li {
+        padding-left: 15px;
+      }
+    }
   }
 }

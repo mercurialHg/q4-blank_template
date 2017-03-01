@@ -237,6 +237,42 @@ body.PreviewBody {
   display: none;
 }
 
+.table {
+  width: 100%;
+}
+.table thead {
+  background-color: #006fba;
+  text-align: left;
+}
+.table tbody {
+  border-top: 1px solid rgba(34, 34, 34, 0.1);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+.table tr:nth-child(even) {
+  background-color: rgba(34, 34, 34, 0.05);
+}
+.table th, .table td, .table tr > .grid_col {
+  margin: 0;
+  padding: 15px 8px;
+}
+.table th {
+  color: #fff;
+}
+.table--headless tr:first-child {
+  background-color: #006fba;
+  text-align: left;
+}
+.table--headless tr:first-child td {
+  color: #fff;
+}
+
+.accordion_trigger:focus {
+  outline: none;
+}
+.accordion_panel {
+  display: none;
+}
+
 /*==================================
  ----------- TOAST GRID -----------
 ==================================*/
@@ -790,6 +826,19 @@ a:focus {
 .module_headline-link, .module_headline-link:visited {
   color: #333333;
 }
+.module_image {
+  display: inline-block;
+  max-width: 30%;
+  margin-bottom: 1rem;
+}
+.module_image--right {
+  float: right;
+  margin-left: 2rem;
+}
+.module_image--left {
+  float: left;
+  margin-right: 2rem;
+}
 .module_introduction {
   margin-bottom: 35px;
 }
@@ -887,26 +936,6 @@ a:focus {
 .module_speakers li {
   margin-bottom: 5px;
 }
-.module_table {
-  width: 100%;
-}
-.module_table thead {
-  background-color: #006fba;
-  text-align: left;
-}
-.module_table tbody {
-  border-top: 1px solid rgba(34, 34, 34, 0.1);
-  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
-}
-.module_table tr:nth-child(even) {
-  background-color: rgba(34, 34, 34, 0.05);
-}
-.module_table th, .module_table td {
-  padding: 15px 8px;
-}
-.module_table th {
-  color: #fff;
-}
 .module_title {
   text-transform: uppercase;
 }
@@ -938,7 +967,10 @@ a:focus {
 .module-downloads_thumbnail, .module-downloads_description, .module-downloads_date {
   display: none;
 }
-.module-downloads_title:after {
+.module-downloads_title-link {
+  display: block;
+}
+.module-downloads_title-link:after {
   font-family: "q4-icons";
   speak: none;
   font-style: normal;
@@ -986,6 +1018,18 @@ a:focus {
 }
 .module.module-event-latest .module_links {
   margin: 0;
+}
+
+/*---------- FAQ Module ----------*/
+.module-faq_question {
+  cursor: pointer;
+}
+.module-faq_answer {
+  display: block;
+}
+.module-faq_answer p {
+  margin: 0;
+  padding: 0 0 1rem;
 }
 
 /*--- Financial Report Modules ---*/
@@ -1054,6 +1098,67 @@ a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "";
+}
+.module-financial-table_header {
+  background-color: #006fba;
+  color: #fff;
+}
+.module-financial-table_header-year-container {
+  text-align: center;
+}
+.module-financial-table_header-year, .module-financial-table_header-category.grid_col {
+  padding: 20px 15px;
+}
+.module-financial-table_body-row:nth-child(even) {
+  background-color: rgba(34, 34, 34, 0.05);
+}
+.module-financial-table_body-year-container {
+  text-align: center;
+}
+.module-financial-table_body-year, .module-financial-table_body-category.grid_col {
+  padding: 20px 15px;
+}
+.module-financial-table_item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 8px 0;
+  border-radius: 15px;
+  background-color: #006fba;
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.module-financial-table_item:not(:last-of-type) {
+  margin-right: 5px;
+}
+.module-financial-table_item--empty {
+  opacity: 0.1;
+}
+.module-financial-table_link, .module-financial-table_link:visited {
+  color: #fff;
+}
+.module-financial-table .slick-slider {
+  display: inline-block;
+  padding: 0;
+}
+.module-financial-table .slick-slide:focus {
+  outline: none;
+}
+.module-financial-table .slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 10;
+}
+.module-financial-table .slick-prev {
+  left: 10px;
+}
+.module-financial-table .slick-next {
+  right: 10px;
+}
+.module-financial-table .slick-disabled {
+  opacity: 0.1;
 }
 
 /* Latest Quarterly Result Widget */
@@ -1161,9 +1266,68 @@ a:focus {
   width: 100%;
 }
 
-/*------- Navigation Module ------*/
+.module-rss p + h2 {
+  margin: 40px 0 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .module-analyst-coverage table thead {
+    display: none;
+  }
+  .module-analyst-coverage table td:before {
+    content: attr(data-heading);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+    margin-right: -.25em;
+    vertical-align: top;
+  }
+}
+
+/*------ Navigation Modules ------*/
 .nav_close {
   display: none;
+}
+.nav--sitemap {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 35px;
+}
+@media only screen and (max-width: 1024px) {
+  .nav--sitemap {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.nav--sitemap a {
+  display: inline-block;
+}
+.nav--sitemap .level1 > li:not(:last-of-type) {
+  margin-bottom: 35px;
+}
+.nav--sitemap .level1 > li > a, .nav--sitemap .level1 > li > a:visited {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #222;
+  text-transform: uppercase;
+}
+.nav--sitemap .level2 > li, .nav--sitemap .level3 > li {
+  padding: 5px 0;
+}
+.nav--sitemap .level2 > li > a, .nav--sitemap .level3 > li > a {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.nav--sitemap .level2 > li > a {
+  margin-bottom: 5px;
+}
+.nav--sitemap .level3 > li {
+  padding-left: 15px;
 }
 
 /*-------- News Module CSS -------*/
@@ -1525,7 +1689,7 @@ a:focus {
 ==================================*/
 /*------- iframe layout CSS ------*/
 .layout--iframe .pane--content .module {
-  padding: 35px 0;
+  padding: 15px 0;
 }
 .layout--iframe .pane--content .module_container--outer {
   max-width: none;
@@ -1534,10 +1698,16 @@ a:focus {
 /*==================================
  ------------ BLANK CSS -----------
 ==================================*/
+/*-------- Layout Specific -------*/
 .layout--home .pane--content {
   text-align: center;
 }
 
+/*--------- Pane Specific --------*/
+.pane--header {
+  position: relative;
+  z-index: 10;
+}
 .pane--header .pane_inner {
   max-width: 940px;
   margin-left: auto;
@@ -1546,7 +1716,8 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--header .pane_inner {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .pane--header .module-logo img {
@@ -1584,6 +1755,7 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--header .pane_inner {
     height: 100px;
+    padding-top: 20px;
   }
   .pane--header .module {
     vertical-align: middle;
@@ -1599,7 +1771,7 @@ a:focus {
   }
 }
 .pane--banner {
-  background: rgba(0, 0, 0, 0.1) url("https://s21.q4cdn.com/721433817/files/design/product-service-section-bg.jpg") 50% 85%;
+  background: rgba(0, 0, 0, 0.1) url("https://q4blankdev.s3.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 85%;
   color: #fff;
 }
 .pane--banner .pane_inner {
@@ -1612,7 +1784,8 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--banner .pane_inner {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .pane--banner .module-breadcrumb .module_title {
@@ -1638,7 +1811,8 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--navigation .pane_inner {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -1653,10 +1827,10 @@ a:focus {
 .pane--navigation .nav .level1 > li {
   display: none;
 }
-.pane--navigation .nav .level1 > li.expanded {
+.pane--navigation .nav .level1 > li.selected, .pane--navigation .nav .level1 > li.expanded {
   display: block;
 }
-.pane--navigation .nav .level1 > li.expanded > a {
+.pane--navigation .nav .level1 > li.selected > a, .pane--navigation .nav .level1 > li.expanded > a {
   display: none;
 }
 .pane--navigation .nav .level2 {
@@ -1707,8 +1881,9 @@ a:focus {
     right: 0;
     bottom: 100%;
     transition: 0.5s ease-in-out;
+    z-index: 5;
   }
-  .pane--navigation--expanded {
+  .pane--navigation.js--expanded {
     top: 100px;
     bottom: 0;
   }
@@ -1751,9 +1926,13 @@ a:focus {
     font-size: 1rem;
   }
 }
+.pane--content {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
 .pane--content .module {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 .pane--content .module_container--outer {
   max-width: 940px;
@@ -1763,27 +1942,29 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--content .module_container--outer {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .pane--content .module--thin {
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .pane--content .module--thick {
-  padding-top: 105px;
-  padding-bottom: 105px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 .pane--content .nav--site {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 70px;
+  padding-bottom: 35px;
 }
 @media only screen and (max-width: 1024px) {
   .pane--content .nav--site {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .pane--footer {
@@ -1800,11 +1981,9 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--footer .pane_inner {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-}
-.pane--footer .module {
-  padding-bottom: 60px;
 }
 .pane--footer .module_title {
   margin-bottom: 20px;
@@ -1833,6 +2012,9 @@ a:focus {
 .pane--footer .module li {
   margin-bottom: 5px;
 }
+.pane--footer .module:not(.module-embed) {
+  padding-bottom: 60px;
+}
 .pane--footer .button {
   color: #fff;
   border: none;
@@ -1857,23 +2039,30 @@ a:focus {
 @media only screen and (max-width: 1024px) {
   .pane--credits .pane_inner {
     max-width: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .pane--credits .module {
   margin-bottom: 10px;
 }
 
-.overview p {
+/*--------- Page Specific --------*/
+.page-overview .pane--content {
+  padding: 0;
+}
+
+/*-------- Module Specific -------*/
+.module-overview p {
   margin-bottom: 40px;
 }
-.overview_hidden {
+.module-overview_hidden {
   display: none;
 }
-.overview_button:before {
+.module-overview_button:before {
   content: "Read More";
 }
-.overview_button--active:before {
+.module-overview_button--active:before {
   content: "Show Less";
 }
 

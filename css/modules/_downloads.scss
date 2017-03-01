@@ -10,11 +10,14 @@
     display: none;
   }
   &_title {
-    &:after {
-      @include icon("\e900");
-      display: inline-block;
-      float: right;
-      cursor: pointer;
+    &-link {
+      display: block;
+      &:after {
+        @include icon("\e900");
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+      }
     }
   }
 }

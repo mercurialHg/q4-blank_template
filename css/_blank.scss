@@ -2,6 +2,8 @@
  ------------ BLANK CSS -----------
 ==================================*/
 
+/*-------- Layout Specific -------*/
+
 .layout {
   &--home {
     .pane--content {
@@ -10,8 +12,12 @@
   }
 }
 
+/*--------- Pane Specific --------*/
+
 .pane {
   &--header {
+    position: relative;
+    z-index: 10;
     .pane_inner {
       @include fit-and-center($layout-width);
     }
@@ -50,6 +56,7 @@
     @include layout-legacy {
       .pane_inner {
         height: $mobile-header-height;
+        padding-top: 20px;
       }
       .module {
         vertical-align: middle;
@@ -66,7 +73,7 @@
     }
   }
   &--banner {
-    background: rgba(0,0,0,0.1) url('https://s21.q4cdn.com/721433817/files/design/product-service-section-bg.jpg') 50% 85%;
+    background: rgba(0,0,0,0.1) url($host+'/files/design/banner/q4-tall-banner.jpg') 50% 85%;
     color: #fff;
     .pane_inner {
       position: relative;
@@ -100,7 +107,7 @@
       .level1 {
         & > li {
           display: none;
-          &.expanded {
+          &.selected, &.expanded {
             display: block;
               & > a {
                 display: none;
@@ -158,7 +165,8 @@
       right: 0;
       bottom: 100%;
       transition: 0.5s ease-in-out;
-      &--expanded {
+      z-index: 5;
+      &.js--expanded {
         top: $mobile-header-height;
         bottom: 0;
       }
@@ -204,6 +212,8 @@
     }
   }
   &--content {
+    padding-top: $module-vspace;
+    padding-bottom: $module-vspace;
     .module {
       padding-top: $module-vspace;
       padding-bottom: $module-vspace;
@@ -234,7 +244,6 @@
       @include fit-and-center($layout-width);
     }
     .module {
-      padding-bottom: 60px;
       &_title {
         margin-bottom: 20px;
         @include font-size(20px);
@@ -265,6 +274,9 @@
         margin-bottom: 5px;
       }
     }
+    .module:not(.module-embed) {
+      padding-bottom: 60px;
+    }
     .button {
       color: $light-color;
       border: none;
@@ -289,7 +301,19 @@
   }
 }
 
-.overview {
+/*--------- Page Specific --------*/
+
+.page-overview {
+  .pane {
+    &--content {
+      padding: 0;
+    }
+  }
+}
+
+/*-------- Module Specific -------*/
+
+.module-overview {
   p {
     margin-bottom: 40px;
   }

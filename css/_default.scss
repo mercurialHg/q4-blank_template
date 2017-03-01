@@ -149,3 +149,45 @@ body.PreviewBody {
     display: none;
   }
 }
+
+.table {
+  width: 100%;
+  thead {
+    background-color: $brand-color;
+    text-align: left;
+  }
+  tbody {
+    border-top: 1px solid rgba($dark-color, 0.1);
+    border-bottom: 1px solid rgba($dark-color, 0.1);
+  }
+  tr:nth-child(even) {
+    background-color: rgba($dark-color, 0.05);
+  }
+  th, td, tr > .grid_col {
+    margin: 0;
+    padding: 15px 8px;
+  }
+  th {
+    color: $light-color;
+  }
+  &--headless {
+    tr:first-child {
+      background-color: $brand-color;
+      text-align: left;
+      td {
+        color: $light-color;
+      }
+    }
+  }
+}
+
+.accordion {
+  &_trigger {
+    &:focus {
+      outline: none;
+    }
+  }
+  &_panel {
+    display: none;
+  }
+}

@@ -22,3 +22,31 @@
     width: 100%;
   }
 }
+
+.module-rss {
+  p + h2 {
+    margin: 40px 0 30px;
+  }
+}
+
+.module-analyst-coverage {
+  table {
+  }
+  @include layout-medium {
+    table {
+      thead {
+        display: none;
+      }
+      td {
+        &:before {
+          content: attr(data-heading);
+          box-sizing: border-box;
+          display: inline-block;
+          width: 50%;
+          margin-right: -.25em;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

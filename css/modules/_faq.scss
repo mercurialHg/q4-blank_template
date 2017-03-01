@@ -1,0 +1,14 @@
+/*---------- FAQ Module ----------*/
+
+.module-faq {
+	&_question {
+		cursor: pointer;
+	}
+	&_answer {
+		display: block;
+		p {
+			margin: 0;
+			padding: 0 0 1rem;
+		}
+	}
+}

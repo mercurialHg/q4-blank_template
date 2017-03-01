@@ -28,6 +28,19 @@
       color: $body-color;
     }
   }
+  &_image {
+    display: inline-block;
+    max-width: 30%;
+    margin-bottom: 1rem;
+    &--right {
+      float: right;
+      margin-left: 2rem;
+    }
+    &--left {
+      float: left;
+      margin-right: 2rem;
+    }
+  }
   &_introduction {
     margin-bottom: 35px;
   }
@@ -133,26 +146,6 @@
   &_speakers {
     li {
       margin-bottom: 5px;
-    }
-  }
-  &_table {
-    width: 100%;
-    thead {
-      background-color: $brand-color;
-      text-align: left;
-    }
-    tbody {
-      border-top: 1px solid rgba($dark-color, 0.1);
-      border-bottom: 1px solid rgba($dark-color, 0.1);
-    }
-    tr:nth-child(even) {
-      background-color: rgba($dark-color, 0.05);
-    }
-    th, td {
-      padding: 15px 8px;
-    }
-    th {
-      color: $light-color;
     }
   }
   &_title {
