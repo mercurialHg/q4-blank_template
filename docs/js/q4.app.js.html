@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.onMenuExit">onMenuExit</a></li><li data-type='method'><a href="q4.app.html#.onMenuToggle">onMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -148,8 +148,6 @@ var q4Defaults = {
      * @example app.reveal('.read-more', '.read-more_button', '.read-more_panel', true);
      */
     reveal: function(container, trigger, panel, once) {
-        var triggerClass = trigger.split('.').pop(),
-            panelClass = panel.split('.').pop();
         if (once) {
             $(container).one('click', trigger, function(e) {
                 e.preventDefault();
@@ -262,53 +260,43 @@ var q4Defaults = {
         });
     },
 
-    _onMenuClose: function(inst) {
-        $('.LayoutDefaultInner').one('click', function(e) {
-            if ( !$(e.target).closest('.PaneNavigation').length ) {
-                $(this).removeClass('mobile-toggled');
-            } else {
-                inst._onMenuClose(inst);
+    _onMobileMenuExpand: function($nav) {
+        $nav.on('click', 'li.has-children > a', function(e) {
+            var $this = $(this),
+                $parent = $this.parent();
+            if (!$parent.hasClass('js--expanded')) {
+                e.preventDefault();
+                $parent.siblings().removeClass('js--expanded');
+                $parent.addClass('js--expanded');
             }
         });
     },
 
-    _onMobileMenuExpand: function() {
-        $('.mobile-toggled .PaneNavigation nav').on('click', 'li.has-children > a', function(e) {
-            var $this = $(this),
-                $parent = $this.parent();
-            if (!$parent.hasClass('expanded')) {
-                e.preventDefault();
-                $parent.siblings().removeClass('expanded');
-                $parent.addClass('expanded');
-            }
-        });
+    /**
+     * Accessible Navigation powered by Superfish
+     * @param {$nav} [element]  the nav element (or ul element) you would like to apply superfish to
+     * @param {options} [object]  options to be passed into superfish
+     * @param {responsiveValue} [integer]  the responsive breakpoint for mobile navigation
+     * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
+     */
+    superfish: function($nav, options, responsiveValue) {
+        var inst = this;
+        $nav.superfish(options);
+        // jQuery('ul.sf-menu').superfish('destroy');
     },
 
     /**
      * Standard mobile menu functionality
      * @param {$layout} [element]  the default layout element
+     * @param {pane} [selector]  the class of the pane element containing the mobile navigation
      * @param {toggleClass} [selector]  the class assigned to the element used to toggle the mobile navigation
-     * @example app.onMenuToggle($('.layout'), '.mobile-toggle')
+     * @example app.mobileMenuToggle($('.layout'), '.pane--navigation', '.layout_toggle i')
      */
-    onMenuToggle: function($layout, toggleClass) {
+    mobileMenuToggle: function($layout, pane, toggle) {
         var inst = this;
-        $layout.on('click', toggleClass, function(e) {
-            $layout.toggleClass(toggleClass + '--active');
-            inst._onMobileMenuExpand(inst);
-            if ($layout.hasClass(toggleClass + '--active')) {
-                inst._onMenuClose(inst);
-            }
-        });
-    },
-
-    /**
-     * Additional mobile menu functionality
-     * 
-     * @example app.onMenuExit($el)
-     */
-    onMenuExit: function($el) {
-        $el.on('click', function() {
-            $('.LayoutDefaultInner').triggerHandler('click');
+        $layout.on('click', toggle, function(e) {
+            $layout.toggleClass('js--mobile');
+            inst._onMobileMenuExpand($('.js--mobile ' + pane + ' .nav'));
         });
     },
 
@@ -321,12 +309,12 @@ var q4Defaults = {
     accessibleNav: function($nav, topLevel) {
         $nav.on('focus ', 'a' ,function(e) {
             var $link = $(this);
-            $link.closest('ul').find('li').removeClass('focused');
-            $link.closest('li').addClass('focused');
+            $link.closest('ul').find('li').removeClass('js--focused');
+            $link.closest('li').addClass('js--focused');
 
             if ( $link.closest('li').is(':last-child') &amp;&amp; $link.closest('ul').is(topLevel) ) {
                 $link.blur(function() {
-                    $link.closest(topLevel).find('li').removeClass('focused');
+                    $link.closest(topLevel).find('li').removeClass('js--focused');
                 });
             }
         });
@@ -376,7 +364,7 @@ var q4Defaults = {
         }
 
         $item.first().find(toggle).attr('aria-expanded', true);
-        $item.first().addClass('accordion-active').find(panel).show();
+        $item.first().addClass('js--active').find(panel).show();
     },
     _toggleAll: function($container, item, toggle, panel) {
         $container.prepend('&lt;div class="accordion-toggle-all">&lt;a href="#all">&lt;/a>&lt;/div>').on('click', '.accordion-toggle-all a', function(e) {
@@ -384,23 +372,23 @@ var q4Defaults = {
             $(this).parent().toggleClass('active');
             if ( $(this).parent().is('.active') ) {
                 $container.find(toggle).attr('aria-expanded', 'true');
-                $container.find(item).addClass('accordion-active');
+                $container.find(item).addClass('js--active');
                 $container.find(panel).slideDown();
             } else {
                 $container.find(toggle).attr('aria-expanded', 'false');
-                $container.find(item).removeClass('accordion-active');
+                $container.find(item).removeClass('js--active');
                 $container.find(panel).slideUp();
             }
         });
     },
     _accordionTrigger: function($this, $container, item, toggle, panel) {
-        if ( !$this.closest(item).hasClass('accordion-active') ) {
-            $(item).removeClass('accordion-active');
+        if ( !$this.closest(item).hasClass('js--active') ) {
+            $(item).removeClass('js--active');
             $container.find(toggle).attr('aria-expanded', false);
             $container.find(panel).slideUp();
 
             $this.attr('aria-expanded', true);
-            $this.closest(item).addClass('accordion-active').find(panel).slideDown();
+            $this.closest(item).addClass('js--active').find(panel).slideDown();
         }
     },
     _toggleTrigger: function($this, $container, item, panel) {
@@ -408,7 +396,7 @@ var q4Defaults = {
 
         $this.attr('aria-expanded', function(i, attr) {
             return attr == 'true' ? 'false' : 'true';
-        }).closest(item).toggleClass('accordion-active').find(panel).slideToggle();
+        }).closest(item).toggleClass('js--active').find(panel).slideToggle();
 
         if ( $container.find(item).not('.accordion-active').length ) {
             $allToggle.removeClass('active');
@@ -426,7 +414,7 @@ var q4Defaults = {
     remindMeOnce: function($el) {
         $el.each(function() {
             if ( $(this).find('.ReminderError').text().length ) {
-                $(this).find('.ModuleReminderContainer').addClass('js-reminded');
+                $(this).find('.ModuleReminderContainer').addClass('js--reminded');
             }
         });
     },
@@ -793,15 +781,7 @@ var q4Defaults = {
 <br class="clear">
 
 <footer>
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Mar 01 2017 17:03:01 GMT-0500 (EST) using the Minami theme.
-=======
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 24 2017 20:58:08 GMT-0500 (Eastern Standard Time) using the Minami theme.
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 24 2017 14:53:56 GMT-0500 (EST) using the Minami theme.
->>>>>>> 288233349094cb92288bff58bf083f7a3492c7ba
->>>>>>> ac58fb2bbe0e5c25e022c3f4814b7aba3f62723d
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Mar 03 2017 15:16:59 GMT-0500 (EST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

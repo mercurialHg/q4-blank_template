@@ -142,8 +142,12 @@ $toast-pulls: true !default;
 
 } // end @each
 
-// All direct descendents of .grid get treated the same way.
+// All direct descendants of .grid get treated the same way.
 // This might be overkill for some, but it's a time-saver for me.
+
+// But what if don't want to add an extra column class?
+// [class*="#{$toast-grid-column-namespace}-"] {
+
 .#{$toast-grid-column-namespace} {
 	box-sizing: border-box;
 	display: inline-block;
