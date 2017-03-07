@@ -69,4 +69,46 @@
       margin-top: 40px;
     }
   }
+  @at-root .fancybox-type-html & {
+    .module_item {
+      max-width: 940px;
+      padding: 70px;
+    }
+    &_photo-container, &_name-container {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &_name-container {
+      position: static;
+      background: transparent;
+      text-align: left;
+      opacity: 1;
+      h3 {
+        position: static;
+        trasnform: none;
+      }
+      a {
+        color: $body-color;
+      }
+    }
+    &_photo-container {
+      max-width: 30%;
+      margin-right: 40px;
+    }
+    &_name {
+      display: block;
+      margin-bottom: 10px;
+      @include font-size(36px);
+      color: $brand-color;
+    }
+    &_title {
+      @include font-size(24px);
+    }
+    &_description-container {
+      margin-top: 40px;
+    }
+    &_description {
+      display: block;
+    }
+  }
 }

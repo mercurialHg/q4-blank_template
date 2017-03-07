@@ -120,6 +120,9 @@
         max-width: none;
       }
     }
+    .module-search {
+      display: none;
+    }
     .nav {
       background: $brand-color;
       text-align: center;
@@ -194,10 +197,37 @@
       .pane_inner {
         padding: 0;
       }
+      .module-search {
+        display: block;
+        &_input {
+          width: 100%;
+          max-width: none;
+          padding: 20px;
+          border: none;
+          background-color: darken($brand-color, 7.5%);
+          color: #fff;
+          text-transform: uppercase;
+          /// For some reason, these have to be separated
+          &::-webkit-input-placeholder {
+            color: rgba($light-color, 1);
+          }
+          &::-moz-placeholder {
+            color: rgba($light-color, 1);
+          }
+          &::-ms-input-placeholder {
+            color: rgba($light-color, 1);
+          }
+        }
+        &_button {
+          top: 20px;
+          right: 20px;
+          background-position: 0 -100%;
+        }
+      }
       .nav {
         text-align: left;
         li {
-          border-top: 1px solid darken($brand-color, 10%);
+          border-top: 1px solid rgba($dark-color, 0.1);
           &.has-children {
             & > a:after {
               float: right;

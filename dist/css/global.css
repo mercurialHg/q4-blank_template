@@ -103,7 +103,7 @@ h3 {
 
 h4 {
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -226,7 +226,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 2px solid #006fba;
   border-radius: 0;
-  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-select.svg") no-repeat right 10px center;
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_select--black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   font-size: 14px;
   font-size: 0.875rem;
@@ -695,6 +695,10 @@ body.PreviewBody {
   display: none !important;
 }
 
+.disabled {
+  opacity: 0.25;
+}
+
 .absolute {
   position: absolute;
 }
@@ -755,6 +759,10 @@ body.PreviewBody {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .background--cover {
   background-position: center center;
   background-repeat: no-repeat;
@@ -783,6 +791,10 @@ body.PreviewBody {
 /*==================================
  --------- ACCESSIBILITY ----------
 ==================================*/
+*:focus {
+  outline: none;
+}
+
 a:focus {
   text-decoration: underline !important;
 }
@@ -886,7 +898,7 @@ a:focus {
     margin-bottom: 10px;
   }
 }
-.module_options-select {
+.module_options-label, .module_options-select {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
@@ -1447,6 +1459,48 @@ a:focus {
 .module-person-details_description-container {
   margin-top: 40px;
 }
+.fancybox-type-html .module-person .module_item {
+  max-width: 940px;
+  padding: 70px;
+}
+.fancybox-type-html .module-person_photo-container, .fancybox-type-html .module-person_name-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+.fancybox-type-html .module-person_name-container {
+  position: static;
+  background: transparent;
+  text-align: left;
+  opacity: 1;
+}
+.fancybox-type-html .module-person_name-container h3 {
+  position: static;
+  trasnform: none;
+}
+.fancybox-type-html .module-person_name-container a {
+  color: #333333;
+}
+.fancybox-type-html .module-person_photo-container {
+  max-width: 30%;
+  margin-right: 40px;
+}
+.fancybox-type-html .module-person_name {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-size: 2.25rem;
+  color: #006fba;
+}
+.fancybox-type-html .module-person_title {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.fancybox-type-html .module-person_description-container {
+  margin-top: 40px;
+}
+.fancybox-type-html .module-person_description {
+  display: block;
+}
 
 .module-presentation .module_body {
   display: none;
@@ -1470,8 +1524,8 @@ a:focus {
   height: 15px;
   padding: 0;
   border: 0;
-  background: #fff url("https://q4blankdev.s3.q4web.com/files/design/svg/icon-search.svg");
-  background-size: contain;
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_buttons.svg");
+  background-size: 300%;
   font-size: 0;
   cursor: pointer;
 }
@@ -1835,6 +1889,9 @@ a:focus {
     max-width: none;
   }
 }
+.pane--navigation .module-search {
+  display: none;
+}
 .pane--navigation .nav {
   background: #006fba;
   text-align: center;
@@ -1907,11 +1964,37 @@ a:focus {
   .pane--navigation .pane_inner {
     padding: 0;
   }
+  .pane--navigation .module-search {
+    display: block;
+  }
+  .pane--navigation .module-search_input {
+    width: 100%;
+    max-width: none;
+    padding: 20px;
+    border: none;
+    background-color: #005894;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .pane--navigation .module-search_input::-webkit-input-placeholder {
+    color: white;
+  }
+  .pane--navigation .module-search_input::-moz-placeholder {
+    color: white;
+  }
+  .pane--navigation .module-search_input::-ms-input-placeholder {
+    color: white;
+  }
+  .pane--navigation .module-search_button {
+    top: 20px;
+    right: 20px;
+    background-position: 0 -100%;
+  }
   .pane--navigation .nav {
     text-align: left;
   }
   .pane--navigation .nav li {
-    border-top: 1px solid #005187;
+    border-top: 1px solid rgba(34, 34, 34, 0.1);
   }
   .pane--navigation .nav li.has-children > a:after {
     float: right;
@@ -2117,6 +2200,42 @@ a:focus {
 }
 .module-overview_button.js--active:before {
   content: "Show Less";
+}
+
+/*--- Blank Demo and Reference ---*/
+.module-icon-demo_list {
+  margin-top: 2rem;
+}
+.module-icon-demo_item {
+  margin-bottom: 20px;
+}
+.module-icon-demo_wrap {
+  padding: 20px;
+  background: #f6f6f6;
+}
+.module-icon-demo_note {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(34, 34, 34, 0.1);
+}
+.module-icon-demo_name, .module-icon-demo_unicode {
+  float: right;
+}
+
+.module-grid-demo_table {
+  margin-bottom: 2rem;
+}
+.module-grid-demo_grid .grid_col {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.module-grid-demo_grid .grid_col p {
+  margin: 0;
+  padding: 20px;
+  background: #f6f6f6;
+}
+.module-grid-demo_grid .grid_col p + p {
+  padding-top: 0;
 }
 
 /*# sourceMappingURL=global.css.map */

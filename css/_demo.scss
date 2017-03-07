@@ -1,0 +1,42 @@
+/*--- Blank Demo and Reference ---*/
+
+.module-icon-demo {
+  &_list {
+    margin-top: 2rem;
+  }
+  &_item {
+    margin-bottom: 20px;
+  }
+  &_wrap {
+    padding: 20px;
+    background: $grey-color;
+  }
+  &_note {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba($dark-color, 0.1);
+  }
+  &_name, &_unicode {
+    float: right;
+  }
+}
+
+.module-grid-demo {
+  &_table {
+    margin-bottom: 2rem;
+  }
+  &_grid {
+    .grid_col {
+      margin-bottom: 20px;
+      text-align: center;
+      p {
+        margin: 0;
+        padding: 20px;
+        background: $grey-color;
+      }
+      p + p {
+        padding-top: 0;
+      }
+    }
+  }
+}

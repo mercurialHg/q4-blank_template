@@ -90,7 +90,7 @@
     }
   }
   &_options {
-    &-select {
+    &-label, &-select {
       margin-right: 10px;
     }
     @include layout-medium {

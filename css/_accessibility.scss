@@ -2,6 +2,9 @@
  --------- ACCESSIBILITY ----------
 ==================================*/
 
+*:focus {
+  outline: none;
+}
 a:focus {
   text-decoration: underline !important;
 }

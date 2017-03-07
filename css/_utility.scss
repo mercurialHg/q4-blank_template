@@ -5,6 +5,9 @@
 .hidden {
     display: none !important;
 }
+.disabled {
+    opacity: 0.25;
+}
 
 .absolute {
     position: absolute;
@@ -55,6 +58,9 @@
 
 .uppercase {
     text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
 }
 
 .background--cover {
