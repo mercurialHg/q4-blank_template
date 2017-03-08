@@ -175,19 +175,6 @@ input[type="checkbox"] + label {
   vertical-align: baseline;
 }
 
-pre {
-  margin: 2rem 0;
-  padding: 20px 15px;
-  background: #f6f6f6;
-  border-left: 3px solid rgba(0, 111, 186, 0.5);
-  font-family: monospace, serif;
-  font-size: 14px;
-  font-size: 0.875rem;
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: pre;
-}
-
 /*---------- Q4 SPECIFIC ---------*/
 .PreviewToolBar {
   display: none;
@@ -266,11 +253,17 @@ body.PreviewBody {
   color: #fff;
 }
 
-.accordion_trigger:focus {
-  outline: none;
-}
-.accordion_panel {
-  display: none;
+.pre {
+  margin: 2rem 0;
+  padding: 20px 15px;
+  background: #f6f6f6;
+  border-left: 3px solid rgba(0, 111, 186, 0.5);
+  font-family: monospace, serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
 }
 
 /*==================================
@@ -1255,6 +1248,43 @@ a:focus {
   color: #006fba;
 }
 
+/*---------- Job Modules ---------*/
+.module-job-details_description-container {
+  margin-bottom: 35px;
+  border-top: 1px solid rgba(34, 34, 34, 0.1);
+}
+.module-job-details_description {
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+.module-job-details_description label {
+  font-weight: normal;
+}
+.module-job-details_description input {
+  width: auto;
+  max-width: none;
+  height: 1rem;
+  padding: 0;
+  border: none;
+  float: right;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+@media only screen and (max-width: 480px) {
+  .module-job-details_description label:after {
+    content: ":";
+  }
+  .module-job-details_description input {
+    display: block;
+    float: none;
+    margin-top: 0.5rem;
+  }
+}
+.module-job-details .grid_col {
+  padding: 15px 20px;
+}
+
 /*----- Miscellaneous Modules ----*/
 .module-script {
   display: none;
@@ -1691,17 +1721,20 @@ a:focus {
   margin-bottom: 30px;
 }
 .module-stock .module_container--content {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid rgba(34, 34, 34, 0.2);
 }
 .module-stock_lookup-title {
   padding-left: 20px;
 }
 .module-stock_label, .module-stock_value {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.2);
 }
 .module-stock_label > span, .module-stock_value > span {
   display: block;
   padding: 15px 20px;
+}
+.module-stock_label {
+  font-weight: normal;
 }
 .module-stock_value .module-stock_price:before, .module-stock_value .module-stock_high:before, .module-stock_value .module-stock_low:before,
 .module-stock_value .module-stock_open:before, .module-stock_value .module-stock_close:before,
@@ -2041,6 +2074,9 @@ a:focus {
   .pane--navigation .nav .level2 > li {
     display: block;
   }
+  .pane--navigation .nav .level2 > li.js--expanded .level3 {
+    display: block;
+  }
   .pane--navigation .nav .level2 > li > a {
     padding: 20px 20px 20px 48px;
     font-size: 16px;
@@ -2048,6 +2084,7 @@ a:focus {
   }
   .pane--navigation .nav .level3 {
     position: static;
+    display: none;
     border: none;
   }
   .pane--navigation .nav .level3 > li {

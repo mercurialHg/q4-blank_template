@@ -1,0 +1,49 @@
+/*---------- Job Modules ---------*/
+
+.module-job {
+  // Job List Module
+  &-list {
+
+  }
+  // Job Details Module
+  &-details {
+    &_description-container {
+      margin-bottom: 35px;
+      border-top: 1px solid rgba($dark-color, 0.1);
+    }
+    &_description {
+      border-bottom: 1px solid rgba($dark-color, 0.1);
+      label {
+        font-weight: normal;
+      }
+      input {
+        width: auto;
+        max-width: none;
+        height: 1rem;
+        padding: 0;
+        border: none;
+        float: right;
+        font-family: $body-font;
+        @include font-size(16px);
+        font-weight: 300;
+      }
+      @include layout-small {
+        label:after {
+          content: ":"
+        }
+        input {
+          display: block;
+          float: none;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+    .grid_col {
+      padding: 15px 20px;
+    }
+  }
+  // Job Application Module
+  &-application {
+
+  }
+}

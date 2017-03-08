@@ -89,18 +89,6 @@ input[type="checkbox"] + label {
     display: inline-block;
     vertical-align: baseline;
 }
-pre {
-  margin: 2rem 0;
-  padding: 20px 15px;
-  background: $grey-color;
-  border-left: 3px solid rgba($brand-color, 0.5);
-  font-family: monospace, serif;
-  @include font-size(14px);
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: pre;
-}
-
 
 /*---------- Q4 SPECIFIC ---------*/
 
@@ -181,13 +169,14 @@ body.PreviewBody {
   }
 }
 
-.accordion {
-  &_trigger {
-    &:focus {
-      outline: none;
-    }
-  }
-  &_panel {
-    display: none;
-  }
+.pre {
+  margin: 2rem 0;
+  padding: 20px 15px;
+  background: $grey-color;
+  border-left: 3px solid rgba($brand-color, 0.5);
+  font-family: monospace, serif;
+  @include font-size(14px);
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
 }

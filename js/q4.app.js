@@ -72,6 +72,32 @@ var q4Defaults = {
             '</div>'
         )
     },
+
+    /**
+     * A test used to detect whether not the device satisfies a certain OS
+     * @example if (app.isMobile.any()) { // If on a mobile device, execute code }
+     */
+    isMobile: {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+        },
+        any: function() {
+            return (this.Android() || this.BlackBerry() || this.iOS() || this.Opera() || this.Windows());
+        }
+    },
+
     // Default init function
     init: function() { },
 
@@ -236,13 +262,12 @@ var q4Defaults = {
      * Accessible Navigation powered by Superfish
      * @param {$nav} [element]  the nav element (or ul element) you would like to apply superfish to
      * @param {options} [object]  options to be passed into superfish
-     * @param {responsiveValue} [integer]  the responsive breakpoint for mobile navigation
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
-    superfish: function($nav, options, responsiveValue) {
-        var inst = this;
-        $nav.superfish(options);
-        // jQuery('ul.sf-menu').superfish('destroy');
+    superfish: function($nav, options, minWidth) {
+        if (!this.isMobile.any()) {
+            $nav.superfish(options);
+        }
     },
 
     /**
@@ -301,9 +326,10 @@ var q4Defaults = {
      * @param {panel} [selector]  the class assigned to the section that will be revealed if its containing item is toggled
      * @param {accordion} [boolean]  (optional) if true, the toggling section will take on accordion functionality
      * @param {allButton} [boolean]  (optional) if true, the toggling section will be accompanied by a "Hide All / Show All" button
+     * @param {openFirst} [boolean]  (optional) if true, the first item will be set to active with its panel revealed
      * @example app.toggle($('.accordion'), '.accordion_item', '.accordion_toggle', '.accordion_panel', false, true);
      */
-    toggle: function($container, item, toggle, panel, accordion, allButton) {
+    toggle: function($container, item, toggle, panel, accordion, allButton, openFirst) {
         var $this = this,
             $item = $container.find(item);
 
@@ -323,8 +349,10 @@ var q4Defaults = {
             $this._toggleAll($container, item, toggle, panel);
         }
 
-        $item.first().find(toggle).attr('aria-expanded', true);
-        $item.first().addClass('js--active').find(panel).show();
+        if (openFirst) {
+            $item.first().find(toggle).attr('aria-expanded', true);
+            $item.first().addClass('js--active').find(panel).show();
+        }
     },
     _toggleAll: function($container, item, toggle, panel) {
         $container.prepend('<div class="accordion-toggle-all"><a href="#all"></a></div>').on('click', '.accordion-toggle-all a', function(e) {

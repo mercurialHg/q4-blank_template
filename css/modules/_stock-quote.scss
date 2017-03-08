@@ -5,17 +5,20 @@
     margin-bottom: 30px;
   }
   .module_container--content {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgba($dark-color, 0.2);
   }
   &_lookup-title {
     padding-left:20px;
   }
   &_label, &_value {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid rgba($dark-color, 0.2);
     > span {
       display: block;
-    padding: 15px 20px;
+      padding: 15px 20px;
     }
+  }
+  &_label {
+    font-weight: normal;
   }
   &_value {
     .module-stock_price:before, .module-stock_high:before, .module-stock_low:before,
