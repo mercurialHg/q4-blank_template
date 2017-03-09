@@ -160,6 +160,7 @@
         position: absolute;
         top: 100%;
         left: 0;
+        display: none;
         width: 100%;
         min-width: 200px;
         border-top: 2px solid $light-color;
@@ -284,7 +285,6 @@
         }
         .level3 {
           position: static;
-          display: none;
           border: none;
           & > li {
             display: block;

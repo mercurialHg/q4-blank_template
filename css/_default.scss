@@ -51,12 +51,6 @@ em {
 
 /*------------ COMMON ------------*/
 
-ol, ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 img {
   max-width: 100%;
 }
@@ -128,7 +122,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 2px solid $brand-color;
   border-radius: 0;
-  background: transparent url($host+'/files/design/svg/q4-icon_select--black.svg') no-repeat right 10px center;
+  background: transparent url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 10px center;
   background-size: 14px 14px;
   @include font-size(14px);
   font-weight: normal;
