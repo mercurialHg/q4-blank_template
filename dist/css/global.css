@@ -133,12 +133,6 @@ em {
 }
 
 /*------------ COMMON ------------*/
-ol, ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 img {
   max-width: 100%;
 }
@@ -213,7 +207,7 @@ body.PreviewBody {
   padding: 15px 35px 15px 20px;
   border: 2px solid #006fba;
   border-radius: 0;
-  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_select--black.svg") no-repeat right 10px center;
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   font-size: 14px;
   font-size: 0.875rem;
@@ -992,37 +986,144 @@ a:focus {
 }
 
 /*--------- Event Module ---------*/
-.module.module-event .module_location, .module.module-event .module_speakers h4, .module.module-event .module_body {
+.module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
   display: none;
 }
-.module.module-event-latest .module_container--content {
+.module-event-latest .module_container--content {
   margin-bottom: 20px;
 }
-.module.module-event-latest .module_item {
+.module-event-latest .module_item {
   margin: 10px 0;
   padding: 0 0 0 20px;
   border: none;
   text-align: left;
 }
 @media only screen and (max-width: 768px) {
-  .module.module-event-latest .module_item:first-child {
+  .module-event-latest .module_item:first-child {
     width: 100%;
   }
 }
-.module.module-event-latest .module_item-wrap {
+.module-event-latest .module_item-wrap {
   padding: 30px;
   background: #f6f6f6;
 }
-.module.module-event-latest .module_date-time {
+.module-event-latest .module_date-time {
   margin-bottom: 15px;
   font-weight: normal;
 }
-.module.module-event-latest .module_headline {
+.module-event-latest .module_headline {
   line-height: 150%;
   font-weight: 200;
 }
-.module.module-event-latest .module_links {
+.module-event-latest .module_links {
   margin: 0;
+}
+.module-event-calendar {
+  display: table;
+  width: 100%;
+}
+.module-event-calendar_calendar-container, .module-event-calendar_event-container {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;
+}
+.module-event-calendar_calendar-container {
+  padding-right: 20px;
+}
+.module-event-calendar_event-container {
+  padding: 50px;
+  background-color: #f6f6f6;
+}
+.module-event-calendar_controls {
+  padding: 20px 15px;
+  background-color: #006fba;
+  font-weight: bold;
+  color: #fff;
+}
+.module-event-calendar_previous-month, .module-event-calendar_month, .module-event-calendar_next-month {
+  display: inline-block;
+}
+.module-event-calendar_previous-month, .module-event-calendar_next-month {
+  cursor: pointer;
+}
+.module-event-calendar_previous-month {
+  float: left;
+}
+.module-event-calendar_next-month {
+  float: right;
+}
+.module-event-calendar_day-container {
+  border-bottom: 1px solid rgba(0, 111, 186, 0.2);
+}
+.module-event-calendar_day {
+  position: relative;
+  width: 14.285%;
+  margin: 0;
+  padding: 8px 0 25px;
+  border-top: 1px solid rgba(0, 111, 186, 0.2);
+  border-left: 1px solid rgba(0, 111, 186, 0.2);
+}
+.module-event-calendar_day--name {
+  padding: 15px 0 10px;
+  border: none;
+}
+.module-event-calendar_day.calendar-dow-6 {
+  border-right: 1px solid rgba(0, 111, 186, 0.2);
+}
+.module-event-calendar_day.adjacent-month {
+  color: rgba(51, 51, 51, 0.1);
+}
+.module-event-calendar_day.today {
+  background: #f6f6f6;
+}
+.module-event-calendar_day.event {
+  cursor: pointer;
+}
+.module-event-calendar_day.event:after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: block;
+  height: 4px;
+  background-color: #006fba;
+}
+.module-event-calendar_day.selected.event {
+  background-color: #006fba;
+  color: #fff;
+}
+.module-event-calendar_day.selected.event:after {
+  background-color: #fff;
+}
+.module-event-calendar .module_item {
+  padding: 0;
+}
+.module-event-calendar .module_date-time, .module-event-calendar .module_headline {
+  margin-bottom: 20px;
+}
+.module-event-calendar .module_links > div:not(:last-of-type) a {
+  padding-right: 15px;
+  border-right: 1px solid #006fba;
+}
+.module-event-calendar .module_add-to-calendar {
+  margin: 0;
+}
+@media only screen and (max-width: 768px) {
+  .module-event-calendar {
+    display: block;
+  }
+  .module-event-calendar_calendar-container, .module-event-calendar_event-container {
+    display: block;
+    width: 100%;
+  }
+  .module-event-calendar_calendar-container {
+    padding-right: 0;
+  }
+  .module-event-calendar_event-container {
+    margin-top: 20px;
+  }
 }
 
 /*---------- FAQ Module ----------*/
@@ -1962,6 +2063,7 @@ a:focus {
   position: absolute;
   top: 100%;
   left: 0;
+  display: none;
   width: 100%;
   min-width: 200px;
   border-top: 2px solid #fff;
@@ -2084,7 +2186,6 @@ a:focus {
   }
   .pane--navigation .nav .level3 {
     position: static;
-    display: none;
     border: none;
   }
   .pane--navigation .nav .level3 > li {

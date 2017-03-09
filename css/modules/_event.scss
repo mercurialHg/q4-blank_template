@@ -1,11 +1,13 @@
 /*--------- Event Module ---------*/
 
-.module.module-event {
+.module-event {
+  // Event List Module
   .module {
     &_location, &_speakers h4, &_body {
       display: none;
     }
   }
+  // Event Latest Widget
   &-latest {
     .module {
       &_container--content {
@@ -36,6 +38,118 @@
       }
       &_links {
         margin: 0;
+      }
+    }
+  }
+  // Event Calendar Widget
+  &-calendar {
+    display: table;
+    width: 100%;
+    &_calendar-container, &_event-container {
+      display: table-cell;
+      width: 50%;
+      text-align: center;
+      vertical-align: middle;
+    }
+    &_calendar-container {
+      padding-right: 20px;
+    }
+    &_event-container {
+      padding: 50px;
+      background-color: $grey-color;
+    }
+    &_controls {
+      padding: 20px 15px;
+      background-color: $brand-color;
+      font-weight: bold;
+      color: $light-color;
+    }
+    &_previous-month, &_month, &_next-month {
+      display: inline-block;
+    }
+    &_previous-month, &_next-month {
+      cursor: pointer;
+    }
+    &_previous-month {
+      float: left;
+    }
+    &_next-month {
+      float: right;
+    }
+    &_day-container {
+      border-bottom: 1px solid rgba($brand-color, 0.2);
+    }
+    &_day {
+      position: relative;
+      width: 14.285%;
+      margin: 0;
+      padding: 8px 0 25px;
+      border-top: 1px solid rgba($brand-color, 0.2);
+      border-left: 1px solid rgba($brand-color, 0.2);
+      &--name {
+        padding: 15px 0 10px;
+        border: none;
+      }
+      &.calendar-dow-6 {
+        border-right: 1px solid rgba($brand-color, 0.2);
+      }
+      &.adjacent-month {
+        color: rgba($body-color, 0.1);
+      }
+      &.today {
+        background: $grey-color;
+      }
+      &.event {
+        cursor: pointer;
+        &:after {
+          content: "";
+          position: absolute;
+          right: 10px; bottom: 10px; left: 10px;
+          display: block;
+          height: 4px;
+          background-color: $brand-color;
+        }
+      }
+      &.selected {
+        &.event {
+          background-color: $brand-color;
+          color: $light-color;
+          &:after {
+            background-color: $light-color;
+          }
+        }
+      }
+    }
+    .module {
+      &_item {
+        padding: 0;
+      }
+      &_date-time, &_headline {
+        margin-bottom: 20px;
+      }
+      &_links {
+        > div:not(:last-of-type) {
+          a {
+            padding-right: 15px;
+            border-right: 1px solid $brand-color;
+          }
+        }
+      }
+      &_add-to-calendar {
+        margin: 0;
+      }
+    }
+    @include layout-medium {
+      display: block;
+      &_calendar-container, &_event-container {
+        display: block;
+        width: 100%;
+      }
+      &_calendar-container {
+        padding-right: 0;
+      }
+      &_event-container {
+        margin-top: 20px;
       }
     }
   }
