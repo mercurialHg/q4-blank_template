@@ -10,10 +10,15 @@
   &_view-all-link, &_more {
     display: none;
   }
+  // Small Spacing
   &_headline, &_location, &_speakers,
-  &_links, &_body, &_add-to-calendar, &_error-container,
+  &_links, &_body, &_add-to-calendar,
   &_options, &_not-found {
     margin-bottom: 15px;
+  }
+  // Large Spacing
+  &_error-container {
+    margin-bottom: 30px;
   }
   &_actions, &_pager {
     margin-top: 15px;
@@ -40,6 +45,16 @@
       float: left;
       margin-right: 2rem;
     }
+  }
+  &_input[type="text"], &_input[type="textarea"], textarea.module_input {
+    display: block;
+    /* Text area demands width*/
+    width: 100%;
+    max-width: none;
+    padding: 15px 20px;
+    border: none;
+    background: $grey-color;
+    @include font-size(16px);
   }
   &_introduction {
     margin-bottom: 35px;

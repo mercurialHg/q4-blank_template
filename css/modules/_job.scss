@@ -44,6 +44,45 @@
   }
   // Job Application Module
   &-application {
+    &_table {
+      display: block;
+      width: 100%;
+      tr {
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 20px;
+        vertical-align: top;
+        &:nth-child(odd) {
+          padding-right: 10px;
+        }
+        &:nth-child(even) {
+          padding-left: 10px;
+        }
+        // Specific Inputs
+        &.module-job-application_cover-letter-text,
+        &.module-job-application_resume-text {
+          display: block;
+          width: 100%;
+          padding: 0;
+        }
+      }
+      td {
+        display: block;
+      }
+    }
+    &_input {
+      position: relative;
+      label {
+        @include sr-only();
+      }
+    }
 
+    // Required Star
+    .module {
+      &_required {
+        position: absolute;
+        top: 15px; right: 20px;
+      }
+    }
   }
 }

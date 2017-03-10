@@ -808,8 +808,11 @@ a:focus {
 .module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link, .module_more {
   display: none;
 }
-.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_error-container, .module_options, .module_not-found {
+.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_options, .module_not-found {
   margin-bottom: 15px;
+}
+.module_error-container {
+  margin-bottom: 30px;
 }
 .module_actions, .module_pager {
   margin-top: 15px;
@@ -837,6 +840,17 @@ a:focus {
 .module_image--left {
   float: left;
   margin-right: 2rem;
+}
+.module_input[type="text"], .module_input[type="textarea"], .module textarea.module_input {
+  display: block;
+  /* Text area demands width*/
+  width: 100%;
+  max-width: none;
+  padding: 15px 20px;
+  border: none;
+  background: #f6f6f6;
+  font-size: 16px;
+  font-size: 1rem;
 }
 .module_introduction {
   margin-bottom: 35px;
@@ -1384,6 +1398,48 @@ a:focus {
 }
 .module-job-details .grid_col {
   padding: 15px 20px;
+}
+.module-job-application_table {
+  display: block;
+  width: 100%;
+}
+.module-job-application_table tr {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 20px;
+  vertical-align: top;
+}
+.module-job-application_table tr:nth-child(odd) {
+  padding-right: 10px;
+}
+.module-job-application_table tr:nth-child(even) {
+  padding-left: 10px;
+}
+.module-job-application_table tr.module-job-application_cover-letter-text, .module-job-application_table tr.module-job-application_resume-text {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+.module-job-application_table td {
+  display: block;
+}
+.module-job-application_input {
+  position: relative;
+}
+.module-job-application_input label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.module-job-application .module_required {
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 /*----- Miscellaneous Modules ----*/

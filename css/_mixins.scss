@@ -143,3 +143,31 @@
   }
 }
 
+/// used to quickly apply screen-reader-only styling
+/// @example
+/// .module_label {
+///   @include sr-only();
+/// }
+/// @output <pre>
+/// .module_label {
+///   position: absolute;
+///   width: 1px;
+///   height: 1px;
+///   padding: 0;
+///   margin: -1px;
+///   overflow: hidden;
+///   clip: rect(0,0,0,0);
+///   border: 0;
+/// }
+/// </pre>
+@mixin sr-only() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
