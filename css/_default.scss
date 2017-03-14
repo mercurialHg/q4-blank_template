@@ -61,19 +61,21 @@ input[type="text"], input[type="textarea"] {
   padding: 15px;
   border: 1px solid #dfdfdf;
   @include font-size(14px);
+  font-weight: 300;
 }
 input[type="checkbox"] {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   display: inline-block;
-  height: 0.7rem;
-  width: 0.65rem;
+  height: 10px;
+  width: 10px;
   margin: 0 5px 0 0;
-  border: 1px solid $light-color;
+  border: 1px solid;
+  border-color: $body-color;
   vertical-align: baseline;
   &:checked  {
-    border: 3px solid $light-color;
+    border: 3px solid;
   }
   &:focus {
     outline: none;
@@ -81,6 +83,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"] + label {
     display: inline-block;
+    @include font-size(14px);
     vertical-align: baseline;
 }
 
@@ -173,4 +176,5 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
+  overflow: hidden;
 }

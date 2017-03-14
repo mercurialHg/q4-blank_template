@@ -2,21 +2,79 @@
 
 .module-subscribe {
   &_table {
+    display: block;
     width: 100%;
-    &-row {
-      td {
-        padding-bottom: 10px;
-      }
-    }
-  }
-  &_form {
     margin-bottom: 10px;
-    td {
-      display: inline-block;
+    tbody {
       width: 100%;
     }
   }
+  &_form {
+    tr {
+      display: inline-block;
+      width: 50%;
+      margin-bottom: 20px;
+      vertical-align: top;
+      &:nth-child(even) {
+        padding-left: 10px;
+      }
+      &:nth-child(odd) {
+        padding-right: 10px;
+      }
+      // Specific Inputs
+      &.module-subscribe_notes-text {
+        margin: 0;
+      }
+      &.module-subscribe_notes-text,
+      &.module-subscribe_notes-input {
+        display: block;
+        width: 100%;
+        padding: 0;
+      }
+      @include layout-medium {
+        width: 100%;
+        &:nth-child(even) {
+          padding-left: 0;
+        }
+        &:nth-child(odd) {
+          padding-right: 0;
+        }
+      }
+    }
+    td {
+      display: block;
+    }
+    label {
+      display: inline-block;
+      margin-bottom: 5px;
+      @include font-size(14px);
+    }
+  }
+  &_mailing-list {
+    tr {
+      &.module-subscribe_list-header {
+        td {
+          padding-bottom: 15px;
+        }
+      }
+    }
+    td {
+      padding-bottom: 10px;
+    }
+  }
   &_list {
-    width: 100%;
+    & > td {
+      padding-left: 20px;
+    }
+  }
+  // Required Star
+  .module_required {
+    @include font-size(14px);
+  }
+  .CaptchaContainer {
+    width: 50%;
+    @include layout-medium {
+      width: 100%;
+    }
   }
 }

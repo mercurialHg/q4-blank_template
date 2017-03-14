@@ -21,11 +21,15 @@
     margin-bottom: 30px;
   }
   &_actions, &_pager {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   &_date-time {
     margin-bottom: 5px;
     @include font-size(14px);
+  }
+  &_dropdown {
+    background: transparent url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
+    background-size: 14px 14px;
   }
   &_headline {
     font-weight: normal;
@@ -46,15 +50,21 @@
       margin-right: 2rem;
     }
   }
-  &_input[type="text"], &_input[type="textarea"], textarea.module_input {
+  &_input[type="text"], &_input[type="textarea"],
+  textarea.module_input, &_dropdown {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     display: block;
     /* Text area demands width*/
     width: 100%;
     max-width: none;
     padding: 15px 20px;
     border: none;
-    background: $grey-color;
+    border-radius: 0;
+    background-color: $grey-color;
     @include font-size(16px);
+    font-weight: 300;
   }
   &_introduction {
     margin-bottom: 35px;
@@ -154,6 +164,12 @@
   }
   &_required, &_error-container {
     color: $error-color;
+  }
+  &_required {
+    &-text {
+      @include font-size(13px);
+      color: $error-color;
+    }
   }
   &_rss {
     float: right;

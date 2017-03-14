@@ -144,6 +144,7 @@ input[type="text"], input[type="textarea"] {
   border: 1px solid #dfdfdf;
   font-size: 14px;
   font-size: 0.875rem;
+  font-weight: 300;
 }
 
 input[type="checkbox"] {
@@ -151,14 +152,15 @@ input[type="checkbox"] {
   -moz-appearance: none;
   -webkit-appearance: none;
   display: inline-block;
-  height: 0.7rem;
-  width: 0.65rem;
+  height: 10px;
+  width: 10px;
   margin: 0 5px 0 0;
-  border: 1px solid #fff;
+  border: 1px solid;
+  border-color: #333333;
   vertical-align: baseline;
 }
 input[type="checkbox"]:checked {
-  border: 3px solid #fff;
+  border: 3px solid;
 }
 input[type="checkbox"]:focus {
   outline: none;
@@ -166,6 +168,8 @@ input[type="checkbox"]:focus {
 
 input[type="checkbox"] + label {
   display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
   vertical-align: baseline;
 }
 
@@ -258,6 +262,7 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
+  overflow: hidden;
 }
 
 /*==================================
@@ -815,12 +820,16 @@ a:focus {
   margin-bottom: 30px;
 }
 .module_actions, .module_pager {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .module_date-time {
   margin-bottom: 5px;
   font-size: 14px;
   font-size: 0.875rem;
+}
+.module_dropdown {
+  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background-size: 14px 14px;
 }
 .module_headline {
   font-weight: normal;
@@ -841,16 +850,22 @@ a:focus {
   float: left;
   margin-right: 2rem;
 }
-.module_input[type="text"], .module_input[type="textarea"], .module textarea.module_input {
+.module_input[type="text"], .module_input[type="textarea"],
+.module textarea.module_input, .module_dropdown {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
   display: block;
   /* Text area demands width*/
   width: 100%;
   max-width: none;
   padding: 15px 20px;
   border: none;
-  background: #f6f6f6;
+  border-radius: 0;
+  background-color: #f6f6f6;
   font-size: 16px;
   font-size: 1rem;
+  font-weight: 300;
 }
 .module_introduction {
   margin-bottom: 35px;
@@ -943,6 +958,11 @@ a:focus {
 .module_required, .module_error-container {
   color: #b72121;
 }
+.module_required-text {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #b72121;
+}
 .module_rss {
   float: right;
 }
@@ -971,6 +991,40 @@ a:focus {
 .module.dark .module_nav-link.selected, .module.dark .module_nav .ModuleYearLink.selected {
   background-color: #fff;
   color: #006fba;
+}
+
+/*------- Captcha Component ------*/
+.CaptchaContainer table tr:nth-child(1) {
+  display: none;
+}
+.CaptchaContainer table tr:nth-child(2) td {
+  padding-bottom: 20px;
+}
+.CaptchaContainer table tr:nth-child(3) td {
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.CaptchaContainer table tr td {
+  padding-right: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .CaptchaContainer table tr td {
+    padding-right: 0;
+  }
+}
+.CaptchaContainer input {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  max-width: none;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0;
+  background-color: #f6f6f6;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 /*----- Download List Module -----*/
@@ -1410,10 +1464,10 @@ a:focus {
   vertical-align: top;
 }
 .module-job-application_table tr:nth-child(odd) {
-  padding-right: 10px;
+  padding-left: 10px;
 }
 .module-job-application_table tr:nth-child(even) {
-  padding-left: 10px;
+  padding-right: 10px;
 }
 .module-job-application_table tr.module-job-application_cover-letter-text, .module-job-application_table tr.module-job-application_resume-text {
   display: block;
@@ -1422,8 +1476,6 @@ a:focus {
 }
 .module-job-application_table td {
   display: block;
-}
-.module-job-application_input {
   position: relative;
 }
 .module-job-application_input label {
@@ -1911,23 +1963,102 @@ a:focus {
 
 /*- MailingList Subscribe Module -*/
 .module-subscribe_table {
+  display: block;
   width: 100%;
-}
-.module-subscribe_table-row td {
-  padding-bottom: 10px;
-}
-.module-subscribe_form {
   margin-bottom: 10px;
 }
-.module-subscribe_form td {
-  display: inline-block;
+.module-subscribe_table tbody {
   width: 100%;
 }
-.module-subscribe_list {
+.module-subscribe_form tr {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 20px;
+  vertical-align: top;
+}
+.module-subscribe_form tr:nth-child(even) {
+  padding-left: 10px;
+}
+.module-subscribe_form tr:nth-child(odd) {
+  padding-right: 10px;
+}
+.module-subscribe_form tr.module-subscribe_notes-text {
+  margin: 0;
+}
+.module-subscribe_form tr.module-subscribe_notes-text, .module-subscribe_form tr.module-subscribe_notes-input {
+  display: block;
   width: 100%;
+  padding: 0;
+}
+@media only screen and (max-width: 768px) {
+  .module-subscribe_form tr {
+    width: 100%;
+  }
+  .module-subscribe_form tr:nth-child(even) {
+    padding-left: 0;
+  }
+  .module-subscribe_form tr:nth-child(odd) {
+    padding-right: 0;
+  }
+}
+.module-subscribe_form td {
+  display: block;
+}
+.module-subscribe_form label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.module-subscribe_mailing-list tr.module-subscribe_list-header td {
+  padding-bottom: 15px;
+}
+.module-subscribe_mailing-list td {
+  padding-bottom: 10px;
+}
+.module-subscribe_list > td {
+  padding-left: 20px;
+}
+.module-subscribe .module_required {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.module-subscribe .CaptchaContainer {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .module-subscribe .CaptchaContainer {
+    width: 100%;
+  }
 }
 
 /* MailingList Unsubscribe Module */
+.module-unsubscribe_table {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .module-unsubscribe_table {
+    width: 100%;
+  }
+}
+.module-unsubscribe_table td {
+  padding-right: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .module-unsubscribe_table td {
+    padding-right: 0;
+  }
+}
+.module-unsubscribe_table label {
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 5px;
+}
+.module-unsubscribe_table .module_input[type="text"] {
+  background-color: #fff;
+}
+
 /*==================================
  ----------- LAYOUT CSS -----------
 ==================================*/
@@ -2319,24 +2450,47 @@ a:focus {
   font-weight: normal;
   text-transform: uppercase;
 }
+.pane--footer .module_error-container {
+  margin-bottom: 20px;
+}
 .pane--footer .module_introduction {
   display: none;
 }
 .pane--footer .module-links {
   text-transform: uppercase;
 }
-.pane--footer .module-subscribe_table-label, .pane--footer .module-subscribe_mailing-list,
+.pane--footer .module-links li {
+  margin-bottom: 5px;
+}
+.pane--footer .module-subscribe_email label, .pane--footer .module-subscribe_list-header, .pane--footer .module-subscribe_email .module_required, .pane--footer .module-subscribe_mailing-list,
 .pane--footer .module-subscribe .CaptchaContainer,
 .pane--footer .module-subscribe .module_actions {
   display: none;
 }
-.pane--footer .module-subscribe_mailing-list.js--revealed {
-  display: table;
+.pane--footer .module-subscribe_form tbody {
+  display: block;
 }
+.pane--footer .module-subscribe_form tr {
+  width: 100%;
+  margin: 0;
+}
+.pane--footer .module-subscribe_mailing-list {
+  margin: 20px 0 10px;
+}
+.pane--footer .module-subscribe_list > td {
+  padding: 0;
+}
+.pane--footer .module-subscribe input[type="checkbox"] {
+  border-color: #fff;
+}
+.pane--footer .module-subscribe_mailing-list.js--revealed,
 .pane--footer .module-subscribe .module_actions.js--revealed {
   display: block;
 }
-.pane--footer .module li {
+.pane--footer .module_input[type="text"] {
+  max-width: 300px;
+}
+.pane--footer .module-contact li {
   margin-bottom: 5px;
 }
 .pane--footer .module:not(.module-embed) {
@@ -2375,7 +2529,7 @@ a:focus {
 }
 
 /*--------- Page Specific --------*/
-.page-overview .pane--content {
+.page--no-padding .pane--content {
   padding: 0;
 }
 

@@ -1,5 +1,24 @@
 /* MailingList Unsubscribe Module */
 
 .module-unsubscribe {
-
+  &_table {
+    width: 50%;
+    @include layout-medium {
+      width: 100%;
+    }
+    td {
+      padding-right: 10px;
+      @include layout-medium {
+        padding-right: 0;
+      }
+    }
+    label {
+      display: inline-block;
+      @include font-size(14px);
+      margin-bottom: 5px;
+    }
+    .module_input[type="text"] {
+      background-color: $light-color;
+    }
+  }
 }

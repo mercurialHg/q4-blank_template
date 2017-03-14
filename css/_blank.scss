@@ -330,34 +330,68 @@
       @include fit-and-center($layout-width);
     }
     .module {
+      // Module Titles
       &_title {
         margin-bottom: 20px;
         @include font-size(20px);
         font-weight: normal;
         text-transform: uppercase;
       }
+      &_error-container {
+        margin-bottom: 20px;
+      }
       &_introduction {
         display: none;
       }
+      // Quick Links
       &-links {
         text-transform: uppercase;
+        li {
+          margin-bottom: 5px;
+        }
       }
+      // Mailing List Signup
       &-subscribe {
-        &_table-label,
+        &_email label, &_list-header,
+        &_email .module_required,
         &_mailing-list,
         .CaptchaContainer,
         .module_actions {
           display: none;
         }
-        &_mailing-list.js--revealed {
-          display: table;
+        &_form {
+          tbody {
+            display: block;
+          }
+          tr {
+            width: 100%;
+            margin: 0;
+          }
         }
+        &_mailing-list {
+          margin: 20px 0 10px;
+        }
+        &_list {
+          & > td {
+            padding: 0;
+          }
+        }
+        input[type="checkbox"] {
+          border-color: $light-color;
+        }
+        &_mailing-list.js--revealed,
         .module_actions.js--revealed {
           display: block;
         }
       }
-      li {
-        margin-bottom: 5px;
+      &_input[type="text"] {
+        max-width: 300px;
+      }
+      // IR Contact
+      &-contact {
+        li {
+          margin-bottom: 5px;
+        }
       }
     }
     .module:not(.module-embed) {
@@ -389,7 +423,7 @@
 
 /*--------- Page Specific --------*/
 
-.page-overview {
+.page--no-padding {
   .pane {
     &--content {
       padding: 0;
