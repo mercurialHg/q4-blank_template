@@ -1,0 +1,30 @@
+/*- Investment Calculator Widget -*/
+
+.module-calculator {
+  .module {
+
+  }
+  &_input {
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+    h4 {
+      margin-bottom: 0.75rem;
+    }
+    label {
+      display: inline-block;
+      @include font-size(14px);
+      margin-bottom: 5px;
+    }
+    input[type="checkbox"] + label {
+      margin: 0;
+    }
+    &-row {
+      padding: 0 0 10px 20px;
+      input[type="text"] {
+        margin-top: 10px;
+        max-width: 300px;
+      }
+    }
+  }
+}

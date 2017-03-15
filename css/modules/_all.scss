@@ -11,7 +11,7 @@
     display: none;
   }
   // Small Spacing
-  &_headline, &_location, &_speakers,
+  &_nav, &_headline, &_location, &_speakers,
   &_links, &_body, &_add-to-calendar,
   &_options, &_not-found {
     margin-bottom: 15px;
@@ -96,7 +96,6 @@
     }
   }
   &_nav {
-    margin-bottom: 10px;
     &-link, .ModuleYearLink,
     &-link:visited, .ModuleYearLink:visited {
       display: inline-block;
@@ -119,15 +118,12 @@
       margin-right: 10px;
     }
     @include layout-medium {
-      &-label {
+      &-label, &-select {
         display: block;
         margin-bottom: 10px;
       }
     }
     @include layout-small {
-      &-label {
-        display: none;
-      }
       &-select, &-submit {
         display: block;
         margin-bottom: 10px;

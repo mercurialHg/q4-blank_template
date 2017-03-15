@@ -103,7 +103,7 @@ h3 {
 
 h4 {
   font-size: 1rem;
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -203,7 +203,6 @@ body.PreviewBody {
 }
 
 .dropdown {
-  position: relative;
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -273,7 +272,7 @@ body.PreviewBody {
   margin-left: -20px;
 }
 
-.grid_col-2-of-2, .grid_col-3-of-3, .grid_col-4-of-4, .grid_col-5-of-5, .grid_col-6-of-6, .grid_col-8-of-8, .grid_col-12-of-12 {
+.grid_col-1-of-1, .grid_col-2-of-2, .grid_col-3-of-3, .grid_col-4-of-4, .grid_col-5-of-5, .grid_col-6-of-6, .grid_col-8-of-8, .grid_col-12-of-12 {
   width: 100%;
 }
 
@@ -297,7 +296,7 @@ body.PreviewBody {
   width: 75%;
 }
 
-.grid_col-push-2-of-2, .grid_col-push-3-of-3, .grid_col-push-4-of-4, .grid_col-push-5-of-5, .grid_col-push-6-of-6, .grid_col-push-8-of-8, .grid_col-push-12-of-12 {
+.grid_col-push-1-of-1, .grid_col-push-2-of-2, .grid_col-push-3-of-3, .grid_col-push-4-of-4, .grid_col-push-5-of-5, .grid_col-push-6-of-6, .grid_col-push-8-of-8, .grid_col-push-12-of-12 {
   margin-left: 100%;
 }
 
@@ -321,7 +320,7 @@ body.PreviewBody {
   margin-left: 75%;
 }
 
-.grid_col-pull-2-of-2, .grid_col-pull-3-of-3, .grid_col-pull-4-of-4, .grid_col-pull-5-of-5, .grid_col-pull-6-of-6, .grid_col-pull-8-of-8, .grid_col-pull-12-of-12 {
+.grid_col-pull-1-of-1, .grid_col-pull-2-of-2, .grid_col-pull-3-of-3, .grid_col-pull-4-of-4, .grid_col-pull-5-of-5, .grid_col-pull-6-of-6, .grid_col-pull-8-of-8, .grid_col-pull-12-of-12 {
   margin-left: -100%;
 }
 
@@ -672,6 +671,10 @@ body.PreviewBody {
   width: 100%;
 }
 
+.grid-no-space .grid_col {
+  margin-right: 0;
+}
+
 .grid_col-ab {
   vertical-align: bottom;
 }
@@ -813,7 +816,7 @@ a:focus {
 .module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link, .module_more {
   display: none;
 }
-.module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_options, .module_not-found {
+.module_nav, .module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_options, .module_not-found {
   margin-bottom: 15px;
 }
 .module_error-container {
@@ -894,9 +897,6 @@ a:focus {
 .module_link[style="DISPLAY:block;"] {
   display: inline-block !important;
 }
-.module_nav {
-  margin-bottom: 10px;
-}
 .module_nav-link, .module_nav .ModuleYearLink, .module_nav-link:visited, .module_nav .ModuleYearLink:visited {
   display: inline-block;
   margin-right: 5px;
@@ -918,15 +918,12 @@ a:focus {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
-  .module_options-label {
+  .module_options-label, .module_options-select {
     display: block;
     margin-bottom: 10px;
   }
 }
 @media only screen and (max-width: 480px) {
-  .module_options-label {
-    display: none;
-  }
   .module_options-select, .module_options-submit {
     display: block;
     margin-bottom: 10px;
@@ -1025,6 +1022,30 @@ a:focus {
   font-size: 16px;
   font-size: 1rem;
   font-weight: 300;
+}
+
+/*- Investment Calculator Widget -*/
+.module-calculator_input:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+.module-calculator_input h4 {
+  margin-bottom: 0.75rem;
+}
+.module-calculator_input label {
+  display: inline-block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 5px;
+}
+.module-calculator_input input[type="checkbox"] + label {
+  margin: 0;
+}
+.module-calculator_input-row {
+  padding: 0 0 10px 20px;
+}
+.module-calculator_input-row input[type="text"] {
+  margin-top: 10px;
+  max-width: 300px;
 }
 
 /*----- Download List Module -----*/
@@ -1460,7 +1481,6 @@ a:focus {
 .module-job-application_table tr {
   display: inline-block;
   width: 50%;
-  margin-bottom: 20px;
   vertical-align: top;
 }
 .module-job-application_table tr:nth-child(odd) {
@@ -1468,6 +1488,9 @@ a:focus {
 }
 .module-job-application_table tr:nth-child(even) {
   padding-right: 10px;
+}
+.module-job-application_table tr:not(:last-of-type) {
+  margin-bottom: 20px;
 }
 .module-job-application_table tr.module-job-application_cover-letter-text, .module-job-application_table tr.module-job-application_resume-text {
   display: block;
@@ -1478,20 +1501,15 @@ a:focus {
   display: block;
   position: relative;
 }
-.module-job-application_input label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+.module-job-application_table label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 .module-job-application .module_required {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /*----- Miscellaneous Modules ----*/
@@ -1780,17 +1798,31 @@ a:focus {
 }
 
 /*-------- SEC Module CSS --------*/
+.module-sec .module_header {
+  display: block;
+}
+.module-sec .module_header-text {
+  padding: 15px 8px;
+  background-color: #006fba;
+  color: #fff;
+}
 .module-sec .module_item {
-  padding: 15px 5px;
+  padding: 0;
 }
 .module-sec .module_item:nth-child(odd) {
   background-color: #f6f6f6;
 }
 .module-sec .module_item .grid_col {
   vertical-align: middle;
+  padding: 15px 8px;
 }
-.module-sec_filing {
+.module-sec .module_item .module-sec_filing {
   font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  .module-sec .module_header {
+    display: none;
+  }
 }
 .module-sec_download-list-item {
   display: inline-block;

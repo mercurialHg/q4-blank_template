@@ -101,10 +101,18 @@ var q4Defaults = {
     // Default init function
     init: function() { },
 
-    //Removes DOM elements on load
+    // Removes DOM elements on load
     cleanUp: function() {
         $('#lnkPostback').remove();
         $('#litPageDiv > a:first').remove();
+    },
+
+    // Easier preview navigation
+    resetDate: function() {
+        console.log("q4App.resetDate() is in effect. This should be disabled for live clients.");
+        $('a[href*="s3.q4web.com').each(function() {
+            $(this).attr('href', $(this).attr('href') + '&ResetDate=1');
+        });
     },
 
     /**

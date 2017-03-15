@@ -10,7 +10,7 @@ $toast-grid-column-namespace: "grid_col" !default;
 // $col-groups are the column groups you want
 // For example, $col-groups: (3, 4, 5) will output:
 // .grid_col-n-of-3, .grid_col-n-of-4, [...]
-$toast-col-groups: (2, 3, 4, 5, 6, 8, 12) !default;
+$toast-col-groups: (1, 2, 3, 4, 5, 6, 8, 12) !default;
 
 // Gutter width
 $toast-gutter-width: 20px !default;
@@ -330,6 +330,13 @@ $toast-pulls: true !default;
 	.#{$toast-grid-column-namespace}-span-all {
 		margin-left: 0;
 		width: 100%;
+	}
+}
+
+// Removes the negative margin from the columns
+.#{$toast-grid-namespace}-no-space {
+	.#{$toast-grid-column-namespace} {
+		margin-right: 0;
 	}
 }
 

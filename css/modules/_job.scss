@@ -50,13 +50,15 @@
       tr {
         display: inline-block;
         width: 50%;
-        margin-bottom: 20px;
         vertical-align: top;
         &:nth-child(odd) {
           padding-left: 10px;
         }
         &:nth-child(even) {
           padding-right: 10px;
+        }
+        &:not(:last-of-type) {
+          margin-bottom: 20px;
         }
         // Specific Inputs
         &.module-job-application_cover-letter-text,
@@ -70,19 +72,16 @@
         display: block;
         position: relative;
       }
-    }
-    &_input {
       label {
-        @include sr-only();
+        display: inline-block;
+        margin-bottom: 5px;
+        @include font-size(14px);
       }
     }
 
     // Required Star
-    .module {
-      &_required {
-        position: absolute;
-        top: 15px; right: 20px;
-      }
+    .module_required {
+      @include font-size(14px);
     }
   }
 }
