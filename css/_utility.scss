@@ -69,13 +69,23 @@
     background-size: cover;
 }
 .background--brand {
-    background-color: #006fba;
+    background-color: $brand-color;
 }
 .background--dark {
-    background-color: #222222;
+    background-color: $dark-color;
 }
 .background--grey {
-    background-color: #f6f6f6;
+    background-color: $grey-color;
+}
+
+.color--brand {
+    color: $brand-color;
+}
+.color--dark {
+    color: $dark-color;
+}
+.color--grey {
+    color: $grey-color;
 }
 
 .dark {

@@ -1,0 +1,71 @@
+/*- Committee Composition Widget -*/
+
+.module-committee {
+  .module {
+    &_container {
+      &--desktop {
+        @include layout-medium {
+          display: none;
+        }
+      }
+      &--tablet {
+        display: none;
+        @include layout-medium {
+          display: block;
+        }
+      }
+    }
+    &_header {
+      display: block;
+      border-bottom: 2px solid $grey-color;
+      font-weight: normal;
+    }
+    &_item {
+      padding: 0;
+      &:not(:last-of-type) {
+        border: 0;
+      }
+      &:nth-child(even) {
+        background: $grey-color;
+      }
+    }
+  }
+  .grid_col {
+    padding: 20px 15px;
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+  }
+  &_category {
+    &.js--active {
+      .module_header i:before {
+        content: "\edc2";
+      }
+    }
+  }
+  &_custom-role {
+    margin-left: 5px;
+  }
+  &_bio {
+    display: none;
+    padding: 0 15px 20px;
+    text-align: left;
+    p {
+      margin: 0;
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &_legend-container {
+    padding: 20px 15px;
+  }
+  &_legend {
+    display: inline-block;
+    margin-right: 30px;
+    i {
+      margin-right: 5px;
+    }
+  }
+}

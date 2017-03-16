@@ -38,7 +38,6 @@ a, a:visited {
   color: $brand-color;
 }
 p {
-  margin-bottom: 1rem;
   line-height: 1.5rem;
 }
 
@@ -140,12 +139,8 @@ body.PreviewBody {
     background-color: $brand-color;
     text-align: left;
   }
-  tbody {
-    border-top: 1px solid rgba($dark-color, 0.1);
-    border-bottom: 1px solid rgba($dark-color, 0.1);
-  }
   tr:nth-child(even) {
-    background-color: rgba($dark-color, 0.05);
+    background-color: $grey-color;
   }
   th, td, tr > .grid_col {
     margin: 0;

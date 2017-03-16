@@ -16,6 +16,11 @@
       }
     }
   }
+  &_photo-container {
+    img {
+      width: 100%;
+    }
+  }
   &_name-container {
     position: absolute;
     top: 0; right: 0; bottom: 20px; left: 20px;

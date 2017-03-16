@@ -109,10 +109,12 @@ var q4Defaults = {
 
     // Easier preview navigation
     resetDate: function() {
-        console.log("q4App.resetDate() is in effect. This should be disabled for live clients.");
-        $('a[href*="s3.q4web.com').each(function() {
-            $(this).attr('href', $(this).attr('href') + '&ResetDate=1');
-        });
+        if (GetViewType() === "0") {
+            console.log("q4App.resetDate() is in effect.");
+            $('a[href*="s3.q4web.com').each(function() {
+                $(this).attr('href', $(this).attr('href') + '&ResetDate=1');
+            });
+        }
     },
 
     /**
@@ -272,7 +274,7 @@ var q4Defaults = {
      * @param {options} [object]  options to be passed into superfish
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
-    superfish: function($nav, options, minWidth) {
+    superfish: function($nav, options) {
         if (!this.isMobile.any()) {
             $nav.superfish(options);
         }
@@ -344,6 +346,7 @@ var q4Defaults = {
         $this.accessibilize($container, $container.find(toggle), $container.find(panel));
         
         $item.on('click keypress', toggle, function(e) {
+            e.preventDefault();
             if (e.which == 13 || e.type == 'click') {
                 if (accordion) {
                     $this._accordionTrigger($(this), $container, item, toggle, panel);
