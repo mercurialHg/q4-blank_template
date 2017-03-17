@@ -51,25 +51,6 @@
         }
       }
     }
-    .nav {
-      text-align: right;
-      li {
-        display: inline-block;
-        a {
-          display: block;
-          padding: 50px 15px 30px;
-          color: #333;
-          font-weight: normal;
-        }
-        &.selected a, &.expanded a,
-        a:hover, a:focus {
-          padding: 50px 15px 28px;
-          border-bottom: 2px solid #0F5CA3;
-          color: #0F5CA3;
-          outline: none;
-        }
-      }
-    }
     // Mobile Styles
     @include layout-legacy {
       .pane_inner {
@@ -113,64 +94,6 @@
     }
     .module-search {
       display: none;
-    }
-    .nav {
-      background: $brand-color;
-      text-align: center;
-      .level1 {
-        & > li {
-          display: none;
-          &.selected, &.expanded {
-            display: block;
-              & > a {
-                display: none;
-              }
-          }
-        }
-      }
-      .level2 {
-        display: table;
-        width: 100%;
-        & > li {
-          position: relative;
-          display: table-cell;
-          &:hover, &.selected, &.expanded {
-            background: darken($brand-color, 7.5%);
-          }
-          a {
-            display: block;
-            padding: 20px;
-            @include font-size(14px);
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-      }
-      .level3 {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        display: none;
-        width: 100%;
-        min-width: 200px;
-        border-top: 2px solid $light-color;
-        & > li {
-          text-align: left;
-          a {
-            background: darken($brand-color, 7.5%);
-            &:hover, &:focus {
-              outline: none;
-              background: $brand-color;
-            }
-          }
-          &.selected {
-            a {
-              background: $brand-color;
-            }
-          }
-        }
-      }
     }
     // Mobile Styles
     @include layout-legacy {
@@ -216,76 +139,6 @@
           background-position: 0 -100%;
         }
       }
-      .nav {
-        text-align: left;
-        li {
-          border-top: 1px solid rgba($dark-color, 0.1);
-          &.has-children {
-            & > a:after {
-              float: right;
-              @include icon("\edbe");
-            }
-          }
-          &.js--expanded {
-            & > a:after {
-              content: "\edc2";
-            }
-          }
-        }
-        a {
-          display: block;
-          text-transform: uppercase;
-          font-weight: normal;
-        }
-        .level1 {
-          & > li {
-            display: block;
-            &.expanded {
-              a {
-                display: block;
-              }
-            }
-            &.js--expanded {
-              background: darken($brand-color, 7.5%);
-              a {
-                display: block;
-              }
-              .level2 {
-                display: block;
-              }
-            }
-            & > a {
-              padding: 20px;
-            }
-          }
-        }
-        .level2 {
-          display: none;
-          & > li {
-            display: block;
-            &.js--expanded {
-              .level3 {
-                display: block;
-              }
-            }
-            & > a {
-              padding: 20px 20px 20px 48px;
-              @include font-size(16px);
-            }
-          }
-        }
-        .level3 {
-          position: static;
-          border: none;
-          & > li {
-            display: block;
-            & > a {
-              padding: 20px 20px 20px 72px;
-              @include font-size(16px);
-            }
-          }
-        }
-      }
     }
   }
   &--content {
@@ -307,10 +160,6 @@
         padding-top: $module-vspace--thick;
         padding-bottom: $module-vspace--thick;
       }
-    }
-    .nav--site {
-      @include fit-and-center($layout-width);
-      padding-bottom: $module-vspace;
     }
   }
   &--footer {

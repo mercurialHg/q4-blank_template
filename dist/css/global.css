@@ -88,6 +88,11 @@ h1 {
   font-size: 3rem;
   margin-bottom: 3rem;
 }
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
 
 h2 {
   font-size: 36px;
@@ -243,6 +248,22 @@ body.PreviewBody {
 }
 .table--headless tr:first-child td {
   color: #fff;
+}
+@media only screen and (max-width: 480px) {
+  .table--responsive thead {
+    display: none;
+  }
+  .table--responsive tbody {
+    border-top: 2px solid #006fba;
+    border-bottom: 2px solid #006fba;
+  }
+  .table--responsive td {
+    display: block;
+  }
+  .table--responsive td:before {
+    content: attr(data-heading);
+    font-weight: bold;
+  }
 }
 
 .pre {
@@ -1627,6 +1648,153 @@ a:focus {
 .nav_close {
   display: none;
 }
+.nav--main {
+  text-align: right;
+}
+.nav--main li {
+  display: inline-block;
+}
+.nav--main li a {
+  display: block;
+  padding: 50px 15px 30px;
+  color: #333;
+  font-weight: normal;
+}
+.nav--main li.selected a, .nav--main li.expanded a,
+.nav--main li a:hover, .nav--main li a:focus {
+  padding: 50px 15px 28px;
+  border-bottom: 2px solid #0F5CA3;
+  color: #0F5CA3;
+  outline: none;
+}
+.nav--secondary {
+  background: #006fba;
+  text-align: center;
+}
+.nav--secondary .level1 > li {
+  display: none;
+}
+.nav--secondary .level1 > li.selected, .nav--secondary .level1 > li.expanded {
+  display: block;
+}
+.nav--secondary .level1 > li.selected > a, .nav--secondary .level1 > li.expanded > a {
+  display: none;
+}
+.nav--secondary .level2 {
+  display: table;
+  width: 100%;
+}
+.nav--secondary .level2 > li {
+  position: relative;
+  display: table-cell;
+}
+.nav--secondary .level2 > li:hover, .nav--secondary .level2 > li.selected, .nav--secondary .level2 > li.expanded {
+  background: #005894;
+}
+.nav--secondary .level2 > li a {
+  display: block;
+  padding: 20px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.nav--secondary .level2 > li a:focus {
+  outline: none;
+}
+.nav--secondary .level3 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  width: 100%;
+  min-width: 200px;
+  border-top: 2px solid #fff;
+}
+.nav--secondary .level3 > li {
+  text-align: left;
+}
+.nav--secondary .level3 > li a {
+  background: #005894;
+}
+.nav--secondary .level3 > li a:hover, .nav--secondary .level3 > li a:focus {
+  outline: none;
+  background: #006fba;
+}
+.nav--secondary .level3 > li.selected a {
+  background: #006fba;
+}
+@media only screen and (max-width: 1024px) {
+  .nav--secondary {
+    text-align: left;
+  }
+  .nav--secondary li {
+    border-top: 1px solid rgba(34, 34, 34, 0.1);
+  }
+  .nav--secondary li.has-children > a:after {
+    float: right;
+    font-family: "q4-icons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "";
+  }
+  .nav--secondary li.js--expanded > a:after {
+    content: "\edc2";
+  }
+  .nav--secondary a {
+    display: block;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .nav--secondary .level1 > li {
+    display: block;
+  }
+  .nav--secondary .level1 > li.expanded a {
+    display: block;
+  }
+  .nav--secondary .level1 > li.js--expanded {
+    background: #005894;
+  }
+  .nav--secondary .level1 > li.js--expanded a {
+    display: block;
+  }
+  .nav--secondary .level1 > li.js--expanded .level2 {
+    display: block;
+  }
+  .nav--secondary .level1 > li > a {
+    padding: 20px;
+  }
+  .nav--secondary .level2 {
+    display: none;
+  }
+  .nav--secondary .level2 > li {
+    display: block;
+  }
+  .nav--secondary .level2 > li.js--expanded .level3 {
+    display: block;
+  }
+  .nav--secondary .level2 > li > a {
+    padding: 20px 20px 20px 48px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .nav--secondary .level3 {
+    position: static;
+    border: none;
+  }
+  .nav--secondary .level3 > li {
+    display: block;
+  }
+  .nav--secondary .level3 > li > a {
+    padding: 20px 20px 20px 72px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
 .nav--sitemap {
   max-width: 940px;
   margin-left: auto;
@@ -2227,25 +2395,6 @@ a:focus {
 .js--mobile .pane--header .layout_toggle i:before {
   content: "\ed6d";
 }
-.pane--header .nav {
-  text-align: right;
-}
-.pane--header .nav li {
-  display: inline-block;
-}
-.pane--header .nav li a {
-  display: block;
-  padding: 50px 15px 30px;
-  color: #333;
-  font-weight: normal;
-}
-.pane--header .nav li.selected a, .pane--header .nav li.expanded a,
-.pane--header .nav li a:hover, .pane--header .nav li a:focus {
-  padding: 50px 15px 28px;
-  border-bottom: 2px solid #0F5CA3;
-  color: #0F5CA3;
-  outline: none;
-}
 @media only screen and (max-width: 1024px) {
   .pane--header .pane_inner {
     height: 100px;
@@ -2310,61 +2459,6 @@ a:focus {
 .pane--navigation .module-search {
   display: none;
 }
-.pane--navigation .nav {
-  background: #006fba;
-  text-align: center;
-}
-.pane--navigation .nav .level1 > li {
-  display: none;
-}
-.pane--navigation .nav .level1 > li.selected, .pane--navigation .nav .level1 > li.expanded {
-  display: block;
-}
-.pane--navigation .nav .level1 > li.selected > a, .pane--navigation .nav .level1 > li.expanded > a {
-  display: none;
-}
-.pane--navigation .nav .level2 {
-  display: table;
-  width: 100%;
-}
-.pane--navigation .nav .level2 > li {
-  position: relative;
-  display: table-cell;
-}
-.pane--navigation .nav .level2 > li:hover, .pane--navigation .nav .level2 > li.selected, .pane--navigation .nav .level2 > li.expanded {
-  background: #005894;
-}
-.pane--navigation .nav .level2 > li a {
-  display: block;
-  padding: 20px;
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-.pane--navigation .nav .level2 > li a:focus {
-  outline: none;
-}
-.pane--navigation .nav .level3 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  width: 100%;
-  min-width: 200px;
-  border-top: 2px solid #fff;
-}
-.pane--navigation .nav .level3 > li {
-  text-align: left;
-}
-.pane--navigation .nav .level3 > li a {
-  background: #005894;
-}
-.pane--navigation .nav .level3 > li a:hover, .pane--navigation .nav .level3 > li a:focus {
-  outline: none;
-  background: #006fba;
-}
-.pane--navigation .nav .level3 > li.selected a {
-  background: #006fba;
-}
 @media only screen and (max-width: 1024px) {
   .pane--navigation {
     position: absolute;
@@ -2409,77 +2503,6 @@ a:focus {
     right: 20px;
     background-position: 0 -100%;
   }
-  .pane--navigation .nav {
-    text-align: left;
-  }
-  .pane--navigation .nav li {
-    border-top: 1px solid rgba(34, 34, 34, 0.1);
-  }
-  .pane--navigation .nav li.has-children > a:after {
-    float: right;
-    font-family: "q4-icons";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "";
-  }
-  .pane--navigation .nav li.js--expanded > a:after {
-    content: "\edc2";
-  }
-  .pane--navigation .nav a {
-    display: block;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-  .pane--navigation .nav .level1 > li {
-    display: block;
-  }
-  .pane--navigation .nav .level1 > li.expanded a {
-    display: block;
-  }
-  .pane--navigation .nav .level1 > li.js--expanded {
-    background: #005894;
-  }
-  .pane--navigation .nav .level1 > li.js--expanded a {
-    display: block;
-  }
-  .pane--navigation .nav .level1 > li.js--expanded .level2 {
-    display: block;
-  }
-  .pane--navigation .nav .level1 > li > a {
-    padding: 20px;
-  }
-  .pane--navigation .nav .level2 {
-    display: none;
-  }
-  .pane--navigation .nav .level2 > li {
-    display: block;
-  }
-  .pane--navigation .nav .level2 > li.js--expanded .level3 {
-    display: block;
-  }
-  .pane--navigation .nav .level2 > li > a {
-    padding: 20px 20px 20px 48px;
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .pane--navigation .nav .level3 {
-    position: static;
-    border: none;
-  }
-  .pane--navigation .nav .level3 > li {
-    display: block;
-  }
-  .pane--navigation .nav .level3 > li > a {
-    padding: 20px 20px 20px 72px;
-    font-size: 16px;
-    font-size: 1rem;
-  }
 }
 .pane--content {
   padding-top: 35px;
@@ -2508,19 +2531,6 @@ a:focus {
 .pane--content .module--thick {
   padding-top: 70px;
   padding-bottom: 70px;
-}
-.pane--content .nav--site {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 35px;
-}
-@media only screen and (max-width: 1024px) {
-  .pane--content .nav--site {
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 .pane--footer {
   padding-top: 60px;

@@ -12,6 +12,9 @@ body {
 h1 {
   font-size: 3rem;
   margin-bottom: 3rem;
+  @include layout-small {
+    font-size: 2.5rem;
+  }
 }
 h2 {
   @include font-size(36px);
@@ -155,6 +158,24 @@ body.PreviewBody {
       text-align: left;
       td {
         color: $light-color;
+      }
+    }
+  }
+  &--responsive {
+    @include layout-small {
+      thead {
+        display: none;
+      }
+      tbody {
+        border-top: 2px solid $brand-color;
+        border-bottom: 2px solid $brand-color;
+      }
+      td {
+        display: block;
+        &:before {
+          content: attr(data-heading);
+          font-weight: bold;
+        }
       }
     }
   }
