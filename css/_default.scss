@@ -43,6 +43,9 @@ a, a:visited {
 p {
   line-height: 1.5rem;
 }
+i {
+  display: inline-block;
+}
 
 strong {
   font-weight: bold;
@@ -57,14 +60,6 @@ img {
   max-width: 100%;
 }
 
-input[type="text"], input[type="textarea"] {
-  width: 100%;
-  max-width: 300px;
-  padding: 15px;
-  border: 1px solid #dfdfdf;
-  @include font-size(14px);
-  font-weight: 300;
-}
 input[type="checkbox"] {
   appearance: none;
   -moz-appearance: none;
@@ -100,6 +95,27 @@ body.PreviewBody {
 }
 
 /*------------ BLOCKS ------------*/
+
+.list {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  list-style-type: disc;
+  li {
+    line-height: 1.5rem;
+  }
+  &--ordered {
+    list-style-type: decimal;
+  }
+  &--alpha {
+    list-style-type: alpha;
+  }
+  &--roman {
+    list-style-type: lower-roman;
+  }
+  &--inside {
+    list-style-position: inside;
+  }
+}
 
 .button {
   display: inline-block;
@@ -192,4 +208,21 @@ body.PreviewBody {
   word-wrap: break-word;
   white-space: pre;
   overflow: hidden;
+}
+
+.quote {
+  margin: 2rem 0;
+  padding: 20px 15px;
+  background: $grey-color;
+  border-left: 3px solid rgba($alt-brand-color, 0.5);
+  @include font-size(14px);
+  font-style: italic;
+  p:before {
+    margin-right: 5px;
+    @include icon('\eb1b');
+  }
+  p:after {
+    margin-left: 5px;
+    @include icon('\eb1c');
+  }
 }

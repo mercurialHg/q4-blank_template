@@ -13,7 +13,7 @@
       &_item {
         padding: 0;
         & ~ .module_item {
-          border-top: none;
+          border: none;
         }
       }
       &_links {
@@ -31,9 +31,9 @@
       &_item {
         padding: 0;
         & ~ .module_item {
-          border-top: none;
+          border: none;
         }
-        &.accordion-active {
+        &.js--active {
           h3:after {
             content: "\ed5e";
           }
@@ -82,8 +82,11 @@
       }
     }
     &_body {
-      &-row:nth-child(even) {
-        background-color: rgba($dark-color, 0.05);
+      &-row {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        &:nth-child(even) {
+          background-color: $grey-color;
+        }
       }
       &-year-container {
         text-align: center;
@@ -94,22 +97,15 @@
     }
     &_item {
       display: inline-block;
-      width: 30px;
-      height: 30px;
-      padding: 8px 0;
-      border-radius: 15px;
-      background-color: $brand-color;
-      @include font-size(12px);
-      color: $light-color;
-      &:not(:last-of-type) {
+      margin-right: 15px;
+      @include font-size(18px);
+      font-weight: normal;
+      & ~ .module_item {
         margin-right: 5px;
       }
       &--empty {
         opacity: 0.1;
       }
-    }
-    &_link, &_link:visited {
-      color: $light-color;
     }
     .slick {
       &-slider {

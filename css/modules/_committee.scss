@@ -22,7 +22,7 @@
     }
     &_item {
       padding: 0;
-      &:not(:last-of-type) {
+      & ~ .module_item {
         border: 0;
       }
       &:nth-child(even) {

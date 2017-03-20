@@ -6,7 +6,9 @@
     display: none !important;
 }
 .disabled {
-    opacity: 0.25;
+    opacity: 0.1;
+    border-color: $body-color;
+    color: $body-color;
 }
 
 .absolute {

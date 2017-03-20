@@ -50,8 +50,7 @@
       margin-right: 2rem;
     }
   }
-  &_input[type="text"], &_input[type="textarea"],
-  textarea.module_input, &_dropdown {
+  &_input[type="text"], textarea.module_input, &_dropdown {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -66,13 +65,22 @@
     @include font-size(16px);
     font-weight: 300;
   }
+  &_input {
+    &--brand[type="text"] {
+      display: inline-block;
+      width: auto;
+      padding: 15px 20px;
+      border: 2px solid $brand-color;
+      background: transparent;
+    }
+  }
   &_introduction {
     margin-bottom: 35px;
   }
   &_item {
     padding: 30px 0 10px;
-    &:not(:last-of-type) {
-      border-bottom: 1px solid rgba($dark-color, 0.1);
+    & ~ .module_item {
+      border-top: 1px solid rgba($dark-color, 0.1);
     }
   }
   &_links {
@@ -94,6 +102,9 @@
     &[style="DISPLAY:block;"] {
         display: inline-block !important;
     }
+  }
+  &_loader {
+    animation: spin 1s linear infinite;
   }
   &_nav {
     &-link, .ModuleYearLink,
@@ -182,31 +193,5 @@
     @include font-size(14px);
     font-weight: bold;
     text-transform: uppercase;
-  }
-
-  // Dark Theme
-  &.dark {
-    .module {
-      &_item {
-        &:not(:last-of-type) {
-          border-top: 1px solid rgba($light-color, 0.1);
-        }
-      }
-      &_headline {
-        &-link, &-link:visited {
-          color: $light-color;
-        }
-      }
-      &_nav {
-        &-link, .ModuleYearLink {
-          border: 2px solid $light-color;
-          color: $light-color;
-          &.selected {
-            background-color: $light-color;
-            color: $brand-color;
-          }
-        }
-      }
-    }
   }
 }
