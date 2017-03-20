@@ -60,13 +60,13 @@ var q4Defaults = {
          * Template to overwrite mailing list signup confirmation html.
          */
         mailingListConfirmationTpl: (
-            '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col-3-of-6 grid_col-md-1-of-2">' +
+            '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col--3-of-6 grid_col--md-1-of-2">' +
                 '<div class="module_container--outer">' +
                     '<h2 class="module_title">' +
                         '<span class="ModuleTitle">Email Alerts</span>' +
                     '</h2>' +
                     '<div class="module_container--inner">' +
-                        'Thank you for signing up for the mailing lists.An activation email will be sent to you shortly.' +
+                        'Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.' +
                     '</div>' +
                 '</div>' +
             '</div>'
@@ -535,11 +535,11 @@ var q4Defaults = {
 
         // Subscriber Confirmation fix
         if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
-            $('div[id*="SubscriberConfirmation"]').removeAttr('class').removeAttr('style').html( inst.options.mailingListConfirmationTpl );
+            $('div[id*="SubscriberConfirmation"]').parent().html( inst.options.mailingListConfirmationTpl );
         }
 
         // If a confirmation or error message is visible on page load, scroll to the module
-        if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module-subscribe_email').val().length){
+        if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module_input').val().length){
             inst.scrollTo( $(signup), 0 );
         }
 
@@ -565,8 +565,15 @@ var q4Defaults = {
 
             if ( !errors.length ) {
                 $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
-                $.fancybox.open([ $signup.find('.CaptchaContainer') ], {
-                    parent: "#litPageDiv form:first"
+
+                $.fancybox.open({
+                    src  : '.CaptchaContainer',
+                    type : 'inline',
+                    opts : {
+                        onComplete : function() {
+                            $('.fancybox-container').appendTo($('#litPageDiv form:first'));
+                        }
+                    }
                 });
             } else {
                 $signup.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
@@ -621,14 +628,14 @@ var q4Defaults = {
         $el.find('.module-subscribe_table-row--invalid').removeClass('module-subscribe_table-row--invalid');
 
         $el.find('.module_required').each(function(){
-            var $item = $(this).closest('.module-subscribe_table-row'),
+            var $item = $(this).closest('.module-subscribe_table-input'),
                 message = 'is required',
-                field = $item.find('td:first label').text(),
+                field = $item.find('label:first').text(),
                 validation = true;
 
             // Does the input exist?
             if ( $item.find('input').length ) {
-                if ( $item.find('input').hasClass('module-subscribe_email') ) {
+                if ( $item.hasClass('module-subscribe_email') ) {
                     // Does the email address contain text?
                     if ( !$item.find('input').val().length ) {
                         validation = false;

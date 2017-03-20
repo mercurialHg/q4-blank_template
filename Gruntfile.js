@@ -35,10 +35,7 @@
             core: {
                 name: 'q4.core.js',
                 files: [{
-                    src: [
-                        'js/q4.core.js'
-                        //'js/q4.app.js'
-                    ],
+                    src: 'js/q4.core.js',
                     dest: 'dist/js/q4.core.<%= pkg.version %>.min.js'
                 }]
             },
@@ -46,7 +43,7 @@
                 name: 'q4.app.js',
                 files: [{
                     src: 'js/q4.app.js',
-                    dest: 'dist/js/q4.app.<%= pkg.version %>.js'
+                    dest: 'dist/js/q4.app.<%= pkg.version %>.min.js'
                 }]
             }
         },
