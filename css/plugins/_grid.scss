@@ -68,7 +68,7 @@ $toast-pulls: true !default;
 
 	// For each column width from 1 to the column group...
 	@for $i from 1 through $group {
-		.#{$toast-grid-column-namespace}-#{$i}-of-#{$group} {
+		.#{$toast-grid-column-namespace}--#{$i}-of-#{$group} {
 			@if percentage($i/$group) == percentage(1/1) {
 				@extend %span-all;
 			} @else if percentage($i/$group) == percentage(1/2) {
@@ -91,7 +91,7 @@ $toast-pulls: true !default;
 		}
 
 		@if ($toast-pushes) {
-			.#{$toast-grid-column-namespace}-push-#{$i}-of-#{$group} {
+			.#{$toast-grid-column-namespace}--push-#{$i}-of-#{$group} {
 				@if percentage($i/$group) == percentage(1/1) {
 					@extend %push-span-all;
 				} @else if percentage($i/$group) == percentage(1/2) {
@@ -115,7 +115,7 @@ $toast-pulls: true !default;
 		} // end pushes
 
 		@if ($toast-pulls) {
-			.#{$toast-grid-column-namespace}-pull-#{$i}-of-#{$group} {
+			.#{$toast-grid-column-namespace}--pull-#{$i}-of-#{$group} {
 
 				@if percentage($i/$group) == percentage(1/1) {
 					@extend %pull-span-all;
@@ -164,144 +164,144 @@ $toast-pulls: true !default;
 	}
 
 	@media (max-width: $layout-large) and (min-width: $layout-legacy) {
-		&[class*="#{$toast-grid-column-namespace}-lg-"] {
+		&[class*="#{$toast-grid-column-namespace}--lg-"] {
 			display: inline-block;
 			margin-right: -.24em;
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-1-of-1 {
+		&.#{$toast-grid-column-namespace}--lg-1-of-1 {
 			width: percentage(1/1);
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-1-of-2 {
+		&.#{$toast-grid-column-namespace}--lg-1-of-2 {
 			width: percentage(1/2);
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-1-of-3 {
+		&.#{$toast-grid-column-namespace}--lg-1-of-3 {
 			width: percentage(1/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-2-of-3 {
+		&.#{$toast-grid-column-namespace}--lg-2-of-3 {
 			width: percentage(2/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-1-of-4 {
+		&.#{$toast-grid-column-namespace}--lg-1-of-4 {
 			width: percentage(1/4);
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-2-of-4 {
-			@extend .#{$toast-grid-column-namespace}-lg-1-of-2;
+		&.#{$toast-grid-column-namespace}--lg-2-of-4 {
+			@extend .#{$toast-grid-column-namespace}--lg-1-of-2;
 		}
 
-		&.#{$toast-grid-column-namespace}-lg-3-of-4 {
+		&.#{$toast-grid-column-namespace}--lg-3-of-4 {
 			width: percentage(3/4);
 		}
 	}
 
 	@media (max-width: $layout-legacy) and (min-width: $layout-medium) {
-		&[class*="#{$toast-grid-column-namespace}-lc-"] {
+		&[class*="#{$toast-grid-column-namespace}--lc-"] {
 			display: inline-block;
 			margin-right: -.24em;
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-1-of-1 {
+		&.#{$toast-grid-column-namespace}--lc-1-of-1 {
 			width: percentage(1/1);
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-1-of-2 {
+		&.#{$toast-grid-column-namespace}--lc-1-of-2 {
 			width: percentage(1/2);
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-1-of-3 {
+		&.#{$toast-grid-column-namespace}--lc-1-of-3 {
 			width: percentage(1/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-2-of-3 {
+		&.#{$toast-grid-column-namespace}--lc-2-of-3 {
 			width: percentage(2/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-1-of-4 {
+		&.#{$toast-grid-column-namespace}--lc-1-of-4 {
 			width: percentage(1/4);
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-2-of-4 {
-			@extend .#{$toast-grid-column-namespace}-lc-1-of-2;
+		&.#{$toast-grid-column-namespace}--lc-2-of-4 {
+			@extend .#{$toast-grid-column-namespace}--lc-1-of-2;
 		}
 
-		&.#{$toast-grid-column-namespace}-lc-3-of-4 {
+		&.#{$toast-grid-column-namespace}--lc-3-of-4 {
 			width: percentage(3/4);
 		}
 	}
 
 	@media (max-width: $layout-medium) and (min-width: $layout-small) {
-		&[class*="#{$toast-grid-column-namespace}-md-"] {
+		&[class*="#{$toast-grid-column-namespace}--md-"] {
 			display: inline-block;
 			margin-right: -.24em;
 		}
 
-		&.#{$toast-grid-column-namespace}-md-1-of-1 {
+		&.#{$toast-grid-column-namespace}--md-1-of-1 {
 			width: percentage(1/1);
 		}
 
-		&.#{$toast-grid-column-namespace}-md-1-of-2 {
+		&.#{$toast-grid-column-namespace}--md-1-of-2 {
 			width: percentage(1/2);
 		}
 
-		&.#{$toast-grid-column-namespace}-md-1-of-3 {
+		&.#{$toast-grid-column-namespace}--md-1-of-3 {
 			width: percentage(1/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-md-2-of-3 {
+		&.#{$toast-grid-column-namespace}--md-2-of-3 {
 			width: percentage(2/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-md-1-of-4 {
+		&.#{$toast-grid-column-namespace}--md-1-of-4 {
 			width: percentage(1/4);
 		}
 
-		&.#{$toast-grid-column-namespace}-md-2-of-4 {
-			@extend .#{$toast-grid-column-namespace}-md-1-of-2;
+		&.#{$toast-grid-column-namespace}--md-2-of-4 {
+			@extend .#{$toast-grid-column-namespace}--md-1-of-2;
 		}
 
-		&.#{$toast-grid-column-namespace}-md-3-of-4 {
+		&.#{$toast-grid-column-namespace}--md-3-of-4 {
 			width: percentage(3/4);
 		}
 	}
 
 	@media (max-width: $layout-small) {
-		&[class*="#{$toast-grid-column-namespace}-sm-"] {
+		&[class*="#{$toast-grid-column-namespace}--sm-"] {
 			display: inline-block;
 			margin-right: -.24em;
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-1-of-2 {
+		&.#{$toast-grid-column-namespace}--sm-1-of-2 {
 			width: percentage(1/2);
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-1-of-3 {
+		&.#{$toast-grid-column-namespace}--sm-1-of-3 {
 			width: percentage(1/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-2-of-3 {
+		&.#{$toast-grid-column-namespace}--sm-2-of-3 {
 			width: percentage(2/3);
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-1-of-4 {
+		&.#{$toast-grid-column-namespace}--sm-1-of-4 {
 			width: percentage(1/4);
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-2-of-4 {
-			@extend .#{$toast-grid-column-namespace}-sm-1-of-2;
+		&.#{$toast-grid-column-namespace}--sm-2-of-4 {
+			@extend .#{$toast-grid-column-namespace}--sm-1-of-2;
 		}
 
-		&.#{$toast-grid-column-namespace}-sm-3-of-4 {
+		&.#{$toast-grid-column-namespace}--sm-3-of-4 {
 			width: percentage(3/4);
 		}
 	}
 }
 
 // Centers the column in the grid and clears the row of all other columns
-.#{$toast-grid-column-namespace}-centered {
+.#{$toast-grid-column-namespace}--centered {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -309,17 +309,17 @@ $toast-pulls: true !default;
 
 
 // Displays the column as the first in its row
-.#{$toast-grid-column-namespace}-d-first {
+.#{$toast-grid-column-namespace}--d-first {
 	float: left;
 }
 
 // Displays the column as the last in its row
-.#{$toast-grid-column-namespace}-d-last {
+.#{$toast-grid-column-namespace}--d-last {
 	float: right;
 }
 
 // Removes gutters from the columns
-.#{$toast-grid-namespace}-no-gutter {
+.#{$toast-grid-namespace}--no-gutter {
 	margin-left: 0;
 	// width: 100%;
 
@@ -327,26 +327,26 @@ $toast-pulls: true !default;
 		padding-left: 0;
 	}
 
-	.#{$toast-grid-column-namespace}-span-all {
+	.#{$toast-grid-column-namespace}--span-all {
 		margin-left: 0;
 		width: 100%;
 	}
 }
 
 // Removes the negative margin from the columns
-.#{$toast-grid-namespace}-no-space {
+.#{$toast-grid-namespace}--no-space {
 	.#{$toast-grid-column-namespace} {
 		margin-right: 0;
 	}
 }
 
 // Align column to the bottom.
-.#{$toast-grid-column-namespace}-ab {
+.#{$toast-grid-column-namespace}--ab {
 	vertical-align: bottom;
 }
 
 // Align column to the middle.
-.#{$toast-grid-column-namespace}-am {
+.#{$toast-grid-column-namespace}--am {
 	vertical-align: middle;
 }
 

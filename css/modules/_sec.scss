@@ -27,8 +27,18 @@
       }
     }
     @include layout-medium {
+      &_container--content {
+        border-top: 2px solid $brand-color;
+        border-bottom: 2px solid $brand-color;
+      }
       &_header {
         display: none;
+      }
+      &_item {
+        padding: 15px 0;
+        .grid_col {
+          padding: 0 5px;
+        }
       }
     }
   }
