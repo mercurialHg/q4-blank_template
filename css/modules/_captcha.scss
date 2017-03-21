@@ -15,6 +15,14 @@
         td {
           padding-bottom: 5px;
           @include font-size(14px);
+          span {
+            display: none !important;
+          }
+        }
+      }
+      &:nth-child(4) {
+        span {
+          display: none !important;
         }
       }
       td {
@@ -25,7 +33,7 @@
       }
     }
   }
-  input {
+  input[type="text"] {
     appearance: none;
     -webkit-appearance: none;
     display: block;
@@ -36,5 +44,19 @@
     background-color: $grey-color;
     @include font-size(16px);
     font-weight: 300;
+  }
+  @at-root .fancybox-container & {
+    table {
+      tr {
+        &:nth-child(4) {
+          td {
+            padding-bottom: 20px;
+          }
+        }
+        td {
+          padding-right: 0;
+        }
+      }
+    }
   }
 }

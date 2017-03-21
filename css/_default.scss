@@ -20,16 +20,16 @@ h1 {
 }
 h2 {
   @include font-size(36px);
-  margin-bottom: 40px;;
+  margin-bottom: 2.5rem;
 }
 h3 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 1rem;
   color: #006fba;
 }
 h4 {
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 1rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -226,7 +226,7 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .quote {

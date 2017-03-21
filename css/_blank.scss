@@ -190,7 +190,7 @@
       &-links {
         text-transform: uppercase;
         li {
-          margin-bottom: 5px;
+          line-height: 1.5rem;
         }
       }
       // Mailing List Signup
@@ -219,6 +219,9 @@
             padding: 0;
           }
         }
+        p {
+          line-height: 1.2rem;
+        }
         input[type="checkbox"] {
           border-color: $light-color;
         }
@@ -233,7 +236,7 @@
       // IR Contact
       &-contact {
         li {
-          margin-bottom: 5px;
+          line-height: 1.2rem;
         }
       }
     }

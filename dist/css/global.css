@@ -110,18 +110,18 @@ h1 {
 h2 {
   font-size: 36px;
   font-size: 2.25rem;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 h3 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 1rem;
   color: #006fba;
 }
 
 h4 {
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 1rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -322,7 +322,7 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .quote {
@@ -1108,6 +1108,12 @@ a:focus {
   font-size: 14px;
   font-size: 0.875rem;
 }
+.CaptchaContainer table tr:nth-child(3) td span {
+  display: none !important;
+}
+.CaptchaContainer table tr:nth-child(4) span {
+  display: none !important;
+}
 .CaptchaContainer table tr td {
   padding-right: 10px;
 }
@@ -1116,7 +1122,7 @@ a:focus {
     padding-right: 0;
   }
 }
-.CaptchaContainer input {
+.CaptchaContainer input[type="text"] {
   appearance: none;
   -webkit-appearance: none;
   display: block;
@@ -1128,6 +1134,12 @@ a:focus {
   font-size: 16px;
   font-size: 1rem;
   font-weight: 300;
+}
+.fancybox-container .CaptchaContainer table tr:nth-child(4) td {
+  padding-bottom: 20px;
+}
+.fancybox-container .CaptchaContainer table tr td {
+  padding-right: 0;
 }
 
 /*- Investment Calculator Widget -*/
@@ -2637,7 +2649,7 @@ a:focus {
   text-transform: uppercase;
 }
 .pane--footer .module-links li {
-  margin-bottom: 5px;
+  line-height: 1.5rem;
 }
 .pane--footer .module-subscribe_email label, .pane--footer .module-subscribe_list-header, .pane--footer .module-subscribe_email .module_required, .pane--footer .module-subscribe_mailing-list,
 .pane--footer .module-subscribe .CaptchaContainer,
@@ -2657,6 +2669,9 @@ a:focus {
 .pane--footer .module-subscribe_list > td {
   padding: 0;
 }
+.pane--footer .module-subscribe p {
+  line-height: 1.2rem;
+}
 .pane--footer .module-subscribe input[type="checkbox"] {
   border-color: #fff;
 }
@@ -2668,7 +2683,7 @@ a:focus {
   max-width: 300px;
 }
 .pane--footer .module-contact li {
-  margin-bottom: 5px;
+  line-height: 1.2rem;
 }
 .pane--footer .module:not(.module-embed) {
   padding-bottom: 60px;
