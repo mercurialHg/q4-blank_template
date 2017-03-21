@@ -10,10 +10,12 @@ body {
 /*---------- TYPOGRAPHY ----------*/
 
 h1 {
-  font-size: 3rem;
+  @include font-size(48px);
   margin-bottom: 3rem;
+  line-height: 3.5rem;
   @include layout-small {
-    font-size: 2.5rem;
+    @include font-size(40px);
+    line-height: 3rem;
   }
 }
 h2 {
@@ -127,10 +129,27 @@ body.PreviewBody {
   color: $brand-color;
   font-weight: normal;
   text-transform: uppercase;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
+  &:hover {
+    background: $brand-color;
+    color: $light-color;
+  }
+  &--inverted {
+    background: $brand-color;
+    color: $light-color;
+    &:hover {
+      background: transparent;
+      color: $brand-color;
+    }
+  }
   &--dark {
     border: 2px solid $light-color;
     color: $light-color;
+    &:hover {
+      background: $light-color;
+      color: $dark-color;
+    }
   }
 }
 

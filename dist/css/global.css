@@ -94,12 +94,16 @@ body {
 
 /*---------- TYPOGRAPHY ----------*/
 h1 {
+  font-size: 48px;
   font-size: 3rem;
   margin-bottom: 3rem;
+  line-height: 3.5rem;
 }
 @media only screen and (max-width: 480px) {
   h1 {
+    font-size: 40px;
     font-size: 2.5rem;
+    line-height: 3rem;
   }
 }
 
@@ -223,11 +227,28 @@ body.PreviewBody {
   color: #006fba;
   font-weight: normal;
   text-transform: uppercase;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
+}
+.button:hover {
+  background: #006fba;
+  color: #fff;
+}
+.button--inverted {
+  background: #006fba;
+  color: #fff;
+}
+.button--inverted:hover {
+  background: transparent;
+  color: #006fba;
 }
 .button--dark {
   border: 2px solid #fff;
   color: #fff;
+}
+.button--dark:hover {
+  background: #fff;
+  color: #222;
 }
 
 .dropdown {
@@ -1709,6 +1730,8 @@ a:focus {
 .nav--secondary {
   background: #006fba;
   text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
 }
 .nav--secondary .level1 > li {
   display: none;
@@ -2474,6 +2497,9 @@ a:focus {
     padding-left: 20px;
     padding-right: 20px;
   }
+}
+.pane--banner h1 {
+  margin: 0;
 }
 @media only screen and (max-width: 1024px) {
   .pane--banner {
