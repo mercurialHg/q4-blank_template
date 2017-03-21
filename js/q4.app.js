@@ -611,7 +611,7 @@ var q4Defaults = {
         $signup.find('input[type="text"]').on('keydown', function(e){
             if (e.keyCode == 13) {
                 e.preventDefault();
-                //$signup.find('.module_actions input[type="submit"]').trigger('click');
+                $(this).closest('.module-subscribe--fancy').find('.module_actions input[type="submit"]').trigger('click');
                 return false;
             }
         });
