@@ -15,4 +15,11 @@
   &--hidden {
     display: none;
   }
+  &--disabled {
+    opacity: 0.1;
+    border-color: $body-color;
+    color: $body-color;
+    transition: none;
+    pointer-events: none;
+  }
 }

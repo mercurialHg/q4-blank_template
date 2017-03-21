@@ -156,6 +156,7 @@
       }
     }
     &_link {
+      margin: 0 0 15px;
       i {
         display: block;
         @include font-size(55px);
@@ -186,11 +187,6 @@
     vertical-align: bottom;
   }
   @include layout-legacy {
-    .module {
-      &_link {
-        margin-bottom: 15px;
-      }
-    }
     .grid_col {
       vertical-align: middle;
     }
@@ -202,9 +198,6 @@
           margin-bottom: 30px;
           border-right: none;
         }
-      }
-      &_link {
-        margin-right: 0;
       }
     }
   }

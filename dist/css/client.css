@@ -825,10 +825,6 @@
   z-index: 2;
 }
 
-.fancybox-close-small:focus {
-  outline: 1px dotted #888;
-}
-
 .fancybox-slide--video .fancybox-close-small {
   top: -36px;
   right: -36px;
