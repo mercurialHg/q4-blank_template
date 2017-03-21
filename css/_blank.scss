@@ -81,6 +81,9 @@
     }
     h1 {
       margin: 0;
+      @include layout-medium {
+        margin-bottom: 2rem;
+      }
     }
     @include layout-legacy {
       text-align: center;
@@ -220,6 +223,7 @@
           }
         }
         p {
+          padding-right: 35px;
           line-height: 1.2rem;
         }
         input[type="checkbox"] {

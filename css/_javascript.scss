@@ -1,0 +1,18 @@
+/*---------- Javascript ----------*/
+
+.js {
+  &--loading {
+    &:after {
+      position: relative;
+      left: 50%;
+      display: inline-block;
+      margin: 1rem 0 1rem -25px;
+      @include icon("\eb27");
+      @include font-size(50px);
+      animation: spin 0.8s infinite linear;
+    }
+  }
+  &--hidden {
+    display: none;
+  }
+}

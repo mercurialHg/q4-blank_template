@@ -208,7 +208,7 @@ body.PreviewBody {
       td {
         display: block;
         &:before {
-          content: attr(data-heading);
+          content: attr(data-heading) ": ";
           font-weight: bold;
         }
       }
@@ -226,7 +226,10 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
-  overflow-x: scroll;
+  overflow: hidden;
+  &_comment {
+    opacity: 0.5;
+  }
 }
 
 .quote {

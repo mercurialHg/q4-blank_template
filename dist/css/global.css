@@ -306,7 +306,7 @@ body.PreviewBody {
     display: block;
   }
   .table--responsive td:before {
-    content: attr(data-heading);
+    content: attr(data-heading) ": ";
     font-weight: bold;
   }
 }
@@ -322,7 +322,10 @@ body.PreviewBody {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
-  overflow-x: scroll;
+  overflow: hidden;
+}
+.pre_comment {
+  opacity: 0.5;
 }
 
 .quote {
@@ -791,6 +794,8 @@ body.PreviewBody {
   opacity: 0.1;
   border-color: #333333;
   color: #333333;
+  transition: none;
+  pointer-events: none;
 }
 
 .absolute {
@@ -920,6 +925,30 @@ a:focus {
   outline: 0px;
 }
 
+/*---------- Javascript ----------*/
+.js--loading:after {
+  position: relative;
+  left: 50%;
+  display: inline-block;
+  margin: 1rem 0 1rem -25px;
+  font-family: "q4-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  font-size: 50px;
+  font-size: 3.125rem;
+  animation: spin 0.8s infinite linear;
+}
+.js--hidden {
+  display: none;
+}
+
 /*==================================
  ----------- MODULE CSS -----------
 ==================================*/
@@ -1015,6 +1044,7 @@ a:focus {
   display: inline-block !important;
 }
 .module_loader {
+  display: inline-block;
   animation: spin 1s linear infinite;
 }
 .module_nav-link, .module_nav .ModuleYearLink, .module_nav-link:visited, .module_nav .ModuleYearLink:visited {
@@ -1164,6 +1194,14 @@ a:focus {
 .module-calculator_input-row input[type="text"] {
   margin-top: 10px;
   max-width: 300px;
+}
+@media screen and (min-width: 1024px) {
+  .module-calculator_popup-container {
+    min-width: 920px;
+  }
+}
+.module-calculator_info td:first-child:before {
+  content: none;
 }
 
 /*- Committee Composition Widget -*/
@@ -2028,46 +2066,46 @@ a:focus {
 .module-person-details_description-container {
   margin-top: 40px;
 }
-.fancybox-type-html .module-person .module_item {
+.fancybox-container .module-person .module_item {
   max-width: 940px;
   padding: 70px;
 }
-.fancybox-type-html .module-person_photo-container, .fancybox-type-html .module-person_name-container {
+.fancybox-container .module-person_photo-container, .fancybox-container .module-person_name-container {
   display: inline-block;
   vertical-align: middle;
 }
-.fancybox-type-html .module-person_name-container {
+.fancybox-container .module-person_name-container {
   position: static;
   background: transparent;
   text-align: left;
   opacity: 1;
 }
-.fancybox-type-html .module-person_name-container h3 {
+.fancybox-container .module-person_name-container h3 {
   position: static;
   trasnform: none;
 }
-.fancybox-type-html .module-person_name-container a {
+.fancybox-container .module-person_name-container a {
   color: #333333;
 }
-.fancybox-type-html .module-person_photo-container {
+.fancybox-container .module-person_photo-container {
   max-width: 30%;
   margin-right: 40px;
 }
-.fancybox-type-html .module-person_name {
+.fancybox-container .module-person_name {
   display: block;
   margin-bottom: 10px;
   font-size: 36px;
   font-size: 2.25rem;
   color: #006fba;
 }
-.fancybox-type-html .module-person_title {
+.fancybox-container .module-person_title {
   font-size: 24px;
   font-size: 1.5rem;
 }
-.fancybox-type-html .module-person_description-container {
+.fancybox-container .module-person_description-container {
   margin-top: 40px;
 }
-.fancybox-type-html .module-person_description {
+.fancybox-container .module-person_description {
   display: block;
 }
 
@@ -2513,6 +2551,11 @@ a:focus {
 .pane--banner h1 {
   margin: 0;
 }
+@media only screen and (max-width: 768px) {
+  .pane--banner h1 {
+    margin-bottom: 2rem;
+  }
+}
 @media only screen and (max-width: 1024px) {
   .pane--banner {
     text-align: center;
@@ -2670,6 +2713,7 @@ a:focus {
   padding: 0;
 }
 .pane--footer .module-subscribe p {
+  padding-right: 35px;
   line-height: 1.2rem;
 }
 .pane--footer .module-subscribe input[type="checkbox"] {

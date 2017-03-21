@@ -179,6 +179,12 @@
 .fancybox-slide--video .fancybox-iframe {
   background: transparent; }
 
+.fancybox-slide--no-padding {
+  & > * {
+    padding: 0;
+  }
+}
+
 .fancybox-placeholder {
   position: absolute;
   top: 0;
