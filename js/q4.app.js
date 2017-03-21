@@ -66,7 +66,7 @@ var q4Defaults = {
                         '<span class="ModuleTitle">Email Alerts</span>' +
                     '</h2>' +
                     '<div class="module_container--inner">' +
-                        'Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.' +
+                        '<p>Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
                     '</div>' +
                 '</div>' +
             '</div>'
@@ -536,10 +536,11 @@ var q4Defaults = {
         // Subscriber Confirmation fix
         if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
             $('div[id*="SubscriberConfirmation"]').parent().html( inst.options.mailingListConfirmationTpl );
+            inst.scrollTo( $(signup), 0 );
         }
 
         // If a confirmation or error message is visible on page load, scroll to the module
-        if ($('div[id*="SubscriberConfirmation"]').is(':visible') || $(signup).find('input.module_input').val().length){
+        if ($(signup).find('input.module_input').length && $(signup).find('input.module_input').val().length){
             inst.scrollTo( $(signup), 0 );
         }
 
