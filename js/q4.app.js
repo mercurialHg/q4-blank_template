@@ -362,7 +362,7 @@ var q4Defaults = {
 
         if (openFirst) {
             $item.first().find(toggle).attr('aria-expanded', true);
-            $item.first().addClass('js--active').find(panel).show();
+            $item.first().addClass('js--active').find(panel).removeClass('js--hidden');
         }
     },
     _toggleAll: function($container, item, toggle, panel) {
@@ -372,11 +372,15 @@ var q4Defaults = {
             if ( $(this).parent().is('.active') ) {
                 $container.find(toggle).attr('aria-expanded', 'true');
                 $container.find(item).addClass('js--active');
-                $container.find(panel).slideDown();
+                $container.find(panel).slideDown(400, function() {
+                    $(this).removeClass('js--hidden');
+                });
             } else {
                 $container.find(toggle).attr('aria-expanded', 'false');
                 $container.find(item).removeClass('js--active');
-                $container.find(panel).slideUp();
+                $container.find(panel).slideUp(400, function() {
+                    $(this).addClass('js--hidden');
+                });
             }
         });
     },
@@ -384,10 +388,14 @@ var q4Defaults = {
         if ( !$this.closest(item).hasClass('js--active') ) {
             $(item).removeClass('js--active');
             $container.find(toggle).attr('aria-expanded', false);
-            $container.find(panel).slideUp();
+            $container.find(panel).slideUp(400, function() {
+                $(this).addClass('js--hidden');
+            });
 
             $this.attr('aria-expanded', true);
-            $this.closest(item).addClass('js--active').find(panel).slideDown();
+            $this.closest(item).addClass('js--active').find(panel).slideDown(400, function() {
+                $(this).removeClass('js--hidden');
+            });
         }
     },
     _toggleTrigger: function($this, $container, item, panel) {
@@ -395,12 +403,14 @@ var q4Defaults = {
 
         $this.attr('aria-expanded', function(i, attr) {
             return attr == 'true' ? 'false' : 'true';
-        }).closest(item).toggleClass('js--active').find(panel).slideToggle();
+        }).closest(item).toggleClass('js--active').find(panel).slideToggle(400, function() {
+            $(this).toggleClass('js--hidden');
+        });
 
-        if ( $container.find(item).not('.accordion-active').length ) {
-            $allToggle.removeClass('active');
+        if ( $container.find(item).not('.js--active').length ) {
+            $allToggle.removeClass('js--active');
         } else {
-            $allToggle.addClass('active');
+            $allToggle.addClass('js--active');
         }
     },
 
@@ -419,6 +429,23 @@ var q4Defaults = {
     },
 
     /**
+     * Our standard "Add to Calendar" functionality. Opens up a fancybox.
+     * @param {selector} [element]  Selector for the module containing "Add to Calendar" links
+     * @example app.addToCalendar('.module-event'); or app.addToCalendar('.module-event-latest, .module-event-upcoming');
+     */
+     addToCalendar: function(selector) {
+        $(selector).on('click', '.module_add-to-calendar-reveal', function(e) {
+            var fancyContent = $(this).next()[0].outerHTML;
+            $.fancybox.open({
+                src: fancyContent,
+                type: 'inline',
+                opts: {
+                    slideClass: 'fancybox-slide--no-padding'
+                }
+            });
+        });
+     },
+    /**
      * Used to hide the "Add to Calendar" functionality for past events. Works for both list and details pages.
      * @param {$events} [element]  element(s) containing the unwanted "Add to Calendar" link
      * @example app.hidePastCal($('.module-event .module_item')); or app.hidePastCal($('.module-event-details'));
@@ -432,10 +459,10 @@ var q4Defaults = {
             if ( $date.text().indexOf("from") >= 0 ) {
                 var isolateDate = $date.text().split('from ').pop().split('to ');
                 if (today > new Date(isolateDate[1])) {
-                    $this.find('.AddToCalendar').hide();
+                    $this.find('.module_add-to-calendar').addClass('js--hidden');
                 }
             } else if (today > new Date($date.text())) {
-                $this.find('.AddToCalendar').hide();
+                $this.find('.module_add-to-calendar').addClass('js--hidden');
             }
         });
     },

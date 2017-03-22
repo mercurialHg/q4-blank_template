@@ -41,6 +41,20 @@
       }
     }
   }
+  // Upcoming Event Module
+  &-upcoming {
+    .module {
+      &_nav {
+        display: none;
+      }
+      &_item {
+        padding: 0 0 10px;
+        & ~ .module_item {
+          padding: 30px 0 10px;
+        }
+      }
+    }
+  }
   // Event Calendar Widget
   &-calendar {
     display: table;
@@ -57,6 +71,16 @@
     &_event-container {
       padding: 50px;
       background-color: $grey-color;
+    }
+    &_splash {
+      i {
+        @include font-size(40px);
+        color: $brand-color;
+      }
+      p {
+        @include font-size(14px);
+        line-height: 1.2rem;
+      }
     }
     &_controls {
       padding: 20px 15px;

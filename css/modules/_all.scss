@@ -20,6 +20,38 @@
   &_error-container {
     margin-bottom: 30px;
   }
+  &_add-to-calendar {
+    &-reveal {
+      color: $brand-color;
+      cursor: pointer;
+    }
+    &-list {
+      display: none;
+      &:after {
+        content: "Select your Calendar";
+        display: block;
+        margin-top: 15px;
+        @include font-size(14px);
+        text-align: center;
+      }
+      @at-root .fancybox-container & {
+        padding: 35px;
+      }
+    }
+    &-item {
+      display: inline-block;
+      margin: 0 10px;
+      &--ics {
+        display: none;
+      }
+      i {
+        display: inline;
+      }
+    }
+    &-link {
+      @include font-size(24px);
+    }
+  }
   &_actions, &_pager {
     margin-top: 20px;
   }
@@ -85,7 +117,7 @@
   }
   &_links {
     > *, li, .module_presentation {
-      display: inline-block;
+      display: inline;
     }
   }
   &_link {

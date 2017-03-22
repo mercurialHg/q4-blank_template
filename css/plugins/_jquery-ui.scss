@@ -695,3 +695,27 @@ a.ui-button:active,
 	-webkit-box-shadow: 0px 0px 5px #666666;
 	box-shadow: 0px 0px 5px #666666;
 }
+
+/* Auto Complete
+----------------------------------*/
+
+.ui-widget-content.ui-autocomplete {
+	border: none;
+	background: $grey-color;
+	font-family: $body-font;
+	font-size: 1rem;
+	color: $body-color;
+	.ui-menu-item {
+		padding: 0;
+	}
+	.ui-menu-item-wrapper {
+		padding: 20px 15px;
+	}
+	.ui-state-active {
+		margin: 0;
+		border: none;
+		background: $light-color;
+		font-weight: 300;
+		color: $body-color;
+	}
+}

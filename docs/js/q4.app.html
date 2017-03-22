@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -135,7 +135,38 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>- q4.app.js is already loaded on blank- defaults are extended in mainscripts and the init() function is executed (see the below code example)var q4App = $.extend( q4Defaults, {    init: function() {        var app = this;                app.cleanUp();        app.unWrapLink('a.StockPrice');        app.submitOnEnter('.ModuleSearch');        app.submitOnEnter('.MailingListUnsubscribeContainer');        app.validateSubmit('.ModuleSearch');        app.accessibleNav($('.navbar-collapse'), 'level1');        app.onMenuToggle();        app.onMenuExit($('.PaneNavigation .menu-close'));    })});q4App.init();- multiple subpages on blank - you can extend q4App inside the global module : var q4App = $.extend( q4Defaults, {    init: function() {        this.myFunction()    },    myFunction: function() {...})});or on an inner page q4App.myFunction() {}</code></pre>
+    <pre class="prettyprint"><code>- q4.app.js is already loaded on blank
+- defaults are extended in mainscripts and the init() function is executed (see the below code example)
+
+var q4App = $.extend( q4Defaults, {
+    init: function() {
+        var app = this;
+        
+        app.cleanUp();
+        app.unWrapLink('a.StockPrice');
+        app.submitOnEnter('.ModuleSearch');
+        app.submitOnEnter('.MailingListUnsubscribeContainer');
+        app.validateSubmit('.ModuleSearch');
+        app.accessibleNav($('.navbar-collapse'), 'level1');
+        app.onMenuToggle();
+        app.onMenuExit($('.PaneNavigation .menu-close'));
+
+    }
+)});
+
+q4App.init();
+
+- multiple subpages on blank 
+- you can extend q4App inside the global module : 
+
+var q4App = $.extend( q4Defaults, {
+    init: function() {
+        this.myFunction()
+    },
+    myFunction: function() {...}
+)});
+
+or on an inner page q4App.myFunction() {}</code></pre>
 
 
 
@@ -240,7 +271,9 @@
 
 
 <div class="description">
-    Validates all required fields.Used by default with fancySignup before displaying captcha.Returns an array of errors
+    Validates all required fields.
+Used by default with fancySignup before displaying captcha.
+Returns an array of errors
 </div>
 
 
@@ -345,7 +378,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line625">line 625</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line652">line 652</a>
     </li></ul></dd>
     
 
@@ -771,6 +804,154 @@
 
     
 
+    <h4 class="name" id=".addToCalendar"><span class="type-signature">(static) </span>addToCalendar<span class="signature">(element<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Our standard "Add to Calendar" functionality. Opens up a fancybox.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">selector</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Selector for the module containing "Add to Calendar" links</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line436">line 436</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>app.addToCalendar('.module-event'); or app.addToCalendar('.module-event-latest, .module-event-upcoming');</code></pre>
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".cleanQuickLinks"><span class="type-signature">(static) </span>cleanQuickLinks<span class="signature">(element<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
@@ -1031,7 +1212,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line682">line 682</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line709">line 709</a>
     </li></ul></dd>
     
 
@@ -1118,7 +1299,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line690">line 690</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line717">line 717</a>
     </li></ul></dd>
     
 
@@ -1266,7 +1447,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line530">line 530</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line557">line 557</a>
     </li></ul></dd>
     
 
@@ -1447,7 +1628,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line459">line 459</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line486">line 486</a>
     </li></ul></dd>
     
 
@@ -1595,7 +1776,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line426">line 426</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line453">line 453</a>
     </li></ul></dd>
     
 
@@ -2191,7 +2372,8 @@
 
 
 <div class="description">
-    Used to hide the "Remind Me" functionality for events modules if a reminder has already been created.Works for both list and details pages.
+    Used to hide the "Remind Me" functionality for events modules if a reminder has already been created.
+Works for both list and details pages.
 </div>
 
 
@@ -2296,7 +2478,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line413">line 413</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line423">line 423</a>
     </li></ul></dd>
     
 
@@ -2339,7 +2521,8 @@
 
 
 <div class="description">
-    Used to reveal an element by clicking on a trigger element.Use this function to create anything from "Read More" buttons to revealing hidden elements with a trigger.
+    Used to reveal an element by clicking on a trigger element.
+Use this function to create anything from "Read More" buttons to revealing hidden elements with a trigger.
 </div>
 
 
@@ -3541,7 +3724,13 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>&lt;pre>   before: &amp;lt;a class="unwraplink" href="#"&amp;gt;Text to unwrap&amp;lt;/a&amp;gt;   app.unWrapLink( 'a.StockPrice' );   after: &amp;lt;span class="unwraplink"&amp;gt;Text to unwrap&amp;lt;/span&amp;gt;&lt;/pre></code></pre>
+    <pre class="prettyprint"><code>&lt;pre>
+   before: &amp;lt;a class="unwraplink" href="#"&amp;gt;Text to unwrap&amp;lt;/a&amp;gt;
+
+   app.unWrapLink( 'a.StockPrice' );
+
+   after: &amp;lt;span class="unwraplink"&amp;gt;Text to unwrap&amp;lt;/span&amp;gt;
+&lt;/pre></code></pre>
 
 
 
@@ -3557,7 +3746,8 @@
 
 
 <div class="description">
-    Attaches a check to a search module's submit button which will not allowthe module to submit without text inside the search input
+    Attaches a check to a search module's submit button which will not allow
+the module to submit without text inside the search input
 </div>
 
 
@@ -3705,7 +3895,8 @@
 
 
 <div class="description">
-    Attaches a click handler to the modules submit button which will not allow the form to submit without a true email address
+    Attaches a click handler to the modules submit button which will not allow 
+the form to submit without a true email address
 </div>
 
 
@@ -3859,7 +4050,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Mar 21 2017 11:16:32 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Mar 22 2017 16:04:55 GMT-0400 (EDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
