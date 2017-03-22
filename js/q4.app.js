@@ -325,7 +325,7 @@ var q4Defaults = {
     accessibilize: function($tablist, $tab, $tabpanel) {
         $tablist.attr('role','tablist');
         $tab.attr('tabindex','0').attr('role','tab').attr('aria-expanded','false');
-        $tabpanel.attr('role','tabpanel').hide();
+        $tabpanel.attr('role','tabpanel').addClass('js--hidden');
     },
 
     /**

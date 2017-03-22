@@ -86,20 +86,20 @@
       padding: 8px 0 25px;
       border-top: 1px solid rgba($brand-color, 0.2);
       border-left: 1px solid rgba($brand-color, 0.2);
+      &.calendar-dow-6 {
+        border-right: 1px solid rgba($brand-color, 0.2);
+      }
       &--name {
         padding: 15px 0 10px;
         border: none;
       }
-      &.calendar-dow-6 {
-        border-right: 1px solid rgba($brand-color, 0.2);
-      }
-      &.adjacent-month {
+      &--adjacent-month {
         color: rgba($body-color, 0.1);
       }
-      &.today {
+      &--today {
         background: $grey-color;
       }
-      &.event {
+      &--event {
         cursor: pointer;
         &:after {
           content: "";
@@ -110,13 +110,11 @@
           background-color: $brand-color;
         }
       }
-      &.selected {
-        &.event {
-          background-color: $brand-color;
-          color: $light-color;
-          &:after {
-            background-color: $light-color;
-          }
+      &--selected {
+        background-color: $brand-color;
+        color: $light-color;
+        &:after {
+          background-color: $light-color;
         }
       }
     }

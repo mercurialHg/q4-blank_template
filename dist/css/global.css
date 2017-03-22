@@ -287,6 +287,12 @@ body.PreviewBody {
 .table th {
   color: #fff;
 }
+.table--headless tr:nth-child(even) {
+  background-color: transparent;
+}
+.table--headless tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
 .table--headless tr:first-child {
   background-color: #006fba;
   text-align: left;
@@ -1379,23 +1385,23 @@ a:focus {
   border-top: 1px solid rgba(0, 111, 186, 0.2);
   border-left: 1px solid rgba(0, 111, 186, 0.2);
 }
+.module-event-calendar_day.calendar-dow-6 {
+  border-right: 1px solid rgba(0, 111, 186, 0.2);
+}
 .module-event-calendar_day--name {
   padding: 15px 0 10px;
   border: none;
 }
-.module-event-calendar_day.calendar-dow-6 {
-  border-right: 1px solid rgba(0, 111, 186, 0.2);
-}
-.module-event-calendar_day.adjacent-month {
+.module-event-calendar_day--adjacent-month {
   color: rgba(51, 51, 51, 0.1);
 }
-.module-event-calendar_day.today {
+.module-event-calendar_day--today {
   background: #f6f6f6;
 }
-.module-event-calendar_day.event {
+.module-event-calendar_day--event {
   cursor: pointer;
 }
-.module-event-calendar_day.event:after {
+.module-event-calendar_day--event:after {
   content: "";
   position: absolute;
   right: 10px;
@@ -1405,11 +1411,11 @@ a:focus {
   height: 4px;
   background-color: #006fba;
 }
-.module-event-calendar_day.selected.event {
+.module-event-calendar_day--selected {
   background-color: #006fba;
   color: #fff;
 }
-.module-event-calendar_day.selected.event:after {
+.module-event-calendar_day--selected:after {
   background-color: #fff;
 }
 .module-event-calendar .module_item {
@@ -2696,7 +2702,7 @@ a:focus {
   text-transform: uppercase;
 }
 .pane--footer .module-links li {
-  line-height: 1.5rem;
+  line-height: 1.2rem;
 }
 .pane--footer .module-subscribe_email label, .pane--footer .module-subscribe_list-header, .pane--footer .module-subscribe_email .module_required, .pane--footer .module-subscribe_mailing-list,
 .pane--footer .module-subscribe .CaptchaContainer,

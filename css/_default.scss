@@ -188,11 +188,19 @@ body.PreviewBody {
     color: $light-color;
   }
   &--headless {
-    tr:first-child {
-      background-color: $brand-color;
-      text-align: left;
-      td {
-        color: $light-color;
+    tr {
+      &:nth-child(even) {
+        background-color: transparent;
+      }
+      &:nth-child(odd) {
+        background-color: $grey-color;
+      }
+      &:first-child {
+        background-color: $brand-color;
+        text-align: left;
+        td {
+          color: $light-color;
+        }
       }
     }
   }
