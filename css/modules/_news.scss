@@ -50,5 +50,16 @@
         margin-bottom: 25px;
       }
     }
+    &_category {
+      display: none;
+    }
+    ul {
+      margin: 1rem 0;
+      padding-left: 2rem;
+      list-style-type: disc;
+      li {
+        line-height: 1.5rem;
+      }
+    }
   }
 }

@@ -2,6 +2,9 @@
 
 .module-downloads {
   .module {
+    &_nav {
+      display: none;
+    }
     &_item {
       padding: 15px 0;
     }

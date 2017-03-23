@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -80,7 +80,7 @@
 
     
     <dt class="tag-version">Version:</dt>
-    <dd class="tag-version"><ul class="dummy"><li>1.0.2</li></ul></dd>
+    <dd class="tag-version"><ul class="dummy"><li>1.1.0</li></ul></dd>
     
 
     
@@ -131,42 +131,6 @@
 
 
 
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>- q4.app.js is already loaded on blank
-- defaults are extended in mainscripts and the init() function is executed (see the below code example)
-
-var q4App = $.extend( q4Defaults, {
-    init: function() {
-        var app = this;
-        
-        app.cleanUp();
-        app.unWrapLink('a.StockPrice');
-        app.submitOnEnter('.ModuleSearch');
-        app.submitOnEnter('.MailingListUnsubscribeContainer');
-        app.validateSubmit('.ModuleSearch');
-        app.accessibleNav($('.navbar-collapse'), 'level1');
-        app.onMenuToggle();
-        app.onMenuExit($('.PaneNavigation .menu-close'));
-
-    }
-)});
-
-q4App.init();
-
-- multiple subpages on blank 
-- you can extend q4App inside the global module : 
-
-var q4App = $.extend( q4Defaults, {
-    init: function() {
-        this.myFunction()
-    },
-    myFunction: function() {...}
-)});
-
-or on an inner page q4App.myFunction() {}</code></pre>
 
 
 
@@ -232,7 +196,7 @@ or on an inner page q4App.myFunction() {}</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line80">line 80</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line50">line 50</a>
     </li></ul></dd>
     
 
@@ -378,7 +342,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line652">line 652</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line619">line 619</a>
     </li></ul></dd>
     
 
@@ -587,7 +551,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line325">line 325</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line282">line 282</a>
     </li></ul></dd>
     
 
@@ -768,7 +732,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line304">line 304</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line261">line 261</a>
     </li></ul></dd>
     
 
@@ -916,7 +880,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line436">line 436</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line402">line 402</a>
     </li></ul></dd>
     
 
@@ -1064,7 +1028,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line165">line 165</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -1212,7 +1176,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line709">line 709</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line676">line 676</a>
     </li></ul></dd>
     
 
@@ -1299,7 +1263,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line717">line 717</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line684">line 684</a>
     </li></ul></dd>
     
 
@@ -1447,7 +1411,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line557">line 557</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line522">line 522</a>
     </li></ul></dd>
     
 
@@ -1628,7 +1592,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line486">line 486</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line451">line 451</a>
     </li></ul></dd>
     
 
@@ -1776,7 +1740,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line453">line 453</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line418">line 418</a>
     </li></ul></dd>
     
 
@@ -1924,7 +1888,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line205">line 205</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -2148,7 +2112,7 @@ Returns an array of errors
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line290">line 290</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line247">line 247</a>
     </li></ul></dd>
     
 
@@ -2176,187 +2140,6 @@ Returns an array of errors
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>app.mobileMenuToggle($('.layout'), '.pane--navigation', '.layout_toggle i')</code></pre>
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".moduleNotFound"><span class="type-signature">(static) </span>moduleNotFound<span class="signature">(element<span class="signature-attributes">opt</span>, element<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Hide module if "module not found" text is present
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">$el</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">the element containing the "module not found" text</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">$hidden</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">the element that will be hidden</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line175">line 175</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>app.moduleNotFound( $('.EditSubscriberConfirmation'), $('.MailingListUnsubscribeContainer, .subscribe-text') );</code></pre>
 
 
 
@@ -2478,7 +2261,7 @@ Works for both list and details pages.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line423">line 423</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line389">line 389</a>
     </li></ul></dd>
     
 
@@ -2726,7 +2509,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line146">line 146</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line115">line 115</a>
     </li></ul></dd>
     
 
@@ -2874,7 +2657,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line186">line 186</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -3022,7 +2805,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line249">line 249</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line206">line 206</a>
     </li></ul></dd>
     
 
@@ -3203,7 +2986,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line277">line 277</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line234">line 234</a>
     </li></ul></dd>
     
 
@@ -3549,7 +3332,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line342">line 342</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line299">line 299</a>
     </li></ul></dd>
     
 
@@ -3636,7 +3419,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
             <td class="type">
             
                 
-<span class="param-type">cls</span>
+<span class="param-type">selector</span>
 
 
             
@@ -3697,7 +3480,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line131">line 131</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -3727,7 +3510,7 @@ Use this function to create anything from "Read More" buttons to revealing hidde
     <pre class="prettyprint"><code>&lt;pre>
    before: &amp;lt;a class="unwraplink" href="#"&amp;gt;Text to unwrap&amp;lt;/a&amp;gt;
 
-   app.unWrapLink( 'a.StockPrice' );
+   app.unWrapLink( 'a.module-stock-header_stock-price' );
 
    after: &amp;lt;span class="unwraplink"&amp;gt;Text to unwrap&amp;lt;/span&amp;gt;
 &lt;/pre></code></pre>
@@ -3852,7 +3635,7 @@ the module to submit without text inside the search input
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line233">line 233</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line190">line 190</a>
     </li></ul></dd>
     
 
@@ -4001,7 +3784,7 @@ the form to submit without a true email address
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line216">line 216</a>
+        <a href="q4.app.js.html">q4.app.js</a>, <a href="q4.app.js.html#line173">line 173</a>
     </li></ul></dd>
     
 
@@ -4050,7 +3833,7 @@ the form to submit without a true email address
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Mar 22 2017 16:04:55 GMT-0400 (EDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Mar 23 2017 16:13:09 GMT-0400 (EDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -231,4 +231,12 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+  // All details modules
+  &-details {
+    .module {
+      &_date-time {
+        margin-bottom: 15px;
+      }
+    }
+  }
 }

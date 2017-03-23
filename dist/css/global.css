@@ -1174,6 +1174,9 @@ a:focus {
   font-weight: bold;
   text-transform: uppercase;
 }
+.module-details .module_date-time {
+  margin-bottom: 15px;
+}
 
 /*------- Captcha Component ------*/
 .CaptchaContainer table tr:nth-child(1) {
@@ -1278,7 +1281,7 @@ a:focus {
 }
 .module-committee .module_header {
   display: block;
-  border-bottom: 2px solid #f6f6f6;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
   font-weight: normal;
 }
 .module-committee .module_item {
@@ -1326,6 +1329,9 @@ a:focus {
 }
 
 /*----- Download List Module -----*/
+.module-downloads .module_nav {
+  display: none;
+}
 .module-downloads .module_item {
   padding: 15px 0;
 }
@@ -1512,13 +1518,8 @@ a:focus {
 }
 
 /*---------- FAQ Module ----------*/
-.module-faq .module_item {
-  padding: 0 0 10px;
-}
-.module-faq .module_item ~ .module_item {
-  padding: 30px 0 10px;
-}
 .module-faq_question {
+  margin-top: 0;
   cursor: pointer;
 }
 .module-faq_answer p {
@@ -2074,6 +2075,17 @@ a:focus {
   display: block;
   margin-bottom: 25px;
 }
+.module-news-details_category {
+  display: none;
+}
+.module-news-details ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+.module-news-details ul li {
+  line-height: 1.5rem;
+}
 
 /*------ Person List Module ------*/
 .module-person_description, .module-person_res-photo-container,
@@ -2250,7 +2262,7 @@ a:focus {
   border: 0;
 }
 .module-sec .module_item:nth-child(odd) {
-  background-color: #f6f6f6;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .module-sec .module_item .grid_col {
   vertical-align: middle;

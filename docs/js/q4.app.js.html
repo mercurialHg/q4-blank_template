@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.moduleNotFound">moduleNotFound</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -41,41 +41,7 @@
             <pre class="prettyprint source linenums"><code>/**
  * Reuseable functions used on Q4 Websites
  * @class q4.app
- * @version 1.0.2
- * @example 
- * - q4.app.js is already loaded on blank
- * - defaults are extended in mainscripts and the init() function is executed (see the below code example)
- *
- * var q4App = $.extend( q4Defaults, {
- *     init: function() {
- *         var app = this;
- *         
- *         app.cleanUp();
- *         app.unWrapLink('a.StockPrice');
- *         app.submitOnEnter('.ModuleSearch');
- *         app.submitOnEnter('.MailingListUnsubscribeContainer');
- *         app.validateSubmit('.ModuleSearch');
- *         app.accessibleNav($('.navbar-collapse'), 'level1');
- *         app.onMenuToggle();
- *         app.onMenuExit($('.PaneNavigation .menu-close'));
- *
- *     }
- * )});
- *
- * q4App.init();
- *
- * - multiple subpages on blank 
- * - you can extend q4App inside the global module : 
- *
- * var q4App = $.extend( q4Defaults, {
- *     init: function() {
- *         this.myFunction()
- *     },
- *     myFunction: function() {...}
- * )});
- *
- * or on an inner page q4App.myFunction() {}
- *
+ * @version 1.1.0
 */
 
 /** @lends q4.app */
@@ -110,7 +76,11 @@ var q4Defaults = {
                     '&lt;/div>' +
                 '&lt;/div>' +
             '&lt;/div>'
-        )
+        ),
+        /**
+         * Enable superfish plugin
+         */
+        superfish: true
     },
 
     /**
@@ -150,7 +120,6 @@ var q4Defaults = {
     // Easier preview navigation
     resetDate: function() {
         if (GetViewType() === "0") {
-            console.log("q4App.resetDate() is in effect.");
             $('a[href*="s3.q4web.com').each(function() {
                 $(this).attr('href', $(this).attr('href') + '&amp;ResetDate=1');
             });
@@ -159,18 +128,18 @@ var q4Defaults = {
 
     /**
      * Used to replace an anchor with a span.
-     * @param {cls}  [selector] a selector containing a item to be unwrapped
+     * @param {selector}  [selector] a selector containing a item to be unwrapped
      * @example &lt;pre>
      *    before: &amp;lt;a class="unwraplink" href="#"&amp;gt;Text to unwrap&amp;lt;/a&amp;gt;
      *
-     *    app.unWrapLink( 'a.StockPrice' );
+     *    app.unWrapLink( 'a.module-stock-header_stock-price' );
      *
      *    after: &amp;lt;span class="unwraplink"&amp;gt;Text to unwrap&amp;lt;/span&amp;gt;
      * &lt;/pre>
      */
-    unWrapLink: function(cls) {
-        $(cls).replaceWith(function(){
-            return $('&lt;span class="'+ cls.split('.').pop() +'">' + $(this).html() + '&lt;/span>');
+    unWrapLink: function(selector) {
+        $(selector).replaceWith(function(){
+            return $('&lt;span class="'+ selector.split('.').pop() +'">' + $(this).html() + '&lt;/span>');
         }); 
     },
 
@@ -186,12 +155,12 @@ var q4Defaults = {
     reveal: function(container, trigger, panel, once) {
         if (once) {
             $(container).one('click', trigger, function(e) {
-                e.preventDefault();
+                if ($(trigger).is('a')) e.preventDefault();
                 $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
             });
         } else {
             $(container).on('click', trigger, function(e) {
-                e.preventDefault();
+                if ($(trigger).is('a')) e.preventDefault();
                 $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
             });
         }
@@ -204,18 +173,6 @@ var q4Defaults = {
      */
     cleanQuickLinks: function($el) {
         $el.find('ul').attr('class', 'module-links_list');
-    },
-
-    /**
-     * Hide module if "module not found" text is present
-     * @param {$el}  [element] the element containing the "module not found" text
-     * @param {$hidden}  [element] the element that will be hidden
-     * @example app.moduleNotFound( $('.EditSubscriberConfirmation'), $('.MailingListUnsubscribeContainer, .subscribe-text') );
-     */
-    moduleNotFound: function($el, $hidden) {
-        if ( $el.text().trim().length ) {
-            $hidden.hide();
-        }
     },
 
     /**
@@ -258,7 +215,7 @@ var q4Defaults = {
 
         $el.find('input[type="submit"]').on('click', function(e){
             if ( !inst.isValidEmailAddress ( $el.find('input[id*="Email"]').val() ) ) {
-                $el.find('.MailingListUnsubscribeMessage').html('Please enter a valid Email Address');
+                $el.find('.module_confirmation-container').html('Please enter a valid Email Address');
                 e.preventDefault();
             }
         });
@@ -315,7 +272,7 @@ var q4Defaults = {
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
     superfish: function($nav, options) {
-        if (!this.isMobile.any()) {
+        if (!this.isMobile.any() &amp;&amp; this.options.superfish) {
             $nav.superfish(options);
         }
     },
@@ -393,6 +350,15 @@ var q4Defaults = {
                 } else {
                     $this._toggleTrigger($(this), $container, item, panel);
                 }
+
+                if (allButton) {
+                    if (!$container.find(item + '.js--active').length) {
+                        $container.find('.toggle-all').removeClass('js--active');
+                    }
+                    if ($container.find(item + '.js--active').length === $container.find(item).length) {
+                        $container.find('.toggle-all').addClass('js--active');
+                    }
+                }
             }
         });
 
@@ -406,10 +372,10 @@ var q4Defaults = {
         }
     },
     _toggleAll: function($container, item, toggle, panel) {
-        $container.prepend('&lt;div class="accordion-toggle-all">&lt;a href="#all">&lt;/a>&lt;/div>').on('click', '.accordion-toggle-all a', function(e) {
+        $container.prepend('&lt;div class="toggle-all">&lt;a description="toggle all items" class="button" href="#all">&lt;/a>&lt;/div>').on('click', '.toggle-all a', function(e) {
             e.preventDefault();
-            $(this).parent().toggleClass('active');
-            if ( $(this).parent().is('.active') ) {
+            $(this).parent().toggleClass('js--active');
+            if ( $(this).parent().is('.js--active') ) {
                 $container.find(toggle).attr('aria-expanded', 'true');
                 $container.find(item).addClass('js--active');
                 $container.find(panel).slideDown(400, function() {
@@ -462,8 +428,8 @@ var q4Defaults = {
      */
     remindMeOnce: function($el) {
         $el.each(function() {
-            if ( $(this).find('.ReminderError').text().length ) {
-                $(this).find('.ModuleReminderContainer').addClass('js--reminded');
+            if ( $(this).find('.module_reminder-success').text().length ) {
+                $(this).find('.module_reminder').addClass('js--reminded');
             }
         });
     },
@@ -475,9 +441,8 @@ var q4Defaults = {
      */
      addToCalendar: function(selector) {
         $(selector).on('click', '.module_add-to-calendar-reveal', function(e) {
-            var fancyContent = $(this).next()[0].outerHTML;
             $.fancybox.open({
-                src: fancyContent,
+                src: $(this).next(),
                 type: 'inline',
                 opts: {
                     slideClass: 'fancybox-slide--no-padding'
@@ -492,10 +457,10 @@ var q4Defaults = {
      */
     hidePastCal: function($events) {
         var today = new Date();
+
         $events.each(function() {
             var $this = $(this),
-                $date = $this.find('.ModuleDate');
-
+                $date = $this.find('.module_date-text');
             if ( $date.text().indexOf("from") >= 0 ) {
                 var isolateDate = $date.text().split('from ').pop().split('to ');
                 if (today > new Date(isolateDate[1])) {
@@ -615,6 +580,8 @@ var q4Defaults = {
             return;
         }
 
+        $signup.find('.CaptchaContainer').addClass('js--hidden');
+
         // Accessibility fixes
         $signup.find('img').attr('alt', 'Captcha');
         $signup.find('input[type="text"]').attr('aria-label', 'Captcha Text');
@@ -635,7 +602,7 @@ var q4Defaults = {
                 $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
 
                 $.fancybox.open({
-                    src  : '.CaptchaContainer',
+                    src  : $signup.find('.CaptchaContainer'),
                     type : 'inline',
                     opts : {
                         onComplete : function() {
@@ -855,7 +822,7 @@ var q4Defaults = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Mar 22 2017 16:04:55 GMT-0400 (EDT) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Mar 23 2017 16:13:09 GMT-0400 (EDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
