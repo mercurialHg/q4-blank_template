@@ -22,4 +22,12 @@
     transition: none;
     pointer-events: none;
   }
+  &--invalid {
+    input[type="text"], select {
+      border: 1px solid $error-color;
+    }
+    input[type="checkbox"] {
+      border-color: $error-color;
+    }
+  }
 }

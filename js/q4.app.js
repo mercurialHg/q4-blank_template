@@ -22,21 +22,22 @@ var q4Defaults = {
                 '{{/.}}' +
             '</ul>'
         ),
-        /**
-         * Template to overwrite mailing list signup confirmation html.
-         */
-        mailingListConfirmationTpl: (
-            '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col--3-of-6 grid_col--md-1-of-2">' +
-                '<div class="module_container--outer">' +
-                    '<h2 class="module_title">' +
-                        '<span class="ModuleTitle">Email Alerts</span>' +
-                    '</h2>' +
-                    '<div class="module_container--inner">' +
-                        '<p>Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
+        mailingListConfig: {
+            /**
+             * Template to overwrite mailing list signup confirmation html.
+             */
+            tpl: (
+                '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col--3-of-6 grid_col--md-1-of-2">' +
+                    '<div class="module_container--outer">' +
+                        '<h2 class="module_title">Email Alerts</h2>' +
+                        '<div class="module_container--inner">' +
+                            '<p>Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
+                        '</div>' +
                     '</div>' +
-                '</div>' +
-            '</div>'
-        ),
+                '</div>'
+            ),
+            location: '.pane--footer'
+        },
         /**
          * Enable superfish plugin
          */
@@ -176,6 +177,7 @@ var q4Defaults = {
         $el.find('input[type="submit"]').on('click', function(e){
             if ( !inst.isValidEmailAddress ( $el.find('input[id*="Email"]').val() ) ) {
                 $el.find('.module_confirmation-container').html('Please enter a valid Email Address');
+                $el.addClass('js--invalid');
                 e.preventDefault();
             }
         });
@@ -522,92 +524,100 @@ var q4Defaults = {
     fancySignup: function() {
         var inst = this,
             signup = inst.options.mailingListSignupCls;
-            $signup = $(signup);
-
+            $signup = $(signup),
+            $confirm = $('div[id*="SubscriberConfirmation"]'); // jshint ignore:line
 
         // Subscriber Confirmation fix
-        if ( $('div[id*="SubscriberConfirmation"]').is(':visible') ) {
-            $('div[id*="SubscriberConfirmation"]').parent().html( inst.options.mailingListConfirmationTpl );
-            inst.scrollTo( $(signup), 0 );
+        if ( $confirm.is(':visible') ) {
+            //console.log($this.closest(inst.options.mailingListConfig.location))
+            if ( $confirm.filter(':visible').closest(inst.options.mailingListConfig.location).length ) {
+                $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl );
+            }
+            inst.scrollTo( $confirm.filter(':visible'), 0 );
         }
-
-        // If a confirmation or error message is visible on page load, scroll to the module
-        if ($(signup).find('input.module_input').length && $(signup).find('input.module_input').val().length){
-            inst.scrollTo( $(signup), 0 );
-        }
-
+        
         if ( !$signup.length ) {
             return;
         }
+        
+        $signup.each(function(){
+            var $this = $(this);
 
-        $signup.find('.CaptchaContainer').addClass('js--hidden');
-
-        // Accessibility fixes
-        $signup.find('img').attr('alt', 'Captcha');
-        $signup.find('input[type="text"]').attr('aria-label', 'Captcha Text');
-        $signup.find('table').removeAttr('cellpadding cellspacing border width');
-
-        // Create a second submit button to be displayed inside fancybox
-        $signup.find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $signup.find('.CaptchaContainer') );
-
-        $signup.on('click', 'input[type="submit"]', function(e){
-            e.preventDefault();
-
-            var $signup = $(this).closest( signup ),
-                errors = inst._mailingListValidation( $signup );
-
-            $signup.find('.module_error-container').html('');
-
-            if ( !errors.length ) {
-                $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
-
-                $.fancybox.open({
-                    src  : $signup.find('.CaptchaContainer'),
-                    type : 'inline',
-                    opts : {
-                        onComplete : function() {
-                            $('.fancybox-container').appendTo($('#litPageDiv form:first'));
-                        }
-                    }
-                });
-            } else {
-                $signup.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+            // If a confirmation or error message is visible on page load, scroll to the module
+            if ( $this.find('input.module_input').length && $this.find('input.module_input').val().length ){
+                inst.scrollTo( $this, 0 );
             }
 
-            return false;
-        });
+            $this.find('.CaptchaContainer').addClass('js--hidden');
 
-        // Submit form on enter
-        $signup.find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
-            if (e.keyCode == 13) {
+            // Accessibility fixes
+            $this.find('img').attr('alt', 'Captcha');
+            $this.find('input[type="text"]').attr('aria-label', 'Captcha Text');
+            $this.find('table').removeAttr('cellpadding cellspacing border width');
+
+            // Create a second submit button to be displayed inside fancybox
+            $this.find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $this.find('.CaptchaContainer') );
+
+            $this.on('click', 'input[type="submit"]', function(e){
                 e.preventDefault();
-                $(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+
+                var $parent = $(this).closest( signup ),
+                    errors = inst._mailingListValidation( $parent );
+
+                if ( !errors.length ) {
+                    $parent.find('.CaptchaContainer').data( 'container', $parent.attr('id') );
+
+                    $.fancybox.open({
+                        src  : $parent.find('.CaptchaContainer'),
+                        type : 'inline',
+                        opts : {
+                            onComplete : function() {
+                                $('.fancybox-container').appendTo($('#litPageDiv form:first'));
+                            }
+                        }
+                    });
+                }
+
                 return false;
-            }
-        });
+            });
 
-        // Make sure the Captcha is filled out
-        $signup.find('.CaptchaContainer')
-            .prepend('<div class="module_error-container"></div>')
-            .find('input[type="submit"]').on('click', function(e){
-                var $container = $(this).closest('.CaptchaContainer');
+            // Run validation on change
+            $this.find('input, select').on('change', function(){
+                inst._mailingListValidation( $this );
+            });
 
-                if ( !$container.find('input[type="text"]').val().length ) {
+            // Submit form on enter
+            $this.find('.CaptchaContainer input[type="text"]').on('keydown', function(e){
+                if (e.keyCode == 13) {
                     e.preventDefault();
-                    $container.find('.module_error-container').html('Captcha is required');
-                } else if ($container.find('input[type="text"]').val().length !== 6 ) {
-                    e.preventDefault();
-                    $container.find('.module_error-container').html('Captcha is invalid');
+                    $(this).closest('.CaptchaContainer').find('input[type="submit"]').trigger('click');
+                    return false;
                 }
             });
 
-        // Validate submit on enter
-        $signup.find('input[type="text"]').on('keydown', function(e){
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                $(this).closest('.module-subscribe--fancy').find('.module_actions input[type="submit"]').trigger('click');
-                return false;
-            }
+            // Make sure the Captcha is filled out
+            $this.find('.CaptchaContainer')
+                .prepend('<div class="module_error-container"></div>')
+                .find('input[type="submit"]').on('click', function(e){
+                    var $container = $(this).closest('.CaptchaContainer');
+
+                    if ( !$container.find('input[type="text"]').val().length ) {
+                        e.preventDefault();
+                        $container.find('.module_error-container').html('Captcha is required');
+                    } else if ($container.find('input[type="text"]').val().length !== 6 ) {
+                        e.preventDefault();
+                        $container.find('.module_error-container').html('Captcha is invalid');
+                    }
+                });
+
+            // Validate submit on enter
+            $this.find('input[type="text"]').on('keydown', function(e){
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $(this).closest(signup).find('.module_actions input[type="submit"]').trigger('click');
+                    return false;
+                }
+            });
         });
     },
     /**
@@ -620,7 +630,7 @@ var q4Defaults = {
         var inst = this,
             errors = [];
 
-        $el.find('.module-subscribe_table-row--invalid').removeClass('module-subscribe_table-row--invalid');
+        $el.find('.js--invalid').removeClass('js--invalid');
 
         $el.find('.module_required').each(function(){
             var $item = $(this).closest('.module-subscribe_table-input'),
@@ -657,13 +667,20 @@ var q4Defaults = {
             }
 
             if (!validation) {
-                $item.addClass('module-subscribe_table-row--invalid');
+                $item.addClass('js--invalid');
                 errors.push({
                     name: field,
                     message: message
                 });
             }
         });
+
+        if (errors.length) {
+            $el.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+        } else {
+            $el.find('.module_error-container').html('');
+
+        }
 
         return errors;
     },

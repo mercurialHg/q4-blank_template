@@ -1,6 +1,7 @@
 /*------- Captcha Component ------*/
 
 .CaptchaContainer {
+  display: none;
   table {
     tr {
       &:nth-child(1) {

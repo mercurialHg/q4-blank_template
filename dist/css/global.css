@@ -961,6 +961,12 @@ a:focus {
   transition: none;
   pointer-events: none;
 }
+.js--invalid input[type="text"], .js--invalid select {
+  border: 1px solid #b72121;
+}
+.js--invalid input[type="checkbox"] {
+  border-color: #b72121;
+}
 
 /*==================================
  ----------- MODULE CSS -----------
@@ -1179,6 +1185,9 @@ a:focus {
 }
 
 /*------- Captcha Component ------*/
+.CaptchaContainer {
+  display: none;
+}
 .CaptchaContainer table tr:nth-child(1) {
   display: none;
 }
