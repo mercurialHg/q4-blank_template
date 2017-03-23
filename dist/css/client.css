@@ -2494,11 +2494,13 @@ a.ui-button:active,
 /* Auto Complete
 ----------------------------------*/
 .ui-widget-content.ui-autocomplete {
+  max-height: 300px;
   border: none;
   background: #f6f6f6;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   color: #333333;
+  overflow-y: scroll;
 }
 .ui-widget-content.ui-autocomplete .ui-menu-item {
   padding: 0;

@@ -973,6 +973,7 @@ a:focus {
   margin-bottom: 15px;
 }
 .module_error-container {
+  display: block;
   margin-bottom: 30px;
 }
 .module_add-to-calendar-reveal {
@@ -991,7 +992,7 @@ a:focus {
   text-align: center;
 }
 .fancybox-container .module_add-to-calendar-list {
-  padding: 35px;
+  padding: 70px;
 }
 .module_add-to-calendar-item {
   display: inline-block;
@@ -1000,12 +1001,12 @@ a:focus {
 .module_add-to-calendar-item--ics {
   display: none;
 }
-.module_add-to-calendar-item i {
-  display: inline;
-}
 .module_add-to-calendar-link {
   font-size: 24px;
   font-size: 1.5rem;
+}
+.module_add-to-calendar.js--hidden {
+  display: none;
 }
 .module_actions, .module_pager {
   margin-top: 20px;
@@ -1132,7 +1133,7 @@ a:focus {
 }
 .module_reminder-error, .module_reminder-success {
   display: block;
-  margin: 15px 0 0;
+  margin: 1rem 0;
   font-style: italic;
 }
 .module_reminder-error[style$="hidden;"], .module_reminder-success[style$="hidden;"] {
@@ -1146,6 +1147,9 @@ a:focus {
 }
 .module_reminder .module_input.module_reminder-period, .module_reminder .module_input.module_reminder-email {
   margin-right: 10px;
+}
+.module_reminder.js--reminded {
+  display: none;
 }
 .module_required, .module_error-container {
   color: #b72121;
@@ -1240,6 +1244,12 @@ a:focus {
   margin-top: 10px;
   max-width: 300px;
 }
+.module-calculator_input-row--other input[type="text"] {
+  display: none;
+}
+.module-calculator_input-row--other input[type="text"].js--revealed {
+  display: block;
+}
 @media screen and (min-width: 1024px) {
   .module-calculator_popup-container {
     min-width: 920px;
@@ -1275,7 +1285,7 @@ a:focus {
   border: 0;
 }
 .module-committee .module_item:nth-child(even) {
-  background: #f6f6f6;
+  background: rgba(0, 0, 0, 0.05);
 }
 .module-committee .grid_col {
   padding: 20px 15px;
@@ -1475,9 +1485,9 @@ a:focus {
 .module-event-calendar .module_date-time, .module-event-calendar .module_headline {
   margin-bottom: 20px;
 }
-.module-event-calendar .module_links > div:not(:last-of-type) a {
-  padding-right: 15px;
-  border-right: 1px solid #006fba;
+.module-event-calendar .module_links > div:not(:first-of-type) .module_link {
+  padding-left: 15px;
+  border-left: 1px solid #006fba;
 }
 .module-event-calendar .module_add-to-calendar {
   margin: 0;
@@ -1650,6 +1660,7 @@ a:focus {
   text-align: left;
 }
 .module-latest-quarter .module_links > div {
+  display: inline-block;
   text-align: center;
 }
 .module-latest-quarter .module_link {
@@ -2182,6 +2193,10 @@ a:focus {
   display: inline-block;
   width: 90%;
   padding: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 .module-search_button {
   position: absolute;
@@ -2310,6 +2325,31 @@ a:focus {
 }
 .module-skip_link:visited {
   color: #fff;
+}
+
+/*------ Stock Chart Widget ------*/
+.module-stock-chart .highcharts-navigator-handle {
+  stroke: rgba(0, 0, 0, 0.1);
+  fill: #f2f2f2;
+  cursor: ew-resize;
+}
+.module-stock-chart .highcharts-range-input rect {
+  stroke: #cccccc;
+  fill: #f2f2f2;
+}
+.module-stock-chart .highcharts-button rect, .module-stock-chart .highcharts-input-group rect {
+  stroke-width: 0;
+  fill: rgba(0, 0, 0, 0.1);
+}
+.module-stock-chart .highcharts-button text, .module-stock-chart .highcharts-input-group text {
+  fill: #333333;
+}
+.module-stock-chart .highcharts-navigator-handle-right rect, .module-stock-chart .highcharts-navigator-handle-left rect {
+  stroke-width: 0;
+  fill: #006fba;
+}
+.module-stock-chart .highcharts-navigator-handle-right path, .module-stock-chart .highcharts-navigator-handle-left path {
+  stroke: #fff;
 }
 
 /*------ Stock Header Module -----*/

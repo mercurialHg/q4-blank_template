@@ -22,6 +22,14 @@
         margin-top: 10px;
         max-width: 300px;
       }
+      &--other {
+        input[type="text"] {
+          display: none;
+          &.js--revealed {
+            display: block;
+          }
+        }
+      }
     }
   }
   &_popup-container {

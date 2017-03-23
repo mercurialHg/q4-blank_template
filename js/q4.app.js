@@ -1,41 +1,7 @@
 /**
  * Reuseable functions used on Q4 Websites
  * @class q4.app
- * @version 1.0.2
- * @example 
- * - q4.app.js is already loaded on blank
- * - defaults are extended in mainscripts and the init() function is executed (see the below code example)
- *
- * var q4App = $.extend( q4Defaults, {
- *     init: function() {
- *         var app = this;
- *         
- *         app.cleanUp();
- *         app.unWrapLink('a.StockPrice');
- *         app.submitOnEnter('.ModuleSearch');
- *         app.submitOnEnter('.MailingListUnsubscribeContainer');
- *         app.validateSubmit('.ModuleSearch');
- *         app.accessibleNav($('.navbar-collapse'), 'level1');
- *         app.onMenuToggle();
- *         app.onMenuExit($('.PaneNavigation .menu-close'));
- *
- *     }
- * )});
- *
- * q4App.init();
- *
- * - multiple subpages on blank 
- * - you can extend q4App inside the global module : 
- *
- * var q4App = $.extend( q4Defaults, {
- *     init: function() {
- *         this.myFunction()
- *     },
- *     myFunction: function() {...}
- * )});
- *
- * or on an inner page q4App.myFunction() {}
- *
+ * @version 1.1.0
 */
 
 /** @lends q4.app */
@@ -70,7 +36,11 @@ var q4Defaults = {
                     '</div>' +
                 '</div>' +
             '</div>'
-        )
+        ),
+        /**
+         * Enable superfish plugin
+         */
+        superfish: true
     },
 
     /**
@@ -110,7 +80,6 @@ var q4Defaults = {
     // Easier preview navigation
     resetDate: function() {
         if (GetViewType() === "0") {
-            console.log("q4App.resetDate() is in effect.");
             $('a[href*="s3.q4web.com').each(function() {
                 $(this).attr('href', $(this).attr('href') + '&ResetDate=1');
             });
@@ -119,18 +88,18 @@ var q4Defaults = {
 
     /**
      * Used to replace an anchor with a span.
-     * @param {cls}  [selector] a selector containing a item to be unwrapped
+     * @param {selector}  [selector] a selector containing a item to be unwrapped
      * @example <pre>
      *    before: &lt;a class="unwraplink" href="#"&gt;Text to unwrap&lt;/a&gt;
      *
-     *    app.unWrapLink( 'a.StockPrice' );
+     *    app.unWrapLink( 'a.module-stock-header_stock-price' );
      *
      *    after: &lt;span class="unwraplink"&gt;Text to unwrap&lt;/span&gt;
      * </pre>
      */
-    unWrapLink: function(cls) {
-        $(cls).replaceWith(function(){
-            return $('<span class="'+ cls.split('.').pop() +'">' + $(this).html() + '</span>');
+    unWrapLink: function(selector) {
+        $(selector).replaceWith(function(){
+            return $('<span class="'+ selector.split('.').pop() +'">' + $(this).html() + '</span>');
         }); 
     },
 
@@ -146,12 +115,12 @@ var q4Defaults = {
     reveal: function(container, trigger, panel, once) {
         if (once) {
             $(container).one('click', trigger, function(e) {
-                e.preventDefault();
+                if ($(trigger).is('a')) e.preventDefault();
                 $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
             });
         } else {
             $(container).on('click', trigger, function(e) {
-                e.preventDefault();
+                if ($(trigger).is('a')) e.preventDefault();
                 $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
             });
         }
@@ -164,18 +133,6 @@ var q4Defaults = {
      */
     cleanQuickLinks: function($el) {
         $el.find('ul').attr('class', 'module-links_list');
-    },
-
-    /**
-     * Hide module if "module not found" text is present
-     * @param {$el}  [element] the element containing the "module not found" text
-     * @param {$hidden}  [element] the element that will be hidden
-     * @example app.moduleNotFound( $('.EditSubscriberConfirmation'), $('.MailingListUnsubscribeContainer, .subscribe-text') );
-     */
-    moduleNotFound: function($el, $hidden) {
-        if ( $el.text().trim().length ) {
-            $hidden.hide();
-        }
     },
 
     /**
@@ -218,7 +175,7 @@ var q4Defaults = {
 
         $el.find('input[type="submit"]').on('click', function(e){
             if ( !inst.isValidEmailAddress ( $el.find('input[id*="Email"]').val() ) ) {
-                $el.find('.MailingListUnsubscribeMessage').html('Please enter a valid Email Address');
+                $el.find('.module_confirmation-container').html('Please enter a valid Email Address');
                 e.preventDefault();
             }
         });
@@ -275,7 +232,7 @@ var q4Defaults = {
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
     superfish: function($nav, options) {
-        if (!this.isMobile.any()) {
+        if (!this.isMobile.any() && this.options.superfish) {
             $nav.superfish(options);
         }
     },
@@ -368,8 +325,8 @@ var q4Defaults = {
     _toggleAll: function($container, item, toggle, panel) {
         $container.prepend('<div class="accordion-toggle-all"><a href="#all"></a></div>').on('click', '.accordion-toggle-all a', function(e) {
             e.preventDefault();
-            $(this).parent().toggleClass('active');
-            if ( $(this).parent().is('.active') ) {
+            $(this).parent().toggleClass('js--active');
+            if ( $(this).parent().is('.js--active') ) {
                 $container.find(toggle).attr('aria-expanded', 'true');
                 $container.find(item).addClass('js--active');
                 $container.find(panel).slideDown(400, function() {
@@ -422,8 +379,8 @@ var q4Defaults = {
      */
     remindMeOnce: function($el) {
         $el.each(function() {
-            if ( $(this).find('.ReminderError').text().length ) {
-                $(this).find('.ModuleReminderContainer').addClass('js--reminded');
+            if ( $(this).find('.module_reminder-success').text().length ) {
+                $(this).find('.module_reminder').addClass('js--reminded');
             }
         });
     },
@@ -435,9 +392,8 @@ var q4Defaults = {
      */
      addToCalendar: function(selector) {
         $(selector).on('click', '.module_add-to-calendar-reveal', function(e) {
-            var fancyContent = $(this).next()[0].outerHTML;
             $.fancybox.open({
-                src: fancyContent,
+                src: $(this).next(),
                 type: 'inline',
                 opts: {
                     slideClass: 'fancybox-slide--no-padding'
@@ -452,10 +408,10 @@ var q4Defaults = {
      */
     hidePastCal: function($events) {
         var today = new Date();
+
         $events.each(function() {
             var $this = $(this),
-                $date = $this.find('.ModuleDate');
-
+                $date = $this.find('.module_date-text');
             if ( $date.text().indexOf("from") >= 0 ) {
                 var isolateDate = $date.text().split('from ').pop().split('to ');
                 if (today > new Date(isolateDate[1])) {
@@ -575,6 +531,8 @@ var q4Defaults = {
             return;
         }
 
+        $signup.find('.CaptchaContainer').addClass('js--hidden');
+
         // Accessibility fixes
         $signup.find('img').attr('alt', 'Captcha');
         $signup.find('input[type="text"]').attr('aria-label', 'Captcha Text');
@@ -595,7 +553,7 @@ var q4Defaults = {
                 $signup.find('.CaptchaContainer').data( 'container', $signup.attr('id') );
 
                 $.fancybox.open({
-                    src  : '.CaptchaContainer',
+                    src  : $signup.find('.CaptchaContainer'),
                     type : 'inline',
                     opts : {
                         onComplete : function() {

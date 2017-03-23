@@ -18,6 +18,7 @@
   }
   // Large Spacing
   &_error-container {
+    display: block;
     margin-bottom: 30px;
   }
   &_add-to-calendar {
@@ -35,7 +36,7 @@
         text-align: center;
       }
       @at-root .fancybox-container & {
-        padding: 35px;
+        padding: 70px;
       }
     }
     &-item {
@@ -44,12 +45,12 @@
       &--ics {
         display: none;
       }
-      i {
-        display: inline;
-      }
     }
     &-link {
       @include font-size(24px);
+    }
+    &.js--hidden {
+      display: none;
     }
   }
   &_actions, &_pager {
@@ -185,7 +186,7 @@
   &_reminder {
     &-error, &-success {
       display: block;
-      margin: 15px 0 0;
+      margin: 1rem 0;
       font-style: italic;
       //override backend functionality
       &[style$="hidden;"] {
@@ -200,6 +201,9 @@
     }
     .module_input.module_reminder-period, .module_input.module_reminder-email {
       margin-right: 10px;
+    }
+    &.js--reminded {
+      display: none;
     }
   }
   &_required, &_error-container {

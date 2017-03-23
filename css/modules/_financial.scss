@@ -151,6 +151,7 @@
       margin: 0;
       text-align: left;
       & > div {
+        display: inline-block;
         text-align: center;
       }
     }

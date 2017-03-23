@@ -1,0 +1,34 @@
+/*------ Stock Chart Widget ------*/
+
+.module-stock-chart {
+  .highcharts {
+    &-navigator-handle {
+      stroke: rgba(0,0,0,0.1);
+      fill: #f2f2f2;
+      cursor: ew-resize;
+    }
+    &-range-input rect {
+      stroke: #cccccc;
+      fill: #f2f2f2;
+    }
+    &-button rect,
+    &-input-group rect {
+      stroke-width: 0;
+      fill: rgba(0,0,0,0.1);
+    }
+    &-button text,
+    &-input-group text {
+      fill: $body-color;
+    }
+    &-navigator-handle-right,
+    &-navigator-handle-left {
+      rect {
+        stroke-width: 0;
+        fill: $brand-color;
+      }
+      path {
+        stroke: $light-color;
+      }
+    }
+  }
+}

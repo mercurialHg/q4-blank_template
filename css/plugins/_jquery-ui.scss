@@ -700,11 +700,13 @@ a.ui-button:active,
 ----------------------------------*/
 
 .ui-widget-content.ui-autocomplete {
+	max-height: 300px;
 	border: none;
 	background: $grey-color;
 	font-family: $body-font;
 	font-size: 1rem;
 	color: $body-color;
+	overflow-y: scroll;
 	.ui-menu-item {
 		padding: 0;
 	}

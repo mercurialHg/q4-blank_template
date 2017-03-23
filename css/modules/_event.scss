@@ -150,10 +150,10 @@
         margin-bottom: 20px;
       }
       &_links {
-        > div:not(:last-of-type) {
-          a {
-            padding-right: 15px;
-            border-right: 1px solid $brand-color;
+        > div:not(:first-of-type) {
+          .module_link {
+            padding-left: 15px;
+            border-left: 1px solid $brand-color;
           }
         }
       }
