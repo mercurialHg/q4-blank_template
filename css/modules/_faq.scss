@@ -1,14 +1,35 @@
 /*---------- FAQ Module ----------*/
 
 .module-faq {
+  .module {
+    &_item {
+      padding: 0 0 10px;
+      & ~ .module_item {
+        padding: 30px 0 10px;
+      }
+    }
+  }
 	&_question {
 		cursor: pointer;
 	}
 	&_answer {
-		display: block;
 		p {
 			margin: 0;
 			padding: 0 0 1rem;
 		}
 	}
+  .toggle-all {
+    a {
+      &:before {
+        content: "Show all";
+      }
+    }
+    &.js--active {
+      a {
+        &:before {
+        content: "Hide all";
+        }
+      }
+    }
+  }
 }

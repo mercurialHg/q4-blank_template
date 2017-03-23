@@ -18,13 +18,13 @@ $layout-small: 480px !default;
 $mobile-header-height: 100px !default;
 
 /// The default vertical spacing between modules within the content pane
-$module-vspace: 35px !default;
+$module-vspace: 70px !default;
 
 /// The thin vertical spacing between modules within the content pane
-$module-vspace--thin: 15px !default;
+$module-vspace--thin: $module-vspace / 2 !default;
 
 /// The thick vertical spacing between modules within the content pane
-$module-vspace--thick: 70px !default;
+$module-vspace--thick: $module-vspace * 1.5 !default;
 
 
 /// The default font family for the site.
@@ -44,7 +44,7 @@ $body-color: #333333 !default;
 $brand-color: #006fba !default;
 
 /// The alternate default brand colour for the site
-$alt-brand-color: #f1af0f !default;
+$brand-color--alt: #f1af0f !default;
 
 /// The default light text colour for the site.
 $light-color: #fff !default;

@@ -148,8 +148,6 @@
     }
   }
   &--content {
-    padding-top: $module-vspace;
-    padding-bottom: $module-vspace;
     .module {
       padding-top: $module-vspace;
       padding-bottom: $module-vspace;
@@ -273,11 +271,18 @@
 
 /*--------- Page Specific --------*/
 
-.page--no-padding {
+// to add in the extra padding on the top and bottom of the content pane
+// this ensure that the first module is getting enough space on top
+// and the last module gets enough space below it
+.page--no-alternating {
   .pane {
     &--content {
-      padding: 0;
+      padding: 35px 0;
     }
+  }
+  .module {
+    padding-top: $module-vspace--thin;
+    padding-bottom: $module-vspace--thin;
   }
 }
 

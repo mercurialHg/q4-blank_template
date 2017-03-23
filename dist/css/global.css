@@ -1234,6 +1234,9 @@ a:focus {
   font-size: 0.875rem;
   margin-bottom: 5px;
 }
+.module-calculator_input input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 .module-calculator_input input[type="checkbox"] + label {
   margin: 0;
 }
@@ -1509,15 +1512,24 @@ a:focus {
 }
 
 /*---------- FAQ Module ----------*/
+.module-faq .module_item {
+  padding: 0 0 10px;
+}
+.module-faq .module_item ~ .module_item {
+  padding: 30px 0 10px;
+}
 .module-faq_question {
   cursor: pointer;
-}
-.module-faq_answer {
-  display: block;
 }
 .module-faq_answer p {
   margin: 0;
   padding: 0 0 1rem;
+}
+.module-faq .toggle-all a:before {
+  content: "Show all";
+}
+.module-faq .toggle-all.js--active a:before {
+  content: "Hide all";
 }
 
 /*--- Financial Report Modules ---*/
@@ -1982,7 +1994,7 @@ a:focus {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 35px;
+  padding-bottom: 70px;
 }
 @media only screen and (max-width: 1024px) {
   .nav--sitemap {
@@ -2554,7 +2566,7 @@ a:focus {
 ==================================*/
 /*------- iframe layout CSS ------*/
 .layout--iframe .pane--content .module {
-  padding: 15px 0;
+  padding: 35px 0;
 }
 .layout--iframe .pane--content .module_container--outer {
   max-width: none;
@@ -2729,13 +2741,9 @@ a:focus {
     background-position: 0 -100%;
   }
 }
-.pane--content {
-  padding-top: 35px;
-  padding-bottom: 35px;
-}
 .pane--content .module {
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 .pane--content .module_container--outer {
   max-width: 940px;
@@ -2750,12 +2758,12 @@ a:focus {
   }
 }
 .pane--content .module--thin {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 .pane--content .module--thick {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 105px;
+  padding-bottom: 105px;
 }
 .pane--footer {
   padding-top: 60px;
@@ -2865,8 +2873,12 @@ a:focus {
 }
 
 /*--------- Page Specific --------*/
-.page--no-padding .pane--content {
-  padding: 0;
+.page--no-alternating .pane--content {
+  padding: 35px 0;
+}
+.page--no-alternating .module {
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 
 /*-------- Module Specific -------*/

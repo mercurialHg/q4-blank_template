@@ -310,6 +310,15 @@ var q4Defaults = {
                 } else {
                     $this._toggleTrigger($(this), $container, item, panel);
                 }
+
+                if (allButton) {
+                    if (!$container.find(item + '.js--active').length) {
+                        $container.find('.toggle-all').removeClass('js--active');
+                    }
+                    if ($container.find(item + '.js--active').length === $container.find(item).length) {
+                        $container.find('.toggle-all').addClass('js--active');
+                    }
+                }
             }
         });
 
@@ -323,7 +332,7 @@ var q4Defaults = {
         }
     },
     _toggleAll: function($container, item, toggle, panel) {
-        $container.prepend('<div class="accordion-toggle-all"><a href="#all"></a></div>').on('click', '.accordion-toggle-all a', function(e) {
+        $container.prepend('<div class="toggle-all"><a description="toggle all items" class="button" href="#all"></a></div>').on('click', '.toggle-all a', function(e) {
             e.preventDefault();
             $(this).parent().toggleClass('js--active');
             if ( $(this).parent().is('.js--active') ) {
