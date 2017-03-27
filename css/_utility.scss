@@ -75,11 +75,23 @@
 .background--brand {
   background-color: $brand-color;
 }
+.background--alt-brand {
+  background-color: $brand-color--alt;
+}
 .background--dark {
   background-color: $dark-color;
 }
+.background--light {
+  background-color: $light-color;
+}
 .background--grey {
   background-color: $grey-color;
+}
+.background--success {
+  background-color: $success-color;
+}
+.background--error {
+  background-color: $error-color;
 }
 
 .color--brand {
@@ -90,6 +102,12 @@
 }
 .color--grey {
   color: $grey-color;
+}
+.color--success {
+  color: $success-color;
+}
+.color--error {
+  color: $error-color;
 }
 
 .dark {

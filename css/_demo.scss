@@ -1,5 +1,90 @@
 /*--- Blank Demo and Reference ---*/
 
+.module-style-guide {
+  /* Just for the demo since we're using alternate colours */
+  padding-bottom: 0 !important;
+  .module {
+    &_title {
+      @include fit-and-center($layout-width);
+    }
+    &_container--outer {
+      max-width: none;
+      padding: 0;
+    }
+  }
+  &_item {
+    padding: 2rem 20px 2rem 30px;
+    &:nth-child(odd) {
+      background-color: $grey-color;
+    }
+    &:last-child {
+      padding-bottom: $module-vspace;
+    }
+  }
+  &_wrap {
+    position: relative;
+    @include fit-and-center($layout-width);
+    padding-left: 25px;
+    border-left: 3px solid $brand-color;
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      content: attr(data-heading);
+      text-transform: uppercase;
+      color: #006fba;
+      font-weight: bold;
+      font-size: 14px;
+      transform: rotate(-90deg) translate(-50%, -50%);
+      transform-origin: left;
+    }
+  }
+  &_sub-item {
+    display: block;
+    margin: 1rem 0;
+    @at-root .grid_col & {
+      margin-bottom: 0;
+    }
+  }
+  &_swatch {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    border: 1px solid $grey-color;
+    border-radius: 3rem;
+    vertical-align: middle;
+  }
+  &_space {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    &:before, &:after {
+      display: block;
+      content: "";
+      height: $module-vspace;
+    }
+    &:before {
+      border-top: 2px solid $brand-color;
+    }
+    &:after {
+      border-bottom: 2px solid $brand-color;
+    }
+    &--thick {
+      &:before, &:after {
+        height: $module-vspace--thick;
+      }
+    }
+    &--thin {
+      &:before, &:after {
+        height: $module-vspace--thin;
+      }
+    }
+  }
+}
+
 .module-icon-demo {
   &_list {
     margin-top: 2rem;

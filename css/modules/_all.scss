@@ -83,7 +83,7 @@
       margin-right: 2rem;
     }
   }
-  &_input[type="text"], textarea.module_input, &_dropdown {
+  &_input[type="text"], &_input[type="file"], &_dropdown, textarea.module_input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -95,8 +95,13 @@
     border: none;
     border-radius: 0;
     background-color: $grey-color;
+    resize: vertical;
+    font-family: $body-font;
     @include font-size(16px);
     font-weight: 300;
+  }
+  &_input[type="file"] {
+    line-height: 1rem;
   }
   &_input {
     &--brand[type="text"] {
@@ -114,6 +119,14 @@
     padding: 30px 0 10px;
     & ~ .module_item {
       border-top: 1px solid rgba($dark-color, 0.1);
+    }
+  }
+  &_label {
+    display: inline-block;
+    margin-bottom: 5px;
+    @include font-size(14px);
+    & + .module_required {
+      @include font-size(14px);
     }
   }
   &_links {

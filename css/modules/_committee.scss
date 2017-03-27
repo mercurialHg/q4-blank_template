@@ -17,7 +17,7 @@
     }
     &_header {
       display: block;
-      border-bottom: 2px solid rgba(0,0,0,0.05);
+      border-bottom: 2px solid $darken-color;
       font-weight: normal;
     }
     &_item {
@@ -26,7 +26,7 @@
         border: 0;
       }
       &:nth-child(even) {
-        background: rgba(0,0,0,0.05);
+        background: $darken-color;
       }
     }
   }

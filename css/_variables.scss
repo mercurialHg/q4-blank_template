@@ -55,6 +55,9 @@ $grey-color: #f6f6f6 !default;
 /// The default dark text colour for the site.
 $dark-color: #222 !default;
 
+/// The default colour used to darken elements on the site.
+$darken-color: rgba(0,0,0,0.05) !default;
+
 /// The default colour for error messages.
 $error-color: #b72121 !default;
 

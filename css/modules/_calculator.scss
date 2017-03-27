@@ -14,7 +14,7 @@
       margin-bottom: 5px;
     }
     input[type="text"] {
-        background-color: rgba(0,0,0,0.05);
+        background-color: $darken-color;
     }
     input[type="checkbox"] + label {
       margin: 0;

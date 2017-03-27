@@ -3,7 +3,7 @@
 .module-stock-chart {
   .highcharts {
     &-navigator-handle {
-      stroke: rgba(0,0,0,0.1);
+      stroke: $darken-color;
       fill: #f2f2f2;
       cursor: ew-resize;
     }
@@ -14,7 +14,7 @@
     &-button rect,
     &-input-group rect {
       stroke-width: 0;
-      fill: rgba(0,0,0,0.1);
+      fill: $darken-color;
     }
     &-button text,
     &-input-group text {
