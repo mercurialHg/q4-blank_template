@@ -1,0 +1,26 @@
+.ModulePressReleaseDetails {
+  img {
+    float: left;
+    padding: 5px 10px 5px 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  pre {
+    font-family: "arial", sans-serif
+  }
+
+  .ModuleBody i {
+    font: inherit;
+    color: inherit;
+    text-transform: inherit;
+  }
+
+  //newswire
+  
+  @import 'newswire/_gnw';
+  @import 'newswire/_bw';
+  @import 'newswire/_cnw';
+}

@@ -77,7 +77,8 @@
                 },
                 files: {
                     'dist/css/global.css': 'css/global_master.scss',
-                    'dist/css/client.css': 'css/client_master.scss'
+                    'dist/css/client.css': 'css/client_master.scss',
+                    'dist/css/news-details.css': 'css/news-details_master.scss'
                 }
             }
         },
