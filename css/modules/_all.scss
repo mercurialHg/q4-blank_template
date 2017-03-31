@@ -7,7 +7,7 @@
 .module {
   &_header, &_back-to-top, &_anchor-target,
   &_file-size, &_file-type, &_file-text,
-  &_view-all-link, &_more, &_not-found {
+  &_view-all-link, &_more {
     display: none;
   }
   // Small Spacing
@@ -18,7 +18,6 @@
   }
   // Large Spacing
   &_error-container {
-    display: block;
     margin-bottom: 30px;
   }
   &_add-to-calendar {
@@ -64,6 +63,28 @@
     background: transparent url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
     background-size: 14px 14px;
   }
+  &_error-container {
+    display: block;
+    ul {
+      padding-left: 2rem;
+      list-style-type: disc;
+    }
+    li {
+      line-height: 1.5rem;
+    }
+    br {
+      display: none;
+    }
+  }
+  &_error {
+    display: block;
+    padding-left: 2rem;
+    line-height: 1.5rem;
+    &:before {
+      @include icon("\ec6b");
+      margin-right: 5px;
+    }
+  }
   &_headline {
     font-weight: normal;
     &-link, &-link:visited {
@@ -99,6 +120,9 @@
     font-family: $body-font;
     @include font-size(16px);
     font-weight: 300;
+  }
+  &_input[type="file"], &_dropdown {
+    cursor: pointer;
   }
   &_input[type="file"] {
     line-height: 1rem;
@@ -146,12 +170,58 @@
     }
     // CMS Module Definition work-around
     &[style="DISPLAY:block;"] {
-        display: inline-block !important;
+      display: inline-block !important;
+    }
+    // Different file type links
+    &[href$=".mp3"], &[href$=".wmv"] {
+      i:before {
+        content: "\e952";
+      }
+    }
+    &[href$=".xls"], &[href$=".csv"] {
+      i:before {
+        content: "\eeae";
+      }
+    }
+    &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
+      i:before {
+        content: "\e95e";
+      }
+    }
+    &[href$=".html"]:not(.module_webcast-link),
+    &[href$=".aspx"]:not(.module_webcast-link),
+    &[href$=".htm"]:not(.module_webcast-link),
+    &[href$=".com"]:not(.module_webcast-link) {
+      i:before {
+        content: "\eecd";
+      }
     }
   }
   &_loader {
     display: inline-block;
     animation: spin 1s linear infinite;
+  }
+  &_message {
+    display: block;
+    margin: 1rem 0 1rem;
+    // Overwrite Default Module Functionality
+    &[style$="hidden;"], &:empty {
+      display: none;
+    }
+    &--success {
+      color: $success-color;
+      &:before {
+        @include icon("\ed71");
+        margin-right: 0.5rem;
+      }
+    }
+    &--error {
+      color: $error-color;
+      &:before {
+        @include icon("\ed4f");
+        margin-right: 0.5rem;
+      }
+    }
   }
   &_nav {
     &-link, .ModuleYearLink,
@@ -197,21 +267,6 @@
     }
   }
   &_reminder {
-    &-error, &-success {
-      display: block;
-      margin: 1rem 0;
-      font-style: italic;
-      //override backend functionality
-      &[style$="hidden;"] {
-        display: none;
-      }
-    }
-    &-error {
-      color: $error-color;
-    }
-    &-success {
-      color: $success-color;
-    }
     .module_input.module_reminder-period, .module_input.module_reminder-email {
       margin-right: 10px;
     }

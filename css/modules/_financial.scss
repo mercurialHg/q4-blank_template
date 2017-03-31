@@ -118,6 +118,7 @@
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
+        cursor: pointer;
         z-index: 10;
       }
       &-prev {
@@ -127,7 +128,8 @@
         right: 10px;
       }
       &-disabled {
-        opacity: 0.1; 
+        opacity: 0.1;
+        cursor: default;
       }
     }
   }
@@ -184,7 +186,7 @@
     @include font-size(24px);
   }
   .grid_col {
-    vertical-align: bottom;
+    vertical-align: middle;
   }
   @include layout-legacy {
     .grid_col {

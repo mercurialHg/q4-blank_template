@@ -132,7 +132,7 @@ h5 {
   text-transform: uppercase;
 }
 
-a, a:visited {
+a {
   text-decoration: none;
   color: #006fba;
 }
@@ -169,6 +169,7 @@ input[type="checkbox"] {
   border: 1px solid;
   border-color: #333333;
   vertical-align: baseline;
+  cursor: pointer;
 }
 input[type="checkbox"]:checked {
   border: 3px solid;
@@ -182,6 +183,7 @@ input[type="checkbox"] + label {
   font-size: 14px;
   font-size: 0.875rem;
   vertical-align: baseline;
+  cursor: pointer;
 }
 
 /*---------- Q4 SPECIFIC ---------*/
@@ -232,9 +234,12 @@ body.PreviewBody {
   font-weight: normal;
 }
 
+.submit, .button, .upload, .dropdown {
+  cursor: pointer;
+}
+
 .submit, .button {
   text-transform: uppercase;
-  cursor: pointer;
 }
 
 .textarea {
@@ -286,6 +291,8 @@ body.PreviewBody {
 }
 .table thead {
   background-color: #006fba;
+}
+.table thead th {
   text-align: left;
 }
 .table tr:nth-child(even) {
@@ -1008,14 +1015,13 @@ a:focus {
  ----------- MODULE CSS -----------
 ==================================*/
 /*-------- All Module CSS --------*/
-.module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link, .module_more, .module_not-found {
+.module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link, .module_more {
   display: none;
 }
 .module_nav, .module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_add-to-calendar, .module_options, .module_not-found {
   margin-bottom: 15px;
 }
 .module_error-container {
-  display: block;
   margin-bottom: 30px;
 }
 .module_add-to-calendar-reveal {
@@ -1062,6 +1068,37 @@ a:focus {
   background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
   background-size: 14px 14px;
 }
+.module_error-container {
+  display: block;
+}
+.module_error-container ul {
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+.module_error-container li {
+  line-height: 1.5rem;
+}
+.module_error-container br {
+  display: none;
+}
+.module_error {
+  display: block;
+  padding-left: 2rem;
+  line-height: 1.5rem;
+}
+.module_error:before {
+  font-family: "q4-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  margin-right: 5px;
+}
 .module_headline {
   font-weight: normal;
 }
@@ -1098,6 +1135,9 @@ a:focus {
   font-size: 16px;
   font-size: 1rem;
   font-weight: 300;
+}
+.module_input[type="file"], .module_dropdown {
+  cursor: pointer;
 }
 .module_input[type="file"] {
   line-height: 1rem;
@@ -1146,9 +1186,60 @@ a:focus {
 .module_link[style="DISPLAY:block;"] {
   display: inline-block !important;
 }
+.module_link[href$=".mp3"] i:before, .module_link[href$=".wmv"] i:before {
+  content: "\e952";
+}
+.module_link[href$=".xls"] i:before, .module_link[href$=".csv"] i:before {
+  content: "\eeae";
+}
+.module_link[href$=".mp4"] i:before, .module_link[href$=".flv"] i:before, .module_link[href$=".avi"] i:before {
+  content: "\e95e";
+}
+.module_link[href$=".html"]:not(.module_webcast-link) i:before, .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module_link[href$=".com"]:not(.module_webcast-link) i:before {
+  content: "\eecd";
+}
 .module_loader {
   display: inline-block;
   animation: spin 1s linear infinite;
+}
+.module_message {
+  display: block;
+  margin: 1rem 0 1rem;
+}
+.module_message[style$="hidden;"], .module_message:empty {
+  display: none;
+}
+.module_message--success {
+  color: #23a217;
+}
+.module_message--success:before {
+  font-family: "q4-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  margin-right: 0.5rem;
+}
+.module_message--error {
+  color: #b72121;
+}
+.module_message--error:before {
+  font-family: "q4-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  margin-right: 0.5rem;
 }
 .module_nav-link, .module_nav .ModuleYearLink, .module_nav-link:visited, .module_nav .ModuleYearLink:visited {
   display: inline-block;
@@ -1187,20 +1278,6 @@ a:focus {
 }
 .module_pager a[href] {
   color: #006fba;
-}
-.module_reminder-error, .module_reminder-success {
-  display: block;
-  margin: 1rem 0;
-  font-style: italic;
-}
-.module_reminder-error[style$="hidden;"], .module_reminder-success[style$="hidden;"] {
-  display: none;
-}
-.module_reminder-error {
-  color: #b72121;
-}
-.module_reminder-success {
-  color: #23a217;
 }
 .module_reminder .module_input.module_reminder-period, .module_reminder .module_input.module_reminder-email {
   margin-right: 10px;
@@ -1367,7 +1444,6 @@ a:focus {
   margin-left: 5px;
 }
 .module-committee_bio {
-  display: none;
   padding: 0 15px 20px;
   text-align: left;
 }
@@ -1705,6 +1781,7 @@ a:focus {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
+  cursor: pointer;
   z-index: 10;
 }
 .module-financial-table .slick-prev {
@@ -1715,6 +1792,7 @@ a:focus {
 }
 .module-financial-table .slick-disabled {
   opacity: 0.1;
+  cursor: default;
 }
 
 /* Latest Quarterly Result Widget */
@@ -1768,7 +1846,7 @@ a:focus {
   font-size: 1.5rem;
 }
 .module-latest-quarter .grid_col {
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 @media only screen and (max-width: 1024px) {
   .module-latest-quarter .grid_col {
@@ -1780,6 +1858,19 @@ a:focus {
     margin-bottom: 30px;
     border-right: none;
   }
+}
+
+/*------ Formbuilder Module ------*/
+.module-form_label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.module-form_error-text {
+  color: #b72121;
+}
+.module-form_error-text[style="visibility:hidden;"] {
+  display: none;
 }
 
 .module-glossary .module_header {
@@ -2132,7 +2223,7 @@ a:focus {
   color: #006fba;
 }
 .module-news-details .module_view-all-link {
-  display: block;
+  display: inline;
   margin-bottom: 25px;
 }
 .module-news-details_category {
@@ -2302,6 +2393,9 @@ a:focus {
 .module-search-result_description {
   display: block;
   margin-bottom: 15px;
+}
+.module-search-result_description:after {
+  content: "...";
 }
 .module-search-result_url {
   display: none;
@@ -2865,6 +2959,9 @@ a:focus {
 }
 .pane--footer .module_error-container {
   margin-bottom: 20px;
+}
+.pane--footer .module_error-container li {
+  line-height: 1rem;
 }
 .pane--footer .module_introduction {
   display: none;

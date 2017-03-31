@@ -16,6 +16,7 @@ var q4Defaults = {
          * Custom template for email validation
          */
         errorTpl: (
+            '<p class="module_message module_message--error">The following errors must be corrected:</p>' +
             '<ul>' +
                 '{{#.}}' +
                     '<li>{{name}} {{message}}</li>' +
@@ -31,7 +32,7 @@ var q4Defaults = {
                     '<div class="module_container--outer">' +
                         '<h2 class="module_title">Email Alerts</h2>' +
                         '<div class="module_container--inner">' +
-                            '<p>Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
+                            '<p class="module_message module_message--success">Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
                         '</div>' +
                     '</div>' +
                 '</div>'
@@ -79,9 +80,9 @@ var q4Defaults = {
     },
 
     // Easier preview navigation
-    resetDate: function() {
+    resetDate: function(selectors) {
         if (GetViewType() === "0") {
-            $('a[href*="s3.q4web.com').each(function() {
+            $(selectors.join()).each(function() {
                 $(this).attr('href', $(this).attr('href') + '&ResetDate=1');
             });
         }
@@ -176,11 +177,20 @@ var q4Defaults = {
 
         $el.find('input[type="submit"]').on('click', function(e){
             if ( !inst.isValidEmailAddress ( $el.find('input[id*="Email"]').val() ) ) {
-                $el.find('.module_confirmation-container').html('Please enter a valid Email Address');
+                $el.find('.module_confirmation-container').html(
+                    '<p class="module_message module_message--error">The following errors must be corrected:</p>' +
+                    '<ul>' +
+                        '<li>A valid Email Address is required</li>' +
+                    '</ul>'
+                );
                 $el.addClass('js--invalid');
                 e.preventDefault();
             }
         });
+
+        if ($el.find('.module_confirmation-container').text().trim().length) {
+            $el.find('.module_introduction, .module-unsubscribe_table, .module_actions').addClass('js--hidden');
+        }
     },
     
     /**
@@ -523,6 +533,7 @@ var q4Defaults = {
      */
     fancySignup: function() {
         var inst = this,
+            validationLock = true,
             signup = inst.options.mailingListSignupCls;
             $signup = $(signup),
             $confirm = $('div[id*="SubscriberConfirmation"]'); // jshint ignore:line
@@ -560,6 +571,7 @@ var q4Defaults = {
 
             $this.on('click', 'input[type="submit"]', function(e){
                 e.preventDefault();
+                validationLock = false;
 
                 var $parent = $(this).closest( signup ),
                     errors = inst._mailingListValidation( $parent );
@@ -583,7 +595,9 @@ var q4Defaults = {
 
             // Run validation on change
             $this.find('input, select').on('change', function(){
-                inst._mailingListValidation( $this );
+                if (!validationLock) {
+                    inst._mailingListValidation( $this );
+                }
             });
 
             // Submit form on enter
@@ -603,10 +617,10 @@ var q4Defaults = {
 
                     if ( !$container.find('input[type="text"]').val().length ) {
                         e.preventDefault();
-                        $container.find('.module_error-container').html('Captcha is required');
+                        $container.find('.module_error-container').html('Code is required');
                     } else if ($container.find('input[type="text"]').val().length !== 6 ) {
                         e.preventDefault();
-                        $container.find('.module_error-container').html('Captcha is invalid');
+                        $container.find('.module_error-container').html('Code is invalid');
                     }
                 });
 

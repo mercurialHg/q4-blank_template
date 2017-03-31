@@ -183,6 +183,9 @@
       }
       &_error-container {
         margin-bottom: 20px;
+        li {
+          line-height: 1rem;
+        }
       }
       &_introduction {
         display: none;

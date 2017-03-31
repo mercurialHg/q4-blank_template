@@ -31,6 +31,9 @@
     &_description {
       display: block;
       margin-bottom: 15px;
+      &:after {
+        content: "...";
+      }
     }
     &_url {
       display: none;

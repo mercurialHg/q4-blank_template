@@ -38,7 +38,7 @@ h5 {
   margin-bottom: 0.8rem;
   text-transform: uppercase;
 }
-a, a:visited {
+a {
   text-decoration: none; 
   color: $brand-color;
 }
@@ -73,6 +73,7 @@ input[type="checkbox"] {
   border: 1px solid;
   border-color: $body-color;
   vertical-align: baseline;
+  cursor: pointer;
   &:checked  {
     border: 3px solid;
   }
@@ -81,9 +82,10 @@ input[type="checkbox"] {
   }
 }
 input[type="checkbox"] + label {
-    display: inline-block;
-    @include font-size(14px);
-    vertical-align: baseline;
+  display: inline-block;
+  @include font-size(14px);
+  vertical-align: baseline;
+  cursor: pointer;
 }
 
 /*---------- Q4 SPECIFIC ---------*/
@@ -135,9 +137,12 @@ body.PreviewBody {
   font-weight: normal;
 }
 
+.submit, .button, .upload, .dropdown {
+  cursor: pointer;
+}
+
 .submit, .button {
   text-transform: uppercase;
-  cursor: pointer;
 }
 
 .textarea {
@@ -189,7 +194,9 @@ body.PreviewBody {
   margin: 1rem 0;
   thead {
     background-color: $brand-color;
-    text-align: left;
+    th {
+      text-align: left;
+    }
   }
   tr:nth-child(even) {
     background-color: $grey-color;
