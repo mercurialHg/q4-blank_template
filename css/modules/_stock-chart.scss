@@ -30,5 +30,11 @@
         stroke: $light-color;
       }
     }
+    &-container {
+      // Reset Zoom Button
+      & > svg > .highcharts-button {
+        display: none;
+      }
+    }
   }
 }

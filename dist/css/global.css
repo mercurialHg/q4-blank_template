@@ -1406,9 +1406,25 @@ a:focus {
 .module-calculator_input-row--other input[type="text"].js--revealed {
   display: block;
 }
-@media screen and (min-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .module-calculator_popup-container {
     min-width: 920px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .module-calculator_popup-container .table thead {
+    display: none;
+  }
+  .module-calculator_popup-container .table tbody {
+    border-top: 2px solid #006fba;
+    border-bottom: 2px solid #006fba;
+  }
+  .module-calculator_popup-container .table td {
+    display: block;
+  }
+  .module-calculator_popup-container .table td:before {
+    content: attr(data-heading) ": ";
+    font-weight: bold;
   }
 }
 .module-calculator_info td:first-child:before {
@@ -1783,6 +1799,16 @@ a:focus {
 .module-financial-table_item--empty {
   opacity: 0.1;
 }
+@media only screen and (max-width: 768px) {
+  .module-financial-table_item {
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .module-financial-table_item {
+    margin: 5px;
+  }
+}
 .module-financial-table .slick-slider {
   display: inline-block;
   padding: 0;
@@ -1813,14 +1839,12 @@ a:focus {
   margin: 50px 0;
   padding: 0;
 }
-.module-latest-quarter .module_item > div:first-child {
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-}
 .module-latest-quarter .module_item ~ .module_item {
   border: none;
 }
 .module-latest-quarter .module_links {
   margin: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
   text-align: left;
 }
 .module-latest-quarter .module_links > div {
@@ -1828,7 +1852,7 @@ a:focus {
   text-align: center;
 }
 .module-latest-quarter .module_link {
-  margin: 0 0 15px;
+  margin: 0;
 }
 .module-latest-quarter .module_link i {
   display: block;
@@ -1859,9 +1883,15 @@ a:focus {
   font-size: 1.5rem;
 }
 .module-latest-quarter .grid_col {
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 @media only screen and (max-width: 1024px) {
+  .module-latest-quarter .module_links {
+    border-left: 0;
+  }
+  .module-latest-quarter .module_link {
+    margin: 0 0 15px;
+  }
   .module-latest-quarter .grid_col {
     vertical-align: middle;
   }
@@ -1869,7 +1899,6 @@ a:focus {
 @media only screen and (max-width: 768px) {
   .module-latest-quarter .module_item > div:first-child {
     margin-bottom: 30px;
-    border-right: none;
   }
 }
 
@@ -2547,6 +2576,9 @@ a:focus {
 .module-stock-chart .highcharts-navigator-handle-right path, .module-stock-chart .highcharts-navigator-handle-left path {
   stroke: #fff;
 }
+.module-stock-chart .highcharts-container > svg > .highcharts-button {
+  display: none;
+}
 
 /*------ Stock Header Module -----*/
 .module-stock-header {
@@ -2633,7 +2665,8 @@ a:focus {
 }
 .module-stock_value .module-stock_price:before, .module-stock_value .module-stock_high:before, .module-stock_value .module-stock_low:before,
 .module-stock_value .module-stock_open:before, .module-stock_value .module-stock_close:before,
-.module-stock_value .module-stock_week-low:before, .module-stock_value .module-stock_week-high:before {
+.module-stock_value .module-stock_week-low:before, .module-stock_value .module-stock_week-high:before,
+.module-stock_value .module-stock_previous-close:before {
   content: "$";
 }
 .module-stock_date {
@@ -2656,11 +2689,16 @@ a:focus {
 .module-subscribe_table tbody {
   width: 100%;
 }
+.module-subscribe_form {
+  font-size: 0;
+}
 .module-subscribe_form tr {
   display: inline-block;
   width: 50%;
   margin-bottom: 20px;
   vertical-align: top;
+  font-size: 16px;
+  font-size: 1rem;
 }
 .module-subscribe_form tr:nth-child(even) {
   padding-left: 10px;

@@ -13,6 +13,7 @@ vendor/bundle
 *.swp
 *.vi
 *.zip
+*.map
 *~
 
 # OS or Editor folders

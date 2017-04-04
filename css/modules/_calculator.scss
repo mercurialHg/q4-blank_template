@@ -36,8 +36,26 @@
     }
   }
   &_popup-container {
-    @media screen and (min-width: 1024px) {
+    @include layout-legacy {
       min-width: 920px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      .table {
+        thead {
+          display: none;
+        }
+        tbody {
+          border-top: 2px solid $brand-color;
+          border-bottom: 2px solid $brand-color;
+        }
+        td {
+          display: block;
+          &:before {
+            content: attr(data-heading) ": ";
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
   &_info {

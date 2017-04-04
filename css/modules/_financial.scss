@@ -105,6 +105,12 @@
       &--empty {
         opacity: 0.1;
       }
+      @include layout-medium() {
+        margin-right: 10px;
+      }
+      @include layout-small() {
+        margin: 5px;
+      }
     }
     .slick {
       &-slider {
@@ -142,15 +148,13 @@
     &_item {
       margin: 50px 0;
       padding: 0;
-      & > div:first-child {
-        border-right: 2px solid rgba($light-color, 0.5);
-      }
       & ~ .module_item {
         border: none;
       }
     }
     &_links {
       margin: 0;
+      border-left: 2px solid rgba($light-color, 0.5);
       text-align: left;
       & > div {
         display: inline-block;
@@ -158,7 +162,7 @@
       }
     }
     &_link {
-      margin: 0 0 15px;
+      margin: 0;
       i {
         display: block;
         @include font-size(55px);
@@ -186,9 +190,17 @@
     @include font-size(24px);
   }
   .grid_col {
-    vertical-align: middle;
+    vertical-align: bottom;
   }
   @include layout-legacy {
+    .module {
+      &_links {
+        border-left: 0;
+      }
+      &_link {
+        margin: 0 0 15px;
+      }
+    }
     .grid_col {
       vertical-align: middle;
     }
@@ -198,7 +210,6 @@
       &_item {
         & > div:first-child {
           margin-bottom: 30px;
-          border-right: none;
         }
       }
     }
