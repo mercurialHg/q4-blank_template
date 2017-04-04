@@ -1,7 +1,6 @@
 /**
  * Reuseable functions used on Q4 Websites
  * @class q4.app
- * @version 1.1.0
 */
 
 /** @lends q4.app */
@@ -13,14 +12,34 @@ var q4Defaults = {
          */
         mailingListSignupCls: '.module-subscribe--fancy',
         /**
+         * Error message to display (i.e. mailing list signup / unsubscribe)
+         */
+        errorMessage: 'The following errors must be corrected',
+        /**
+         * Text to display if an item is required for validation
+         */
+        requiredText: 'is required',
+        /**
+         * Text to display if an entry is invalid and failed validation
+         */
+        invalidText: 'is invalid',
+        /**
+         * Text to display if captcha is required. `requiredText` and `invalidText` will often proceed this text (i.e Code is required)
+         */
+        captchaValidationText: 'Code',
+        /**
+         * Text used if a code is required.
+         */
+        provideCodeText:'Please provide the code',
+        /**
          * Custom template for email validation
          */
         errorTpl: (
-            '<p class="module_message module_message--error">The following errors must be corrected:</p>' +
+            '<p class="module_message module_message--error">{{errorMessage}}</p>' +
             '<ul>' +
-                '{{#.}}' +
+                '{{#errors}}' +
                     '<li>{{name}} {{message}}</li>' +
-                '{{/.}}' +
+                '{{/errors}}' +
             '</ul>'
         ),
         mailingListConfig: {
@@ -28,7 +47,7 @@ var q4Defaults = {
              * Template to overwrite mailing list signup confirmation html.
              */
             tpl: (
-                '<div class="module module-subscribe module-subscribe--fancy dark grid_col grid_col--3-of-6 grid_col--md-1-of-2">' +
+                '<div id="SubscriberConfirmation" class="module module-subscribe module-subscribe--fancy dark grid_col grid_col--3-of-6 grid_col--md-1-of-2">' +
                     '<div class="module_container--outer">' +
                         '<h2 class="module_title">Email Alerts</h2>' +
                         '<div class="module_container--inner">' +
@@ -162,7 +181,7 @@ var q4Defaults = {
      * @return boolean
      */
     isValidEmailAddress: function(emailAddress) {
-        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
         return pattern.test(emailAddress);
     },
 
@@ -176,13 +195,17 @@ var q4Defaults = {
         var inst = this;
 
         $el.find('input[type="submit"]').on('click', function(e){
-            if ( !inst.isValidEmailAddress ( $el.find('input[id*="Email"]').val() ) ) {
-                $el.find('.module_confirmation-container').html(
-                    '<p class="module_message module_message--error">The following errors must be corrected:</p>' +
-                    '<ul>' +
-                        '<li>A valid Email Address is required</li>' +
-                    '</ul>'
-                );
+            var emailAddress = $el.find('input[id*="Email"]').val();
+
+            if ( !inst.isValidEmailAddress ( emailAddress ) ) {
+                $el.find('.module_confirmation-container').html( Mustache.render( inst.options.errorTpl, {
+                    errors: [{
+                        message: emailAddress.length ? inst.options.invalidText : inst.options.requiredText,
+                        name: "Email Address"
+                    }],
+                    errorMessage: inst.options.errorMessage
+                })).show();
+
                 $el.addClass('js--invalid');
                 e.preventDefault();
             }
@@ -490,7 +513,7 @@ var q4Defaults = {
             });
 
             // convert captcha's red star to an error message and append to the error container
-            $form.find('.CaptchaContainer span').text("Please provide the code").appendTo(errorContainer).wrap('<li></li>');
+            $form.find('.CaptchaContainer span').text( inst.options.provideCodeText ).appendTo(errorContainer).wrap('<li></li>');
 
             // CMS forces errors to use visibility: hidden, so let's keep track of it and use display:none on the list item instead.
             inst._formErrorFormat( $form.find('.ErrorMessage') );
@@ -540,11 +563,10 @@ var q4Defaults = {
 
         // Subscriber Confirmation fix
         if ( $confirm.is(':visible') ) {
-            //console.log($this.closest(inst.options.mailingListConfig.location))
             if ( $confirm.filter(':visible').closest(inst.options.mailingListConfig.location).length ) {
                 $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl );
             }
-            inst.scrollTo( $confirm.filter(':visible'), 0 );
+            inst.scrollTo( $('div[id*="SubscriberConfirmation"]').filter(':visible'), 0 );
         }
         
         if ( !$signup.length ) {
@@ -617,10 +639,10 @@ var q4Defaults = {
 
                     if ( !$container.find('input[type="text"]').val().length ) {
                         e.preventDefault();
-                        $container.find('.module_error-container').html('Code is required');
+                        $container.find('.module_error-container').html(inst.options.captchaValidationText + ' ' + inst.options.requiredText);
                     } else if ($container.find('input[type="text"]').val().length !== 6 ) {
                         e.preventDefault();
-                        $container.find('.module_error-container').html('Code is invalid');
+                        $container.find('.module_error-container').html(inst.options.captchaValidationText + ' ' + inst.options.invalidText);
                     }
                 });
 
@@ -648,7 +670,7 @@ var q4Defaults = {
 
         $el.find('.module_required').each(function(){
             var $item = $(this).closest('.module-subscribe_table-input'),
-                message = 'is required',
+                message = inst.options.requiredText,
                 field = $item.find('label:first').text(),
                 validation = true;
 
@@ -662,7 +684,7 @@ var q4Defaults = {
                     // Is the email address valid?
                     else if ( !inst.isValidEmailAddress ( $item.find('input').val() ) ) {
                         validation = false;
-                        message = 'is invalid';
+                        message = inst.options.invalidText;
                     }
                 } 
                 // Does the input contain text?
@@ -690,7 +712,10 @@ var q4Defaults = {
         });
 
         if (errors.length) {
-            $el.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, errors ) ).show();
+            $el.find('.module_error-container').html( Mustache.render( inst.options.errorTpl, {
+                errors: errors,
+                errorMessage: inst.options.errorMessage
+            })).show();
         } else {
             $el.find('.module_error-container').html('');
 
