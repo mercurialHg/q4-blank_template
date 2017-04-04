@@ -589,9 +589,10 @@ var q4Defaults = {
             $this.find('table').removeAttr('cellpadding cellspacing border width');
 
             // Create a second submit button to be displayed inside fancybox
-            $this.find('input[type="submit"]').removeAttr('onclick').clone().appendTo( $this.find('.CaptchaContainer') );
+            $this.find('input[type="submit"]').removeAttr('onclick').appendTo( $this.find('.CaptchaContainer') );
+            $this.find('.module_actions').append('<input type="submit" value="Submit" class="button module-subscribe_submit-button module-subscribe_submit-button--fancy">');
 
-            $this.on('click', 'input[type="submit"]', function(e){
+            $this.on('click', '.module-subscribe_submit-button--fancy', function(e){
                 e.preventDefault();
                 validationLock = false;
 
