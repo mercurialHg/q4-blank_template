@@ -62,30 +62,36 @@ img {
   max-width: 100%;
 }
 
-input[type="checkbox"] {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  margin: 0 5px 0 0;
-  border: 1px solid;
-  border-color: $body-color;
-  vertical-align: baseline;
-  cursor: pointer;
-  &:checked  {
-    border: 3px solid;
+input {
+  &[type="checkbox"] {
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px 0 0;
+    border: 1px solid;
+    border-color: $body-color;
+    vertical-align: baseline;
+    cursor: pointer;
+    &:checked  {
+      border: 3px solid;
+    }
+    &:focus {
+      outline: none;
+    }
   }
-  &:focus {
-    outline: none;
+  &[type="checkbox"] + label {
+    display: inline-block;
+    @include font-size(14px);
+    vertical-align: baseline;
+    cursor: pointer;
   }
-}
-input[type="checkbox"] + label {
-  display: inline-block;
-  @include font-size(14px);
-  vertical-align: baseline;
-  cursor: pointer;
+  // Microsoft Edge cosmetic close
+  &::-ms-clear {
+    display: none;
+  }
 }
 
 /*---------- Q4 SPECIFIC ---------*/
@@ -125,6 +131,8 @@ body.PreviewBody {
 
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
+  // Overwrite Browser rendering different heights (IE11)
+  height: 50px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -135,6 +143,9 @@ body.PreviewBody {
   font-family: $body-font;
   @include font-size(14px);
   font-weight: normal;
+  &::-ms-clear {
+    display: none;
+  }
 }
 
 .submit, .button, .upload, .dropdown {
@@ -272,10 +283,10 @@ body.PreviewBody {
   font-style: italic;
   p:before {
     margin-right: 5px;
-    @include icon('\eb1b');
+    @include icon('eb1b');
   }
   p:after {
     margin-left: 5px;
-    @include icon('\eb1c');
+    @include icon('eb1c');
   }
 }

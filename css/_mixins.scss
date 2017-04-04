@@ -5,6 +5,13 @@
   @return $remSize * 1rem;
 }
 
+/// A function used to convert rem sizes to pixel size.
+/// @param {px} $size font-size in pixels
+@function calculatePixels($size) {
+  $pixelSize: $size * $body-size;
+  @return $pixelSize;
+}
+
 /// Use to assign font-size using rem with px size fall-back.
 /// @param {px} $size font-size in pixels
 /// @example
@@ -22,11 +29,34 @@
   font-size: calculateRem($size);
 }
 
+/// Use to assign a property using rem. Returns with pixel fallback
+/// @param {CSS property} $property font-size in pixels
+/// @param {rem} $size the size in REM
+/// @example
+/// p {
+///   @include property-rem(margin-bottom, 3rem)
+/// }
+/// @output <pre>
+/// p {
+///   margin-bottom: 36px; //Will be overridden if browser supports rem
+///   margin-bottom: 3rem;
+/// }
+/// </pre>
+@mixin property-rem($property, $size) {
+  $property: calculatePixels($size);
+  $property: $size;
+}
+
+@function unicode($str) {
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+}
+
 /// Use this to include all the necessary icon style attributes by only passing through the icon code.
+/// Note that the "\" should not be included in the unicode string.
 /// @param {string} $code the content code of the icon
 /// @example
 /// a.pdf:before {
-///   @include icon("\e900");
+///   @include icon("e900");
 /// }
 /// @output <pre>
 /// a.pdf:before {
@@ -54,7 +84,7 @@
   // Better Font Rendering
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: $code;
+  content: unicode($code);
 }
 
 /// Used to assign styling for certain breakpoints quickly.

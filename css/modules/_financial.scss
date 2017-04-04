@@ -64,7 +64,7 @@
         cursor: pointer;
         &:after {
           float: right;
-          @include icon("\ed5d");
+          @include icon("ed5d");
         }
       }
     }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*==================================
  ------------ RESET CSS -----------
 ==================================*/
@@ -39,7 +38,7 @@ html {
 }
 
 /* Negative Margin Fix for Toast Columns */
-html, .col {
+html {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -159,10 +158,10 @@ img {
 }
 
 input[type="checkbox"] {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   height: 10px;
   width: 10px;
   margin: 0 5px 0 0;
@@ -177,13 +176,15 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:focus {
   outline: none;
 }
-
 input[type="checkbox"] + label {
   display: inline-block;
   font-size: 14px;
   font-size: 0.875rem;
   vertical-align: baseline;
   cursor: pointer;
+}
+input::-ms-clear {
+  display: none;
 }
 
 /*---------- Q4 SPECIFIC ---------*/
@@ -221,6 +222,7 @@ body.PreviewBody {
 /*------- BUTTONS / INPUTS -------*/
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
+  height: 50px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -232,6 +234,9 @@ body.PreviewBody {
   font-size: 14px;
   font-size: 0.875rem;
   font-weight: normal;
+}
+.input::-ms-clear, .textarea::-ms-clear, .dropdown::-ms-clear, .upload::-ms-clear, .submit::-ms-clear, .button::-ms-clear {
+  display: none;
 }
 
 .submit, .button, .upload, .dropdown {
@@ -373,7 +378,7 @@ body.PreviewBody {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\eb1b";
 }
 .quote p:after {
   margin-left: 5px;
@@ -386,7 +391,7 @@ body.PreviewBody {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\eb1c";
 }
 
 /*==================================
@@ -989,7 +994,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\eb27";
   font-size: 50px;
   font-size: 3.125rem;
   animation: spin 0.8s infinite linear;
@@ -1005,10 +1010,10 @@ a:focus {
   pointer-events: none;
 }
 .js--invalid input[type="text"], .js--invalid select {
-  border: 1px solid #b72121;
+  border: 1px solid #b72121 !important;
 }
 .js--invalid input[type="checkbox"] {
-  border-color: #b72121;
+  border-color: #b72121 !important;
 }
 
 /*==================================
@@ -1064,10 +1069,6 @@ a:focus {
   font-size: 14px;
   font-size: 0.875rem;
 }
-.module_dropdown {
-  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
-  background-size: 14px 14px;
-}
 .module_error-container {
   display: block;
 }
@@ -1096,7 +1097,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\ec6b";
   margin-right: 5px;
 }
 .module_headline {
@@ -1117,37 +1118,6 @@ a:focus {
 .module_image--left {
   float: left;
   margin-right: 2rem;
-}
-.module_input[type="text"], .module_input[type="file"], .module_dropdown, .module textarea.module_input {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  display: block;
-  /* Text area demands width*/
-  width: 100%;
-  max-width: none;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 0;
-  background-color: #f6f6f6;
-  resize: vertical;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-size: 1rem;
-  font-weight: 300;
-}
-.module_input[type="file"], .module_dropdown {
-  cursor: pointer;
-}
-.module_input[type="file"] {
-  line-height: 1rem;
-}
-.module_input--brand[type="text"] {
-  display: inline-block;
-  width: auto;
-  padding: 15px 20px;
-  border: 2px solid #006fba;
-  background: transparent;
 }
 .module_introduction {
   margin-bottom: 35px;
@@ -1183,7 +1153,7 @@ a:focus {
   display: inline-block;
   padding-right: 2px;
 }
-.module_link[style="DISPLAY:block;"] {
+.module_link[style="DISPLAY:block;"], .module_link[style="display: block;"] {
   display: inline-block !important;
 }
 .module_link[href$=".mp3"] i:before, .module_link[href$=".wmv"] i:before {
@@ -1222,7 +1192,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\ed71";
   margin-right: 0.5rem;
 }
 .module_message--error {
@@ -1238,7 +1208,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\ed4f";
   margin-right: 0.5rem;
 }
 .module_nav-link, .module_nav .ModuleYearLink, .module_nav-link:visited, .module_nav .ModuleYearLink:visited {
@@ -1307,6 +1277,49 @@ a:focus {
   font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
+}
+.module_input[type="text"], .module_input[type="file"], .module_dropdown, .module textarea.module_input {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Text area demands width*/
+  width: 100%;
+  max-width: none;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0;
+  background-color: #f6f6f6;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.module_input[type="text"]::-ms-clear, .module_input[type="file"]::-ms-clear, .module_dropdown::-ms-clear, .module textarea.module_input::-ms-clear {
+  display: none;
+}
+.module textarea.module_input {
+  resize: vertical;
+}
+.module_input[type="file"], .module_dropdown {
+  cursor: pointer;
+}
+.module_input[type="file"] {
+  line-height: 1rem;
+}
+.module_input--brand[type="text"] {
+  display: inline-block;
+  width: auto;
+  padding: 15px 20px;
+  border: 2px solid #006fba;
+  background: transparent;
+}
+.module_dropdown {
+  background: #f6f6f6 url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background-size: 14px 14px;
+}
+.module_dropdown::-ms-expand {
+  display: none;
 }
 .module-details .module_date-time {
   margin-bottom: 15px;
@@ -1487,7 +1500,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\e900";
   display: inline-block;
   float: right;
   cursor: pointer;
@@ -1733,7 +1746,7 @@ a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\ed5d";
 }
 .module-financial-table_header {
   background-color: #006fba;
@@ -1910,6 +1923,7 @@ a:focus {
   font-size: 16px;
   font-size: 1rem;
   font-weight: 300;
+  line-height: 0;
 }
 @media only screen and (max-width: 480px) {
   .module-job-details_description label:after {
@@ -1927,11 +1941,14 @@ a:focus {
 .module-job-application_table {
   display: block;
   width: 100%;
+  font-size: 0;
 }
 .module-job-application_table tr {
   display: inline-block;
   width: 50%;
   vertical-align: top;
+  font-size: 16px;
+  font-size: 1rem;
 }
 .module-job-application_table tr:nth-child(odd) {
   padding-left: 10px;
@@ -2087,7 +2104,7 @@ a:focus {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    content: "";
+    content: "\edbe";
   }
   .nav--secondary li.js--expanded > a:after {
     content: "\edc2";
@@ -2959,6 +2976,9 @@ a:focus {
 }
 .pane--footer .module_error-container {
   margin-bottom: 20px;
+}
+.pane--footer .module_error-container p {
+  display: none;
 }
 .pane--footer .module_error-container li {
   line-height: 1rem;

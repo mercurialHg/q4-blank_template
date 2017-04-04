@@ -16,7 +16,7 @@
     &-link {
       display: block;
       &:after {
-        @include icon("\e900");
+        @include icon("e900");
         display: inline-block;
         float: right;
         cursor: pointer;

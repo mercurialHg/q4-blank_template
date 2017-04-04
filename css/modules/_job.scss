@@ -26,6 +26,8 @@
         font-family: $body-font;
         @include font-size(16px);
         font-weight: 300;
+        // IE Fix
+        line-height: 0;
       }
       @include layout-small {
         label:after {
@@ -47,10 +49,14 @@
     &_table {
       display: block;
       width: 100%;
+      // Markup Space fix
+      font-size: 0;
       tr {
         display: inline-block;
         width: 50%;
         vertical-align: top;
+        // Markup Space Fix
+        @include font-size(16px);
         &:nth-child(odd) {
           padding-left: 10px;
         }

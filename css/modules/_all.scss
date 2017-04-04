@@ -5,6 +5,7 @@
 /*-------- All Module CSS --------*/
 
 .module {
+  // Hidden
   &_header, &_back-to-top, &_anchor-target,
   &_file-size, &_file-type, &_file-text,
   &_view-all-link, &_more {
@@ -59,10 +60,6 @@
     margin-bottom: 5px;
     @include font-size(14px);
   }
-  &_dropdown {
-    background: transparent url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
-    background-size: 14px 14px;
-  }
   &_error-container {
     display: block;
     ul {
@@ -81,7 +78,7 @@
     padding-left: 2rem;
     line-height: 1.5rem;
     &:before {
-      @include icon("\ec6b");
+      @include icon("ec6b");
       margin-right: 5px;
     }
   }
@@ -102,38 +99,6 @@
     &--left {
       float: left;
       margin-right: 2rem;
-    }
-  }
-  &_input[type="text"], &_input[type="file"], &_dropdown, textarea.module_input {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    display: block;
-    /* Text area demands width*/
-    width: 100%;
-    max-width: none;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 0;
-    background-color: $grey-color;
-    resize: vertical;
-    font-family: $body-font;
-    @include font-size(16px);
-    font-weight: 300;
-  }
-  &_input[type="file"], &_dropdown {
-    cursor: pointer;
-  }
-  &_input[type="file"] {
-    line-height: 1rem;
-  }
-  &_input {
-    &--brand[type="text"] {
-      display: inline-block;
-      width: auto;
-      padding: 15px 20px;
-      border: 2px solid $brand-color;
-      background: transparent;
     }
   }
   &_introduction {
@@ -169,7 +134,7 @@
       padding-right: 2px;
     }
     // CMS Module Definition work-around
-    &[style="DISPLAY:block;"] {
+    &[style="DISPLAY:block;"], &[style="display: block;"] {
       display: inline-block !important;
     }
     // Different file type links
@@ -211,14 +176,14 @@
     &--success {
       color: $success-color;
       &:before {
-        @include icon("\ed71");
+        @include icon("ed71");
         margin-right: 0.5rem;
       }
     }
     &--error {
       color: $error-color;
       &:before {
-        @include icon("\ed4f");
+        @include icon("ed4f");
         margin-right: 0.5rem;
       }
     }
@@ -299,6 +264,54 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+  
+
+  // All Inputs
+  &_input[type="text"], &_input[type="file"], &_dropdown, textarea.module_input {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Text area demands width*/
+    width: 100%;
+    max-width: none;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 0;
+    background-color: $grey-color;
+    font-family: $body-font;
+    @include font-size(16px);
+    font-weight: 300;
+    &::-ms-clear {
+      display: none;
+    }
+  }
+  textarea.module_input {
+    resize: vertical;    
+  }
+  &_input[type="file"], &_dropdown {
+    cursor: pointer;
+  }
+  &_input[type="file"] {
+    line-height: 1rem;
+  }
+  &_input {
+    &--brand[type="text"] {
+      display: inline-block;
+      width: auto;
+      padding: 15px 20px;
+      border: 2px solid $brand-color;
+      background: transparent;
+    }
+  }
+  &_dropdown {
+    background: $grey-color url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
+    background-size: 14px 14px;
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
   // All details modules
   &-details {
     .module {

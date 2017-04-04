@@ -91,7 +91,7 @@
         &.has-children {
           & > a:after {
             float: right;
-            @include icon("\edbe");
+            @include icon("edbe");
           }
         }
         &.js--expanded {
