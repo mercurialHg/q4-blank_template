@@ -1,6 +1,11 @@
 /*------ Formbuilder Module ------*/
 
 .module-form {
+  &--custom {
+    .module_container--content {
+      display:none;
+    }
+  }
   .module {
     &_container--content {
       margin-left: -20px;

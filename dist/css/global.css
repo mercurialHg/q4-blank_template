@@ -1940,6 +1940,9 @@ a:focus {
 }
 
 /*------ Formbuilder Module ------*/
+.module-form--custom .module_container--content {
+  display: none;
+}
 .module-form .module_container--content {
   margin-left: -20px;
 }
