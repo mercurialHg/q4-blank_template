@@ -6,7 +6,14 @@
 /** @lends q4.app */
 var q4Defaults = {
     options: {
+        /**
+         * Scroll speed for `scrollTo`
+         */
         scrollSpeed: 1000,
+        /**
+         * Offset used with the `scrollTo` method to account for fixed headers
+         */
+        headerOffset: 0,
         /**
          * Any mailing list with this class will have their validation overwritten
          */
@@ -169,7 +176,7 @@ var q4Defaults = {
             }
 
             $('html, body').animate({
-                scrollTop: $el.eq(0).offset().top
+                scrollTop: $el.eq(0).offset().top - this.options.headerOffset
             }, d);
         }
     },
@@ -205,6 +212,8 @@ var q4Defaults = {
                     }],
                     errorMessage: inst.options.errorMessage
                 })).show();
+
+                inst.scrollTo( $el.find('.module_error-container'), 0 );
 
                 $el.addClass('js--invalid');
                 e.preventDefault();
@@ -611,6 +620,8 @@ var q4Defaults = {
                             }
                         }
                     });
+                } else {
+                    inst.scrollTo( $this.find('.module_error-container'), 0 );
                 }
 
                 return false;
