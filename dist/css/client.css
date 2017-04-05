@@ -284,10 +284,10 @@
 .q4-icon_file-zip-fill:before {
   content: "\e9ba";
 }
-.q4-icon_file-xml-line:before {
+.q4-icon_file-xml-line:before, .q4-icon_file-html-line:before {
   content: "\e9bb";
 }
-.q4-icon_file-xml-fill:before {
+.q4-icon_file-xml-fill:before, .q4-icon_file-html-fill:before {
   content: "\e9bc";
 }
 .q4-icon_file-presentation-line:before {

@@ -6,6 +6,32 @@
     &_location, &_speakers h4, &_body {
       display: none;
     }
+    &_link {
+      // Different file type links
+      &[href$=".mp3"], &[href$=".wmv"] {
+        i:before {
+          content: "\e952";
+        }
+      }
+      &[href$=".xls"], &[href$=".csv"] {
+        i:before {
+          content: "\eeae";
+        }
+      }
+      &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
+        i:before {
+          content: "\e95e";
+        }
+      }
+      &[href$=".html"]:not(.module_webcast-link),
+      &[href$=".aspx"]:not(.module_webcast-link),
+      &[href$=".htm"]:not(.module_webcast-link),
+      &[href$=".com"]:not(.module_webcast-link) {
+        i:before {
+          content: "\eecd";
+        }
+      }
+    }
   }
   // Event Latest Widget
   &-latest {
@@ -140,6 +166,9 @@
         &:after {
           background-color: $light-color;
         }
+      }
+      @include layout-small {
+        display: inline-block;
       }
     }
     .module {

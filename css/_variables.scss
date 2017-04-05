@@ -1,5 +1,5 @@
 /// Local environment URL
-$host: 'https://q4blankdev.s3.q4web.com' !default;
+$host: 'https://q4blankdev.q4web.com' !default;
 
 /// The default layout width for the site.
 /// @example 
@@ -57,6 +57,9 @@ $dark-color: #222 !default;
 
 /// The default colour used to darken elements on the site.
 $darken-color: rgba(0,0,0,0.05) !default;
+
+/// The default colour used to lighten elements on the site.
+$lighten-color: rgba(255,255,255,0.05) !default;
 
 /// The default colour for error messages.
 $error-color: #b72121 !default;

@@ -4,9 +4,9 @@
   .module {
     &_header {
       display: block;
+      background-color: $brand-color;
       &-text {
         padding: 15px 8px;
-        background-color: $brand-color;
         color: $light-color;
       }
     }
@@ -27,17 +27,28 @@
       }
     }
     @include layout-medium {
-      &_container--content {
-        border-top: 2px solid $brand-color;
-        border-bottom: 2px solid $brand-color;
-      }
       &_header {
         display: none;
+        // For the Module
+        & + .module_item {
+          border-top: 2px solid $brand-color;
+        }
       }
       &_item {
         padding: 15px 0;
+        // For the widget
+        &:first-child {
+          border-top: 2px solid $brand-color;
+        }
+        &:last-child {
+          border-bottom: 2px solid $brand-color;
+        }
         .grid_col {
           padding: 0 5px;
+        }
+        // For the module
+        & + .module_footer {
+          border-bottom: 2px solid $brand-color;
         }
       }
     }

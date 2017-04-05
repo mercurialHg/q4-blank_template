@@ -39,7 +39,7 @@ html {
 
 /* Negative Margin Fix for Toast Columns */
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1;
@@ -95,13 +95,16 @@ body {
 h1 {
   font-size: 48px;
   font-size: 3rem;
+  margin-bottom: 48px;
   margin-bottom: 3rem;
+  line-height: 56px;
   line-height: 3.5rem;
 }
 @media only screen and (max-width: 480px) {
   h1 {
     font-size: 40px;
     font-size: 2.5rem;
+    line-height: 48px;
     line-height: 3rem;
   }
 }
@@ -113,20 +116,27 @@ h2 {
 }
 
 h3 {
+  font-size: 24px;
   font-size: 1.5rem;
   margin: 1.5rem 0 1rem;
   color: #006fba;
 }
 
 h4 {
+  font-size: 16px;
   font-size: 1rem;
-  margin: 1.5rem 0 1rem;
+  margin-top: 24px;
+  margin-top: 1.5rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 h5 {
+  font-size: 12.8px;
   font-size: 0.8rem;
+  margin-bottom: 12.8px;
   margin-bottom: 0.8rem;
   text-transform: uppercase;
 }
@@ -137,6 +147,7 @@ a {
 }
 
 p {
+  line-height: 24px;
   line-height: 1.5rem;
 }
 
@@ -197,6 +208,18 @@ body.PreviewBody {
   background-position: 0;
 }
 
+/*------- HACKS AND FIXES -------*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
 /*------------ LISTS ------------*/
 .list {
   margin: 1rem 0;
@@ -222,7 +245,6 @@ body.PreviewBody {
 /*------- BUTTONS / INPUTS -------*/
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
-  height: 50px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -282,7 +304,7 @@ body.PreviewBody {
 
 .dropdown {
   padding: 15px 35px 15px 20px;
-  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: transparent url("https://q4blankdev.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
 }
 .dropdown::-ms-expand {
@@ -292,7 +314,7 @@ body.PreviewBody {
 /*------------ TABLES ------------*/
 .table {
   width: 100%;
-  margin: 1rem 0;
+  margin: 16px 0;
 }
 .table thead {
   background-color: #006fba;
@@ -342,7 +364,7 @@ body.PreviewBody {
 
 /*--------- SPECIAL BOXES --------*/
 .code {
-  margin: 2rem 0;
+  margin: 32px 0;
   padding: 20px 15px;
   background: #f6f6f6;
   border-left: 3px solid rgba(0, 111, 186, 0.5);
@@ -359,7 +381,7 @@ body.PreviewBody {
 }
 
 .quote {
-  margin: 2rem 0;
+  margin: 32px 0;
   padding: 20px 15px;
   background: #f6f6f6;
   border-left: 3px solid rgba(241, 175, 15, 0.5);
@@ -1073,21 +1095,21 @@ a:focus {
   display: block;
 }
 .module_error-container ul {
-  padding-left: 2rem;
+  padding-left: 18px;
+  padding-left: 1.125rem;
   list-style-type: disc;
 }
-.module_error-container li {
+.module_error-container ul > li {
   line-height: 1.5rem;
 }
-.module_error-container br {
+.module_error-container > br {
   display: none;
 }
-.module_error {
+.module_error-container > span {
   display: block;
-  padding-left: 2rem;
   line-height: 1.5rem;
 }
-.module_error:before {
+.module_error-container > span:before {
   font-family: "q4-icons";
   speak: none;
   font-style: normal;
@@ -1153,20 +1175,14 @@ a:focus {
   display: inline-block;
   padding-right: 2px;
 }
+.module_link > .module_link-text, .module_link > i {
+  vertical-align: middle;
+}
+.module_link > i:before {
+  display: block;
+}
 .module_link[style="DISPLAY:block;"], .module_link[style="display: block;"] {
   display: inline-block !important;
-}
-.module_link[href$=".mp3"] i:before, .module_link[href$=".wmv"] i:before {
-  content: "\e952";
-}
-.module_link[href$=".xls"] i:before, .module_link[href$=".csv"] i:before {
-  content: "\eeae";
-}
-.module_link[href$=".mp4"] i:before, .module_link[href$=".flv"] i:before, .module_link[href$=".avi"] i:before {
-  content: "\e95e";
-}
-.module_link[href$=".html"]:not(.module_webcast-link) i:before, .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module_link[href$=".com"]:not(.module_webcast-link) i:before {
-  content: "\eecd";
 }
 .module_loader {
   display: inline-block;
@@ -1315,7 +1331,7 @@ a:focus {
   background: transparent;
 }
 .module_dropdown {
-  background: #f6f6f6 url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background: #f6f6f6 url("https://q4blankdev.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
   background-size: 14px 14px;
 }
 .module_dropdown::-ms-expand {
@@ -1504,7 +1520,10 @@ a:focus {
   display: none;
 }
 .module-downloads_title-link {
+  position: relative;
   display: block;
+  margin: 0;
+  padding-right: 20px;
 }
 .module-downloads_title-link:after {
   font-family: "q4-icons";
@@ -1517,14 +1536,27 @@ a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\e900";
-  display: inline-block;
-  float: right;
-  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
 }
 
 /*--------- Event Module ---------*/
 .module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
   display: none;
+}
+.module-event .module_link[href$=".mp3"] i:before, .module-event .module_link[href$=".wmv"] i:before {
+  content: "\e952";
+}
+.module-event .module_link[href$=".xls"] i:before, .module-event .module_link[href$=".csv"] i:before {
+  content: "\eeae";
+}
+.module-event .module_link[href$=".mp4"] i:before, .module-event .module_link[href$=".flv"] i:before, .module-event .module_link[href$=".avi"] i:before {
+  content: "\e95e";
+}
+.module-event .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".com"]:not(.module_webcast-link) i:before {
+  content: "\eecd";
 }
 .module-event-latest .module_container--content {
   margin-bottom: 20px;
@@ -1652,6 +1684,11 @@ a:focus {
 }
 .module-event-calendar_day--selected:after {
   background-color: #fff;
+}
+@media only screen and (max-width: 480px) {
+  .module-event-calendar_day {
+    display: inline-block;
+  }
 }
 .module-event-calendar .module_item {
   padding: 0;
@@ -1903,10 +1940,36 @@ a:focus {
 }
 
 /*------ Formbuilder Module ------*/
-.module-form_label {
+.module-form .module_container--content {
+  margin-left: -20px;
+}
+.module-form .module_required {
+  margin-left: 3px;
+}
+.module-form_item {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  vertical-align: top;
+}
+.module-form_item:last-child {
+  margin: 0;
+}
+.module-form_item--documents, .module-form_item--investor {
+  width: 100%;
+}
+.module-form_label label, .module-form_label legend {
+  display: inline-block;
   margin-bottom: 5px;
   font-size: 14px;
   font-size: 0.875rem;
+}
+.module-form_label legend {
+  float: left;
+}
+.module-form_input {
+  clear: both;
 }
 .module-form_error-text {
   color: #b72121;
@@ -1944,7 +2007,6 @@ a:focus {
 .module-job-details_description input {
   width: auto;
   max-width: none;
-  height: 1rem;
   padding: 0;
   border: none;
   float: right;
@@ -1961,7 +2023,7 @@ a:focus {
   .module-job-details_description input {
     display: block;
     float: none;
-    margin-top: 0.5rem;
+    margin-top: 8px;
   }
 }
 .module-job-details .grid_col {
@@ -1970,28 +2032,23 @@ a:focus {
 .module-job-application_table {
   display: block;
   width: 100%;
+  margin-left: -20px;
   font-size: 0;
 }
 .module-job-application_table tr {
   display: inline-block;
   width: 50%;
+  margin-bottom: 20px;
+  padding-left: 20px;
   vertical-align: top;
   font-size: 16px;
   font-size: 1rem;
 }
-.module-job-application_table tr:nth-child(odd) {
-  padding-left: 10px;
-}
-.module-job-application_table tr:nth-child(even) {
-  padding-right: 10px;
-}
-.module-job-application_table tr:not(:last-of-type) {
-  margin-bottom: 20px;
+.module-job-application_table tr:last-child {
+  margin-bottom: 0;
 }
 .module-job-application_table tr.module-job-application_cover-letter-text, .module-job-application_table tr.module-job-application_resume-text {
-  display: block;
   width: 100%;
-  padding: 0;
 }
 .module-job-application_table td {
   display: block;
@@ -2312,10 +2369,12 @@ a:focus {
   text-align: center;
 }
 .module-person_name-container h3 {
-  position: relative;
+  position: absolute;
   top: 50%;
+  left: 50%;
+  width: 100%;
   margin: 0;
-  transform: translate(0, -50%);
+  transform: translate(-50%, -50%);
 }
 .module-person_name-container a {
   color: #fff;
@@ -2329,35 +2388,6 @@ a:focus {
 .module-person_suffix, .module-person_title {
   font-size: 13px;
   font-size: 0.8125rem;
-}
-.module-person-details .module_title {
-  display: none;
-}
-.module-person-details .module_comma {
-  display: none;
-}
-.module-person-details_photo-container, .module-person-details_name-container {
-  display: inline-block;
-  vertical-align: middle;
-}
-.module-person-details_photo-container {
-  max-width: 30%;
-  margin-right: 40px;
-}
-.module-person-details_name {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 36px;
-  font-size: 2.25rem;
-  color: #006fba;
-}
-.module-person-details_title {
-  display: block;
-  font-size: 24px;
-  font-size: 1.5rem;
-}
-.module-person-details_description-container {
-  margin-top: 40px;
 }
 .fancybox-container .module-person .module_item {
   max-width: 940px;
@@ -2375,7 +2405,7 @@ a:focus {
 }
 .fancybox-container .module-person_name-container h3 {
   position: static;
-  trasnform: none;
+  transform: none;
 }
 .fancybox-container .module-person_name-container a {
   color: #333333;
@@ -2383,6 +2413,18 @@ a:focus {
 .fancybox-container .module-person_photo-container {
   max-width: 30%;
   margin-right: 40px;
+}
+@media only screen and (max-width: 768px) {
+  .fancybox-container .module-person_photo-container {
+    margin-right: 15px;
+    margin-bottom: 35px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .fancybox-container .module-person_photo-container {
+    margin-right: 0;
+    max-width: none;
+  }
 }
 .fancybox-container .module-person_name {
   display: block;
@@ -2400,6 +2442,47 @@ a:focus {
 }
 .fancybox-container .module-person_description {
   display: block;
+}
+.module-person-details .module_title {
+  display: none;
+}
+.module-person-details .module_comma {
+  display: none;
+}
+.module-person-details_photo-container, .module-person-details_name-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+.module-person-details_photo-container {
+  max-width: 30%;
+  margin-right: 40px;
+}
+@media only screen and (max-width: 768px) {
+  .module-person-details_photo-container {
+    margin-right: 15px;
+    margin-bottom: 35px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .module-person-details_photo-container {
+    margin-right: 0;
+    max-width: none;
+  }
+}
+.module-person-details_name {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-size: 2.25rem;
+  color: #006fba;
+}
+.module-person-details_title {
+  display: block;
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.module-person-details_description-container {
+  margin-top: 40px;
 }
 
 .module-presentation .module_body {
@@ -2428,7 +2511,7 @@ a:focus {
   height: 15px;
   padding: 0;
   border: 0;
-  background: transparent url("https://q4blankdev.s3.q4web.com/files/design/svg/q4-icon_buttons.svg");
+  background: transparent url("https://q4blankdev.q4web.com/files/design/svg/q4-icon_buttons.svg");
   background-size: 300%;
   font-size: 0;
   cursor: pointer;
@@ -2450,10 +2533,10 @@ a:focus {
 /*-------- SEC Module CSS --------*/
 .module-sec .module_header {
   display: block;
+  background-color: #006fba;
 }
 .module-sec .module_header-text {
   padding: 15px 8px;
-  background-color: #006fba;
   color: #fff;
 }
 .module-sec .module_item {
@@ -2473,18 +2556,26 @@ a:focus {
   font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
-  .module-sec .module_container--content {
-    border-top: 2px solid #006fba;
-    border-bottom: 2px solid #006fba;
-  }
   .module-sec .module_header {
     display: none;
+  }
+  .module-sec .module_header + .module_item {
+    border-top: 2px solid #006fba;
   }
   .module-sec .module_item {
     padding: 15px 0;
   }
+  .module-sec .module_item:first-child {
+    border-top: 2px solid #006fba;
+  }
+  .module-sec .module_item:last-child {
+    border-bottom: 2px solid #006fba;
+  }
   .module-sec .module_item .grid_col {
     padding: 0 5px;
+  }
+  .module-sec .module_item + .module_footer {
+    border-bottom: 2px solid #006fba;
   }
 }
 .module-sec_download-list-item {
@@ -2512,25 +2603,6 @@ a:focus {
   margin-right: 5px;
 }
 
-/*------ Site Map Module CSS -----*/
-.module-sitemap_list li.SiteMap-Level2 {
-  font-weight: normal;
-  text-transform: uppercase;
-}
-.module-sitemap_list li.SiteMap-Level3 {
-  margin-left: 15px;
-}
-.module-sitemap_list li.SiteMap-Level4 {
-  margin-left: 30px;
-}
-.module-sitemap_list li.SiteMap-Level5 {
-  margin-left: 45px;
-}
-.module-sitemap_link {
-  display: inline-block;
-  padding: 10px 0;
-}
-
 /*---- Accessibility Skip Link ---*/
 .module-skip_link {
   position: absolute;
@@ -2553,6 +2625,9 @@ a:focus {
 }
 
 /*------ Stock Chart Widget ------*/
+.module-stock-chart .highcharts-legend-item:first-child text {
+  cursor: default !important;
+}
 .module-stock-chart .highcharts-navigator-handle {
   stroke: rgba(0, 0, 0, 0.05);
   fill: #f2f2f2;
@@ -2653,12 +2728,32 @@ a:focus {
 .module-stock_lookup-title {
   padding-left: 20px;
 }
+@media only screen and (max-width: 768px) {
+  .module-stock_lookup-title {
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .module-stock_lookup-title {
+    padding-left: 5px;
+  }
+}
 .module-stock_label, .module-stock_value {
   border-bottom: 1px solid rgba(34, 34, 34, 0.2);
 }
 .module-stock_label > span, .module-stock_value > span {
   display: block;
   padding: 15px 20px;
+}
+@media only screen and (max-width: 768px) {
+  .module-stock_label > span, .module-stock_value > span {
+    padding: 15px 10px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .module-stock_label > span, .module-stock_value > span {
+    padding: 15px 0 15px 5px;
+  }
 }
 .module-stock_label {
   font-weight: normal;
@@ -2739,9 +2834,6 @@ a:focus {
 }
 .module-subscribe_mailing-list td {
   padding-bottom: 10px;
-}
-.module-subscribe_list > td {
-  padding-left: 20px;
 }
 .module-subscribe .module_required {
   font-size: 14px;
@@ -2865,7 +2957,7 @@ a:focus {
   }
 }
 .pane--banner {
-  background: rgba(0, 0, 0, 0.1) url("https://q4blankdev.s3.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
+  background: rgba(0, 0, 0, 0.1) url("https://q4blankdev.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
   color: #fff;
 }
 .pane--banner .pane_inner {
@@ -2986,6 +3078,9 @@ a:focus {
 .pane--content .module--thick {
   padding-top: 105px;
   padding-bottom: 105px;
+}
+.pane--content .module-sitemap {
+  padding-bottom: 35px;
 }
 .pane--footer {
   padding-top: 60px;

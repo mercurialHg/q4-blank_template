@@ -63,23 +63,22 @@
   &_error-container {
     display: block;
     ul {
-      padding-left: 2rem;
+      @include property-with-rem(padding-left, 1.125rem);
       list-style-type: disc;
+      & > li {
+        line-height: 1.5rem;
+      }
     }
-    li {
-      line-height: 1.5rem;
-    }
-    br {
+    & > br {
       display: none;
     }
-  }
-  &_error {
-    display: block;
-    padding-left: 2rem;
-    line-height: 1.5rem;
-    &:before {
-      @include icon("ec6b");
-      margin-right: 5px;
+    & > span {
+      display: block;
+      line-height: 1.5rem;
+      &:before {
+        @include icon("ec6b");
+        margin-right: 5px;
+      }
     }
   }
   &_headline {
@@ -133,33 +132,16 @@
       display: inline-block;
       padding-right: 2px;
     }
+    // Make sure the icons are center aligned
+    & > &-text, & > i {
+      vertical-align: middle;
+    }
+    & > i:before {
+      display: block;
+    }
     // CMS Module Definition work-around
     &[style="DISPLAY:block;"], &[style="display: block;"] {
       display: inline-block !important;
-    }
-    // Different file type links
-    &[href$=".mp3"], &[href$=".wmv"] {
-      i:before {
-        content: "\e952";
-      }
-    }
-    &[href$=".xls"], &[href$=".csv"] {
-      i:before {
-        content: "\eeae";
-      }
-    }
-    &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
-      i:before {
-        content: "\e95e";
-      }
-    }
-    &[href$=".html"]:not(.module_webcast-link),
-    &[href$=".aspx"]:not(.module_webcast-link),
-    &[href$=".htm"]:not(.module_webcast-link),
-    &[href$=".com"]:not(.module_webcast-link) {
-      i:before {
-        content: "\eecd";
-      }
     }
   }
   &_loader {

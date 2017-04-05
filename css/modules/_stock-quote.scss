@@ -9,12 +9,24 @@
   }
   &_lookup-title {
     padding-left:20px;
+    @include layout-medium {
+      padding-left: 10px;
+    }
+    @include layout-small {
+      padding-left: 5px;
+    }
   }
   &_label, &_value {
     border-bottom: 1px solid rgba($dark-color, 0.2);
     > span {
       display: block;
       padding: 15px 20px;
+      @include layout-medium {
+        padding: 15px 10px;
+      }
+      @include layout-small {
+        padding: 15px 0 15px 5px;
+      }
     }
   }
   &_label {

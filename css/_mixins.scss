@@ -8,7 +8,7 @@
 /// A function used to convert rem sizes to pixel size.
 /// @param {px} $size font-size in pixels
 @function calculatePixels($size) {
-  $pixelSize: $size * $body-size;
+  $pixelSize: $size / 1rem * $body-size;
   @return $pixelSize;
 }
 
@@ -42,11 +42,21 @@
 ///   margin-bottom: 3rem;
 /// }
 /// </pre>
-@mixin property-rem($property, $size) {
-  $property: calculatePixels($size);
-  $property: $size;
+@mixin property-with-rem($property, $size) {
+  #{$property}: calculatePixels($size);
+  #{$property}: $size;
 }
 
+/// Used as an internal function to convert strings to unicode. Used to fix a bug in Sass 3.4.0.
+/// @example
+/// .icon:before {
+///   content: unicode('e905');
+/// }
+/// @output <pre>
+/// .icon:before {
+///   content: '\e905';
+/// }
+/// </pre>}
 @function unicode($str) {
   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
 }
@@ -118,34 +128,6 @@
 @mixin layout-small {
   @media only screen and (max-width: $layout-small) {
     @content;
-  }
-}
-
-/// the equivalent of adding the clearfix class to an element
-/// @example
-/// .container-with-floated-children {
-///   @include clearfix();
-/// }
-/// @output <pre>
-/// .container-with-floated-children {
-///   *zoom: 1;
-///   &:before, &:after {
-///     content: " ";
-///     display: table;
-///   }
-///   &:after {
-///     clear: both;
-///   }
-/// }
-/// </pre>
-@mixin clearfix() {
-  *zoom: 1;
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
   }
 }
 

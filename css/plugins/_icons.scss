@@ -295,10 +295,12 @@
   &_file-zip-fill:before {
     content: "\e9ba";
   }
-  &_file-xml-line:before {
+  &_file-xml-line:before,
+  &_file-html-line:before, {
     content: "\e9bb";
   }
-  &_file-xml-fill:before {
+  &_file-xml-fill:before,
+  &_file-html-fill:before {
     content: "\e9bc";
   }
   &_file-presentation-line:before {

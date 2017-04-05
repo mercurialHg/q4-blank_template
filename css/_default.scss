@@ -11,11 +11,11 @@ body {
 
 h1 {
   @include font-size(48px);
-  margin-bottom: 3rem;
-  line-height: 3.5rem;
+  @include property-with-rem(margin-bottom, 3rem);
+  @include property-with-rem(line-height, 3.5rem);
   @include layout-small {
     @include font-size(40px);
-    line-height: 3rem;
+    @include property-with-rem(line-height, 3rem);
   }
 }
 h2 {
@@ -23,19 +23,20 @@ h2 {
   margin-bottom: 2.5rem;
 }
 h3 {
-  font-size: 1.5rem;
+  @include font-size(24px);
   margin: 1.5rem 0 1rem;
   color: #006fba;
 }
 h4 {
-  font-size: 1rem;
-  margin: 1.5rem 0 1rem;
+  @include font-size(16px);
+  @include property-with-rem(margin-top, 1.5rem);
+  @include property-with-rem(margin-bottom, 1rem);
   font-weight: bold;
   text-transform: uppercase;
 }
 h5 {
-  font-size: 0.8rem;
-  margin-bottom: 0.8rem;
+  @include font-size(calculatePixels(0.8rem));
+  @include property-with-rem(margin-bottom, 0.8rem);
   text-transform: uppercase;
 }
 a {
@@ -43,7 +44,7 @@ a {
   color: $brand-color;
 }
 p {
-  line-height: 1.5rem;
+  @include property-with-rem(line-height, 1.5rem);
 }
 i {
   display: inline-block;
@@ -104,6 +105,19 @@ body.PreviewBody {
   background-position: 0;
 }
 
+/*------- HACKS AND FIXES -------*/
+
+.clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 /*------------ LISTS ------------*/
 
 .list {
@@ -132,7 +146,7 @@ body.PreviewBody {
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
   // Overwrite Browser rendering different heights (IE11)
-  height: 50px;
+  // @include property-with-rem(height, 3.5rem);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -202,7 +216,7 @@ body.PreviewBody {
 
 .table {
   width: 100%;
-  margin: 1rem 0;
+  margin: calculatePixels(1rem) 0;
   thead {
     background-color: $brand-color;
     th {
@@ -259,7 +273,7 @@ body.PreviewBody {
 /*--------- SPECIAL BOXES --------*/
 
 .code {
-  margin: 2rem 0;
+  margin: calculatePixels(2rem) 0;
   padding: 20px 15px;
   background: $grey-color;
   border-left: 3px solid rgba($brand-color, 0.5);
@@ -275,7 +289,7 @@ body.PreviewBody {
 }
 
 .quote {
-  margin: 2rem 0;
+  margin: calculatePixels(2rem) 0;
   padding: 20px 15px;
   background: $grey-color;
   border-left: 3px solid rgba($brand-color--alt, 0.5);

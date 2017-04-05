@@ -19,7 +19,6 @@
       input {
         width: auto;
         max-width: none;
-        height: 1rem;
         padding: 0;
         border: none;
         float: right;
@@ -36,7 +35,7 @@
         input {
           display: block;
           float: none;
-          margin-top: 0.5rem;
+          margin-top: calculatePixels(0.5rem);
         }
       }
     }
@@ -49,29 +48,24 @@
     &_table {
       display: block;
       width: 100%;
+      margin-left: -20px;
       // Markup Space Fix
       font-size: 0;
       tr {
         display: inline-block;
         width: 50%;
+        margin-bottom: 20px;
+        padding-left: 20px;
         vertical-align: top;
         // Markup Space Fix
         @include font-size(16px);
-        &:nth-child(odd) {
-          padding-left: 10px;
-        }
-        &:nth-child(even) {
-          padding-right: 10px;
-        }
-        &:not(:last-of-type) {
-          margin-bottom: 20px;
+        &:last-child {
+          margin-bottom: 0;
         }
         // Specific Inputs
         &.module-job-application_cover-letter-text,
         &.module-job-application_resume-text {
-          display: block;
           width: 100%;
-          padding: 0;
         }
       }
       td {

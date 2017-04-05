@@ -1,16 +1,47 @@
 /*------ Formbuilder Module ------*/
 
 .module-form {
-	&_label {
-		margin-bottom: 5px;
-		@include font-size(14px);
-	}
-	&_error {
-		&-text{
-			color: $error-color;
-			&[style="visibility:hidden;"] {
-				display: none;
-			}
-		}
-	}
+  .module {
+    &_container--content {
+      margin-left: -20px;
+    }
+    &_required {
+      margin-left: 3px;
+    }
+  }
+  &_item {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    vertical-align: top;
+    &:last-child {
+      margin: 0;
+    }
+    // Specific Inputs
+    &--documents, &--investor {
+      width: 100%;
+    }
+  }
+  &_label {
+    label, legend {
+      display: inline-block;
+      margin-bottom: 5px;
+      @include font-size(14px);
+    }
+    legend {
+      float: left;
+    }
+  }
+  &_input {
+    clear: both;
+  }
+  &_error {
+    &-text{
+      color: $error-color;
+      &[style="visibility:hidden;"] {
+        display: none;
+      }
+    }
+  }
 }
