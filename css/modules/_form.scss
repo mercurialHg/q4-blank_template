@@ -4,6 +4,9 @@
   &--custom {
     .module_container--content {
       display:none;
+      &.js--visible {
+        display:block;
+      }
     }
   }
   .module {
