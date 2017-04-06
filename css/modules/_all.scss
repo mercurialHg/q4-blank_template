@@ -249,7 +249,8 @@
   
 
   // All Inputs
-  &_input[type="text"], &_input[type="file"], &_dropdown, textarea.module_input {
+  &_input[type="text"], &_input[type="email"],
+  &_input[type="file"], &_dropdown, textarea.module_input {
     display: block;
     -webkit-appearance: none;
     -moz-appearance: none;

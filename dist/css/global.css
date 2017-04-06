@@ -101,23 +101,24 @@ h1 {
 }
 @media only screen and (max-width: 480px) {
   h1 {
-    font-size: 40px;
-    font-size: 2.5rem;
-    line-height: 48px;
-    line-height: 3rem;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 40px;
+    line-height: 2.5rem;
   }
 }
 
 h2 {
   font-size: 36px;
   font-size: 2.25rem;
+  margin-bottom: 40px;
   margin-bottom: 2.5rem;
 }
 
 h3 {
   font-size: 24px;
   font-size: 1.5rem;
-  margin: 1.5rem 0 1rem;
+  margin: 24px 0 16px;
   color: #006fba;
 }
 
@@ -1297,7 +1298,7 @@ a:focus {
   font-weight: bold;
   text-transform: uppercase;
 }
-.module_input[type="text"], .module_input[type="file"], .module_dropdown, .module textarea.module_input {
+.module_input[type="text"], .module_input[type="email"], .module_input[type="file"], .module_dropdown, .module textarea.module_input {
   display: block;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1314,7 +1315,7 @@ a:focus {
   font-size: 1rem;
   font-weight: 300;
 }
-.module_input[type="text"]::-ms-clear, .module_input[type="file"]::-ms-clear, .module_dropdown::-ms-clear, .module textarea.module_input::-ms-clear {
+.module_input[type="text"]::-ms-clear, .module_input[type="email"]::-ms-clear, .module_input[type="file"]::-ms-clear, .module_dropdown::-ms-clear, .module textarea.module_input::-ms-clear {
   display: none;
 }
 .module textarea.module_input {
@@ -1953,8 +1954,30 @@ a:focus {
 .module-form .module_container--content {
   margin-left: -20px;
 }
+@media only screen and (max-width: 768px) {
+  .module-form .module_container--content {
+    margin-left: 0;
+  }
+}
+.module-form .module_error-container li[style="visibility: hidden;"] {
+  display: none;
+}
 .module-form .module_required {
   margin-left: 3px;
+}
+.module-form .module_container--captcha > div {
+  margin: 0;
+  padding: 0;
+}
+.module-form .module_container--captcha > div .ErrorMessage {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #b72121;
+}
+.module-form .module_container--captcha > div .ErrorMessage[style="visibility: hidden;"] {
+  display: none;
 }
 .module-form_item {
   display: inline-block;
@@ -1963,11 +1986,14 @@ a:focus {
   padding-left: 20px;
   vertical-align: top;
 }
-.module-form_item:last-child {
-  margin: 0;
-}
-.module-form_item--documents, .module-form_item--investor {
+.module-form_item--document-request, .module-form_item--are-you-an-investor {
   width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .module-form_item {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 .module-form_label label, .module-form_label legend {
   display: inline-block;
@@ -1986,6 +2012,12 @@ a:focus {
 }
 .module-form_error-text[style="visibility:hidden;"] {
   display: none;
+}
+.module-form .CaptchaContainer {
+  display: block;
+}
+.module-form .CaptchaContainer input[type="text"] {
+  width: 100%;
 }
 
 .module-glossary .module_header {
@@ -3024,6 +3056,7 @@ a:focus {
 }
 @media only screen and (max-width: 768px) {
   .pane--banner h1 {
+    margin-bottom: 32px;
     margin-bottom: 2rem;
   }
 }

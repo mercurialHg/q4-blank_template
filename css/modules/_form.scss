@@ -12,9 +12,32 @@
   .module {
     &_container--content {
       margin-left: -20px;
+      @include layout-medium {
+        margin-left: 0;
+      }
+    }
+    &_error-container {
+      // CMS Module Definition work-around
+      li[style="visibility: hidden;"] {
+        display: none;
+      }
     }
     &_required {
       margin-left: 3px;
+    }
+    // Captcha
+    &_container--captcha  > div {
+      margin: 0;
+      padding: 0;
+      .ErrorMessage {
+        display: block;
+        margin-top: 10px;
+        @include font-size(14px);
+        color: $error-color;
+        &[style="visibility: hidden;"] {
+          display: none;
+        }
+      }
     }
   }
   &_item {
@@ -23,12 +46,13 @@
     margin-bottom: 20px;
     padding-left: 20px;
     vertical-align: top;
-    &:last-child {
-      margin: 0;
-    }
     // Specific Inputs
-    &--documents, &--investor {
+    &--document-request, &--are-you-an-investor {
       width: 100%;
+    }
+    @include layout-medium {
+      width: 100%;
+      padding-left: 0;
     }
   }
   &_label {
@@ -50,6 +74,13 @@
       &[style="visibility:hidden;"] {
         display: none;
       }
+    }
+  }
+  // Captcha
+  .CaptchaContainer {
+    display: block;
+    input[type="text"] {
+      width: 100%;
     }
   }
 }
