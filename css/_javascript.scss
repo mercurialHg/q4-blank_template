@@ -15,6 +15,9 @@
   &--hidden {
     display: none;
   }
+  &--visible {
+    display: block;
+  }
   &--disabled {
     opacity: 0.1;
     border-color: $body-color;

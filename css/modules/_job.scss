@@ -67,15 +67,22 @@
         &.module-job-application_resume-text {
           width: 100%;
         }
+        td {
+          display: block;
+          position: relative;
+        }
+        label {
+          display: inline-block;
+          margin-bottom: 5px;
+          @include font-size(14px);
+        }
       }
-      td {
-        display: block;
-        position: relative;
-      }
-      label {
-        display: inline-block;
-        margin-bottom: 5px;
-        @include font-size(14px);
+      @include layout-medium {
+        margin-left: 0;
+        tr {
+          width: 100%;
+          padding-left: 0;
+        }
       }
     }
 

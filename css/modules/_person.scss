@@ -87,10 +87,19 @@
       display: block;
       margin-bottom: 10px;
       @include font-size(36px);
+      @include property-with-rem(line-height, 3.25rem);
       color: $brand-color;
+      @include layout-small {
+        @include font-size(24px);
+        @include property-with-rem(line-height, 1.75rem);
+      }
     }
     &_title {
       @include font-size(24px);
+      @include layout-small {
+        @include font-size(18px);
+        @include property-with-rem(line-height, 1.25rem);
+      }
     }
     &_description-container {
       margin-top: 40px;

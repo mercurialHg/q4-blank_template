@@ -37,7 +37,6 @@ html {
   box-sizing: inherit;
 }
 
-/* Negative Margin Fix for Toast Columns */
 html {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
@@ -245,6 +244,7 @@ body.PreviewBody {
 /*------- BUTTONS / INPUTS -------*/
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
+  max-width: 100%;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1024,6 +1024,9 @@ a:focus {
 .js--hidden {
   display: none;
 }
+.js--visible {
+  display: block;
+}
 .js--disabled {
   opacity: 0.1;
   border-color: #333333;
@@ -1395,6 +1398,7 @@ a:focus {
   margin-bottom: 20px;
 }
 .module-calculator_input h4 {
+  margin-bottom: 12px;
   margin-bottom: 0.75rem;
 }
 .module-calculator_input label {
@@ -1410,7 +1414,7 @@ a:focus {
   margin: 0;
 }
 .module-calculator_input-row {
-  padding: 0 0 10px 20px;
+  padding-bottom: 10px;
 }
 .module-calculator_input-row input[type="text"] {
   margin-top: 10px;
@@ -1422,7 +1426,7 @@ a:focus {
 .module-calculator_input-row--other input[type="text"].js--revealed {
   display: block;
 }
-@media only screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .module-calculator_popup-container {
     min-width: 920px;
   }
@@ -2053,15 +2057,24 @@ a:focus {
 .module-job-application_table tr.module-job-application_cover-letter-text, .module-job-application_table tr.module-job-application_resume-text {
   width: 100%;
 }
-.module-job-application_table td {
+.module-job-application_table tr td {
   display: block;
   position: relative;
 }
-.module-job-application_table label {
+.module-job-application_table tr label {
   display: inline-block;
   margin-bottom: 5px;
   font-size: 14px;
   font-size: 0.875rem;
+}
+@media only screen and (max-width: 768px) {
+  .module-job-application_table {
+    margin-left: 0;
+  }
+  .module-job-application_table tr {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 .module-job-application .module_required {
   font-size: 14px;
@@ -2206,7 +2219,7 @@ a:focus {
   .nav--secondary .level1 > li {
     display: block;
   }
-  .nav--secondary .level1 > li.expanded a {
+  .nav--secondary .level1 > li.selected a, .nav--secondary .level1 > li.expanded a {
     display: block;
   }
   .nav--secondary .level1 > li.js--expanded {
@@ -2246,6 +2259,11 @@ a:focus {
     padding: 20px 20px 20px 72px;
     font-size: 16px;
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 765px) and (orientation: landscape) {
+  .nav--secondary {
+    padding-bottom: 85px;
   }
 }
 .nav--sitemap {
@@ -2434,11 +2452,29 @@ a:focus {
   margin-bottom: 10px;
   font-size: 36px;
   font-size: 2.25rem;
+  line-height: 52px;
+  line-height: 3.25rem;
   color: #006fba;
+}
+@media only screen and (max-width: 480px) {
+  .fancybox-container .module-person_name {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 28px;
+    line-height: 1.75rem;
+  }
 }
 .fancybox-container .module-person_title {
   font-size: 24px;
   font-size: 1.5rem;
+}
+@media only screen and (max-width: 480px) {
+  .fancybox-container .module-person_title {
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+  }
 }
 .fancybox-container .module-person_description-container {
   margin-top: 40px;
@@ -2904,6 +2940,9 @@ a:focus {
   left: 0;
   overflow: hidden;
 }
+.layout_footer {
+  background: #222;
+}
 
 /*--------- Pane Specific --------*/
 .pane--header {
@@ -3087,7 +3126,6 @@ a:focus {
 }
 .pane--footer {
   padding-top: 60px;
-  background: #222;
   font-size: 14px;
   font-size: 0.875rem;
 }
@@ -3173,7 +3211,6 @@ a:focus {
 }
 .pane--credits {
   padding-bottom: 40px;
-  background: #222;
   text-align: center;
   color: #707070;
   font-size: 12px;

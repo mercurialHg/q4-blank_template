@@ -145,6 +145,7 @@ body.PreviewBody {
 
 .input, .textarea, .dropdown, .upload, .submit, .button {
   display: inline-block;
+  max-width: 100%;
   // Overwrite Browser rendering different heights (IE11)
   // @include property-with-rem(height, 3.5rem);
   appearance: none;

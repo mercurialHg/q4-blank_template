@@ -18,6 +18,10 @@
     left: 0;
     overflow: hidden;
   }
+
+  &_footer {
+    background: $dark-color;
+  }
 }
 
 /*--------- Pane Specific --------*/
@@ -172,7 +176,6 @@
   }
   &--footer {
     padding-top: 60px;
-    background: #222;
     @include font-size(14px);
     .pane_inner {
       @include fit-and-center($layout-width);
@@ -263,7 +266,6 @@
   }
   &--credits {
     padding-bottom: 40px;
-    background: #222;
     text-align: center;
     color: #707070;
     @include font-size(12px);

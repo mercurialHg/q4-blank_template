@@ -6,7 +6,7 @@
       margin-bottom: 20px;
     }
     h4 {
-      margin-bottom: 0.75rem;
+      @include property-with-rem(margin-bottom, 0.75rem);
     }
     label {
       display: inline-block;
@@ -20,7 +20,7 @@
       margin: 0;
     }
     &-row {
-      padding: 0 0 10px 20px;
+      padding-bottom: 10px;
       input[type="text"] {
         margin-top: 10px;
         max-width: 300px;
@@ -34,9 +34,13 @@
         }
       }
     }
+    // Specific Inputs
+    &.module-calculator_compare {
+      // margin-bottom: 0;
+    }
   }
   &_popup-container {
-    @include layout-legacy {
+    @media screen and (min-width: 1024px) {
       min-width: 920px;
     }
     @media screen and (min-width: 481px) and (max-width: 768px) {

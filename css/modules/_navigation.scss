@@ -108,7 +108,7 @@
       .level1 {
         & > li {
           display: block;
-          &.expanded {
+          &.selected, &.expanded {
             a {
               display: block;
             }
@@ -153,6 +153,11 @@
           }
         }
       }
+    }
+    // iOS Actionbar fix
+    @media screen and (max-width: 765px) and (orientation:landscape) {
+      // Height of actionbar
+      padding-bottom: 85px;
     }
   }
   // Page Not Found
