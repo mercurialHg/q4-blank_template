@@ -1060,6 +1060,7 @@ a:focus {
 }
 .module_error-container {
   margin-bottom: 30px;
+  color: #b72121;
 }
 .module_add-to-calendar-reveal {
   color: #006fba;
@@ -1291,7 +1292,7 @@ a:focus {
 .module_reminder.js--reminded {
   display: none;
 }
-.module_required, .module_error-container {
+.module_required {
   color: #333333;
 }
 .module_required-text {

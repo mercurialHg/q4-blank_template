@@ -20,6 +20,7 @@
   // Large Spacing
   &_error-container {
     margin-bottom: 30px;
+    color: $error-color;
   }
   &_add-to-calendar {
     &-reveal {
@@ -224,7 +225,7 @@
       display: none;
     }
   }
-  &_required, &_error-container {
+  &_required {
     color: $body-color;
   }
   &_required {
