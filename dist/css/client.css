@@ -1252,6 +1252,7 @@ li.fancybox-thumbs-loading {
 .ui-datepicker .ui-datepicker-title select {
   font-size: 1em;
   margin: 1px 0;
+  cursor: pointer;
 }
 
 .ui-datepicker select.ui-datepicker-month,

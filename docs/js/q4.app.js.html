@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.formBuilder">formBuilder</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="q4.app.html">app</a><ul class='methods'><li data-type='method'><a href="q4.app.html#._mailingListValidation">_mailingListValidation</a></li><li data-type='method'><a href="q4.app.html#.accessibilize">accessibilize</a></li><li data-type='method'><a href="q4.app.html#.accessibleNav">accessibleNav</a></li><li data-type='method'><a href="q4.app.html#.addToCalendar">addToCalendar</a></li><li data-type='method'><a href="q4.app.html#.cleanQuickLinks">cleanQuickLinks</a></li><li data-type='method'><a href="q4.app.html#.copyright">copyright</a></li><li data-type='method'><a href="q4.app.html#.docTracking">docTracking</a></li><li data-type='method'><a href="q4.app.html#.fancySignup">fancySignup</a></li><li data-type='method'><a href="q4.app.html#.hidePastCal">hidePastCal</a></li><li data-type='method'><a href="q4.app.html#.isValidEmailAddress">isValidEmailAddress</a></li><li data-type='method'><a href="q4.app.html#.mobileMenuToggle">mobileMenuToggle</a></li><li data-type='method'><a href="q4.app.html#.remindMeOnce">remindMeOnce</a></li><li data-type='method'><a href="q4.app.html#.reveal">reveal</a></li><li data-type='method'><a href="q4.app.html#.scrollTo">scrollTo</a></li><li data-type='method'><a href="q4.app.html#.submitOnEnter">submitOnEnter</a></li><li data-type='method'><a href="q4.app.html#.superfish">superfish</a></li><li data-type='method'><a href="q4.app.html#.toggle">toggle</a></li><li data-type='method'><a href="q4.app.html#.unWrapLink">unWrapLink</a></li><li data-type='method'><a href="q4.app.html#.validateSubmit">validateSubmit</a></li><li data-type='method'><a href="q4.app.html#.validateUnsubscribe">validateUnsubscribe</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -181,15 +181,27 @@ var q4Defaults = {
      * @example app.reveal('.read-more', '.read-more_button', '.read-more_panel', true);
      */
     reveal: function(container, trigger, panel, once) {
+        $(trigger).attr('tabindex', '0');
+        $(panel).attr('aria-hidden', 'true');
         if (once) {
-            $(container).one('click', trigger, function(e) {
-                if ($(trigger).is('a')) e.preventDefault();
-                $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
+            $(container).one('click keypress', trigger, function(e) {
+                if (e.keyCode == 13 || e.type == 'click') {
+                    if ($(trigger).is('a')) e.preventDefault();
+                    $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
+                    $(panel).attr('aria-hidden', function(i, attr) {
+                        return attr == 'true' ? 'false' : 'true';
+                    });
+                }
             });
         } else {
-            $(container).on('click', trigger, function(e) {
-                if ($(trigger).is('a')) e.preventDefault();
-                $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
+            $(container).on('click keypress', trigger, function(e) {
+                if (e.keyCode == 13 || e.type == 'click') {
+                    if ($(trigger).is('a')) e.preventDefault();
+                    $(this).toggleClass('js--active').closest(container).find(panel).toggleClass('js--revealed');
+                    $(panel).attr('aria-hidden', function(i, attr) {
+                        return attr == 'true' ? 'false' : 'true';
+                    });
+                }
             });
         }
     },
@@ -261,7 +273,9 @@ var q4Defaults = {
         });
 
         if ($el.find('.module_confirmation-container').text().trim().length) {
+            $('.module-subscribe').addClass('js--hidden');
             $el.find('.module_introduction, .module-unsubscribe_table, .module_actions').addClass('js--hidden');
+            inst.scrollTo($el);
         }
     },
     
@@ -484,14 +498,16 @@ var q4Defaults = {
      * @example app.addToCalendar('.module-event'); or app.addToCalendar('.module-event-latest, .module-event-upcoming');
      */
      addToCalendar: function(selector) {
-        $(selector).on('click', '.module_add-to-calendar-reveal', function(e) {
-            $.fancybox.open({
-                src: $(this).next(),
-                type: 'inline',
-                opts: {
-                    slideClass: 'fancybox-slide--no-padding'
-                }
-            });
+        $(selector).on('click keypress', '.module_add-to-calendar-reveal', function(e) {
+            if (e.keyCode == 13 || e.type == 'click') {
+                $.fancybox.open({
+                    src: $(this).next(),
+                    type: 'inline',
+                    opts: {
+                        slideClass: 'fancybox-slide--no-padding'
+                    }
+                });
+            }
         });
      },
     /**
@@ -515,89 +531,6 @@ var q4Defaults = {
             }
         });
     },
-
-    _formErrorFormat: function(error) {
-        $(error).each(function() {
-            if ( $(this).css('visibility') == 'hidden' ) {
-                $(this).parent().addClass('hidden');
-            } else {
-                $(this).parent().removeClass('hidden');
-            }
-        });
-    },
-
-    /**
-     * A set of functions used to improve our formbuilder modules.
-     * @param {$form} [element]  - the form module this function works for
-     * @param {$hidden} [element]  - an element to hide once the form has been submitted
-     * @example app.formBuilde($('.module-form'), $('.module-form-intro'));
-     */
-    formBuilder: function($form, $hidden) {
-        var inst = this;
-
-        // check if the form is on the page (it won't be once the form is submitted)
-        if ( $form.length ) {
-            var errorContainer = $form.find('.error-container');
-
-            // if a set of radio buttons is present, check the first automatically (requirement fix)
-            $form.find('.ItemClass input:radio').closest('table').each(function(){
-                $(this).find('input:radio:first').prop('checked', true);
-            });
-
-            // if a set of check boxes is present, hide the first check box and check it (requirement fix)
-            $form.find('.ItemClass input:checkbox').closest('table').addClass('checkboxTable').each(function(){
-                $(this).find('input:checkbox:first').parent().hide();
-            }); 
-
-            $form.find('.Item').each(function() {
-                // assign placeholder values to all inputs
-                var name = $(this).find('.label-wrap .Label').text();
-                $(this).find('.field-wrap input').attr('placeholder', name);
-
-                // append each error message item to one container (like email alerts)
-                var errorMessage = $(this).find('.error-wrap span');
-                var errorClass = ( errorMessage.closest('.ItemClass').attr('class') || '').split(' ')[1];
-
-                errorMessage.addClass(errorClass).appendTo(errorContainer).wrap('&lt;li>&lt;/li>');
-            });
-
-            // convert captcha's red star to an error message and append to the error container
-            $form.find('.CaptchaContainer span').text( inst.options.provideCodeText ).appendTo(errorContainer).wrap('&lt;li>&lt;/li>');
-
-            // CMS forces errors to use visibility: hidden, so let's keep track of it and use display:none on the list item instead.
-            inst._formErrorFormat( $form.find('.ErrorMessage') );
-            $form.find('.SubmitButton').on( 'click', function() {
-                inst._formErrorFormat( $form.find('.ErrorMessage') );
-            });
-
-            // email validation - need to find a way to make it work with this setup
-            $form.find('.SubmitButton').on( 'click', function() {
-                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/,
-                    ErrorMessages = errorContainer.find('.ItemClassEmail');
-                if(!emailReg.test($('.Item .ItemClassEmail input:last').val())) {
-                    ErrorMessages.parent().show();
-                    ErrorMessages.css('visibility', 'visible');
-                    return false;
-                }
-                if ($('.Item .ItemClassEmail input:last').val().length > 1) {
-                    $el.find('.checkboxTable').each(function(){
-                        if (!$(this).find('input:checkbox').is(':checked')){
-                            $(this).find('input:checkbox:first').prop('checked', true); 
-                        }
-                        else if ($(this).find('input:checkbox:not(":first")').is(':checked')){
-                            $(this).find('input:checkbox:first').prop('checked', false);
-                        }
-                    });
-
-                    ErrorMessages.parent().hide();
-                    ErrorMessages.css('visibility', 'hidden');
-                }
-                return true;
-            });
-        } else {
-            inst.moduleNotFound($('.MessageSent'), $hidden);
-        }
-    },
     /**
      * Opens the Mailing List Signup - Captcha inside a fancybox
      * @param {$el} [element] The mailing list module
@@ -616,6 +549,7 @@ var q4Defaults = {
                 $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl );
             }
             inst.scrollTo( $('div[id*="SubscriberConfirmation"]').filter(':visible'), 0 );
+            $('.module-unsubscribe').addClass('js--hidden');
         }
         
         if ( !$signup.length ) {
@@ -890,7 +824,7 @@ var q4Defaults = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Apr 06 2017 13:45:57 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Apr 07 2017 16:40:00 GMT-0400 (EDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

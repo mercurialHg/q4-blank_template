@@ -198,6 +198,10 @@ input::-ms-clear {
   display: none;
 }
 
+iframe {
+  width: 100%;
+}
+
 /*---------- Q4 SPECIFIC ---------*/
 .PreviewToolBar {
   display: none;
@@ -222,11 +226,13 @@ body.PreviewBody {
 
 /*------------ LISTS ------------*/
 .list {
-  margin: 1rem 0;
+  margin: 16px 0;
+  padding-left: 32px;
   padding-left: 2rem;
   list-style-type: disc;
 }
 .list li {
+  line-height: 24px;
   line-height: 1.5rem;
 }
 .list--ordered {
@@ -1007,7 +1013,7 @@ a:focus {
   position: relative;
   left: 50%;
   display: inline-block;
-  margin: 1rem 0 1rem -25px;
+  margin: 16px 0 16px -25px;
   font-family: "q4-icons";
   speak: none;
   font-style: normal;
@@ -1059,6 +1065,9 @@ a:focus {
   color: #006fba;
   cursor: pointer;
 }
+.module_add-to-calendar-reveal:focus {
+  text-decoration: underline;
+}
 .module_add-to-calendar-list {
   display: none;
 }
@@ -1104,6 +1113,7 @@ a:focus {
   list-style-type: disc;
 }
 .module_error-container ul > li {
+  line-height: 24px;
   line-height: 1.5rem;
 }
 .module_error-container > br {
@@ -1111,6 +1121,7 @@ a:focus {
 }
 .module_error-container > span {
   display: block;
+  line-height: 24px;
   line-height: 1.5rem;
 }
 .module_error-container > span:before {
@@ -1135,14 +1146,17 @@ a:focus {
 .module_image {
   display: inline-block;
   max-width: 30%;
+  margin-bottom: 16px;
   margin-bottom: 1rem;
 }
 .module_image--right {
   float: right;
+  margin-left: 32px;
   margin-left: 2rem;
 }
 .module_image--left {
   float: left;
+  margin-right: 32px;
   margin-right: 2rem;
 }
 .module_introduction {
@@ -1194,7 +1208,7 @@ a:focus {
 }
 .module_message {
   display: block;
-  margin: 1rem 0 1rem;
+  margin: 16px 0;
 }
 .module_message[style$="hidden;"], .module_message:empty {
   display: none;
@@ -1213,6 +1227,7 @@ a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\ed71";
+  margin-right: 8px;
   margin-right: 0.5rem;
 }
 .module_message--error {
@@ -1229,6 +1244,7 @@ a:focus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\ed4f";
+  margin-right: 8px;
   margin-right: 0.5rem;
 }
 .module_nav-link, .module_nav .ModuleYearLink, .module_nav-link:visited, .module_nav .ModuleYearLink:visited {
@@ -1276,12 +1292,12 @@ a:focus {
   display: none;
 }
 .module_required, .module_error-container {
-  color: #b72121;
+  color: #333333;
 }
 .module_required-text {
   font-size: 13px;
   font-size: 0.8125rem;
-  color: #b72121;
+  color: #333333;
 }
 .module_rss {
   float: right;
@@ -1325,6 +1341,7 @@ a:focus {
   cursor: pointer;
 }
 .module_input[type="file"] {
+  line-height: 16px;
   line-height: 1rem;
 }
 .module_input--brand[type="text"] {
@@ -1501,6 +1518,7 @@ a:focus {
   margin: 0;
 }
 .module-committee_bio p:not(:last-of-type) {
+  margin-bottom: 16px;
   margin-bottom: 1rem;
 }
 .module-committee_legend-container {
@@ -1550,18 +1568,6 @@ a:focus {
 /*--------- Event Module ---------*/
 .module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
   display: none;
-}
-.module-event .module_link[href$=".mp3"] i:before, .module-event .module_link[href$=".wmv"] i:before {
-  content: "\e952";
-}
-.module-event .module_link[href$=".xls"] i:before, .module-event .module_link[href$=".csv"] i:before {
-  content: "\eeae";
-}
-.module-event .module_link[href$=".mp4"] i:before, .module-event .module_link[href$=".flv"] i:before, .module-event .module_link[href$=".avi"] i:before {
-  content: "\e95e";
-}
-.module-event .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".com"]:not(.module_webcast-link) i:before {
-  content: "\eecd";
 }
 .module-event-latest .module_container--content {
   margin-bottom: 20px;
@@ -1626,6 +1632,7 @@ a:focus {
 .module-event-calendar_splash p {
   font-size: 14px;
   font-size: 0.875rem;
+  line-height: 19.2px;
   line-height: 1.2rem;
 }
 .module-event-calendar_controls {
@@ -1723,6 +1730,18 @@ a:focus {
     margin-top: 20px;
   }
 }
+.module-event .module_link[href$=".mp3"] i:before, .module-event .module_link[href$=".wmv"] i:before, .module-event-details .module_link[href$=".mp3"] i:before, .module-event-details .module_link[href$=".wmv"] i:before, .module-event-latest .module_link[href$=".mp3"] i:before, .module-event-latest .module_link[href$=".wmv"] i:before, .module-event-upcoming .module_link[href$=".mp3"] i:before, .module-event-upcoming .module_link[href$=".wmv"] i:before, .module-event-archive .module_link[href$=".mp3"] i:before, .module-event-archive .module_link[href$=".wmv"] i:before, .module-event-calendar .module_link[href$=".mp3"] i:before, .module-event-calendar .module_link[href$=".wmv"] i:before {
+  content: "\e952";
+}
+.module-event .module_link[href$=".xls"] i:before, .module-event .module_link[href$=".csv"] i:before, .module-event-details .module_link[href$=".xls"] i:before, .module-event-details .module_link[href$=".csv"] i:before, .module-event-latest .module_link[href$=".xls"] i:before, .module-event-latest .module_link[href$=".csv"] i:before, .module-event-upcoming .module_link[href$=".xls"] i:before, .module-event-upcoming .module_link[href$=".csv"] i:before, .module-event-archive .module_link[href$=".xls"] i:before, .module-event-archive .module_link[href$=".csv"] i:before, .module-event-calendar .module_link[href$=".xls"] i:before, .module-event-calendar .module_link[href$=".csv"] i:before {
+  content: "\eeae";
+}
+.module-event .module_link[href$=".mp4"] i:before, .module-event .module_link[href$=".flv"] i:before, .module-event .module_link[href$=".avi"] i:before, .module-event-details .module_link[href$=".mp4"] i:before, .module-event-details .module_link[href$=".flv"] i:before, .module-event-details .module_link[href$=".avi"] i:before, .module-event-latest .module_link[href$=".mp4"] i:before, .module-event-latest .module_link[href$=".flv"] i:before, .module-event-latest .module_link[href$=".avi"] i:before, .module-event-upcoming .module_link[href$=".mp4"] i:before, .module-event-upcoming .module_link[href$=".flv"] i:before, .module-event-upcoming .module_link[href$=".avi"] i:before, .module-event-archive .module_link[href$=".mp4"] i:before, .module-event-archive .module_link[href$=".flv"] i:before, .module-event-archive .module_link[href$=".avi"] i:before, .module-event-calendar .module_link[href$=".mp4"] i:before, .module-event-calendar .module_link[href$=".flv"] i:before, .module-event-calendar .module_link[href$=".avi"] i:before {
+  content: "\e95e";
+}
+.module-event .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event .module_link[href$=".com"]:not(.module_webcast-link) i:before, .module-event-details .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event-details .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event-details .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event-details .module_link[href$=".com"]:not(.module_webcast-link) i:before, .module-event-latest .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event-latest .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event-latest .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event-latest .module_link[href$=".com"]:not(.module_webcast-link) i:before, .module-event-upcoming .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event-upcoming .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event-upcoming .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event-upcoming .module_link[href$=".com"]:not(.module_webcast-link) i:before, .module-event-archive .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event-archive .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event-archive .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event-archive .module_link[href$=".com"]:not(.module_webcast-link) i:before, .module-event-calendar .module_link[href$=".html"]:not(.module_webcast-link) i:before, .module-event-calendar .module_link[href$=".aspx"]:not(.module_webcast-link) i:before, .module-event-calendar .module_link[href$=".htm"]:not(.module_webcast-link) i:before, .module-event-calendar .module_link[href$=".com"]:not(.module_webcast-link) i:before {
+  content: "\eecd";
+}
 
 /*---------- FAQ Module ----------*/
 .module-faq_question {
@@ -1731,7 +1750,7 @@ a:focus {
 }
 .module-faq_answer p {
   margin: 0;
-  padding: 0 0 1rem;
+  padding: 0 0 16px;
 }
 .module-faq .toggle-all a:before {
   content: "Show all";
@@ -1986,6 +2005,18 @@ a:focus {
   padding-left: 20px;
   vertical-align: top;
 }
+.module-form_item label, .module-form_item legend {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.module-form_item legend {
+  float: left;
+}
+.module-form_item legend ~ ul {
+  clear: both;
+}
 .module-form_item--document-request, .module-form_item--are-you-an-investor {
   width: 100%;
 }
@@ -1994,18 +2025,6 @@ a:focus {
     width: 100%;
     padding-left: 0;
   }
-}
-.module-form_label label, .module-form_label legend {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-.module-form_label legend {
-  float: left;
-}
-.module-form_input {
-  clear: both;
 }
 .module-form_error-text {
   color: #b72121;
@@ -2126,6 +2145,12 @@ a:focus {
   width: 100%;
   max-width: 640px;
 }
+@media only screen and (max-width: 480px) {
+  .module-slideshow_viewer {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
 .module-slideshow_link-container {
   margin-top: 25px;
 }
@@ -2137,6 +2162,7 @@ a:focus {
 }
 .module-slideshow iframe {
   width: 100%;
+  max-width: 100%;
 }
 
 .module-rss p + h2 {
@@ -2170,6 +2196,7 @@ a:focus {
   background: #006fba;
   text-align: center;
   font-weight: 400;
+  letter-spacing: 1.6px;
   letter-spacing: 0.1rem;
 }
 .nav--secondary .level1 > li {
@@ -2368,6 +2395,7 @@ a:focus {
   color: #333333;
 }
 .module-news-latest .module_headline {
+  line-height: 24px;
   line-height: 1.5rem;
   font-weight: 200;
 }
@@ -2382,18 +2410,24 @@ a:focus {
   color: #006fba;
 }
 .module-news-details .module_view-all-link {
-  display: inline;
+  display: block;
   margin-bottom: 25px;
+}
+.module-news-details .module_view-all-link--bottom {
+  margin-top: 25px;
+  margin-bottom: 0;
 }
 .module-news-details_category {
   display: none;
 }
 .module-news-details ul {
-  margin: 1rem 0;
+  margin: 16px 0;
+  padding-left: 32px;
   padding-left: 2rem;
   list-style-type: disc;
 }
 .module-news-details ul li {
+  line-height: 24px;
   line-height: 1.5rem;
 }
 
@@ -2747,10 +2781,12 @@ a:focus {
 .module-stock-header_description1 {
   display: block;
   font-weight: bold;
+  margin-bottom: 16px;
   margin-bottom: 1rem;
 }
 .module-stock-header_stock-price {
   display: block;
+  margin-bottom: 8px;
   margin-bottom: 0.5rem;
   font-size: 45px;
   font-size: 2.8125rem;
@@ -2761,6 +2797,7 @@ a:focus {
 }
 .module-stock-header_change, .module-stock-header_percent-change {
   display: inline-block;
+  margin-bottom: 24px;
   margin-bottom: 1.5rem;
   font-size: 20px;
   font-size: 1.25rem;
@@ -2776,6 +2813,7 @@ a:focus {
 }
 .module-stock-header_volume {
   display: block;
+  margin-bottom: 32px;
   margin-bottom: 2rem;
 }
 .module-stock-header_volume:before {
@@ -3191,6 +3229,7 @@ a:focus {
   display: none;
 }
 .pane--footer .module_error-container li {
+  line-height: 16px;
   line-height: 1rem;
 }
 .pane--footer .module_introduction {
@@ -3200,6 +3239,7 @@ a:focus {
   text-transform: uppercase;
 }
 .pane--footer .module-links li {
+  line-height: 19.2px;
   line-height: 1.2rem;
 }
 .pane--footer .module-subscribe_email label, .pane--footer .module-subscribe_list-header, .pane--footer .module-subscribe_email .module_required, .pane--footer .module-subscribe_mailing-list,
@@ -3222,6 +3262,7 @@ a:focus {
 }
 .pane--footer .module-subscribe p {
   padding-right: 35px;
+  line-height: 19.2px;
   line-height: 1.2rem;
 }
 .pane--footer .module-subscribe input[type="checkbox"] {
@@ -3235,6 +3276,7 @@ a:focus {
   max-width: 300px;
 }
 .pane--footer .module-contact li {
+  line-height: 19.2px;
   line-height: 1.2rem;
 }
 .pane--footer .module:not(.module-embed) {

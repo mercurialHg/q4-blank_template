@@ -3295,16 +3295,16 @@
   right: -1.5em;
 }
 .ModulePressReleaseDetails #PullQuote:before {
-  content: "├óÔé¼┼ô ";
+  content: "â€œ ";
 }
 .ModulePressReleaseDetails #PullQuoteFrench:before {
-  content: "├é┬½ ";
+  content: "Â« ";
 }
 .ModulePressReleaseDetails #PullQuote:after {
-  content: " ├óÔé¼┬Ø";
+  content: " â€";
 }
 .ModulePressReleaseDetails #PullQuoteFrench:after {
-  content: " ├é┬╗";
+  content: " Â»";
 }
 .ModulePressReleaseDetails .meta_info {
   width: 60%;

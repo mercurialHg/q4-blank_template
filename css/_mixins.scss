@@ -48,15 +48,6 @@
 }
 
 /// Used as an internal function to convert strings to unicode. Used to fix a bug in Sass 3.4.0.
-/// @example
-/// .icon:before {
-///   content: unicode('e905');
-/// }
-/// @output <pre>
-/// .icon:before {
-///   content: '\e905';
-/// }
-/// </pre>}
 @function unicode($str) {
   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
 }

@@ -27,7 +27,7 @@
         color: $body-color;
       }
       &_headline {
-        line-height: 1.5rem;
+        @include property-with-rem(line-height, 1.5rem);
         font-weight: 200;
         &-link, &-link:visited {
         	display: inline-block;
@@ -46,19 +46,23 @@
   &-details {
     .module {
       &_view-all-link {
-        display: inline;
+        display: block;
         margin-bottom: 25px;
+        &--bottom {
+          margin-top: 25px;
+          margin-bottom: 0;
+        }
       }
     }
     &_category {
       display: none;
     }
     ul {
-      margin: 1rem 0;
-      padding-left: 2rem;
+      margin: calculatePixels(1rem) 0;
+      @include property-with-rem(padding-left, 2rem);
       list-style-type: disc;
       li {
-        line-height: 1.5rem;
+        @include property-with-rem(line-height, 1.5rem);
       }
     }
   }

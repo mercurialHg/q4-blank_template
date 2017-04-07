@@ -29,7 +29,7 @@
     background: $brand-color;
     text-align: center;
     font-weight: 400;
-    letter-spacing: 0.1rem;
+    @include property-with-rem(letter-spacing, 0.1rem);
     .level1 {
       & > li {
         display: none;

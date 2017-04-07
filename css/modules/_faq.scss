@@ -8,7 +8,7 @@
 	&_answer {
 		p {
 			margin: 0;
-			padding: 0 0 1rem;
+			padding: 0 0 calculatePixels(1rem);
 		}
 	}
   .toggle-all {

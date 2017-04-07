@@ -46,6 +46,17 @@
     margin-bottom: 20px;
     padding-left: 20px;
     vertical-align: top;
+    label, legend {
+      display: inline-block;
+      margin-bottom: 5px;
+      @include font-size(14px);
+    }
+    legend {
+      float: left;
+      & ~ ul {
+        clear: both;
+      }
+    }
     // Specific Inputs
     &--document-request, &--are-you-an-investor {
       width: 100%;
@@ -54,19 +65,6 @@
       width: 100%;
       padding-left: 0;
     }
-  }
-  &_label {
-    label, legend {
-      display: inline-block;
-      margin-bottom: 5px;
-      @include font-size(14px);
-    }
-    legend {
-      float: left;
-    }
-  }
-  &_input {
-    clear: both;
   }
   &_error {
     &-text{

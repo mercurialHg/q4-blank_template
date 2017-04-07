@@ -194,7 +194,7 @@
           display: none;
         }
         li {
-          line-height: 1rem;
+          @include property-with-rem(line-height, 1rem);
         }
       }
       &_introduction {
@@ -204,7 +204,7 @@
       &-links {
         text-transform: uppercase;
         li {
-          line-height: 1.2rem;
+          @include property-with-rem(line-height, 1.2rem);
         }
       }
       // Mailing List Signup
@@ -235,7 +235,7 @@
         }
         p {
           padding-right: 35px;
-          line-height: 1.2rem;
+          @include property-with-rem(line-height, 1.2rem);
         }
         input[type="checkbox"] {
           border-color: $light-color;
@@ -251,7 +251,7 @@
       // IR Contact
       &-contact {
         li {
-          line-height: 1.2rem;
+          @include property-with-rem(line-height, 1.2rem);
         }
       }
     }

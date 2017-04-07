@@ -25,6 +25,9 @@
     &-reveal {
       color: $brand-color;
       cursor: pointer;
+      &:focus {
+        text-decoration: underline;
+      }
     }
     &-list {
       display: none;
@@ -66,7 +69,7 @@
       @include property-with-rem(padding-left, 1.125rem);
       list-style-type: disc;
       & > li {
-        line-height: 1.5rem;
+        @include property-with-rem(line-height, 1.5rem);
       }
     }
     & > br {
@@ -74,7 +77,7 @@
     }
     & > span {
       display: block;
-      line-height: 1.5rem;
+      @include property-with-rem(line-height, 1.5rem);
       &:before {
         @include icon("ec6b");
         margin-right: 5px;
@@ -90,14 +93,14 @@
   &_image {
     display: inline-block;
     max-width: 30%;
-    margin-bottom: 1rem;
+    @include property-with-rem(margin-bottom, 1rem);
     &--right {
       float: right;
-      margin-left: 2rem;
+      @include property-with-rem(margin-left, 2rem);
     }
     &--left {
       float: left;
-      margin-right: 2rem;
+      @include property-with-rem(margin-right, 2rem);
     }
   }
   &_introduction {
@@ -150,7 +153,7 @@
   }
   &_message {
     display: block;
-    margin: 1rem 0 1rem;
+    margin: calculatePixels(1rem) 0;
     // Overwrite Default Module Functionality
     &[style$="hidden;"], &:empty {
       display: none;
@@ -159,14 +162,14 @@
       color: $success-color;
       &:before {
         @include icon("ed71");
-        margin-right: 0.5rem;
+        @include property-with-rem(margin-right, 0.5rem);
       }
     }
     &--error {
       color: $error-color;
       &:before {
         @include icon("ed4f");
-        margin-right: 0.5rem;
+        @include property-with-rem(margin-right, 0.5rem);
       }
     }
   }
@@ -222,12 +225,12 @@
     }
   }
   &_required, &_error-container {
-    color: $error-color;
+    color: $body-color;
   }
   &_required {
     &-text {
       @include font-size(13px);
-      color: $error-color;
+      color: $body-color;
     }
   }
   &_rss {
@@ -276,7 +279,7 @@
     cursor: pointer;
   }
   &_input[type="file"] {
-    line-height: 1rem;
+    @include property-with-rem(line-height, 1rem);
   }
   &_input {
     &--brand[type="text"] {

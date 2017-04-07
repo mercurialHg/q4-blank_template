@@ -95,6 +95,10 @@ input {
   }
 }
 
+iframe {
+  width: 100%;
+}
+
 /*---------- Q4 SPECIFIC ---------*/
 
 .PreviewToolBar {
@@ -121,11 +125,11 @@ body.PreviewBody {
 /*------------ LISTS ------------*/
 
 .list {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  margin: calculatePixels(1rem) 0;
+  @include property-with-rem(padding-left, 2rem);
   list-style-type: disc;
   li {
-    line-height: 1.5rem;
+    @include property-with-rem(line-height, 1.5rem);
   }
   &--ordered {
     list-style-type: decimal;

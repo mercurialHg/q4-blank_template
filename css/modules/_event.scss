@@ -6,32 +6,10 @@
     &_location, &_speakers h4, &_body {
       display: none;
     }
-    &_link {
-      // Different file type links
-      &[href$=".mp3"], &[href$=".wmv"] {
-        i:before {
-          content: "\e952";
-        }
-      }
-      &[href$=".xls"], &[href$=".csv"] {
-        i:before {
-          content: "\eeae";
-        }
-      }
-      &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
-        i:before {
-          content: "\e95e";
-        }
-      }
-      &[href$=".html"]:not(.module_webcast-link),
-      &[href$=".aspx"]:not(.module_webcast-link),
-      &[href$=".htm"]:not(.module_webcast-link),
-      &[href$=".com"]:not(.module_webcast-link) {
-        i:before {
-          content: "\eecd";
-        }
-      }
-    }
+  }
+  // Details Module
+  &-details {
+
   }
   // Event Latest Widget
   &-latest {
@@ -105,7 +83,7 @@
       }
       p {
         @include font-size(14px);
-        line-height: 1.2rem;
+        @include property-with-rem(line-height, 1.2rem);
       }
     }
     &_controls {
@@ -201,6 +179,37 @@
       }
       &_event-container {
         margin-top: 20px;
+      }
+    }
+  }
+  // Module Link Icon Specificity
+  &, &-details, &-latest, &-upcoming, &-archive, &-calendar {
+    .module {
+      &_link {
+        // Different file type links
+        &[href$=".mp3"], &[href$=".wmv"] {
+          i:before {
+            content: "\e952";
+          }
+        }
+        &[href$=".xls"], &[href$=".csv"] {
+          i:before {
+            content: "\eeae";
+          }
+        }
+        &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
+          i:before {
+            content: "\e95e";
+          }
+        }
+        &[href$=".html"]:not(.module_webcast-link),
+        &[href$=".aspx"]:not(.module_webcast-link),
+        &[href$=".htm"]:not(.module_webcast-link),
+        &[href$=".com"]:not(.module_webcast-link) {
+          i:before {
+            content: "\eecd";
+          }
+        }
       }
     }
   }

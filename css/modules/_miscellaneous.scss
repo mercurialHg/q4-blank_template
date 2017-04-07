@@ -9,6 +9,10 @@
     display: inline-block;
     width: 100%;
     max-width: 640px;
+    @include layout-small {
+      max-width: 100%;
+      overflow: hidden;
+    }
   }
   &_link-container {
     margin-top: 25px;
@@ -20,6 +24,7 @@
   }
   iframe {
     width: 100%;
+    max-width: 100%;
   }
 }
 
