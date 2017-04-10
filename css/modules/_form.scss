@@ -57,6 +57,11 @@
         clear: both;
       }
     }
+    ul {
+      li:not(:last-of-type) {
+        padding-bottom: 10px;
+      }
+    }
     // Specific Inputs
     &--document-request, &--are-you-an-investor {
       width: 100%;

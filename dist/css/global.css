@@ -2018,6 +2018,9 @@ a:focus {
 .module-form_item legend ~ ul {
   clear: both;
 }
+.module-form_item ul li:not(:last-of-type) {
+  padding-bottom: 10px;
+}
 .module-form_item--document-request, .module-form_item--are-you-an-investor {
   width: 100%;
 }
@@ -2945,8 +2948,11 @@ a:focus {
 .module-subscribe_mailing-list tr.module-subscribe_list-header td {
   padding-bottom: 15px;
 }
-.module-subscribe_mailing-list td {
+.module-subscribe_mailing-list tr table td {
   padding-bottom: 10px;
+}
+.module-subscribe_mailing-list tr table tr:last-child td {
+  padding-bottom: 0;
 }
 .module-subscribe .module_required {
   font-size: 14px;

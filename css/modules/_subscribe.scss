@@ -61,9 +61,15 @@
           padding-bottom: 15px;
         }
       }
-    }
-    td {
-      padding-bottom: 10px;
+      // Checkbox Table
+      table {
+        td {
+          padding-bottom: 10px;
+        }
+        tr:last-child td {
+          padding-bottom: 0;
+        }
+      }
     }
   }
   // Required Star
