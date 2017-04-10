@@ -187,7 +187,10 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:focus {
   outline: none;
 }
-input[type="checkbox"] + label {
+input[type="radio"] {
+  margin: 0 5px 0 0;
+}
+input[type="checkbox"] + label, input[type="radio"] + label {
   display: inline-block;
   font-size: 14px;
   font-size: 0.875rem;
@@ -2006,7 +2009,7 @@ a:focus {
   padding-left: 20px;
   vertical-align: top;
 }
-.module-form_item label, .module-form_item legend {
+.module-form_item > label, .module-form_item legend {
   display: inline-block;
   margin-bottom: 5px;
   font-size: 14px;
@@ -2014,12 +2017,15 @@ a:focus {
 }
 .module-form_item legend {
   float: left;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-size: 1rem;
 }
 .module-form_item legend ~ ul {
   clear: both;
 }
 .module-form_item ul li:not(:last-of-type) {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .module-form_item--document-request, .module-form_item--are-you-an-investor {
   width: 100%;

@@ -83,7 +83,11 @@ input {
       outline: none;
     }
   }
-  &[type="checkbox"] + label {
+  &[type="radio"] {
+    margin: 0 5px 0 0;
+  }
+  &[type="checkbox"] + label,
+  &[type="radio"] + label {
     display: inline-block;
     @include font-size(14px);
     vertical-align: baseline;

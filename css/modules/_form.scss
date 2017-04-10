@@ -46,20 +46,22 @@
     margin-bottom: 20px;
     padding-left: 20px;
     vertical-align: top;
-    label, legend {
+    & > label, legend {
       display: inline-block;
       margin-bottom: 5px;
       @include font-size(14px);
     }
     legend {
       float: left;
+      margin-bottom: 15px;
+      @include font-size(16px);
       & ~ ul {
         clear: both;
       }
     }
     ul {
       li:not(:last-of-type) {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
       }
     }
     // Specific Inputs
