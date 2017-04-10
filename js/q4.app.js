@@ -114,6 +114,19 @@ var q4Defaults = {
         }
     },
 
+    // A better Preview Toolbar
+    previewToolbar: function() {
+        if (GetViewType() === "0") {
+            $('.PreviewToolBar').prepend(
+                '<div class="PreviewTrigger">' +
+                    '<i class="q4-icon_clock-line"></i>' +
+                '</div>'
+            ).on('click', '.PreviewTrigger', function() {
+                $(this).toggleClass('js--active').parent().toggleClass('js--open');
+            });
+        }
+    },
+
     /**
      * Used to replace an anchor with a span.
      * @param {selector}  [selector] a selector containing a item to be unwrapped
