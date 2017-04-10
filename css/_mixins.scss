@@ -1,11 +1,11 @@
-/// A function used to convert rem font sizes to pixel size. This is a supporting function for the font-size mixin.
+/// A function used to convert pixel font sizes to rem size. This is a supporting function for the font-size mixin.
 /// @param {px} $size font-size in pixels
 @function calculateRem($size) {
   $remSize: $size / $body-size;
   @return $remSize * 1rem;
 }
 
-/// A function used to convert rem sizes to pixel size.
+/// A function used to convert rem sizes to pixel size. This is a supporting function for the property-with-rem mixin.
 /// @param {px} $size font-size in pixels
 @function calculatePixels($size) {
   $pixelSize: $size / 1rem * $body-size;
@@ -30,11 +30,11 @@
 }
 
 /// Use to assign a property using rem. Returns with pixel fallback
-/// @param {CSS property} $property font-size in pixels
+/// @param {CSS property} $property The CSS property to return
 /// @param {rem} $size the size in REM
 /// @example
 /// p {
-///   @include property-rem(margin-bottom, 3rem)
+///   @include property-with-rem(margin-bottom, 3rem)
 /// }
 /// @output <pre>
 /// p {
