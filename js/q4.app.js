@@ -58,7 +58,7 @@ var q4Defaults = {
                     '<div class="module_container--outer">' +
                         '<h2 class="module_title">Email Alerts</h2>' +
                         '<div class="module_container--inner">' +
-                            '<p class="module_message module_message--success">Thank you for signing up for the mailing lists. An activation email will be sent to you shortly.</p>' +
+                            '<p class="module_message module_message--success"></p>' +
                         '</div>' +
                     '</div>' +
                 '</div>'
@@ -519,7 +519,8 @@ var q4Defaults = {
         // Subscriber Confirmation fix
         if ( $confirm.is(':visible') ) {
             if ( $confirm.filter(':visible').closest(inst.options.mailingListConfig.location).length ) {
-                $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl );
+                var successText = $confirm.filter(':visible').closest(inst.options.mailingListConfig.location).find('.module_message--success').text();
+                $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl ).find('.module_message--success').html(successText);
             }
             inst.scrollTo( $('div[id*="SubscriberConfirmation"]').filter(':visible'), 0 );
             $('.module-unsubscribe').addClass('js--hidden');
