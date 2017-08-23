@@ -1,0 +1,33 @@
+/*==================================
+ -------- Q4 Modules Icons ---------
+==================================*/
+.module_q4-icon-links {
+  .module_link:before {
+    @include icon(eecd);
+    font-size: 16px;
+  }
+  .module_add-to-calendar-reveal:before {
+    content: "\ea5f";
+    padding-right: 5px;
+  }
+  .module_link[href$=".mp3"]:before,
+  .module_link[href$=".wmv"]:before {
+    content: "\e952";
+  }
+  .module_link[href$=".xls"]:before,
+  .module_link[href$=".csv"]:before {
+    content: "\eeae";
+  }
+  .module_link[href$=".mp4"]:before,
+  .module_link[href$=".flv"]:before,
+  .module_link[href$=".avi"]:before {
+    content: "\e95e";
+  }
+  .module_link[href$=".pdf"]:before,
+  .module_link[href$=".PDF"]:before {
+    content: "\e900";
+  }
+  .module_webcast-link:before {
+    content: "\e989";
+  }
+}

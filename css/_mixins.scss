@@ -29,24 +29,6 @@
   font-size: calculateRem($size);
 }
 
-/// Use to assign a property using rem. Returns with pixel fallback
-/// @param {CSS property} $property The CSS property to return
-/// @param {rem} $size the size in REM
-/// @example
-/// p {
-///   @include property-with-rem(margin-bottom, 3rem)
-/// }
-/// @output <pre>
-/// p {
-///   margin-bottom: 36px; //Will be overridden if browser supports rem
-///   margin-bottom: 3rem;
-/// }
-/// </pre>
-@mixin property-with-rem($property, $size) {
-  #{$property}: calculatePixels($size);
-  #{$property}: $size;
-}
-
 /// Used as an internal function to convert strings to unicode. Used to fix a bug in Sass 3.4.0.
 @function unicode($str) {
   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");

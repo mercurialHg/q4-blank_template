@@ -1,5 +1,4 @@
 /*--------- Event Module ---------*/
-
 .module-event {
   // Event List Module
   .module {
@@ -19,18 +18,22 @@
       }
       &_item {
         margin: 10px 0;
-        padding: 0 0 0 20px;
         border: none;
         text-align: left;
+        padding-top: 0;
+        padding-bottom: 0;
         @include layout-medium {
           &:first-child {
             width: 100%;
           }
         }
       }
+      &_item.grid_col {
+        padding-left: 20px;
+      }
       &_item-wrap {
         padding: 30px;
-        background: $grey-color;
+        background-color: $grey-color;
       }
       &_date-time {
         margin-bottom: 15px;
@@ -42,6 +45,24 @@
       }
       &_links {
         margin: 0;
+      }
+    }
+    &.background--grey {
+      .module {
+        &_item-wrap {
+          background-color: $light-color;
+        }
+      }
+    }
+    &.module-event-list {
+      .module {
+        &_item {
+          padding-left: 0;
+          padding-top: 20px;
+          & + .module_item {
+            border-top: 1px solid $grey-dark-color;
+          }
+        }
       }
     }
   }
@@ -83,7 +104,7 @@
       }
       p {
         @include font-size(14px);
-        @include property-with-rem(line-height, 1.2rem);
+        line-height: 1.2;
       }
     }
     &_controls {
@@ -179,37 +200,6 @@
       }
       &_event-container {
         margin-top: 20px;
-      }
-    }
-  }
-  // Module Link Icon Specificity
-  &, &-details, &-latest, &-upcoming, &-archive, &-calendar {
-    .module {
-      &_link {
-        // Different file type links
-        &[href$=".mp3"], &[href$=".wmv"] {
-          i:before {
-            content: "\e952";
-          }
-        }
-        &[href$=".xls"], &[href$=".csv"] {
-          i:before {
-            content: "\eeae";
-          }
-        }
-        &[href$=".mp4"], &[href$=".flv"], &[href$=".avi"] {
-          i:before {
-            content: "\e95e";
-          }
-        }
-        &[href$=".html"]:not(.module_webcast-link),
-        &[href$=".aspx"]:not(.module_webcast-link),
-        &[href$=".htm"]:not(.module_webcast-link),
-        &[href$=".com"]:not(.module_webcast-link) {
-          i:before {
-            content: "\eecd";
-          }
-        }
       }
     }
   }

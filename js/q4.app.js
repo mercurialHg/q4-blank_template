@@ -63,7 +63,8 @@ var q4Defaults = {
                     '</div>' +
                 '</div>'
             ),
-            location: '.pane--footer'
+            location: '.pane--footer',
+            submitText: 'Submit' //this will change the text of the submit button on the on the mailing List
         },
         /**
          * Enable superfish plugin
@@ -512,9 +513,12 @@ var q4Defaults = {
     fancySignup: function() {
         var inst = this,
             validationLock = true,
-            signup = inst.options.mailingListSignupCls;
+            signup = inst.options.mailingListSignupCls,
             $signup = $(signup),
-            $confirm = $('div[id*="SubscriberConfirmation"]'); // jshint ignore:line
+            confirm = 'div[id*="SubscriberConfirmation"]',
+            $confirm = $('div[id*="SubscriberConfirmation"]'), // jshint ignore:line
+            footerSuccess = inst.options.mailingListConfig.location + ' ' + confirm + ' .module_message--success',
+            $footerSuccess = $(footerSuccess); 
 
         // Subscriber Confirmation fix
         if ( $confirm.is(':visible') ) {
@@ -523,7 +527,9 @@ var q4Defaults = {
                 $confirm.filter(':visible').parent().html( inst.options.mailingListConfig.tpl ).find('.module_message--success').html(successText);
             }
             inst.scrollTo( $('div[id*="SubscriberConfirmation"]').filter(':visible'), 0 );
-            $('.module-unsubscribe').addClass('js--hidden');
+            if(!$footerSuccess.length) {
+                $('.module-unsubscribe').addClass('js--hidden');
+            }
         }
         
         if ( !$signup.length ) {
@@ -547,7 +553,7 @@ var q4Defaults = {
 
             // Create a second submit button to be displayed inside fancybox
             $this.find('input[type="submit"]').removeAttr('onclick').appendTo( $this.find('.CaptchaContainer') );
-            $this.find('.module_actions').append('<input type="submit" value="Submit" class="button module-subscribe_submit-button module-subscribe_submit-button--fancy">');
+            $this.find('.module_actions').append('<input type="submit" value="' + inst.options.mailingListConfig.submitText + '" class="button module-subscribe_submit-button module-subscribe_submit-button--fancy">');
 
             $this.on('click', '.module-subscribe_submit-button--fancy', function(e){
                 e.preventDefault();

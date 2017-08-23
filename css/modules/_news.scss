@@ -27,7 +27,7 @@
         color: $body-color;
       }
       &_headline {
-        @include property-with-rem(line-height, 1.5rem);
+        line-height: 1.5;
         font-weight: 200;
         &-link, &-link:visited {
         	display: inline-block;
@@ -40,6 +40,17 @@
       }
       &_link {
       	color: $brand-color;
+      }
+    }
+  }
+  &-list {
+    .module {
+      &_item {
+        padding-left: 0;
+        padding-top: 20px;
+        & + .module_item {
+          border-top: 1px solid $grey-dark-color;
+        }
       }
     }
   }
@@ -58,11 +69,11 @@
       display: none;
     }
     ul {
-      margin: calculatePixels(1rem) 0;
-      @include property-with-rem(padding-left, 2rem);
+      margin: 16px 0;
+      padding-left: 32px;
       list-style-type: disc;
       li {
-        @include property-with-rem(line-height, 1.5rem);
+        line-height: 1.5;
       }
     }
   }

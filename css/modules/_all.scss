@@ -13,7 +13,7 @@
   }
   // Small Spacing
   &_nav, &_headline, &_location, &_speakers,
-  &_links, &_body, &_add-to-calendar,
+  &_links, &_body,
   &_options, &_not-found {
     margin-bottom: 15px;
   }
@@ -67,10 +67,10 @@
   &_error-container {
     display: block;
     ul {
-      @include property-with-rem(padding-left, 1.125rem);
+      padding-left: 18px;
       list-style-type: disc;
       & > li {
-        @include property-with-rem(line-height, 1.5rem);
+        line-height: 1.5;
       }
     }
     & > br {
@@ -78,7 +78,7 @@
     }
     & > span {
       display: block;
-      @include property-with-rem(line-height, 1.5rem);
+      line-height: 1.5;
       &:before {
         @include icon("ec6b");
         margin-right: 5px;
@@ -94,14 +94,14 @@
   &_image {
     display: inline-block;
     max-width: 30%;
-    @include property-with-rem(margin-bottom, 1rem);
+    margin-bottom: 16px;
     &--right {
       float: right;
-      @include property-with-rem(margin-left, 2rem);
+      margin-left: 32px;
     }
     &--left {
       float: left;
-      @include property-with-rem(margin-right, 2rem);
+      margin-right: 32px;
     }
   }
   &_introduction {
@@ -126,8 +126,16 @@
       display: inline;
     }
   }
+  &_links {
+    &.module_links--stack {
+      > *, li, .module_presentation {
+        display: block;
+      }
+    }
+  }
   &_link {
     display: inline-block;
+    vertical-align: middle;
     margin: 0 15px 5px 0;
     @include font-size(14px);
     font-weight: bold;
@@ -154,7 +162,7 @@
   }
   &_message {
     display: block;
-    margin: calculatePixels(1rem) 0;
+    margin: 16px 0;
     // Overwrite Default Module Functionality
     &[style$="hidden;"], &:empty {
       display: none;
@@ -163,14 +171,14 @@
       color: $success-color;
       &:before {
         @include icon("ed71");
-        @include property-with-rem(margin-right, 0.5rem);
+        margin-right: 5px;
       }
     }
     &--error {
       color: $error-color;
       &:before {
         @include icon("ed4f");
-        @include property-with-rem(margin-right, 0.5rem);
+        margin-right: 5px;
       }
     }
   }
@@ -280,7 +288,7 @@
     cursor: pointer;
   }
   &_input[type="file"] {
-    @include property-with-rem(line-height, 1rem);
+    line-height: 1;
   }
   &_input {
     &--brand[type="text"] {

@@ -335,6 +335,7 @@
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
+  padding: 0 20px;
 }
 
 .slick-list {
@@ -408,8 +409,51 @@
   border: 1px solid transparent;
 }
 
+.slick-arrow {
+  font-size: 0;
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 110;
+}
+.slick-arrow:before {
+  font-family: 'q4-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
 .slick-arrow.slick-hidden {
   display: none;
+}
+.slick-arrow.slick-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.slick-prev {
+  left: 0;
+}
+.slick-prev:before {
+  content: "\edc6";
+}
+
+.slick-next {
+  right: 0;
+}
+.slick-next:before {
+  content: "\edbe";
 }
 
 .fancybox-enabled {
@@ -507,7 +551,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  display: none;
   pointer-events: all;
 }
 

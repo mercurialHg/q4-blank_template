@@ -86,7 +86,7 @@
     h1 {
       margin: 0;
       @include layout-medium {
-        @include property-with-rem(margin-bottom, 2rem);
+        margin-bottom: 32px;
       }
     }
     @include layout-legacy {
@@ -164,9 +164,31 @@
         padding-top: $module-vspace--thin;
         padding-bottom: $module-vspace--thin;
       }
+      &--thin-top {
+        padding-top: $module-vspace--thin;
+      }
+      &--thin-bottom {
+        padding-bottom: $module-vspace--thin;
+      }
       &--thick {
         padding-top: $module-vspace--thick;
         padding-bottom: $module-vspace--thick;
+      }
+      &--thick-top {
+        padding-top: $module-vspace--thick;
+      }
+      &--thick-bottom {
+        padding-bottom: $module-vspace--thick;
+      }
+      &--nopadding {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      &--nopadding-top {
+        padding-top: 0;
+      }
+      &--nopadding-bottom {
+        padding-bottom: 0;
       }
       // Sitemap!
       &-sitemap {
@@ -194,7 +216,7 @@
           display: none;
         }
         li {
-          @include property-with-rem(line-height, 1rem);
+          margin-bottom: 16px;
         }
       }
       &_introduction {
@@ -204,7 +226,7 @@
       &-links {
         text-transform: uppercase;
         li {
-          @include property-with-rem(line-height, 1.2rem);
+          line-height: 1.4;
         }
       }
       // Mailing List Signup
@@ -235,7 +257,7 @@
         }
         p {
           padding-right: 35px;
-          @include property-with-rem(line-height, 1.2rem);
+          line-height: 1.5;
         }
         input[type="checkbox"] {
           border-color: $light-color;
@@ -251,7 +273,7 @@
       // IR Contact
       &-contact {
         li {
-          @include property-with-rem(line-height, 1.2rem);
+          line-height: 1.4;
         }
       }
     }
@@ -316,6 +338,110 @@
     }
     &.js--active:before {
       content: "Show Less";
+    }
+  }
+}
+
+.module-why_invest {
+  h3 {
+    color: $body-color;
+  }
+  h4 {
+    @include font-size(60px);
+    color: $brand-color;
+    font-weight: 300;
+    margin-top: 0;
+  }
+  .grid {
+    padding-top:25px;
+    padding-bottom: 25px;
+  }
+  .grid_col {
+    padding-bottom: 15px;
+    padding-right: 20px;
+    @media (min-width: $layout-small) {
+      & + .grid_col {
+        border-left: 1px solid $grey-dark-color;
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.module-social {
+  .module {
+    &_tabs {
+      margin-bottom: 10px;
+      .button {
+        display: block;
+        &.js--selected {
+          background: $brand-color;
+          color: $light-color;
+        }
+      }
+    }
+    &_tab {
+      display: inline-block;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      @media (max-width: 640px) {
+        width: 50%;
+      }
+    }
+    &_container--content {
+      padding: 0;
+      @media (max-width: $layout-medium -(1px)) {
+        padding:0 20px;
+        margin:0;
+      }
+      .slick-arrow {
+        color: $brand-color;
+      }
+    }
+    &_headline-link {
+      color: $brand-color;
+    }
+    &_item {
+      &.grid_col {
+        padding: 0 0 0 20px;
+        margin: 15px 0;
+        @media (max-width: $layout-medium -(1px)) {
+          padding-left:0;
+        }
+      }
+      &-wrap {
+        padding: 30px;
+        background-color: $grey-color;
+      }
+      & + .module_item {
+        border-top: none;
+      }
+    }
+    &_date {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    &_headline {
+      text-align: left;
+      margin: 0;
+      line-height: 1.5;
+    }
+    &_icon {
+      float: right;
+      margin-left: 5px;
+      margin-bottom: 5px;
+      @include font-size(20px);
+      .q4-icon_twitter {
+        color: #1da1f2;
+      }
+      .q4-icon_facebook {
+        color: #365899;
+      }
+      .q4-icon_youtube {
+        color: #cc181e;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-.ModulePressReleaseDetails {
+.module-news-details {
   img {
     float: left;
     padding: 5px 10px 5px 0;
@@ -12,10 +12,11 @@
     font-family: "arial", sans-serif
   }
 
-  .ModuleBody i {
+  .module_body i {
     font: inherit;
     color: inherit;
     text-transform: inherit;
+    font-style: italic;
   }
 
   //newswire

@@ -82,11 +82,13 @@
   position: absolute;
   top: 0;
   right: 0;
-  display: none;
-  pointer-events: all; }
+  // display: none;
+  pointer-events: all;
+}
 
 .fancybox-show-buttons .fancybox-buttons {
-  display: block; }
+  display: block;
+}
 
 .fancybox-slider-wrap {
   overflow: hidden;

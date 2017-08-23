@@ -6,7 +6,7 @@
       margin-bottom: 20px;
     }
     h4 {
-      @include property-with-rem(margin-bottom, 0.75rem);
+      margin-bottom: 12px;
     }
     label {
       display: inline-block;

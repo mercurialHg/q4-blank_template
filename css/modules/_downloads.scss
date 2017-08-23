@@ -13,13 +13,10 @@
     display: none;
   }
   &_title {
+    position: relative;
     &-link {
-      position: relative;
-      display: block;
-      margin: 0;
-      padding-right: 20px;
-      &:after {
-        @include icon("e900");
+      margin: 0 20px 0 0;
+      &:before {
         position: absolute;
         top: 50%; right: 0;
         transform: translate(0,-50%);

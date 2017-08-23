@@ -163,7 +163,7 @@ $toast-pulls: true !default;
 		width: 100%;
 	}
 
-	@media (max-width: $layout-large) and (min-width: $layout-legacy) {
+	@media (max-width: $layout-large) and (min-width: $layout-legacy + 1px) {
 		&[class*="#{$toast-grid-column-namespace}--lg-"] {
 			display: inline-block;
 			margin-right: -.24em;
@@ -198,7 +198,7 @@ $toast-pulls: true !default;
 		}
 	}
 
-	@media (max-width: $layout-legacy) and (min-width: $layout-medium) {
+	@media (max-width: $layout-legacy) and (min-width: $layout-medium + 1px ) {
 		&[class*="#{$toast-grid-column-namespace}--lc-"] {
 			display: inline-block;
 			margin-right: -.24em;
@@ -233,7 +233,7 @@ $toast-pulls: true !default;
 		}
 	}
 
-	@media (max-width: $layout-medium) and (min-width: $layout-small) {
+	@media (max-width: $layout-medium) and (min-width: $layout-small + 1px ) {
 		&[class*="#{$toast-grid-column-namespace}--md-"] {
 			display: inline-block;
 			margin-right: -.24em;

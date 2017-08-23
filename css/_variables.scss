@@ -1,5 +1,5 @@
 /// Local environment URL
-$host: 'https://q4blankdev.q4web.com' !default;
+$host: 'https://blank1.q4web.com' !default;
 
 /// The default layout width for the site.
 /// @example 
@@ -31,7 +31,7 @@ $module-vspace--thick: $module-vspace * 1.5 !default;
 $body-font: 'Open Sans', sans-serif !default;
 
 /// The default font size for the site.
-$body-size: 16px !default;
+$body-size: 10px !default;
 
 /// The default icon font on the site (icomoon).
 $icon-font: 'q4-icons' !default;
@@ -51,6 +51,9 @@ $light-color: #fff !default;
 
 /// The default grey text colour for the site.
 $grey-color: #f6f6f6 !default;
+
+/// The default grey text colour for the site.
+$grey-dark-color: #dddddd !default;
 
 /// The default dark text colour for the site.
 $dark-color: #222 !default;

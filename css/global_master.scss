@@ -1,5 +1,6 @@
 // Welcome to the master stylesheet for global.css
 // Please choose @imports from the following list:
+// @import url(http://blank1.dev/css/global_master.css);
 
 // Variables and Mixins
 @import '_variables';
@@ -9,6 +10,7 @@
 @import '_reset';
 @import '_animations';
 @import '_default';
+@import '_q4icons.scss';
 @import 'plugins/_grid';
 @import '_utility';
 @import '_accessibility';
@@ -36,6 +38,7 @@
 @import 'modules/_search';
 @import 'modules/_sec';
 @import 'modules/_skip';
+@import 'modules/_slider';
 @import 'modules/_stock-chart';
 @import 'modules/_stock-header';
 @import 'modules/_stock-quote';
@@ -47,4 +50,3 @@
 
 //Blank CSS (feel free to remove, but read over for best practices!)
 @import '_blank';
-@import '_demo';
