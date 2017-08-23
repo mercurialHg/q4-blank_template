@@ -433,11 +433,11 @@ iframe {
 }
 
 .grid_col--1-of-3, .grid_col--2-of-6, .grid_col--4-of-12 {
-  width: 33.3333333333%;
+  width: 33.33333%;
 }
 
 .grid_col--2-of-3, .grid_col--4-of-6, .grid_col--8-of-12 {
-  width: 66.6666666667%;
+  width: 66.66667%;
 }
 
 .grid_col--1-of-4, .grid_col--2-of-8, .grid_col--3-of-12 {
@@ -457,11 +457,11 @@ iframe {
 }
 
 .grid_col--push-1-of-3, .grid_col--push-2-of-6, .grid_col--push-4-of-12 {
-  margin-left: 33.3333333333%;
+  margin-left: 33.33333%;
 }
 
 .grid_col--push-2-of-3, .grid_col--push-4-of-6, .grid_col--push-8-of-12 {
-  margin-left: 66.6666666667%;
+  margin-left: 66.66667%;
 }
 
 .grid_col--push-1-of-4, .grid_col--push-2-of-8, .grid_col--push-3-of-12 {
@@ -481,11 +481,11 @@ iframe {
 }
 
 .grid_col--pull-1-of-3, .grid_col--pull-2-of-6, .grid_col--pull-4-of-12 {
-  margin-left: -33.3333333333%;
+  margin-left: -33.33333%;
 }
 
 .grid_col--pull-2-of-3, .grid_col--pull-4-of-6, .grid_col--pull-8-of-12 {
-  margin-left: -66.6666666667%;
+  margin-left: -66.66667%;
 }
 
 .grid_col--pull-1-of-4, .grid_col--pull-2-of-8, .grid_col--pull-3-of-12 {
@@ -545,27 +545,27 @@ iframe {
 }
 
 .grid_col--1-of-6 {
-  width: 16.6666666667%;
+  width: 16.66667%;
 }
 
 .grid_col--push-1-of-6 {
-  margin-left: 16.6666666667%;
+  margin-left: 16.66667%;
 }
 
 .grid_col--pull-1-of-6 {
-  margin-left: -16.6666666667%;
+  margin-left: -16.66667%;
 }
 
 .grid_col--5-of-6 {
-  width: 83.3333333333%;
+  width: 83.33333%;
 }
 
 .grid_col--push-5-of-6 {
-  margin-left: 83.3333333333%;
+  margin-left: 83.33333%;
 }
 
 .grid_col--pull-5-of-6 {
-  margin-left: -83.3333333333%;
+  margin-left: -83.33333%;
 }
 
 .grid_col--1-of-8 {
@@ -617,75 +617,75 @@ iframe {
 }
 
 .grid_col--1-of-12 {
-  width: 8.3333333333%;
+  width: 8.33333%;
 }
 
 .grid_col--push-1-of-12 {
-  margin-left: 8.3333333333%;
+  margin-left: 8.33333%;
 }
 
 .grid_col--pull-1-of-12 {
-  margin-left: -8.3333333333%;
+  margin-left: -8.33333%;
 }
 
 .grid_col--2-of-12 {
-  width: 16.6666666667%;
+  width: 16.66667%;
 }
 
 .grid_col--push-2-of-12 {
-  margin-left: 16.6666666667%;
+  margin-left: 16.66667%;
 }
 
 .grid_col--pull-2-of-12 {
-  margin-left: -16.6666666667%;
+  margin-left: -16.66667%;
 }
 
 .grid_col--5-of-12 {
-  width: 41.6666666667%;
+  width: 41.66667%;
 }
 
 .grid_col--push-5-of-12 {
-  margin-left: 41.6666666667%;
+  margin-left: 41.66667%;
 }
 
 .grid_col--pull-5-of-12 {
-  margin-left: -41.6666666667%;
+  margin-left: -41.66667%;
 }
 
 .grid_col--7-of-12 {
-  width: 58.3333333333%;
+  width: 58.33333%;
 }
 
 .grid_col--push-7-of-12 {
-  margin-left: 58.3333333333%;
+  margin-left: 58.33333%;
 }
 
 .grid_col--pull-7-of-12 {
-  margin-left: -58.3333333333%;
+  margin-left: -58.33333%;
 }
 
 .grid_col--10-of-12 {
-  width: 83.3333333333%;
+  width: 83.33333%;
 }
 
 .grid_col--push-10-of-12 {
-  margin-left: 83.3333333333%;
+  margin-left: 83.33333%;
 }
 
 .grid_col--pull-10-of-12 {
-  margin-left: -83.3333333333%;
+  margin-left: -83.33333%;
 }
 
 .grid_col--11-of-12 {
-  width: 91.6666666667%;
+  width: 91.66667%;
 }
 
 .grid_col--push-11-of-12 {
-  margin-left: 91.6666666667%;
+  margin-left: 91.66667%;
 }
 
 .grid_col--pull-11-of-12 {
-  margin-left: -91.6666666667%;
+  margin-left: -91.66667%;
 }
 
 .grid_col {
@@ -716,10 +716,10 @@ iframe {
     width: 50%;
   }
   .grid_col.grid_col--lg-1-of-3 {
-    width: 33.3333333333%;
+    width: 33.33333%;
   }
   .grid_col.grid_col--lg-2-of-3 {
-    width: 66.6666666667%;
+    width: 66.66667%;
   }
   .grid_col.grid_col--lg-1-of-4 {
     width: 25%;
@@ -740,10 +740,10 @@ iframe {
     width: 50%;
   }
   .grid_col.grid_col--lc-1-of-3 {
-    width: 33.3333333333%;
+    width: 33.33333%;
   }
   .grid_col.grid_col--lc-2-of-3 {
-    width: 66.6666666667%;
+    width: 66.66667%;
   }
   .grid_col.grid_col--lc-1-of-4 {
     width: 25%;
@@ -764,10 +764,10 @@ iframe {
     width: 50%;
   }
   .grid_col.grid_col--md-1-of-3 {
-    width: 33.3333333333%;
+    width: 33.33333%;
   }
   .grid_col.grid_col--md-2-of-3 {
-    width: 66.6666666667%;
+    width: 66.66667%;
   }
   .grid_col.grid_col--md-1-of-4 {
     width: 25%;
@@ -785,10 +785,10 @@ iframe {
     width: 50%;
   }
   .grid_col.grid_col--sm-1-of-3 {
-    width: 33.3333333333%;
+    width: 33.33333%;
   }
   .grid_col.grid_col--sm-2-of-3 {
-    width: 66.6666666667%;
+    width: 66.66667%;
   }
   .grid_col.grid_col--sm-1-of-4 {
     width: 25%;
@@ -3591,5 +3591,3 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 .module-grid-demo_grid .grid_col p + p {
   padding-top: 0;
 }
-
-/*# sourceMappingURL=global.css.map */
