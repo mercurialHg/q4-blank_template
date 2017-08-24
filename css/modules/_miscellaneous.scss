@@ -5,12 +5,15 @@
 }
 
 .module-slideshow {
+  &_ratio {
+    padding-bottom: 56.25%;
+    /* this should be changed with aspecRatio option in widget */
+    position: relative;
+  }
   &_viewer {
     display: inline-block;
     width: 100%;
     max-width: 640px;
-    padding-bottom: 56.25%; /* this should be changed with aspecRatio option in widget */
-    position: relative
   }
   &_link-container {
     margin-top: 25px;

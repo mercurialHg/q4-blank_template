@@ -2153,13 +2153,15 @@ a:focus {
   display: none;
 }
 
+.module-slideshow_ratio {
+  padding-bottom: 56.25%;
+  /* this should be changed with aspecRatio option in widget */
+  position: relative;
+}
 .module-slideshow_viewer {
   display: inline-block;
   width: 100%;
   max-width: 640px;
-  padding-bottom: 56.25%;
-  /* this should be changed with aspecRatio option in widget */
-  position: relative;
 }
 .module-slideshow_link-container {
   margin-top: 25px;
