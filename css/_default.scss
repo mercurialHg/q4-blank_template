@@ -158,6 +158,7 @@ iframe {
   padding: 15px 20px;
   background: transparent;
   border: 2px solid $brand-color;
+  color: $brand-color;
   border-radius: 0;
   font-family: $body-font;
   @include font-size(14px);
@@ -203,7 +204,7 @@ iframe {
     color: $light-color;
     &:hover {
       background: $light-color;
-      color: $dark-color;
+      color: $brand-color;
     }
   }
 }
