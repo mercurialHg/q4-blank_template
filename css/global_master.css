@@ -1184,7 +1184,7 @@ a:focus {
   padding: 30px 0 10px;
 }
 .module_item ~ .module_item {
-  border-top: 1px solid rgba(34, 34, 34, 0.1);
+  border-top: 1px solid #dddddd;
 }
 .module_label {
   display: inline-block;
@@ -1575,6 +1575,11 @@ a:focus {
 /*--------- Event Module ---------*/
 .module-event .module_location, .module-event .module_speakers h4, .module-event .module_body {
   display: none;
+}
+.module-event .module_options {
+  margin-bottom: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
 }
 .module-event-latest .module_container--content {
   margin-bottom: 20px;
@@ -2159,13 +2164,16 @@ a:focus {
   /* this should be changed with aspecRatio option in widget */
   position: relative;
 }
-.module-slideshow_viewer {
+.module-slideshow_viewer:not(.grid_col) {
   display: inline-block;
   width: 100%;
   max-width: 640px;
 }
 .module-slideshow_link-container {
   margin-top: 25px;
+}
+.module-slideshow .module_links > * + * {
+  margin-top: 15px;
 }
 .module-slideshow_link {
   font-size: 14px;

@@ -10,13 +10,16 @@
     /* this should be changed with aspecRatio option in widget */
     position: relative;
   }
-  &_viewer {
+  &_viewer:not(.grid_col) {
     display: inline-block;
     width: 100%;
     max-width: 640px;
   }
   &_link-container {
     margin-top: 25px;
+  }
+  .module_links > * + * {
+    margin-top:15px;
   }
   &_link {
     @include font-size(14px);

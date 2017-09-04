@@ -5,6 +5,11 @@
     &_location, &_speakers h4, &_body {
       display: none;
     }
+    &_options {
+      margin-bottom: 0;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $grey-dark-color;
+    }
   }
   // Details Module
   &-details {
