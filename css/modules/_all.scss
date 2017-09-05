@@ -124,6 +124,9 @@
   &_links {
     > *, li, .module_presentation {
       display: inline;
+      @include layout-small {
+        display: block;
+      }
     }
   }
   &_links {
@@ -205,14 +208,16 @@
       margin-right: 10px;
     }
     @include layout-medium {
-      &-label, &-select {
+      &-label, &-select, &-submit {
         display: block;
+        width: 100%;
         margin-bottom: 10px;
       }
     }
     @include layout-small {
-      &-select, &-submit {
+       &-label, &-select, &-submit {
         display: block;
+        width: 100%;
         margin-bottom: 10px;
       }
     }

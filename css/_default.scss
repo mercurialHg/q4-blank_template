@@ -198,6 +198,11 @@ iframe {
       background: transparent;
       color: $brand-color;
     }
+    &.js--disabled {
+      background: $light-color;
+      border-color: $brand-color;
+      color: $brand-color;
+    }
   }
   &--dark {
     border: 2px solid $light-color;

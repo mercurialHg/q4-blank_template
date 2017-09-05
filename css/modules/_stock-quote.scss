@@ -7,6 +7,11 @@
   .module_container--content {
     border-top: 1px solid rgba($dark-color, 0.2);
   }
+  .stock-historical-range {
+    .module_options > *:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+  }
   &_lookup-title {
     padding-left:20px;
     @include layout-medium {

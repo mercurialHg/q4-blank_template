@@ -282,6 +282,11 @@ iframe {
   background: transparent;
   color: #006fba;
 }
+.button--inverted.js--disabled {
+  background: #fff;
+  border-color: #006fba;
+  color: #006fba;
+}
 .button--dark {
   border: 2px solid #fff;
   color: #fff;
@@ -1199,6 +1204,11 @@ a:focus {
 .module_links > *, .module_links li, .module_links .module_presentation {
   display: inline;
 }
+@media only screen and (max-width: 480px) {
+  .module_links > *, .module_links li, .module_links .module_presentation {
+    display: block;
+  }
+}
 .module_links.module_links--stack > *, .module_links.module_links--stack li, .module_links.module_links--stack .module_presentation {
   display: block;
 }
@@ -1288,14 +1298,16 @@ a:focus {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
-  .module_options-label, .module_options-select {
+  .module_options-label, .module_options-select, .module_options-submit {
     display: block;
+    width: 100%;
     margin-bottom: 10px;
   }
 }
 @media only screen and (max-width: 480px) {
-  .module_options-select, .module_options-submit {
+  .module_options-label, .module_options-select, .module_options-submit {
     display: block;
+    width: 100%;
     margin-bottom: 10px;
   }
 }
@@ -1439,8 +1451,8 @@ a:focus {
 }
 .module-calculator_input label {
   display: inline-block;
-  font-size: 14px;
-  font-size: 1.4rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   margin-bottom: 5px;
 }
 .module-calculator_input input[type="text"] {
@@ -2281,7 +2293,7 @@ a:focus {
   .nav--secondary li {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
-  .nav--secondary li.has-children > a:after {
+  .nav--secondary li.has-children > a:before {
     float: right;
     font-family: "q4-icons";
     speak: none;
@@ -2294,7 +2306,7 @@ a:focus {
     -moz-osx-font-smoothing: grayscale;
     content: "\edbe";
   }
-  .nav--secondary li.js--expanded > a:after {
+  .nav--secondary li.js--expanded > a:before {
     content: "\edc2";
   }
   .nav--secondary a {
@@ -3006,6 +3018,9 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-stock .module_container--content {
   border-top: 1px solid rgba(34, 34, 34, 0.2);
+}
+.module-stock .stock-historical-range .module_options > *:not(:last-of-type) {
+  margin-bottom: 20px;
 }
 .module-stock_lookup-title {
   padding-left: 20px;
