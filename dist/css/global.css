@@ -2886,8 +2886,23 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   color: #fff;
 }
 
+.module-slider .module_container--outer {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.module-slider .module_container--inner {
+  display: table-cell;
+  vertical-align: middle;
+  height: 390px;
+}
 .module-slider .slick-slider {
   padding: 0 40px;
+}
+.module-slider .slick-slider .slick-slide {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
 }
 .module-slider .slick-arrow:before {
   font-size: 30px;
@@ -3322,7 +3337,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     bottom: 100%;
     transition: 0.5s ease-in-out;
     overflow-y: scroll;
-    z-index: 5;
+    z-index: 120;
   }
   .js--mobile .pane--navigation {
     top: 100px;

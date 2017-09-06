@@ -114,7 +114,7 @@
       bottom: 100%;
       transition: 0.5s ease-in-out;
       overflow-y: scroll;
-      z-index: 5;
+      z-index: 120;
       @at-root .js--mobile & {
         top: $mobile-header-height;
         bottom: 0;

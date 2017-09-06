@@ -1,7 +1,22 @@
 .module {
 	&-slider {
+		.module_container--outer {
+			display: table;
+			width: 100%;
+			table-layout: fixed;
+		}
+		.module_container--inner {
+			display: table-cell;
+			vertical-align: middle;
+			height: 390px;
+		}
 		.slick-slider {
 			padding: 0 40px;
+			.slick-slide {
+				float: none;
+				display: inline-block;
+				vertical-align: middle;
+			}
 		}
 		.slick-arrow:before {
 			font-size: 30px;
