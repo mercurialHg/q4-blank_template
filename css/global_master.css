@@ -2915,6 +2915,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   float: none;
   display: inline-block;
   vertical-align: middle;
+  padding: 0;
 }
 .module-slider .slick-arrow:before {
   font-size: 30px;
