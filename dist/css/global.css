@@ -41,7 +41,7 @@ html {
   font-size: 10px;
 }
 
-nav ol, nav ul, .list-reset ol, .list-reset ul {
+nav ol, nav ul, .list--reset ol, .list--reset ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -164,31 +164,36 @@ img {
   max-width: 100%;
 }
 
-input[type="checkbox"] {
-  display: inline-block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 10px;
-  width: 10px;
-  margin: 0 5px 0 0;
-  border: 1px solid;
-  border-color: #333333;
-  vertical-align: baseline;
-  cursor: pointer;
-}
-input[type="checkbox"]:checked {
-  border: 3px solid;
-}
-input[type="radio"] {
-  margin: 0 5px 0 0;
+input[type="checkbox"], input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 input[type="checkbox"] + label, input[type="radio"] + label {
-  display: inline-block;
-  font-size: 14px;
-  font-size: 1.4rem;
-  vertical-align: baseline;
+  user-select: none;
   cursor: pointer;
+}
+input[type="checkbox"] + label:before, input[type="radio"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #222;
+  margin-right: 8px;
+  line-height: 1;
+}
+input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
+  width: 12px;
+  height: 12px;
+  border-width: 3px;
+}
+input[type="radio"] + label:before {
+  border-radius: 100%;
 }
 input::-ms-clear {
   display: none;
@@ -431,16 +436,23 @@ iframe {
   padding-right: 5px;
 }
 .module_q4-icon-links .module_link[href$=".mp3"]:before,
-.module_q4-icon-links .module_link[href$=".wmv"]:before {
+.module_q4-icon-links .module_link[href$=".wmv"]:before,
+.module_q4-icon-links .module_link[href$=".MP3"]:before,
+.module_q4-icon-links .module_link[href$=".WMV"]:before {
   content: "\e952";
 }
 .module_q4-icon-links .module_link[href$=".xls"]:before,
-.module_q4-icon-links .module_link[href$=".csv"]:before {
+.module_q4-icon-links .module_link[href$=".csv"]:before,
+.module_q4-icon-links .module_link[href$=".XLS"]:before,
+.module_q4-icon-links .module_link[href$=".CSV"]:before {
   content: "\eeae";
 }
 .module_q4-icon-links .module_link[href$=".mp4"]:before,
 .module_q4-icon-links .module_link[href$=".flv"]:before,
-.module_q4-icon-links .module_link[href$=".avi"]:before {
+.module_q4-icon-links .module_link[href$=".avi"]:before,
+.module_q4-icon-links .module_link[href$=".MP4"]:before,
+.module_q4-icon-links .module_link[href$=".FLV"]:before,
+.module_q4-icon-links .module_link[href$=".AVI"]:before {
   content: "\e95e";
 }
 .module_q4-icon-links .module_link[href$=".pdf"]:before,
@@ -3021,7 +3033,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   display: block;
   font-size: 12px;
   font-size: 1.2rem;
-  color: #a9a9a9;
 }
 .module-stock-header_volume-text, .module-stock-header_date {
   display: none;
@@ -3275,7 +3286,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   }
 }
 .pane--banner {
-  background: rgba(0, 0, 0, 0.1) url("https://blank1.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
+  background: rgba(255, 255, 255, 0.05) url("https://blank1.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
   color: #fff;
 }
 .pane--banner .pane_inner {
@@ -3409,14 +3420,14 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 .pane--content .module--thick-bottom {
   padding-bottom: 105px;
 }
-.pane--content .module--nopadding {
+.pane--content .module--no-padding {
   padding-top: 0;
   padding-bottom: 0;
 }
-.pane--content .module--nopadding-top {
+.pane--content .module--no-padding-top {
   padding-top: 0;
 }
-.pane--content .module--nopadding-bottom {
+.pane--content .module--no-padding-bottom {
   padding-bottom: 0;
 }
 .pane--content .module-sitemap {
@@ -3486,7 +3497,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   padding-right: 35px;
   line-height: 1.5;
 }
-.pane--footer .module-subscribe input[type="checkbox"] {
+.pane--footer .module-subscribe input[type="checkbox"] + label:before {
   border-color: #fff;
 }
 .pane--footer .module-subscribe_mailing-list.js--revealed,

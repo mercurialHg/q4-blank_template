@@ -63,8 +63,8 @@ a.pdf:before {
   margin-right: auto;
   @include layout-legacy {
     max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: $toast-gutter-width;
+    padding-right: $toast-gutter-width;
   }
  }" data-collapsed="@mixin fit-and-center($width) { ... }"><code>@mixin fit-and-center($width) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>used to set a max-width as well as center an element</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>the value to be assigned to the max-width attribute</p></td><td data-label="type"><code>Px</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.pane_inner {
   @include fit-and-center($layout-width);

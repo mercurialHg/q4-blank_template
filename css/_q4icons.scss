@@ -11,16 +11,23 @@
     padding-right: 5px;
   }
   .module_link[href$=".mp3"]:before,
-  .module_link[href$=".wmv"]:before {
+  .module_link[href$=".wmv"]:before,
+  .module_link[href$=".MP3"]:before,
+  .module_link[href$=".WMV"]:before {
     content: "\e952";
   }
   .module_link[href$=".xls"]:before,
-  .module_link[href$=".csv"]:before {
+  .module_link[href$=".csv"]:before,
+  .module_link[href$=".XLS"]:before,
+  .module_link[href$=".CSV"]:before {
     content: "\eeae";
   }
   .module_link[href$=".mp4"]:before,
   .module_link[href$=".flv"]:before,
-  .module_link[href$=".avi"]:before {
+  .module_link[href$=".avi"]:before,
+  .module_link[href$=".MP4"]:before,
+  .module_link[href$=".FLV"]:before,
+  .module_link[href$=".AVI"]:before {
     content: "\e95e";
   }
   .module_link[href$=".pdf"]:before,

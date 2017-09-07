@@ -76,7 +76,7 @@
     }
   }
   &--banner {
-    background: rgba(0,0,0,0.1) url($host+'/files/design/banner/q4-tall-banner.jpg') 50% 90%;
+    background: $lighten-color url($host+'/files/design/banner/q4-tall-banner.jpg') 50% 90%;
     color: #fff;
     .pane_inner {
       position: relative;
@@ -180,17 +180,17 @@
       &--thick-bottom {
         padding-bottom: $module-vspace--thick;
       }
-      &--nopadding {
+      &--no-padding {
         padding-top: 0;
         padding-bottom: 0;
       }
-      &--nopadding-top {
+      &--no-padding-top {
         padding-top: 0;
       }
-      &--nopadding-bottom {
+      &--no-padding-bottom {
         padding-bottom: 0;
       }
-      // Sitemap!
+      // Sitemap
       &-sitemap {
         padding-bottom: $module-vspace--thin;
       }
@@ -259,7 +259,7 @@
           padding-right: 35px;
           line-height: 1.5;
         }
-        input[type="checkbox"] {
+        input[type="checkbox"] + label:before {
           border-color: $light-color;
         }
         &_mailing-list.js--revealed,
@@ -358,7 +358,7 @@
   }
   .grid_col {
     padding-bottom: 15px;
-    padding-right: 20px;
+    padding-right: $toast-gutter-width;
     @media (min-width: $layout-small) {
       & + .grid_col {
         border-left: 1px solid $grey-dark-color;
@@ -405,7 +405,7 @@
     }
     &_item {
       &.grid_col {
-        padding: 0 0 0 20px;
+        padding: 0 0 0 $toast-gutter-width;
         margin: 15px 0;
         @media (max-width: $layout-medium -(1px)) {
           padding-left:0;

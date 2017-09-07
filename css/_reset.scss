@@ -16,17 +16,17 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
 /* div, p, a, ol, ul, li, span */ {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-    display: block;
+  display: block;
 }
 html {
   box-sizing: border-box;
@@ -36,30 +36,30 @@ html {
 }
 
 html {
-    font-size: $body-size;
+  font-size: $body-size;
 }
-nav, .list-reset {
-    ol, ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
+nav, .list--reset {
+  ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }
 blockquote, q {
-    quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
-    content: none;
+  content: '';
+  content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 em {
-    font-style: italic;
+  font-style: italic;
 }

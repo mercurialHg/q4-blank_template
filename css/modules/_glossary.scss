@@ -1,18 +1,18 @@
 .module-glossary {
-	.module {
-		&_header {
-			display: block;
-			table {
-				width: 100%;
-				table-layout: fixed;
-				a {
-					color: $body-color;
-					font-weight: normal;
-					&[href] {
-						color: $brand-color;
-					}
-				}
-			}
-		}
-	}
+  .module {
+    &_header {
+      display: block;
+      table {
+        width: 100%;
+        table-layout: fixed;
+        a {
+          color: $body-color;
+          font-weight: normal;
+          &[href] {
+            color: $brand-color;
+          }
+        }
+      }
+    }
+  }
 }
