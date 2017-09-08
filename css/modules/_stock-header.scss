@@ -8,7 +8,7 @@
   .module_container--outer {
     display: inline-block;
     padding: 40px 55px;
-    background: rgba(0,0,0,0.6);
+    background: $dark-overlay;
     text-align: center;
   }
   &_description1 {

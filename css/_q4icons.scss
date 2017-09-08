@@ -5,6 +5,9 @@
   .module_link:before {
     @include icon(eecd);
     font-size: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 5px;
   }
   .module_add-to-calendar-reveal:before {
     content: "\ea5f";
@@ -34,7 +37,18 @@
   .module_link[href$=".PDF"]:before {
     content: "\e900";
   }
+  .module_link.module_link-webcast:before,
   .module_webcast-link:before {
     content: "\e989";
+  }
+  .module_link.module_link-news:before,
+  .module_link.module_link-transcript:before {
+    content: "\e99b";
+  }
+  .module_link.module_link-presentation:before {
+    content: "\e95c";
+  }
+  .module_link.module_link-file:before {
+    content: "\eb81";
   }
 }

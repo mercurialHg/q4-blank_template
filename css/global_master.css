@@ -190,7 +190,7 @@ input[type="checkbox"] + label:before, input[type="radio"] + label:before {
 input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
   width: 12px;
   height: 12px;
-  border-width: 3px;
+  border-width: 4px;
 }
 input[type="radio"] + label:before {
   border-radius: 100%;
@@ -430,6 +430,9 @@ iframe {
   -moz-osx-font-smoothing: grayscale;
   content: "\eecd";
   font-size: 16px;
+  vertical-align: middle;
+  display: inline-block;
+  padding-right: 5px;
 }
 .module_q4-icon-links .module_add-to-calendar-reveal:before {
   content: "\ea5f";
@@ -459,8 +462,19 @@ iframe {
 .module_q4-icon-links .module_link[href$=".PDF"]:before {
   content: "\e900";
 }
+.module_q4-icon-links .module_link.module_link-webcast:before,
 .module_q4-icon-links .module_webcast-link:before {
   content: "\e989";
+}
+.module_q4-icon-links .module_link.module_link-news:before,
+.module_q4-icon-links .module_link.module_link-transcript:before {
+  content: "\e99b";
+}
+.module_q4-icon-links .module_link.module_link-presentation:before {
+  content: "\e95c";
+}
+.module_q4-icon-links .module_link.module_link-file:before {
+  content: "\eb81";
 }
 
 /*==================================
@@ -1232,10 +1246,6 @@ a:focus {
   font-size: 1.4rem;
   font-weight: bold;
   text-transform: uppercase;
-}
-.module_link i, .module_link:before {
-  display: inline-block;
-  padding-right: 2px;
 }
 .module_link > .module_link-text, .module_link > i {
   vertical-align: middle;
@@ -2056,6 +2066,7 @@ a:focus {
 }
 .module-form_item legend ~ ul {
   clear: both;
+  padding-left: 10px;
 }
 .module-form_item ul li:not(:last-of-type) {
   padding-bottom: 5px;
@@ -2447,7 +2458,6 @@ a:focus {
   font-weight: 200;
 }
 .module-news-latest .module_headline-link, .module-news-latest .module_headline-link:visited {
-  display: inline-block;
   color: #333333 !important;
 }
 .module-news-latest .module_links {
@@ -2484,7 +2494,7 @@ a:focus {
 }
 
 /*------ Person List Module ------*/
-.module-person_description, .module-person_res-photo-container,
+.module-person .module-person_description, .module-person .module-person_res-photo-container,
 .module-person .module_comma {
   display: none;
 }
@@ -2496,10 +2506,14 @@ a:focus {
 .module-person .module_item:hover .module-person_name-container {
   opacity: 1;
 }
-.module-person_photo-container img {
+.module-person .module-person_photo-container {
+  border-radius: 100%;
+  overflow: hidden;
+}
+.module-person .module-person_photo-container img {
   width: 100%;
 }
-.module-person_name-container {
+.module-person .module-person_name-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -2509,25 +2523,27 @@ a:focus {
   border-radius: 100%;
   opacity: 0;
   text-align: center;
+  cursor: pointer;
 }
-.module-person_name-container h3 {
+.module-person .module-person_name-container h3 {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100%;
   margin: 0;
   transform: translate(-50%, -50%);
-}
-.module-person_name-container a {
   color: #fff;
 }
-.module-person_name {
+.module-person .module-person_name-container a {
+  color: #fff;
+}
+.module-person .module-person_name {
   display: block;
   font-size: 18px;
   font-size: 1.8rem;
   text-transform: uppercase;
 }
-.module-person_suffix, .module-person_title {
+.module-person .module-person_suffix, .module-person_title {
   font-size: 13px;
   font-size: 1.3rem;
 }
@@ -2544,6 +2560,7 @@ a:focus {
   background: transparent;
   text-align: left;
   opacity: 1;
+  cursor: initial;
 }
 .fancybox-container .module-person_name-container h3 {
   position: static;
@@ -2599,6 +2616,80 @@ a:focus {
 }
 .fancybox-container .module-person_description {
   display: block;
+}
+.module-person-accordion .module-person_name-container {
+  padding: 20px 15px;
+  margin-bottom: 10px;
+  background-color: #006fba;
+  color: #fff;
+  cursor: pointer;
+}
+.module-person-accordion .module-person_name-container h3 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: inherit;
+  margin: 0;
+}
+.module-person-accordion .module-person_name-container h3:before {
+  float: right;
+  font-family: "q4-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\ed5d";
+}
+.module-person-accordion .module_item {
+  padding: 0;
+  border: 0 none;
+}
+.module-person-accordion .module_item.js--active h3:before {
+  content: "\ed5e";
+}
+.module-person-accordion .module-person_name {
+  margin-right: 10px;
+}
+.module-person-accordion .module-person_title {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.module-person-accordion .module_comma {
+  display: none;
+}
+.module-person-accordion .module-person_description-container {
+  padding: 15px;
+}
+.module-person-accordion .module-person_photo-container {
+  float: left;
+  margin: 0 25px 15px 0;
+}
+@media only screen and (max-width: 768px) {
+  .module-person-accordion .module-person_photo-container {
+    float: none;
+    margin: 0 auto 15px auto;
+    text-align: center;
+  }
+}
+.module-person-accordion .module-person_photo-container img {
+  display: block;
+  margin: auto;
+}
+.module-person-accordion .module-person_description > *:first-child {
+  margin-top: 0;
+}
+.module-person-accordion .module-person_res-photo-container > span {
+  margin-right: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .module-person-accordion .module-person_res-photo-container > span {
+    display: block;
+    margin: 0 0 10px 0;
+  }
 }
 .module-person-details .module_title {
   display: none;
@@ -3045,6 +3136,11 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-stock .module_container--content {
   border-top: 1px solid rgba(34, 34, 34, 0.2);
+}
+@media only screen and (max-width: 768px) {
+  .module-stock.module-stock-historical .module-stock_empty {
+    display: none;
+  }
 }
 .module-stock .stock-historical-range .module_options > *:not(:last-of-type) {
   margin-bottom: 20px;

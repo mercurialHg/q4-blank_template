@@ -30,7 +30,6 @@
         line-height: 1.5;
         font-weight: 200;
         &-link, &-link:visited {
-        	display: inline-block;
           // to overwrite the dark theme
         	color: $body-color !important;
         }

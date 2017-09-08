@@ -143,10 +143,10 @@
     @include font-size(14px);
     font-weight: bold;
     text-transform: uppercase;
-    i, &:before {
-      display: inline-block;
-      padding-right: 2px;
-    }
+    // i, &:before {
+    //   display: inline-block;
+    //   padding-right: 2px;
+    // }
     // Make sure the icons are center aligned
     & > &-text, & > i {
       vertical-align: middle;

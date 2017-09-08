@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'q4-icons';
-  src:  url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.eot?qcioef');
-  src:  url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.eot?qcioef#iefix') format('embedded-opentype'),
-        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.woff2?qcioef') format('woff2'),
-        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.ttf?qcioef') format('truetype'),
-        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.woff?qcioef') format('woff'),
-        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.svg?qcioef#q4-icons') format('svg');
+  src:  url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.eot?w28cu3');
+  src:  url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.eot?w28cu3#iefix') format('embedded-opentype'),
+        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.woff2?w28cu3') format('woff2'),
+        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.ttf?w28cu3') format('truetype'),
+        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.woff?w28cu3') format('woff'),
+        url('https://d1azc1qln24ryf.cloudfront.net/50912/_Q4BlankTemplate/q4-icons.svg?w28cu3#q4-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -97,7 +97,9 @@
   &_presentation:before {
     content: "\e95c";
   }
-  &_pie:before,
+  &_pie:before {
+    content: "\eb81";
+  }
   &_file:before {
     content: "\eb81";
   }
@@ -107,13 +109,20 @@
   &_bars:before {
     content: "\eb8a";
   }
-  &_text:before,
-  &_news:before,
+  &_text:before {
+    content: "\e99b";
+  }
+  &_news:before {
+    content: "\e99b";
+  }
   &_transcript:before {
     content: "\e99b";
   }
   &_table:before {
     content: "\eeae";
+  }
+  &_calendar:before {
+    content: "\ea5f";
   }
   &_image-line:before {
     content: "\e93c";
@@ -144,9 +153,6 @@
   }
   &_clock-fill:before {
     content: "\ea4e";
-  }
-  &_calendar:before {
-    content: "\ea5f";
   }
   &_printer-line:before {
     content: "\ea67";
@@ -223,6 +229,12 @@
   &_twitter:before {
     content: "\eef5";
   }
+  &_apple:before {
+    content: "\e90a";
+  }
+  &_microsoft:before {
+    content: "\e90b";
+  }
   &_youtube:before {
     content: "\eefc";
   }
@@ -249,6 +261,12 @@
   }
   &_linkedin-square:before {
     content: "\ef28";
+  }
+  &_glassdoor:before {
+    content: "\e905";
+  }
+  &_glassdoor-square:before {
+    content: "\e906";
   }
   &_share:before {
     content: "\eee0";
@@ -295,11 +313,15 @@
   &_file-zip-fill:before {
     content: "\e9ba";
   }
-  &_file-xml-line:before,
-  &_file-html-line:before, {
+  &_file-xml-line:before {
     content: "\e9bb";
   }
-  &_file-xml-fill:before,
+  &_file-html-line:before {
+    content: "\e9bb";
+  }
+  &_file-xml-fill:before {
+    content: "\e9bc";
+  }
   &_file-html-fill:before {
     content: "\e9bc";
   }
@@ -320,17 +342,5 @@
   }
   &_file-spreadsheet-fill:before {
     content: "\e9c6";
-  }
-  &_apple:before {
-    content: "\e90a";
-  }
-  &_microsoft:before {
-    content: "\e90b";
-  }
-  &_glassdoor:before {
-    content: "\e905";
-  }
-  &_glassdoor-square:before {
-    content: "\e906";
   }
 }

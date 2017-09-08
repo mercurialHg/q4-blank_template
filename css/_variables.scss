@@ -64,6 +64,12 @@ $darken-color: rgba(0,0,0,0.05) !default;
 /// The default colour used to lighten elements on the site.
 $lighten-color: rgba(255,255,255,0.05) !default;
 
+/// The default colour used for dark color overlay.
+$light-overlay: rgba(255,255,255, 0.6) !default;
+
+/// The default colour used for dark color overlay.
+$dark-overlay: rgba(0,0,0, 0.6) !default;
+
 /// The default colour for error messages.
 $error-color: #b72121 !default;
 
