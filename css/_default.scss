@@ -137,12 +137,6 @@ iframe {
 /*------------ LISTS ------------*/
 
 .list {
-  margin: 16px 0;
-  padding-left: 32px;
-  list-style-type: disc;
-  li {
-    line-height: 1.5;
-  }
   &--ordered {
     list-style-type: decimal;
   }

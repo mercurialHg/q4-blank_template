@@ -213,14 +213,6 @@ iframe {
 }
 
 /*------------ LISTS ------------*/
-.list {
-  margin: 16px 0;
-  padding-left: 32px;
-  list-style-type: disc;
-}
-.list li {
-  line-height: 1.5;
-}
 .list--ordered {
   list-style-type: decimal;
 }
@@ -2289,6 +2281,7 @@ a:focus {
 }
 .nav--secondary .level3 {
   position: absolute;
+  z-index: 100;
   top: 100%;
   left: 0;
   display: none;
