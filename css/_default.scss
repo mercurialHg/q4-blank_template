@@ -224,6 +224,7 @@ iframe {
   padding: 15px 35px 15px 20px;
   background: transparent url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 10px center;
   background-size: 14px 14px;
+  min-width: 130px;
   &::-ms-expand {
     display: none;
   }
