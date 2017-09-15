@@ -285,6 +285,61 @@ var q4Defaults = {
         });
     },
 
+    /**
+     * Creates a select from a list of links.
+     * @param {$selector} [element]  the element that contains the links
+     * @param {labelText} [string]  (optional) text that will appear inside the label of the select. Defaults to "Select year:"
+     * @param {selectId} [string] (optional) the id for the select. Defaults to "YearNav"
+     * @param {selectedClass} [string] (optional) the selected class of the link. Defaults to "selected"
+     * @param {hideLabel} [boolean] (optional) if true, the label will have "sr-only" class. Defaults to false
+     * @example app.makeSelect($('.module-news module_nav'));
+     */
+    makeSelect: function($selector, labelText, selectId, selectedClass, hideLabel) {
+        var $navOptions = $('<div />', {class: 'module_options'}).insertAfter($selector);
+
+        if (!selectedClass) {
+            selectedClass = 'selected';
+        }
+
+        $selector.addClass('js--hidden');
+        $('<label />', {
+            class: hideLabel ? 'module_options-label sr-only' : 'module_options-label',
+            html: labelText ? labelText : 'Select year:'
+        }).appendTo($navOptions);
+
+        $('<select />', {
+            class: 'dropdown module_options-select',
+            id: selectId ? selectId : 'YearNav'
+        }).appendTo($navOptions).on('change',function(){
+            location.href = $(this).val();
+        });
+
+        $selector.find('a').each(function(){
+            var $this = $(this),
+                selected = $this.hasClass(selectedClass) ? 'selected="selected"' : '';
+            $navOptions.find('select').append('<option '+selected+' value="'+$this.attr('href')+'">'+$this.text()+'</option>');
+        });
+    },
+
+    /**
+     * Disables first click for android devices and show dropdown instead of loading page.
+     * @param {selector} [selector]  the class being used by the navigation module
+     * @example app.androidTap('.nav--main');
+     */
+    androidTap: function(selector) {
+        if (q4App.isMobile.Android()) {
+            $(selector).on('click', 'li.has-children > a', function(e) {
+                var $this = $(this),
+                    $parent = $this.parent();
+                if (!$parent.hasClass('sfHover')) {
+                    e.preventDefault();
+                    $parent.siblings().removeClass('sfHover');
+                    $parent.addClass('sfHover');
+                }
+            });
+        }
+    },
+
     _onMobileMenuExpand: function($nav) {
         $nav.on('click', 'li.has-children > a', function(e) {
             var $this = $(this),
