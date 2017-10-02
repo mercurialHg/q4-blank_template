@@ -13,6 +13,7 @@
     &:hover {
       .module-person_name-container {
         opacity: 1;
+        visibility: visible;
       }
     }
   }
@@ -29,6 +30,7 @@
     background: rgba(0,0,0,0.6);
     border-radius: 100%;
     opacity: 0;
+    visibility: hidden;
     text-align: center;
     cursor: pointer;
     h3 {

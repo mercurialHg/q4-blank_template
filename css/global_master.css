@@ -1041,14 +1041,14 @@ a:focus {
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
 }
 
 #maincontent:focus {
@@ -2536,6 +2536,7 @@ a:focus {
 }
 .module-person .module_item:hover .module-person_name-container {
   opacity: 1;
+  visibility: visible;
 }
 .module-person .module-person_photo-container {
   border-radius: 100%;
@@ -2553,6 +2554,7 @@ a:focus {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 100%;
   opacity: 0;
+  visibility: hidden;
   text-align: center;
   cursor: pointer;
 }
@@ -3037,7 +3039,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   float: none;
   display: inline-block;
   vertical-align: middle;
-  padding: 0;
+  padding: 0 5px;
 }
 .module-slider .slick-arrow:before {
   font-size: 30px;
