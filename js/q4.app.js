@@ -295,7 +295,8 @@ var q4Defaults = {
      * @example app.makeSelect($('.module-news module_nav'));
      */
     makeSelect: function($selector, labelText, selectId, selectedClass, hideLabel) {
-        var $navOptions = $('<div />', {class: 'module_options'}).insertAfter($selector);
+        var $navOptions = $('<div />', {class: 'module_options'}).insertAfter($selector),
+            $options = '';
 
         if (!selectedClass) {
             selectedClass = 'selected';
@@ -317,8 +318,9 @@ var q4Defaults = {
         $selector.find('a').each(function(){
             var $this = $(this),
                 selected = $this.hasClass(selectedClass) ? 'selected="selected"' : '';
-            $navOptions.find('select').append('<option '+selected+' value="'+$this.attr('href')+'">'+$this.text()+'</option>');
+            $options += '<option '+selected+' value="'+$this.attr('href')+'">'+$this.text()+'</option>';
         });
+        $navOptions.append($options);
     },
 
     /**
