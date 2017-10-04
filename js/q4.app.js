@@ -234,7 +234,7 @@ var q4Defaults = {
                 $el.find('.module_confirmation-container').html( Mustache.render( inst.options.errorTpl, {
                     errors: [{
                         message: emailAddress.length ? inst.options.invalidText : inst.options.requiredText,
-                        name: "Email Address"
+                        name: $el.find('label.module-unsubscribe_email').text()
                     }],
                     errorMessage: inst.options.errorMessage
                 })).show();
