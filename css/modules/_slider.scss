@@ -30,6 +30,12 @@
         margin: 0;
       }
     }
+    .module_loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
   }
   &-slider_description {
     @include font-size(24px);
