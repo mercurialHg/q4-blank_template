@@ -320,7 +320,7 @@ var q4Defaults = {
                 selected = $this.hasClass(selectedClass) ? 'selected="selected"' : '';
             $options += '<option '+selected+' value="'+$this.attr('href')+'">'+$this.text()+'</option>';
         });
-        $navOptions.append($options);
+        $navOptions.find('select').append($options);
     },
 
     /**
