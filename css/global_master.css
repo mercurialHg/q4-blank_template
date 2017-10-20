@@ -41,7 +41,7 @@ html {
   font-size: 10px;
 }
 
-nav ol, nav ul, .list--reset ol, .list--reset ul {
+nav ol, nav ul:not(.list), .list--reset ol, .list--reset ul:not(.list) {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -213,6 +213,13 @@ iframe {
 }
 
 /*------------ LISTS ------------*/
+.list {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
 .list--ordered {
   list-style-type: decimal;
 }
