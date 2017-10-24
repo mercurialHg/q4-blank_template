@@ -39,7 +39,7 @@ html {
   font-size: $body-size;
 }
 nav, .list--reset {
-  ol, ul {
+  ol, ul:not(.list) {
     margin: 0;
     padding: 0;
     list-style: none;

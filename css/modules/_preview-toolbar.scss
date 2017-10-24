@@ -15,7 +15,7 @@ body.PreviewBody {
     font-size: 0;
     text-align: left;
     color: $light-color;
-    z-index: 100;
+    z-index: 1000;
     &.js--open {
       top: auto;
       bottom: 0;

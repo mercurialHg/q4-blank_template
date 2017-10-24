@@ -5,9 +5,18 @@
 /*-------- Layout Specific -------*/
 
 .layout {
+  padding-left: 255px;
+  @include layout-legacy {
+    padding-left: 0;
+  }
   &--home {
     .pane--content {
       text-align: center;
+      .pane_inner {
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
   &.js--mobile {
@@ -27,18 +36,38 @@
 /*--------- Pane Specific --------*/
 
 .pane {
+  &_inner {
+    @include fit-and-center($layout-width);
+    padding-left: $toast-gutter-width;
+    padding-right: $toast-gutter-width;
+  }
   &--header {
     position: relative;
-    background-color: $light-color;
-    z-index: 10;
+    background-color: $brand-color;
+    z-index: 200;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    width: 255px;
+    padding: 35px 0;
+    @include layout-legacy {
+      position: static;
+      width: auto;
+      padding: 0;
+      height: $mobile-header-height;
+    }
     .pane_inner {
-      @include fit-and-center($layout-width);
+        max-width: none;
     }
-    .module-logo img {
-      margin-bottom: -10px;
-    }
-    .module, .nav {
-      vertical-align: baseline;
+    .module-logo {
+      margin-bottom: 25px;
+      @include layout-legacy {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+      }
     }
     .layout_toggle {
       display: none;
@@ -61,13 +90,9 @@
         height: $mobile-header-height;
         padding-top: 20px;
       }
-      .module {
-        vertical-align: middle;
-      }
-      .module-logo img {
-        margin-bottom: 0;
-      }
       .layout_toggle {
+        text-align: right;
+        color: $light-color;
         display: inline-block;
       }
       .nav, .module-search {
@@ -80,8 +105,8 @@
     color: #fff;
     .pane_inner {
       position: relative;
-      @include fit-and-center($layout-width);
-      padding: 50px 0;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
     h1 {
       margin: 0;
@@ -96,12 +121,6 @@
   &--navigation {
     // Desktop Style
     background: $brand-color;
-    .pane_inner {
-      @include fit-and-center($layout-width);
-      @include layout-legacy {
-        max-width: none;
-      }
-    }
     .module-search {
       display: none;
     }
@@ -132,21 +151,10 @@
           background-color: darken($brand-color, 7.5%);
           color: #fff;
           text-transform: uppercase;
-          /// For some reason, these have to be separated
-          &::-webkit-input-placeholder {
-            color: rgba($light-color, 1);
-          }
-          &::-moz-placeholder {
-            color: rgba($light-color, 1);
-          }
-          &::-ms-input-placeholder {
-            color: rgba($light-color, 1);
-          }
         }
         &_button {
           top: 20px;
           right: 20px;
-          background-position: 0 -100%;
         }
       }
     }
@@ -199,9 +207,6 @@
   &--footer {
     padding-top: 60px;
     @include font-size(14px);
-    .pane_inner {
-      @include fit-and-center($layout-width);
-    }
     .module {
       // Module Titles
       &_title {
@@ -293,9 +298,6 @@
     @include font-size(12px);
     a {
       color: #707070;
-    }
-    .pane_inner {
-      @include fit-and-center($layout-width);
     }
     .module {
       margin-bottom: 10px;

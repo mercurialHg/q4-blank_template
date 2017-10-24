@@ -1,25 +1,22 @@
 /*------ Navigation Modules ------*/
 
 .nav {
-  &_close {
-    display: none;
-  }
   // Header Pane Nav
   &--main {
-    text-align: right;
+    margin-bottom: 15px;
     li {
-      display: inline-block;
       a {
         display: block;
-        padding: 50px 15px 30px;
-        color: #333;
+        padding: 20px 0;;
+        border-bottom: 2px solid transparent;
+        color: #fff;
         font-weight: normal;
       }
       &.selected a, &.expanded a,
       a:hover, a:focus {
-        padding: 50px 15px 28px;
-        border-bottom: 2px solid #0F5CA3;
-        color: #0F5CA3;
+        // padding: 50px 15px 28px;
+        border-bottom: 2px solid #fff;
+        color: #fff;
         outline: none;
       }
     }

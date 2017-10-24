@@ -41,7 +41,7 @@ html {
   font-size: 10px;
 }
 
-nav ol, nav ul, .list--reset ol, .list--reset ul {
+nav ol, nav ul:not(.list), .list--reset ol, .list--reset ul:not(.list) {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -213,6 +213,13 @@ iframe {
 }
 
 /*------------ LISTS ------------*/
+.list {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
 .list--ordered {
   list-style-type: decimal;
 }
@@ -295,7 +302,7 @@ iframe {
 
 .dropdown {
   padding: 15px 35px 15px 20px;
-  background: transparent url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: transparent url("https://legacy.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   min-width: 130px;
 }
@@ -1398,7 +1405,7 @@ a:focus {
   background: transparent;
 }
 .module_dropdown {
-  background: #f6f6f6 url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background: #f6f6f6 url("https://legacy.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
   background-size: 14px 14px;
 }
 .module_dropdown::-ms-expand {
@@ -2260,26 +2267,20 @@ a:focus {
 }
 
 /*------ Navigation Modules ------*/
-.nav_close {
-  display: none;
-}
 .nav--main {
-  text-align: right;
-}
-.nav--main li {
-  display: inline-block;
+  margin-bottom: 15px;
 }
 .nav--main li a {
   display: block;
-  padding: 50px 15px 30px;
-  color: #333;
+  padding: 20px 0;
+  border-bottom: 2px solid transparent;
+  color: #fff;
   font-weight: normal;
 }
 .nav--main li.selected a, .nav--main li.expanded a,
 .nav--main li a:hover, .nav--main li a:focus {
-  padding: 50px 15px 28px;
-  border-bottom: 2px solid #0F5CA3;
-  color: #0F5CA3;
+  border-bottom: 2px solid #fff;
+  color: #fff;
   outline: none;
 }
 .nav--secondary {
@@ -2419,7 +2420,7 @@ a:focus {
   }
 }
 .nav--sitemap {
-  max-width: 940px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 70px;
@@ -2787,7 +2788,7 @@ body.PreviewBody .PreviewToolBar {
   font-size: 0;
   text-align: left;
   color: #fff;
-  z-index: 100;
+  z-index: 1000;
 }
 body.PreviewBody .PreviewToolBar.js--open {
   top: auto;
@@ -2860,7 +2861,7 @@ body.PreviewBody .PreviewToolBar input[type="text"] {
 }
 body.PreviewBody .PreviewToolBar select {
   padding: 15px 35px 15px 20px;
-  background: #fff url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: #fff url("https://legacy.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
 }
 body.PreviewBody .PreviewToolBar select::-ms-expand {
@@ -2890,16 +2891,24 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 /*-------- Search Modules --------*/
 .module-search {
   position: relative;
-  text-align: right;
 }
 .module-search_input[type="text"] {
   display: inline-block;
-  width: 90%;
   padding: 7px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  background: #fff;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
   font-size: 14px;
   font-size: 1.4rem;
+}
+.module-search_input[type="text"]::-webkit-input-placeholder {
+  color: inherit;
+}
+.module-search_input[type="text"]::-moz-placeholder {
+  color: inherit;
+}
+.module-search_input[type="text"]::-ms-input-placeholder {
+  color: inherit;
 }
 .module-search_button {
   position: absolute;
@@ -2909,10 +2918,10 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   height: 15px;
   padding: 0;
   border: 0;
-  background: transparent url("https://blank1.q4web.com/files/design/svg/q4-icon_buttons.svg");
-  background-size: 300%;
   font-size: 0;
   cursor: pointer;
+  background: transparent url("https://legacy.q4web.com/files/design/svg/search-white.svg");
+  background-size: 100%;
 }
 .module-search-result_link {
   margin-bottom: 15px;
@@ -3352,8 +3361,21 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
  ------------ BLANK CSS -----------
 ==================================*/
 /*-------- Layout Specific -------*/
+.layout {
+  padding-left: 255px;
+}
+@media only screen and (max-width: 1024px) {
+  .layout {
+    padding-left: 0;
+  }
+}
 .layout--home .pane--content {
   text-align: center;
+}
+.layout--home .pane--content .pane_inner {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 .layout.js--mobile {
   position: absolute;
@@ -3368,28 +3390,52 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 
 /*--------- Pane Specific --------*/
-.pane--header {
-  position: relative;
-  background-color: #fff;
-  z-index: 10;
-}
-.pane--header .pane_inner {
-  max-width: 940px;
+.pane_inner {
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media only screen and (max-width: 1024px) {
-  .pane--header .pane_inner {
+  .pane_inner {
     max-width: none;
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-.pane--header .module-logo img {
-  margin-bottom: -10px;
+.pane--header {
+  position: relative;
+  background-color: #006fba;
+  z-index: 200;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  width: 255px;
+  padding: 35px 0;
 }
-.pane--header .module, .pane--header .nav {
-  vertical-align: baseline;
+@media only screen and (max-width: 1024px) {
+  .pane--header {
+    position: static;
+    width: auto;
+    padding: 0;
+    height: 100px;
+  }
+}
+.pane--header .pane_inner {
+  max-width: none;
+}
+.pane--header .module-logo {
+  margin-bottom: 25px;
+}
+@media only screen and (max-width: 1024px) {
+  .pane--header .module-logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+  }
 }
 .pane--header .layout_toggle {
   display: none;
@@ -3408,13 +3454,9 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     height: 100px;
     padding-top: 20px;
   }
-  .pane--header .module {
-    vertical-align: middle;
-  }
-  .pane--header .module-logo img {
-    margin-bottom: 0;
-  }
   .pane--header .layout_toggle {
+    text-align: right;
+    color: #fff;
     display: inline-block;
   }
   .pane--header .nav, .pane--header .module-search {
@@ -3422,22 +3464,13 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   }
 }
 .pane--banner {
-  background: rgba(255, 255, 255, 0.05) url("https://blank1.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
+  background: rgba(255, 255, 255, 0.05) url("https://legacy.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
   color: #fff;
 }
 .pane--banner .pane_inner {
   position: relative;
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 50px 0;
-}
-@media only screen and (max-width: 1024px) {
-  .pane--banner .pane_inner {
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .pane--banner h1 {
   margin: 0;
@@ -3454,23 +3487,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .pane--navigation {
   background: #006fba;
-}
-.pane--navigation .pane_inner {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media only screen and (max-width: 1024px) {
-  .pane--navigation .pane_inner {
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .pane--navigation .pane_inner {
-    max-width: none;
-  }
 }
 .pane--navigation .module-search {
   display: none;
@@ -3505,19 +3521,9 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     color: #fff;
     text-transform: uppercase;
   }
-  .pane--navigation .module-search_input::-webkit-input-placeholder {
-    color: white;
-  }
-  .pane--navigation .module-search_input::-moz-placeholder {
-    color: white;
-  }
-  .pane--navigation .module-search_input::-ms-input-placeholder {
-    color: white;
-  }
   .pane--navigation .module-search_button {
     top: 20px;
     right: 20px;
-    background-position: 0 -100%;
   }
 }
 .pane--content .module {
@@ -3525,7 +3531,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   padding-bottom: 70px;
 }
 .pane--content .module_container--outer {
-  max-width: 940px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -3573,18 +3579,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   padding-top: 60px;
   font-size: 14px;
   font-size: 1.4rem;
-}
-.pane--footer .pane_inner {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media only screen and (max-width: 1024px) {
-  .pane--footer .pane_inner {
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 .pane--footer .module_title {
   margin-bottom: 20px;
@@ -3663,18 +3657,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .pane--credits a {
   color: #707070;
-}
-.pane--credits .pane_inner {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media only screen and (max-width: 1024px) {
-  .pane--credits .pane_inner {
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 .pane--credits .module {
   margin-bottom: 10px;

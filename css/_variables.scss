@@ -1,5 +1,5 @@
 /// Local environment URL
-$host: 'https://blank1.q4web.com' !default;
+$host: 'https://legacy.q4web.com' !default;
 
 /// The default layout width for the site.
 /// @example 
@@ -7,7 +7,7 @@ $host: 'https://blank1.q4web.com' !default;
 ///   max-width: $layout-width;
 ///   margin: 0 auto;
 /// }
-$layout-width: 940px !default;
+$layout-width: 980px !default;
 
 $layout-large: 1200px !default;
 $layout-legacy: 1024px !default;
