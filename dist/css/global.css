@@ -3372,11 +3372,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 .layout--home .pane--content {
   text-align: center;
 }
-.layout--home .pane--content .pane_inner {
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
-}
 .layout.js--mobile {
   position: absolute;
   top: 0;
@@ -3403,6 +3398,11 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     padding-left: 20px;
     padding-right: 20px;
   }
+}
+.pane--content .pane_inner {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 .pane--header {
   position: relative;

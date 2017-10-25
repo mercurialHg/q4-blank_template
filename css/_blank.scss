@@ -12,11 +12,6 @@
   &--home {
     .pane--content {
       text-align: center;
-      .pane_inner {
-        max-width: none;
-        padding-left: 0;
-        padding-right: 0;
-      }
     }
   }
   &.js--mobile {
@@ -40,6 +35,11 @@
     @include fit-and-center($layout-width);
     padding-left: $toast-gutter-width;
     padding-right: $toast-gutter-width;
+  }
+  @at-root .pane--content .pane_inner {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
   }
   &--header {
     position: relative;
