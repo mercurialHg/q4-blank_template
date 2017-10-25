@@ -305,12 +305,14 @@ var q4Defaults = {
         $selector.addClass('js--hidden');
         $('<label />', {
             class: hideLabel ? 'module_options-label sr-only' : 'module_options-label',
-            html: labelText ? labelText : 'Select year:'
+            html: labelText ? labelText : 'Select year:',
+            for: selectId ? selectId : 'YearNav'
         }).appendTo($navOptions);
 
         $('<select />', {
             class: 'dropdown module_options-select',
-            id: selectId ? selectId : 'YearNav'
+            id: selectId ? selectId : 'YearNav',
+            name: selectId ? selectId : 'YearNav'
         }).appendTo($navOptions).on('change',function(){
             location.href = $(this).val();
         });
