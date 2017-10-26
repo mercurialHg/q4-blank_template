@@ -7,8 +7,7 @@
 .module {
   // Hidden
   &_header, &_back-to-top, &_anchor-target,
-  &_file-size, &_file-type, &_file-text,
-  &_view-all-link, &_more {
+  &_file-size, &_file-type, &_file-text {
     display: none;
   }
   // Small Spacing
@@ -52,6 +51,10 @@
     }
     &-link {
       @include font-size(24px);
+      outline: none;
+    }
+    @at-root .fancybox-container .module_add-to-calendar-link:focus {
+        outline: auto;
     }
     &.js--hidden {
       display: none;

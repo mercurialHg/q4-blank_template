@@ -10,11 +10,14 @@
     position: relative;
     padding: 0 0 20px 20px;
     border: none;
-    &:hover {
+    &:hover, &:focus {
       .module-person_name-container {
         opacity: 1;
-        visibility: visible;
+        // visibility: visible;
       }
+    }
+    &:focus {
+        // outline: none;
     }
   }
   .module-person_photo-container {
@@ -30,9 +33,12 @@
     background: rgba(0,0,0,0.6);
     border-radius: 100%;
     opacity: 0;
-    visibility: hidden;
+    // visibility: hidden;
     text-align: center;
     cursor: pointer;
+    &:focus {
+        opacity: 1;
+    }
     h3 {
       position: absolute;
       top: 50%;
@@ -70,6 +76,7 @@
       text-align: left;
       opacity: 1;
       cursor: initial;
+      outline: none;
       h3 {
         position: static;
         transform: none;

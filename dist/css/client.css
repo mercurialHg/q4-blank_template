@@ -400,6 +400,9 @@
   min-height: 1px;
   display: none;
 }
+.slick-slide:focus {
+  outline: none;
+}
 .slick-slide.module_item + .module_item {
   border: 0 none;
 }
