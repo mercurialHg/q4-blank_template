@@ -3249,6 +3249,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-subscribe_table tbody {
   width: 100%;
+  display: block;
 }
 .module-subscribe_form {
   font-size: 0;
