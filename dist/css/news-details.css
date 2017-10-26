@@ -296,16 +296,16 @@
 .module-news-details .gnw_padding_right_none {
   padding-right: 0 !important;
 }
-.module-news-details h1 {
+.module-news-details .module_body h1 {
   margin: 0 0 .5em 0;
 }
-.module-news-details h2 {
+.module-news-details .module_body h2 {
   font-size: 115%;
   padding: 0;
   border: 0;
   margin: 1.5em 0 .5em 0;
 }
-.module-news-details h3, .module-news-details h4 {
+.module-news-details .module_body h3, .module-news-details .module_body h4 {
   font-size: 100%;
   margin: 0 0 .5em 0;
 }
