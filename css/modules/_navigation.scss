@@ -5,6 +5,7 @@
   &--main {
     margin-bottom: 15px;
     li {
+        position: relative;
       a {
         display: block;
         padding: 20px 0;;
@@ -12,13 +13,53 @@
         color: #fff;
         font-weight: normal;
       }
-      &.selected a, &.expanded a,
+      &:hover > a, &.selected > a, &.expanded > a,
       a:hover, a:focus {
-        // padding: 50px 15px 28px;
         border-bottom: 2px solid #fff;
         color: #fff;
         outline: none;
       }
+      &.has-children:hover > ul {
+        display: block;
+      }
+    }
+    .level2 {
+        border-left: 20px solid $brand-color;
+        min-width: 220px;
+        background: darken($brand-color, 7.5%);
+        &, .level3 {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 200;
+            white-space: nowrap;
+        }
+        li {
+            &:hover, &.selected, &.expanded {
+                background: $brand-color;
+            }
+            &:hover > a, &.selected > a, &.expanded > a,
+            a:hover, a:focus {
+                border-bottom: 0 none;
+            }
+        }
+        a {
+            border-bottom: 0 none;
+            padding: 20px;
+        }
+    }
+    .level3 {
+        background-color: $brand-color;
+        li {
+            &:hover, &.selected, &.expanded {
+                background: darken($brand-color, 7.5%);
+            }
+            &:hover > a, &.selected > a, &.expanded > a,
+            a:hover, a:focus {
+                border-bottom: 0 none;
+            }
+        }
     }
   }
   // Navigation Page Nav
@@ -46,6 +87,9 @@
         display: table-cell;
         &:hover, &.selected, &.expanded {
           background: darken($brand-color, 7.5%);
+        }
+        &.has-children:hover > ul {
+            display: block
         }
         a {
           display: block;

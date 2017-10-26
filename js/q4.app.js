@@ -362,10 +362,12 @@ var q4Defaults = {
      * @param {options} [object]  options to be passed into superfish
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
-    superfish: function($nav, options) {
+    superfish: function($nav, options, initAndroid) {
+        var initAndroidTap = initAndroid ? initAndroid : true;
         if (!this.isMobile.any() && this.options.superfish) {
             $nav.superfish(options);
         }
+        if (initAndroidTap) this.androidTap($nav);
     },
 
     /**
