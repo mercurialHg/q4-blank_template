@@ -360,12 +360,15 @@ var q4Defaults = {
      * Accessible Navigation powered by Superfish
      * @param {$nav} [element]  the nav element (or ul element) you would like to apply superfish to
      * @param {options} [object]  options to be passed into superfish
+     * @param {initAndroid} [boolean] (optional) if true, the androidTap function is initialized. Defaults to true
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
-    superfish: function($nav, options) {
+    superfish: function($nav, options, initAndroid) {
+        var initAndroidTap = initAndroid ? initAndroid : true;
         if (!this.isMobile.any() && this.options.superfish) {
             $nav.superfish(options);
         }
+        if (initAndroidTap) this.androidTap($nav);
     },
 
     /**

@@ -50,6 +50,9 @@
         &:hover, &.selected, &.expanded {
           background: darken($brand-color, 7.5%);
         }
+        &.has-children:hover > ul {
+            display: block
+        }
         a {
           display: block;
           padding: 20px;

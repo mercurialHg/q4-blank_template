@@ -2315,6 +2315,9 @@ a:focus {
 .nav--secondary .level2 > li:hover, .nav--secondary .level2 > li.selected, .nav--secondary .level2 > li.expanded {
   background: #005894;
 }
+.nav--secondary .level2 > li.has-children:hover > ul {
+  display: block;
+}
 .nav--secondary .level2 > li a {
   display: block;
   padding: 20px;
