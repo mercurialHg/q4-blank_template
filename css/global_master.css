@@ -2603,6 +2603,7 @@ a:focus {
   background: transparent;
   text-align: left;
   opacity: 1;
+  visibility: visible;
   cursor: initial;
 }
 .fancybox-container .module-person_name-container h3 {
