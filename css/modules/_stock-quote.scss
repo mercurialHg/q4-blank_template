@@ -39,6 +39,12 @@
       }
     }
   }
+  &_up {
+    color: $success-color;
+  }
+  &_down {
+    color: $error-color;
+  }
   &_label {
     font-weight: normal;
   }

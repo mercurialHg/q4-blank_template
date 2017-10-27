@@ -3264,6 +3264,12 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     padding: 15px 0 15px 5px;
   }
 }
+.module-stock_up {
+  color: #23a217;
+}
+.module-stock_down {
+  color: #b72121;
+}
 .module-stock_label {
   font-weight: normal;
 }
