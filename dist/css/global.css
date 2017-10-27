@@ -1106,7 +1106,7 @@ a:focus {
  ----------- MODULE CSS -----------
 ==================================*/
 /*-------- All Module CSS --------*/
-.module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text, .module_view-all-link, .module_more {
+.module_header, .module_back-to-top, .module_anchor-target, .module_file-size, .module_file-type, .module_file-text {
   display: none;
 }
 .module_nav, .module_headline, .module_location, .module_speakers, .module_links, .module_body, .module_options, .module_not-found {
@@ -3224,6 +3224,12 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   .module-stock_label > span, .module-stock_value > span {
     padding: 15px 0 15px 5px;
   }
+}
+.module-stock_up {
+  color: #23a217;
+}
+.module-stock_down {
+  color: #b72121;
 }
 .module-stock_label {
   font-weight: normal;

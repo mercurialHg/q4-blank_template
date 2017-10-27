@@ -7,8 +7,7 @@
 .module {
   // Hidden
   &_header, &_back-to-top, &_anchor-target,
-  &_file-size, &_file-type, &_file-text,
-  &_view-all-link, &_more {
+  &_file-size, &_file-type, &_file-text {
     display: none;
   }
   // Small Spacing
