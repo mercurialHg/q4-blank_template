@@ -16,7 +16,7 @@
   &_link:active,
   &_link:hover {
     top: 0;
-    background: #0F5CA3;
+    background: $brand-color;
     outline:0;
   }
   &_link:visited {

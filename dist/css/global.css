@@ -302,7 +302,7 @@ iframe {
 
 .dropdown {
   padding: 15px 35px 15px 20px;
-  background: transparent url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: transparent url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   min-width: 130px;
 }
@@ -1405,7 +1405,7 @@ a:focus {
   background: transparent;
 }
 .module_dropdown {
-  background: #f6f6f6 url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background: #f6f6f6 url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
   background-size: 14px 14px;
 }
 .module_dropdown::-ms-expand {
@@ -2279,14 +2279,14 @@ a:focus {
 .nav--main li a {
   display: block;
   padding: 50px 15px 30px;
-  color: #333;
+  color: #333333;
   font-weight: normal;
 }
 .nav--main li.selected a, .nav--main li.expanded a,
 .nav--main li a:hover, .nav--main li a:focus {
   padding: 50px 15px 28px;
-  border-bottom: 2px solid #0F5CA3;
-  color: #0F5CA3;
+  border-bottom: 2px solid #006fba;
+  color: #006fba;
   outline: none;
 }
 .nav--secondary {
@@ -2871,7 +2871,7 @@ body.PreviewBody .PreviewToolBar input[type="text"] {
 }
 body.PreviewBody .PreviewToolBar select {
   padding: 15px 35px 15px 20px;
-  background: #fff url("https://blank1.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: #fff url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
 }
 body.PreviewBody .PreviewToolBar select::-ms-expand {
@@ -2920,7 +2920,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   height: 15px;
   padding: 0;
   border: 0;
-  background: transparent url("https://blank1.q4web.com/files/design/svg/q4-icon_buttons.svg");
+  background: transparent url("https://classic.q4web.com/files/design/svg/q4-icon_buttons.svg");
   background-size: 300%;
   font-size: 0;
   cursor: pointer;
@@ -3026,7 +3026,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-skip_link:focus, .module-skip_link:active, .module-skip_link:hover {
   top: 0;
-  background: #0F5CA3;
+  background: #006fba;
   outline: 0;
 }
 .module-skip_link:visited {
@@ -3056,7 +3056,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   font-size: 30px;
 }
 .module-slider .module_add-to-calendar-reveal {
-  color: #ffffff;
+  color: #fff;
 }
 .module-slider .module-slider_title h1 {
   margin: 0;
@@ -3088,13 +3088,42 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 
 /*------ Stock Chart Widget ------*/
+.module-stock-chart .highcharts-legend-item:first-child path {
+  stroke: #006fba;
+}
 .module-stock-chart .highcharts-legend-item:first-child text {
   cursor: default !important;
+}
+.module-stock-chart .highcharts-series-0 {
+  stroke: #006fba;
+}
+.module-stock-chart .highcharts-series-0 path:first-child {
+  stroke: #006fba;
+}
+.module-stock-chart .highcharts-series-group .highcharts-series-2 path {
+  stroke: #006fba;
+}
+.module-stock-chart .highcharts-navigator rect {
+  fill: rgba(0, 111, 186, 0.6);
 }
 .module-stock-chart .highcharts-navigator-handle {
   stroke: rgba(0, 0, 0, 0.05);
   fill: #f2f2f2;
   cursor: ew-resize;
+}
+.module-stock-chart .highcharts-navigator-handle-right rect, .module-stock-chart .highcharts-navigator-handle-left rect {
+  stroke-width: 0;
+  fill: #006fba;
+}
+.module-stock-chart .highcharts-navigator-handle-right path, .module-stock-chart .highcharts-navigator-handle-left path {
+  stroke: #fff;
+}
+.module-stock-chart .highcharts-highcharts-scrollbar g:first-of-type rect {
+  fill: #006fba;
+  stroke: #006fba;
+}
+.module-stock-chart .highcharts-range-selector {
+  box-sizing: content-box;
 }
 .module-stock-chart .highcharts-range-input rect {
   stroke: #cccccc;
@@ -3106,13 +3135,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-stock-chart .highcharts-button text, .module-stock-chart .highcharts-input-group text {
   fill: #333333;
-}
-.module-stock-chart .highcharts-navigator-handle-right rect, .module-stock-chart .highcharts-navigator-handle-left rect {
-  stroke-width: 0;
-  fill: #006fba;
-}
-.module-stock-chart .highcharts-navigator-handle-right path, .module-stock-chart .highcharts-navigator-handle-left path {
-  stroke: #fff;
 }
 .module-stock-chart .highcharts-container > svg > .highcharts-button {
   display: none;
@@ -3440,7 +3462,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   }
 }
 .pane--banner {
-  background: rgba(255, 255, 255, 0.05) url("https://blank1.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
+  background: rgba(255, 255, 255, 0.05) url("https://classic.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
   color: #fff;
 }
 .pane--banner .pane_inner {
@@ -3675,12 +3697,12 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 .pane--credits {
   padding-bottom: 40px;
   text-align: center;
-  color: #707070;
+  color: #f6f6f6;
   font-size: 12px;
   font-size: 1.2rem;
 }
 .pane--credits a {
-  color: #707070;
+  color: #f6f6f6;
 }
 .pane--credits .pane_inner {
   max-width: 940px;
