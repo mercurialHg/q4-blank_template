@@ -1999,10 +1999,11 @@ a:focus {
 .module-latest-quarter .module_link {
   margin: 0;
 }
-.module-latest-quarter .module_link i {
+.module-latest-quarter .module_link:before {
   display: block;
   font-size: 55px;
   font-size: 5.5rem;
+  padding: 0;
 }
 .module-latest-quarter .module_link-text {
   display: inline-block;
