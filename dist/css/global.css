@@ -476,6 +476,21 @@ iframe {
 .module_q4-icon-links .module_link.module_link-file:before {
   content: "\eb81";
 }
+.module_q4-icon-links .module_link.module_link-sec:before {
+  content: "\e9bb";
+}
+.module_q4-icon-links .module_link.module_link-sec[href$=".pdf"]:before {
+  content: "\ef3e";
+}
+.module_q4-icon-links .module_link.module_link-sec[href$=".rtf"]:before {
+  content: "\ef40";
+}
+.module_q4-icon-links .module_link.module_link-sec[href$=".xls"]:before {
+  content: "\ef41";
+}
+.module_q4-icon-links .module_link.module_link-sec[href$=".zip"]:before {
+  content: "\e9b9";
+}
 
 /*==================================
  ----------- TOAST GRID -----------
@@ -2990,11 +3005,13 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-sec_download-list-item {
   display: inline-block;
+}
+.module-sec_download-list .module_link {
+  margin: 0;
+}
+.module-sec_download-list .module_link:before {
   font-size: 24px;
   font-size: 2.4rem;
-}
-.module-sec_download-list-item:not(:last-of-type) {
-  margin-right: 5px;
 }
 @media only screen and (max-width: 768px) {
   .module-sec_date, .module-sec_filer, .module-sec_filing, .module-sec_description {
@@ -3006,11 +3023,13 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .module-sec-details_download-list-item {
   display: inline-block;
+}
+.module-sec-details_download-list .module_link {
+  margin: 0;
+}
+.module-sec-details_download-list .module_link:before {
   font-size: 24px;
   font-size: 2.4rem;
-}
-.module-sec-details_download-list-item:not(:last-of-type) {
-  margin-right: 5px;
 }
 
 /*---- Accessibility Skip Link ---*/

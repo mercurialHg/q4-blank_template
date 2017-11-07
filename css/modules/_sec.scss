@@ -56,10 +56,12 @@
   &_download-list {
     &-item {
       display: inline-block;
-      @include font-size(24px);
     }
-    &-item:not(:last-of-type) {
-      margin-right: 5px;
+    .module_link {
+      margin: 0;
+      &:before {
+        @include font-size(24px);
+      }
     }
   }
   @include layout-medium {
@@ -74,10 +76,12 @@
     &_download-list {
       &-item {
         display: inline-block;
-        @include font-size(24px);
       }
-      &-item:not(:last-of-type) {
-        margin-right: 5px;
+      .module_link {
+        margin: 0;
+        &:before {
+          @include font-size(24px);
+        }
       }
     }
   }
