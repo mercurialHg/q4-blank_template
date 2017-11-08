@@ -247,7 +247,7 @@ var q4Defaults = {
         });
 
         if ($el.find('.module_confirmation-container').text().trim().length) {
-            $('.module-subscribe').addClass('js--hidden');
+            $('.module-subscribe').not(inst.options.mailingListConfig.location+' .module-subscribe').addClass('js--hidden');
             $el.find('.module_introduction, .module-unsubscribe_table, .module_actions').addClass('js--hidden');
             inst.scrollTo($el);
         }
