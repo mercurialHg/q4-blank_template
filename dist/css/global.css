@@ -302,7 +302,7 @@ iframe {
 
 .dropdown {
   padding: 15px 35px 15px 20px;
-  background: transparent url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: transparent url("../design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
   min-width: 130px;
 }
@@ -1334,13 +1334,6 @@ a:focus {
 .module_options-label, .module_options-select {
   margin-right: 10px;
 }
-@media only screen and (max-width: 768px) {
-  .module_options-label, .module_options-select, .module_options-submit {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
 @media only screen and (max-width: 480px) {
   .module_options-label, .module_options-select, .module_options-submit {
     display: block;
@@ -1395,7 +1388,7 @@ a:focus {
   border: none;
   border-radius: 0;
   background-color: #f6f6f6;
-  font-family: "Open Sans", sans-serif;
+  font-family: inherit;
   font-size: 16px;
   font-size: 1.6rem;
   font-weight: 300;
@@ -1420,7 +1413,7 @@ a:focus {
   background: transparent;
 }
 .module_dropdown {
-  background: #f6f6f6 url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
+  background: #f6f6f6 url("../design/svg/q4-icon_chevron-down-black.svg") no-repeat right 20px center;
   background-size: 14px 14px;
 }
 .module_dropdown::-ms-expand {
@@ -2298,7 +2291,7 @@ a:focus {
   color: #333333;
   font-weight: normal;
 }
-.nav--main li.selected a, .nav--main li.expanded a,
+.nav--main li.selected > a, .nav--main li.expanded > a,
 .nav--main li a:hover, .nav--main li a:focus {
   padding: 50px 15px 28px;
   border-bottom: 2px solid #006fba;
@@ -2887,7 +2880,7 @@ body.PreviewBody .PreviewToolBar input[type="text"] {
 }
 body.PreviewBody .PreviewToolBar select {
   padding: 15px 35px 15px 20px;
-  background: #fff url("https://classic.q4web.com/files/design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
+  background: #fff url("../design/svg/q4-icon_chevron-down-black.svg") no-repeat right 10px center;
   background-size: 14px 14px;
 }
 body.PreviewBody .PreviewToolBar select::-ms-expand {
@@ -2936,7 +2929,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   height: 15px;
   padding: 0;
   border: 0;
-  background: transparent url("https://classic.q4web.com/files/design/svg/q4-icon_buttons.svg");
+  background: transparent url("../design/svg/q4-icon_buttons.svg");
   background-size: 300%;
   font-size: 0;
   cursor: pointer;
@@ -3234,6 +3227,13 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     display: none;
   }
 }
+@media only screen and (max-width: 768px) {
+  .module-stock-historical .module_options-label, .module-stock-historical .module_options-select, .module-stock-historical .module_options-submit {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 .module-stock .stock-historical-range .module_options > *:not(:last-of-type) {
   margin-bottom: 20px;
 }
@@ -3482,7 +3482,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   }
 }
 .pane--banner {
-  background: rgba(255, 255, 255, 0.05) url("https://classic.q4web.com/files/design/banner/q4-tall-banner.jpg") 50% 90%;
+  background: rgba(255, 255, 255, 0.05) url("../design/banner/q4-tall-banner.jpg") 50% 90%;
   color: #fff;
 }
 .pane--banner .pane_inner {
@@ -3702,9 +3702,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
 }
 .pane--footer .module_input[type="text"] {
   max-width: 300px;
-}
-.pane--footer .module-contact li {
-  line-height: 1.4;
 }
 .pane--footer .module:not(.module-embed) {
   padding-bottom: 60px;

@@ -15,7 +15,7 @@
         color: $body-color;
         font-weight: normal;
       }
-      &.selected a, &.expanded a,
+      &.selected > a, &.expanded > a,
       a:hover, a:focus {
         padding: 50px 15px 28px;
         border-bottom: 2px solid $brand-color;

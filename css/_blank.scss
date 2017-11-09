@@ -76,7 +76,7 @@
     }
   }
   &--banner {
-    background: $lighten-color url($host+'/files/design/banner/q4-tall-banner.jpg') 50% 90%;
+    background: $lighten-color url('../design/banner/q4-tall-banner.jpg') 50% 90%;
     color: #fff;
     .pane_inner {
       position: relative;
@@ -269,12 +269,6 @@
       }
       &_input[type="text"] {
         max-width: 300px;
-      }
-      // IR Contact
-      &-contact {
-        li {
-          line-height: 1.4;
-        }
       }
     }
     .module:not(.module-embed) {

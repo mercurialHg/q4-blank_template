@@ -438,10 +438,12 @@ a.ui-button:active,
 	max-height: 300px;
 	border: none;
 	background: $grey-color;
-	font-family: $body-font;
-	font-size: 1rem;
 	color: $body-color;
 	overflow-y: scroll;
+    list-style-type: none;
+    padding: 0;
+    border:1px solid $brand-color;
+    max-width: 300px;
 	.ui-menu-item {
 		padding: 0;
 	}
@@ -451,8 +453,8 @@ a.ui-button:active,
 	.ui-state-active {
 		margin: 0;
 		border: none;
-		background: $light-color;
+		background: $brand-color;
 		font-weight: 300;
-		color: $body-color;
+		color: $light-color;
 	}
 }

@@ -206,13 +206,6 @@
     &-label, &-select {
       margin-right: 10px;
     }
-    @include layout-medium {
-      &-label, &-select, &-submit {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
     @include layout-small {
        &-label, &-select, &-submit {
         display: block;
@@ -278,7 +271,7 @@
     border: none;
     border-radius: 0;
     background-color: $grey-color;
-    font-family: $body-font;
+    font-family: inherit;
     @include font-size(16px);
     font-weight: 300;
     &::-ms-clear {
@@ -304,7 +297,7 @@
     }
   }
   &_dropdown {
-    background: $grey-color url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
+    background: $grey-color url('../design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
     background-size: 14px 14px;
     &::-ms-expand {
       display: none;
