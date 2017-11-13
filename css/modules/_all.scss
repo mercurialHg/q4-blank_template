@@ -147,7 +147,7 @@
     //   padding-right: 2px;
     // }
     // Make sure the icons are center aligned
-    & > &-text, & > i {
+    & > &-text, & > i, & > span {
       vertical-align: middle;
     }
     & > i:before {
@@ -297,7 +297,7 @@
     }
   }
   &_dropdown {
-    background: $grey-color url('../design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
+    background: $grey-color url($host+'/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
     background-size: 14px 14px;
     &::-ms-expand {
       display: none;

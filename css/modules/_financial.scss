@@ -204,12 +204,12 @@
     &_link {
       margin: 0;
       &:before {
-        display: block;
+        display: inline-block;
         @include font-size(55px);
         padding: 0;
       }
       &-text {
-        display: inline-block;
+        display: block;
         margin: 15px 0 0;
         @include font-size(16px);
         text-transform: none;

@@ -1262,7 +1262,7 @@ a:focus {
   font-weight: bold;
   text-transform: uppercase;
 }
-.module_link > .module_link-text, .module_link > i {
+.module_link > .module_link-text, .module_link > i, .module_link > span {
   vertical-align: middle;
 }
 .module_link > i:before {
@@ -1623,6 +1623,9 @@ a:focus {
   padding-bottom: 15px;
   border-bottom: 1px solid #dddddd;
 }
+.module-event-details .module_speakers h4 {
+  display: none;
+}
 .module-event-latest .module_container--content {
   margin-bottom: 20px;
 }
@@ -1738,9 +1741,6 @@ a:focus {
   padding: 15px 0 10px;
   border: none;
 }
-.module-event-calendar_day--adjacent-month {
-  color: rgba(51, 51, 51, 0.1);
-}
 .module-event-calendar_day--today {
   background: #f6f6f6;
 }
@@ -1764,6 +1764,13 @@ a:focus {
 .module-event-calendar_day--selected:after {
   background-color: #fff;
 }
+.module-event-calendar_day--adjacent-month {
+  color: rgba(51, 51, 51, 0.1);
+  pointer-events: none;
+}
+.module-event-calendar_day--adjacent-month:after {
+  content: none;
+}
 @media only screen and (max-width: 480px) {
   .module-event-calendar_day {
     display: inline-block;
@@ -1774,10 +1781,6 @@ a:focus {
 }
 .module-event-calendar .module_date-time, .module-event-calendar .module_headline {
   margin-bottom: 20px;
-}
-.module-event-calendar .module_links > div:not(:first-of-type) .module_link {
-  padding-left: 15px;
-  border-left: 1px solid #006fba;
 }
 .module-event-calendar .module_add-to-calendar {
   margin: 0;
@@ -2008,13 +2011,13 @@ a:focus {
   margin: 0;
 }
 .module-latest-quarter .module_link:before {
-  display: block;
+  display: inline-block;
   font-size: 55px;
   font-size: 5.5rem;
   padding: 0;
 }
 .module-latest-quarter .module_link-text {
-  display: inline-block;
+  display: block;
   margin: 15px 0 0;
   font-size: 16px;
   font-size: 1.6rem;
@@ -2250,8 +2253,12 @@ a:focus {
   width: 100%;
   max-width: 640px;
 }
-.module-slideshow_link-container {
-  margin-top: 25px;
+.module-slideshow_viewer:not(.grid_col):not(:last-child) {
+  margin-bottom: 25px;
+}
+.module-slideshow_title {
+  margin-bottom: 10px;
+  display: none;
 }
 .module-slideshow .module_links > * + * {
   margin-top: 15px;
@@ -3717,6 +3724,7 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
   color: #f6f6f6;
   font-size: 12px;
   font-size: 1.2rem;
+  line-height: 1.5;
 }
 .pane--credits a {
   color: #f6f6f6;
@@ -3732,9 +3740,6 @@ body.PreviewBody .PreviewToolBar input[type="submit"] {
     padding-left: 20px;
     padding-right: 20px;
   }
-}
-.pane--credits .module {
-  margin-bottom: 10px;
 }
 
 /*--------- Page Specific --------*/

@@ -88,7 +88,7 @@ body.PreviewBody {
     }
     select {
       padding: 15px 35px 15px 20px;
-      background: $light-color url('../design/svg/q4-icon_chevron-down-black.svg') no-repeat right 10px center;
+      background: $light-color url($host+'/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 10px center;
       background-size: 14px 14px;
       &::-ms-expand {
         display: none;

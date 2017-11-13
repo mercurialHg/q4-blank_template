@@ -76,7 +76,7 @@
     }
   }
   &--banner {
-    background: $lighten-color url('../design/banner/q4-tall-banner.jpg') 50% 90%;
+    background: $lighten-color url($host+'/design/banner/q4-tall-banner.jpg') 50% 90%;
     color: #fff;
     .pane_inner {
       position: relative;
@@ -285,14 +285,12 @@
     text-align: center;
     color: $grey-color;
     @include font-size(12px);
+    line-height: 1.5;
     a {
       color: $grey-color;
     }
     .pane_inner {
       @include fit-and-center($layout-width);
-    }
-    .module {
-      margin-bottom: 10px;
     }
   }
 }

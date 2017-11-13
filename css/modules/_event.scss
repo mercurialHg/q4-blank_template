@@ -13,7 +13,11 @@
   }
   // Details Module
   &-details {
-
+    .module {
+      &_speakers h4 {
+        display: none;
+      }
+    }
   }
   // Event Latest Widget
   &-latest {
@@ -147,9 +151,6 @@
         padding: 15px 0 10px;
         border: none;
       }
-      &--adjacent-month {
-        color: rgba($body-color, 0.1);
-      }
       &--today {
         background: $grey-color;
       }
@@ -171,6 +172,13 @@
           background-color: $light-color;
         }
       }
+      &--adjacent-month {
+        color: rgba($body-color, 0.1);
+        pointer-events: none;
+        &:after {
+            content: none;
+        }
+      }
       @include layout-small {
         display: inline-block;
       }
@@ -181,14 +189,6 @@
       }
       &_date-time, &_headline {
         margin-bottom: 20px;
-      }
-      &_links {
-        > div:not(:first-of-type) {
-          .module_link {
-            padding-left: 15px;
-            border-left: 1px solid $brand-color;
-          }
-        }
       }
       &_add-to-calendar {
         margin: 0;

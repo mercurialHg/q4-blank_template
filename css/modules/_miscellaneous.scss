@@ -14,9 +14,13 @@
     display: inline-block;
     width: 100%;
     max-width: 640px;
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
   }
-  &_link-container {
-    margin-top: 25px;
+  &_title {
+    margin-bottom: 10px;
+    display: none;
   }
   .module_links > * + * {
     margin-top:15px;

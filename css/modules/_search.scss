@@ -19,7 +19,7 @@
     height: 15px;
     padding: 0;
     border: 0;
-    background: transparent url('../design/svg/q4-icon_buttons.svg');
+    background: transparent url($host+'/design/svg/q4-icon_buttons.svg');
     background-size: 300%;
     font-size: 0;
     cursor: pointer;
