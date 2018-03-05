@@ -1,78 +1,78 @@
 /*------ Stock Chart Widget ------*/
 
 .module-stock-chart {
-  .highcharts {
-    &-legend-item {
-      &:first-child {
-        path {
-          stroke: $brand-color;
+    .highcharts {
+        &-legend-item {
+            &:first-child {
+                path {
+                    stroke: $brand-color;
+                }
+                text {
+                    //UX for letting the user know that the first item cannot be toggled off
+                    cursor: default !important;
+                }
+            }
         }
-        text {
-          //UX for letting the user know that the first item cannot be toggled off
-          cursor: default !important;
+        &-series-0 {
+            stroke: $brand-color;
+            & path:first-child {
+                stroke: $brand-color;
+            }
         }
-      }
-    }
-    &-series-0 {
-      stroke: $brand-color;
-      & path:first-child {
-        stroke: $brand-color;
-      }
-    }
-    &-series-group {
-      .highcharts-series-2 {
-        path {
-          stroke: $brand-color;
+        &-series-group {
+            .highcharts-series-2 {
+                path {
+                    stroke: $brand-color;
+                }
+            }
         }
-      }
-    }
-    &-navigator {
-      rect {
-        fill: rgba($brand-color, 0.6);
-      }
-      &-handle {
-        stroke: $darken-color;
-        fill: #f2f2f2;
-        cursor: ew-resize;
-      }
-      &-handle-right,
-      &-handle-left {
-        rect {
-          stroke-width: 0;
-          fill: $brand-color;
+        &-navigator {
+            rect {
+                fill: rgba($brand-color, 0.6);
+            }
+            &-handle {
+                stroke: $darken-color;
+                fill: #f2f2f2;
+                cursor: ew-resize;
+            }
+            &-handle-right,
+            &-handle-left {
+                rect {
+                    stroke-width: 0;
+                    fill: $brand-color;
+                }
+                path {
+                    stroke: $light-color;
+                }
+            }
         }
-        path {
-          stroke: $light-color;
+        &-highcharts-scrollbar {
+            g:first-of-type rect {
+                fill: $brand-color;
+                stroke: $brand-color;
+            }
         }
-      }
+        &-range-selector {
+            box-sizing: content-box;
+        }
+        &-range-input rect {
+            stroke: #cccccc;
+            fill: #f2f2f2;
+        }
+        &-button rect,
+        &-input-group rect {
+            stroke-width: 0;
+            fill: $darken-color;
+        }
+        &-button text,
+        &-input-group text {
+            fill: $body-color;
+        }
+        &-container {
+            // Reset Zoom Button
+            &>svg>.highcharts-button {
+                display: none;
+            }
+        }
     }
-    &-highcharts-scrollbar {
-      g:first-of-type rect {
-        fill: $brand-color;
-        stroke: $brand-color;
-      }
-    }
-    &-range-selector {
-        box-sizing: content-box;
-    }
-    &-range-input rect {
-      stroke: #cccccc;
-      fill: #f2f2f2;
-    }
-    &-button rect,
-    &-input-group rect {
-      stroke-width: 0;
-      fill: $darken-color;
-    }
-    &-button text,
-    &-input-group text {
-      fill: $body-color;
-    }
-    &-container {
-      // Reset Zoom Button
-      & > svg > .highcharts-button {
-        display: none;
-      }
-    }
-  }
 }

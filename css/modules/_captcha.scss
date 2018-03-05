@@ -1,63 +1,63 @@
 /*------- Captcha Component ------*/
 
 .CaptchaContainer {
-  display: none;
-  table {
-    tr {
-      &:nth-child(1) {
-        display: none;
-      }
-      &:nth-child(2) {
-        td {
-          padding-bottom: 20px;
-        }
-      }
-      &:nth-child(3) {
-        td {
-          padding-bottom: 5px;
-          @include font-size(14px);
-          span {
-            display: none !important;
-          }
-        }
-      }
-      &:nth-child(4) {
-        span {
-          display: none !important;
-        }
-      }
-      td {
-        padding-right: 10px;
-        @include layout-medium {
-          padding-right: 0;
-        }
-      }
-    }
-  }
-  input[type="text"] {
-    appearance: none;
-    -webkit-appearance: none;
-    display: block;
-    max-width: none;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 0;
-    background-color: $grey-color;
-    @include font-size(16px);
-    font-weight: 300;
-  }
-  @at-root .fancybox-container & {
+    display: none;
     table {
-      tr {
-        &:nth-child(4) {
-          td {
-            padding-bottom: 20px;
-          }
+        tr {
+            &:nth-child(1) {
+                display: none;
+            }
+            &:nth-child(2) {
+                td {
+                    padding-bottom: 20px;
+                }
+            }
+            &:nth-child(3) {
+                td {
+                    padding-bottom: 5px;
+                    @include font-size(14px);
+                    span {
+                        display: none !important;
+                    }
+                }
+            }
+            &:nth-child(4) {
+                span {
+                    display: none !important;
+                }
+            }
+            td {
+                padding-right: 10px;
+                @include layout-medium {
+                    padding-right: 0;
+                }
+            }
         }
-        td {
-          padding-right: 0;
-        }
-      }
     }
-  }
+    input[type="text"] {
+        appearance: none;
+        -webkit-appearance: none;
+        display: block;
+        max-width: none;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 0;
+        background-color: $grey-color;
+        @include font-size(16px);
+        font-weight: 300;
+    }
+    @at-root .fancybox-container & {
+        table {
+            tr {
+                &:nth-child(4) {
+                    td {
+                        padding-bottom: 20px;
+                    }
+                }
+                td {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }

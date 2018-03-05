@@ -1,92 +1,91 @@
 /*------ Formbuilder Module ------*/
 
 .module-form {
-  &--custom {
-    .module_container--content {
-      display:none;
-      &.js--visible {
-        display:block;
-      }
-    }
-  }
-  .module {
-    &_container--content {
-      margin-left: -20px;
-      @include layout-medium {
-        margin-left: 0;
-      }
-    }
-    &_error-container {
-      // CMS Module Definition work-around
-      li[style="visibility: hidden;"] {
-        display: none;
-      }
-    }
-    &_required {
-      margin-left: 3px;
-    }
-    // Captcha
-    &_container--captcha  > div {
-      margin: 0;
-      padding: 0;
-      .ErrorMessage {
-        display: block;
-        margin-top: 10px;
-        @include font-size(14px);
-        color: $error-color;
-        &[style="visibility: hidden;"] {
-          display: none;
+    &--custom {
+        .module_container--content {
+            display: none;
+            &.js--visible {
+                display: block;
+            }
         }
-      }
     }
-  }
-  &_item {
-    display: inline-block;
-    width: 50%;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    vertical-align: top;
-    & > label, legend {
-      display: inline-block;
-      margin-bottom: 5px;
-      @include font-size(14px);
+    .module {
+        &_container--content {
+            margin-left: -20px;
+            @include layout-medium {
+                margin-left: 0;
+            }
+        }
+        &_error-container {
+            // CMS Module Definition work-around
+            li[style="visibility: hidden;"] {
+                display: none;
+            }
+        }
+        &_required {
+            margin-left: 3px;
+        } // Captcha
+        &_container--captcha>div {
+            margin: 0;
+            padding: 0;
+            .ErrorMessage {
+                display: block;
+                margin-top: 10px;
+                @include font-size(14px);
+                color: $error-color;
+                &[style="visibility: hidden;"] {
+                    display: none;
+                }
+            }
+        }
     }
-    legend {
-      float: left;
-      margin-bottom: 15px;
-      @include font-size(16px);
-      & ~ ul {
-        clear: both;
-        padding-left: 10px;
-      }
+    &_item {
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        vertical-align: top;
+        &>label,
+        legend {
+            display: inline-block;
+            margin-bottom: 5px;
+            @include font-size(14px);
+        }
+        legend {
+            float: left;
+            margin-bottom: 15px;
+            @include font-size(16px);
+            &~ul {
+                clear: both;
+                padding-left: 10px;
+            }
+        }
+        ul {
+            li:not(:last-of-type) {
+                padding-bottom: 5px;
+            }
+        } // Specific Inputs
+        &--document-request,
+        &--are-you-an-investor {
+            width: 100%;
+        }
+        @include layout-medium {
+            width: 100%;
+            padding-left: 0;
+        }
     }
-    ul {
-      li:not(:last-of-type) {
-        padding-bottom: 5px;
-      }
+    &_error {
+        &-text {
+            color: $error-color;
+            &[style="visibility:hidden;"] {
+                display: none;
+            }
+        }
+    } // Captcha
+    .CaptchaContainer {
+        display: block;
+        input[type="text"] {
+            width: 100%;
+        }
     }
-    // Specific Inputs
-    &--document-request, &--are-you-an-investor {
-      width: 100%;
-    }
-    @include layout-medium {
-      width: 100%;
-      padding-left: 0;
-    }
-  }
-  &_error {
-    &-text{
-      color: $error-color;
-      &[style="visibility:hidden;"] {
-        display: none;
-      }
-    }
-  }
-  // Captcha
-  .CaptchaContainer {
-    display: block;
-    input[type="text"] {
-      width: 100%;
-    }
-  }
 }

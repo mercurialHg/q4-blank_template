@@ -1,79 +1,80 @@
 /*-------- News Module CSS -------*/
 
 .module-news {
-  &-latest {
-    .module {
-      &_container--content {
-        margin-bottom: 20px;
-      }
-      &_item {
-        margin: 10px 0 20px;
-        padding: 0 0 0 20px;
-        border: none;
-        text-align: left;
-        @include layout-medium {
-          &:first-child {
-            width: 100%;
-          }
+    &-latest {
+        .module {
+            &_container--content {
+                margin-bottom: 20px;
+            }
+            &_item {
+                margin: 10px 0 20px;
+                padding: 0 0 0 20px;
+                border: none;
+                text-align: left;
+                @include layout-medium {
+                    &:first-child {
+                        width: 100%;
+                    }
+                }
+            }
+            &_item-wrap {
+                padding: 30px;
+                background: $light-color;
+            }
+            &_date-time {
+                margin-bottom: 15px;
+                font-weight: normal;
+                color: $body-color;
+            }
+            &_headline {
+                line-height: 1.5;
+                font-weight: 200;
+                &-link,
+                &-link:visited {
+                    // to overwrite the dark theme
+                    color: $body-color !important;
+                }
+            }
+            &_links {
+                margin: 0;
+            }
+            &_link {
+                color: $brand-color;
+            }
         }
-      }
-      &_item-wrap {
-        padding: 30px;
-        background: $light-color;
-      }
-      &_date-time {
-        margin-bottom: 15px;
-        font-weight: normal;
-        color: $body-color;
-      }
-      &_headline {
-        line-height: 1.5;
-        font-weight: 200;
-        &-link, &-link:visited {
-          // to overwrite the dark theme
-        	color: $body-color !important;
+    }
+    &-list {
+        .module {
+            &_item {
+                padding-left: 0;
+                padding-top: 20px;
+                &+.module_item {
+                    border-top: 1px solid $grey-dark-color;
+                }
+            }
         }
-      }
-      &_links {
-        margin: 0;
-      }
-      &_link {
-      	color: $brand-color;
-      }
     }
-  }
-  &-list {
-    .module {
-      &_item {
-        padding-left: 0;
-        padding-top: 20px;
-        & + .module_item {
-          border-top: 1px solid $grey-dark-color;
+    &-details {
+        .module {
+            &_view-all-link {
+                display: block;
+                margin-bottom: 25px;
+                &--bottom {
+                    margin-top: 25px;
+                    margin-bottom: 0;
+                }
+            }
         }
-      }
-    }
-  }
-  &-details {
-    .module {
-      &_view-all-link {
-        display: block;
-        margin-bottom: 25px;
-        &--bottom {
-          margin-top: 25px;
-          margin-bottom: 0;
+        &_category {
+            display: none;
         }
-      }
+        ul {
+            margin: 16px 0;
+            padding-left: 32px;
+            list-style-type: disc;
+            li {
+                line-height: 1.5;
+            }
+        }
     }
-    &_category {
-      display: none;
-    }
-    ul {
-      margin: 16px 0;
-      padding-left: 32px;
-      list-style-type: disc;
-      li {
-        line-height: 1.5;
-      }
-    }
-  }
 }

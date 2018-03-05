@@ -2,298 +2,298 @@
  ------------ BLANK CSS -----------
 ==================================*/
 
+
 /*-------- Layout Specific -------*/
 
 .layout {
-  &--home {
-    .pane--content {
-      text-align: center;
+    &--home {
+        .pane--content {
+            text-align: center;
+        }
     }
-  }
-  &.js--mobile {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-  }
+    &.js--mobile {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+    }
 
-  &_footer {
-    background: $dark-color;
-  }
+    &_footer {
+        background: $dark-color;
+    }
 }
+
 
 /*--------- Pane Specific --------*/
 
 .pane {
-  &--header {
-    position: relative;
-    background-color: $light-color;
-    z-index: 10;
-    .pane_inner {
-      @include fit-and-center($layout-width);
-    }
-    .module-logo img {
-      margin-bottom: -10px;
-    }
-    .module, .nav {
-      vertical-align: baseline;
-    }
-    .layout_toggle {
-      display: none;
-      @include font-size(36px);
-      text-align: right;
-      i {
-        &:focus {
-          outline: none;
+    &--header {
+        position: relative;
+        background-color: $light-color;
+        z-index: 10;
+        .pane_inner {
+            @include fit-and-center($layout-width);
         }
-        @at-root .js--mobile & {
-          &:before {
-            content: "\ed6d";
-          }
+        .module-logo img {
+            margin-bottom: -10px;
         }
-      }
-    }
-    // Mobile Styles
-    @include layout-legacy {
-      .pane_inner {
-        height: $mobile-header-height;
-        padding-top: 20px;
-      }
-      .module {
-        vertical-align: middle;
-      }
-      .module-logo img {
-        margin-bottom: 0;
-      }
-      .layout_toggle {
-        display: inline-block;
-      }
-      .nav, .module-search {
-        display: none;
-      }
-    }
-  }
-  &--banner {
-    background: $lighten-color url($host+'/design/banner/q4-tall-banner.jpg') 50% 90%;
-    color: #fff;
-    .pane_inner {
-      position: relative;
-      @include fit-and-center($layout-width);
-      padding: 50px 0;
-    }
-    h1 {
-      margin: 0;
-      @include layout-medium {
-        margin-bottom: 32px;
-      }
-    }
-    @include layout-legacy {
-      text-align: center;
-    }
-  }
-  &--navigation {
-    // Desktop Style
-    background: $brand-color;
-    .pane_inner {
-      @include fit-and-center($layout-width);
-      @include layout-legacy {
-        max-width: none;
-      }
-    }
-    .module-search {
-      display: none;
-    }
-    // Mobile Styles
-    @include layout-legacy {
-      position: absolute;
-      top: -100%;
-      left: 0;
-      right: 0;
-      bottom: 100%;
-      transition: 0.5s ease-in-out;
-      overflow-y: scroll;
-      z-index: 120;
-      @at-root .js--mobile & {
-        top: $mobile-header-height;
-        bottom: 0;
-      }
-      .pane_inner {
-        padding: 0;
-      }
-      .module-search {
-        display: block;
-        &_input {
-          width: 100%;
-          max-width: none;
-          padding: 20px;
-          border: none;
-          background-color: darken($brand-color, 7.5%);
-          color: #fff;
-          text-transform: uppercase;
-          /// For some reason, these have to be separated
-          &::-webkit-input-placeholder {
-            color: rgba($light-color, 1);
-          }
-          &::-moz-placeholder {
-            color: rgba($light-color, 1);
-          }
-          &::-ms-input-placeholder {
-            color: rgba($light-color, 1);
-          }
+        .module,
+        .nav {
+            vertical-align: baseline;
         }
-        &_button {
-          top: 20px;
-          right: 20px;
-          background-position: 0 -100%;
+        .layout_toggle {
+            display: none;
+            @include font-size(36px);
+            text-align: right;
+            i {
+                &:focus {
+                    outline: none;
+                }
+                @at-root .js--mobile & {
+                    &:before {
+                        content: "\ed6d";
+                    }
+                }
+            }
+        } // Mobile Styles
+        @include layout-legacy {
+            .pane_inner {
+                height: $mobile-header-height;
+                padding-top: 20px;
+            }
+            .module {
+                vertical-align: middle;
+            }
+            .module-logo img {
+                margin-bottom: 0;
+            }
+            .layout_toggle {
+                display: inline-block;
+            }
+            .nav,
+            .module-search {
+                display: none;
+            }
         }
-      }
     }
-  }
-  &--content {
-    .module {
-      padding-top: $module-vspace;
-      padding-bottom: $module-vspace;
-      &_container {
-        &--outer { 
-          @include fit-and-center($layout-width);
+    &--banner {
+        background: $lighten-color url($host+'/design/banner/q4-tall-banner.jpg') 50% 90%;
+        color: #fff;
+        .pane_inner {
+            position: relative;
+            @include fit-and-center($layout-width);
+            padding: 50px 0;
         }
-      }
-      &--thin {
-        padding-top: $module-vspace--thin;
-        padding-bottom: $module-vspace--thin;
-      }
-      &--thin-top {
-        padding-top: $module-vspace--thin;
-      }
-      &--thin-bottom {
-        padding-bottom: $module-vspace--thin;
-      }
-      &--thick {
-        padding-top: $module-vspace--thick;
-        padding-bottom: $module-vspace--thick;
-      }
-      &--thick-top {
-        padding-top: $module-vspace--thick;
-      }
-      &--thick-bottom {
-        padding-bottom: $module-vspace--thick;
-      }
-      &--no-padding {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-      &--no-padding-top {
-        padding-top: 0;
-      }
-      &--no-padding-bottom {
-        padding-bottom: 0;
-      }
-      // Sitemap
-      &-sitemap {
-        padding-bottom: $module-vspace--thin;
-      }
-    }
-  }
-  &--footer {
-    padding-top: 60px;
-    @include font-size(14px);
-    .pane_inner {
-      @include fit-and-center($layout-width);
-    }
-    .module {
-      // Module Titles
-      &_title {
-        margin-bottom: 20px;
-        @include font-size(20px);
-        font-weight: normal;
-        text-transform: uppercase;
-      }
-      &_error-container {
-        margin-bottom: 20px;
-        p {
-          display: none;
-        }
-        li {
-          margin-bottom: 16px;
-        }
-      }
-      &_introduction {
-        display: none;
-      }
-      // Quick Links
-      &-links {
-        text-transform: uppercase;
-        li {
-          line-height: 1.4;
-        }
-      }
-      // Mailing List Signup
-      &-subscribe {
-        &_email label, &_list-header,
-        &_email .module_required,
-        &_mailing-list,
-        .CaptchaContainer,
-        .module_actions {
-          display: none;
-        }
-        &_form {
-          tbody {
-            display: block;
-          }
-          tr {
-            width: 100%;
+        h1 {
             margin: 0;
-          }
+            @include layout-medium {
+                margin-bottom: 32px;
+            }
         }
-        &_mailing-list {
-          margin: 20px 0 10px;
+        @include layout-legacy {
+            text-align: center;
         }
-        &_list {
-          & > td {
-            padding: 0;
-          }
-        }
-        p {
-          padding-right: 35px;
-          line-height: 1.5;
-        }
-        input[type="checkbox"] + label:before {
-          border-color: $light-color;
-        }
-        &_mailing-list.js--revealed,
-        .module_actions.js--revealed {
-          display: block;
-        }
-      }
-      &_input[type="text"] {
-        max-width: 300px;
-      }
     }
-    .module:not(.module-embed) {
-      padding-bottom: 60px;
+    &--navigation {
+        // Desktop Style
+        background: $brand-color;
+        .pane_inner {
+            @include fit-and-center($layout-width);
+            @include layout-legacy {
+                max-width: none;
+            }
+        }
+        .module-search {
+            display: none;
+        } // Mobile Styles
+        @include layout-legacy {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            transition: 0.5s ease-in-out;
+            overflow-y: scroll;
+            z-index: 120;
+            @at-root .js--mobile & {
+                top: $mobile-header-height;
+                bottom: 0;
+            }
+            .pane_inner {
+                padding: 0;
+            }
+            .module-search {
+                display: block;
+                &_input {
+                    width: 100%;
+                    max-width: none;
+                    padding: 20px;
+                    border: none;
+                    background-color: darken($brand-color, 7.5%);
+                    color: #fff;
+                    text-transform: uppercase; /// For some reason, these have to be separated
+                    &::-webkit-input-placeholder {
+                        color: rgba($light-color, 1);
+                    }
+                    &::-moz-placeholder {
+                        color: rgba($light-color, 1);
+                    }
+                    &::-ms-input-placeholder {
+                        color: rgba($light-color, 1);
+                    }
+                }
+                &_button {
+                    top: 20px;
+                    right: 20px;
+                    background-position: 0 -100%;
+                }
+            }
+        }
     }
-    .button {
-      color: $light-color;
-      border: none;
-      background-color: $brand-color;
+    &--content {
+        .module {
+            padding-top: $module-vspace;
+            padding-bottom: $module-vspace;
+            &_container {
+                &--outer {
+                    @include fit-and-center($layout-width);
+                }
+            }
+            &--thin {
+                padding-top: $module-vspace--thin;
+                padding-bottom: $module-vspace--thin;
+            }
+            &--thin-top {
+                padding-top: $module-vspace--thin;
+            }
+            &--thin-bottom {
+                padding-bottom: $module-vspace--thin;
+            }
+            &--thick {
+                padding-top: $module-vspace--thick;
+                padding-bottom: $module-vspace--thick;
+            }
+            &--thick-top {
+                padding-top: $module-vspace--thick;
+            }
+            &--thick-bottom {
+                padding-bottom: $module-vspace--thick;
+            }
+            &--no-padding {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            &--no-padding-top {
+                padding-top: 0;
+            }
+            &--no-padding-bottom {
+                padding-bottom: 0;
+            } // Sitemap
+            &-sitemap {
+                padding-bottom: $module-vspace--thin;
+            }
+        }
     }
-  }
-  &--credits {
-    padding-bottom: 40px;
-    text-align: center;
-    color: $grey-color;
-    @include font-size(12px);
-    line-height: 1.5;
-    a {
-      color: $grey-color;
+    &--footer {
+        padding-top: 60px;
+        @include font-size(14px);
+        .pane_inner {
+            @include fit-and-center($layout-width);
+        }
+        .module {
+            // Module Titles
+            &_title {
+                margin-bottom: 20px;
+                @include font-size(20px);
+                font-weight: normal;
+                text-transform: uppercase;
+            }
+            &_error-container {
+                margin-bottom: 20px;
+                p {
+                    display: none;
+                }
+                li {
+                    margin-bottom: 16px;
+                }
+            }
+            &_introduction {
+                display: none;
+            } // Quick Links
+            &-links {
+                text-transform: uppercase;
+                li {
+                    line-height: 1.4;
+                }
+            } // Mailing List Signup
+            &-subscribe {
+                &_email label,
+                &_list-header,
+                &_email .module_required,
+                &_mailing-list,
+                .CaptchaContainer,
+                .module_actions {
+                    display: none;
+                }
+                &_form {
+                    tbody {
+                        display: block;
+                    }
+                    tr {
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+                &_mailing-list {
+                    margin: 20px 0 10px;
+                }
+                &_list {
+                    &>td {
+                        padding: 0;
+                    }
+                }
+                p {
+                    padding-right: 35px;
+                    line-height: 1.5;
+                }
+                input[type="checkbox"]+label:before {
+                    border-color: $light-color;
+                }
+                &_mailing-list.js--revealed,
+                .module_actions.js--revealed {
+                    display: block;
+                }
+            }
+            &_input[type="text"] {
+                max-width: 300px;
+            }
+        }
+        .module:not(.module-embed) {
+            padding-bottom: 60px;
+        }
+        .button {
+            color: $light-color;
+            border: none;
+            background-color: $brand-color;
+        }
     }
-    .pane_inner {
-      @include fit-and-center($layout-width);
+    &--credits {
+        padding-bottom: 40px;
+        text-align: center;
+        color: $grey-color;
+        @include font-size(12px);
+        line-height: 1.5;
+        a {
+            color: $grey-color;
+        }
+        .pane_inner {
+            @include fit-and-center($layout-width);
+        }
     }
-  }
 }
+
 
 /*--------- Page Specific --------*/
 
@@ -301,139 +301,140 @@
 // this ensure that the first module is getting enough space on top
 // and the last module gets enough space below it
 .page--no-alternating {
-  .pane {
-    &--content {
-      padding: 35px 0;
+    .pane {
+        &--content {
+            padding: 35px 0;
+        }
     }
-  }
-  .module {
-    padding-top: $module-vspace--thin;
-    padding-bottom: $module-vspace--thin;
-  }
+    .module {
+        padding-top: $module-vspace--thin;
+        padding-bottom: $module-vspace--thin;
+    }
 }
+
 
 /*-------- Module Specific -------*/
 
 .module-overview {
-  p {
-    margin-bottom: 40px;
-  }
-  &_hidden {
-    display: none;
-    &.js--revealed {
-      display: block;
+    p {
+        margin-bottom: 40px;
     }
-  }
-  &_button {
-    &:before {
-      content: "Read More";
+    &_hidden {
+        display: none;
+        &.js--revealed {
+            display: block;
+        }
     }
-    &.js--active:before {
-      content: "Show Less";
+    &_button {
+        &:before {
+            content: "Read More";
+        }
+        &.js--active:before {
+            content: "Show Less";
+        }
     }
-  }
 }
 
 .module-why_invest {
-  h3 {
-    color: $body-color;
-  }
-  h4 {
-    @include font-size(60px);
-    color: $brand-color;
-    font-weight: 300;
-    margin-top: 0;
-  }
-  .grid {
-    padding-top:25px;
-    padding-bottom: 25px;
-  }
-  .grid_col {
-    padding-bottom: 15px;
-    padding-right: $toast-gutter-width;
-    @media (min-width: $layout-small) {
-      & + .grid_col {
-        border-left: 1px solid $grey-dark-color;
-      }
+    h3 {
+        color: $body-color;
     }
-    p {
-      margin-bottom: 0;
+    h4 {
+        @include font-size(60px);
+        color: $brand-color;
+        font-weight: 300;
+        margin-top: 0;
     }
-  }
+    .grid {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .grid_col {
+        padding-bottom: 15px;
+        padding-right: $toast-gutter-width;
+        @media (min-width: $layout-small) {
+            & + .grid_col {
+                border-left: 1px solid $grey-dark-color;
+            }
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .module-social {
-  .module {
-    &_tabs {
-      margin-bottom: 10px;
-      .button {
-        display: block;
-        &.js--selected {
-          background: $brand-color;
-          color: $light-color;
+    .module {
+        &_tabs {
+            margin-bottom: 10px;
+            .button {
+                display: block;
+                &.js--selected {
+                    background: $brand-color;
+                    color: $light-color;
+                }
+            }
         }
-      }
-    }
-    &_tab {
-      display: inline-block;
-      padding-right: 5px;
-      padding-bottom: 5px;
-      @media (max-width: 640px) {
-        width: 50%;
-      }
-    }
-    &_container--content {
-      padding: 0;
-      @media (max-width: $layout-medium -(1px)) {
-        padding:0 20px;
-        margin:0;
-      }
-      .slick-arrow {
-        color: $brand-color;
-      }
-    }
-    &_headline-link {
-      color: $brand-color;
-    }
-    &_item {
-      &.grid_col {
-        padding: 0 0 0 $toast-gutter-width;
-        margin: 15px 0;
-        @media (max-width: $layout-medium -(1px)) {
-          padding-left:0;
+        &_tab {
+            display: inline-block;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            @media (max-width: 640px) {
+                width: 50%;
+            }
         }
-      }
-      &-wrap {
-        padding: 30px;
-        background-color: $grey-color;
-      }
-      & + .module_item {
-        border-top: none;
-      }
+        &_container--content {
+            padding: 0;
+            @media (max-width: $layout-medium -(1px)) {
+                padding:0 20px;
+                margin: 0;
+            }
+            .slick-arrow {
+                color: $brand-color;
+            }
+        }
+        &_headline-link {
+            color: $brand-color;
+        }
+        &_item {
+            &.grid_col {
+                padding: 0 0 0 $toast-gutter-width;
+                margin: 15px 0;
+                @media (max-width: $layout-medium -(1px)) {
+                    padding-left:0;
+                }
+            }
+            &-wrap {
+                padding: 30px;
+                background-color: $grey-color;
+            }
+            &+.module_item {
+                border-top: none;
+            }
+        }
+        &_date {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        &_headline {
+            text-align: left;
+            margin: 0;
+            line-height: 1.5;
+        }
+        &_icon {
+            float: right;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            @include font-size(20px);
+            .q4-icon_twitter {
+                color: #1da1f2;
+            }
+            .q4-icon_facebook {
+                color: #365899;
+            }
+            .q4-icon_youtube {
+                color: #cc181e;
+            }
+        }
     }
-    &_date {
-      text-align: left;
-      margin-bottom: 15px;
-    }
-    &_headline {
-      text-align: left;
-      margin: 0;
-      line-height: 1.5;
-    }
-    &_icon {
-      float: right;
-      margin-left: 5px;
-      margin-bottom: 5px;
-      @include font-size(20px);
-      .q4-icon_twitter {
-        color: #1da1f2;
-      }
-      .q4-icon_facebook {
-        color: #365899;
-      }
-      .q4-icon_youtube {
-        color: #cc181e;
-      }
-    }
-  }
 }

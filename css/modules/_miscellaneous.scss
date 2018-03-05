@@ -1,47 +1,47 @@
 /*----- Miscellaneous Modules ----*/
 
 .module-script {
-  display: none;
+    display: none;
 }
 
 .module-slideshow {
-  &_ratio {
-    padding-bottom: 56.25%;
-    /* this should be changed with aspecRatio option in widget */
-    position: relative;
-  }
-  &_viewer:not(.grid_col) {
-    display: inline-block;
-    width: 100%;
-    max-width: 640px;
-    &:not(:last-child) {
-      margin-bottom: 25px;
+    &_ratio {
+        padding-bottom: 56.25%;
+        /* this should be changed with aspecRatio option in widget */
+        position: relative;
     }
-  }
-  &_title {
-    margin-bottom: 10px;
-    display: none;
-  }
-  .module_links > * + * {
-    margin-top:15px;
-  }
-  &_link {
-    @include font-size(14px);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    left:0;
-    top: 0;
-  }
+    &_viewer:not(.grid_col) {
+        display: inline-block;
+        width: 100%;
+        max-width: 640px;
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+    &_title {
+        margin-bottom: 10px;
+        display: none;
+    }
+    .module_links>*+* {
+        margin-top: 15px;
+    }
+    &_link {
+        @include font-size(14px);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+    }
 }
 
 .module-rss {
-  p + h2 {
-    margin: 40px 0 30px;
-  }
+    p+h2 {
+        margin: 40px 0 30px;
+    }
 }

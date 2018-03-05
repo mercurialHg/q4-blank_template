@@ -1,25 +1,25 @@
 /*---- Accessibility Skip Link ---*/
 
 .module-skip {
-  &_link {
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    padding: 15px 20px;
-    background: transparent;
-    color: white;
-    transform: translate(-50%, 0);
-    transition: 0.5s ease-in-out;
-    z-index: 100;
-  }
-  &_link:focus,
-  &_link:active,
-  &_link:hover {
-    top: 0;
-    background: $brand-color;
-    outline:0;
-  }
-  &_link:visited {
-    color: $light-color;
-  }
+    &_link {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        padding: 15px 20px;
+        background: transparent;
+        color: white;
+        transform: translate(-50%, 0);
+        transition: 0.5s ease-in-out;
+        z-index: 100;
+    }
+    &_link:focus,
+    &_link:active,
+    &_link:hover {
+        top: 0;
+        background: $brand-color;
+        outline: 0;
+    }
+    &_link:visited {
+        color: $light-color;
+    }
 }

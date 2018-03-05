@@ -1,259 +1,262 @@
 /*--- Financial Report Modules ---*/
 
-.module-financial { 
-  &-year {
-    .module {
-      &_cover {
-        margin-bottom: 15px;
-        img {
-          display: inline-block;
-          border: 1px solid $brand-color;
+.module-financial {
+    &-year {
+        .module {
+            &_cover {
+                margin-bottom: 15px;
+                img {
+                    display: inline-block;
+                    border: 1px solid $brand-color;
+                }
+            }
+            &_item {
+                padding: 0;
+                &~.module_item {
+                    border: none;
+                }
+            }
+            &_links {
+                margin: 0;
+            }
         }
-      }
-      &_item {
-        padding: 0;
-        & ~ .module_item {
-          border: none;
+        .module-financial {
+            &_year {
+                text-align: center;
+            }
         }
-      }
-      &_links {
-        margin: 0;
-      }
     }
-    .module-financial {
-      &_year {
-        text-align: center;
-      }
-    }
-  }
-  &-quarter {
-    .module {
-      &_item {
-        padding: 0;
-        & ~ .module_item {
-          border: none;
+    &-quarter {
+        .module {
+            &_item {
+                padding: 0;
+                &~.module_item {
+                    border: none;
+                }
+                &.js--active {
+                    h3:after {
+                        content: "\ed5e";
+                    }
+                }
+            }
+            &_links {
+                margin: 0;
+                padding: 15px;
+                &>div {
+                    display: block;
+                }
+            }
+            &_link {
+                margin-bottom: 10px;
+                @include font-size(16px);
+                font-weight: normal;
+                text-transform: none;
+            }
         }
-        &.js--active {
-          h3:after {
-            content: "\ed5e";
-          }
+        .module-financial {
+            &_year-text {
+                padding: 20px 15px;
+                margin-bottom: 10px;
+                background-color: $brand-color;
+                color: $light-color;
+                @include font-size(16px);
+                font-weight: bold;
+                cursor: pointer;
+                &:after {
+                    float: right;
+                    @include icon("ed5d");
+                }
+            }
         }
-      }
-      &_links {
-        margin: 0;
-        padding: 15px;
-        & > div {
-          display: block;
+    }
+    &-table {
+        &_header {
+            background-color: $brand-color;
+            color: $light-color;
+            &-year-container {
+                text-align: center;
+            }
+            &-year,
+            &-category.grid_col {
+                padding: 20px 15px;
+            }
         }
-      }
-      &_link {
-        margin-bottom: 10px;
-        @include font-size(16px);
-        font-weight: normal;
-        text-transform: none;
-      }
-    }
-    .module-financial {
-      &_year-text {
-        padding: 20px 15px;
-        margin-bottom: 10px;
-        background-color: $brand-color;
-        color: $light-color;
-        @include font-size(16px);
-        font-weight: bold;
-        cursor: pointer;
-        &:after {
-          float: right;
-          @include icon("ed5d");
+        &_body {
+            &-row {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                &:nth-child(even) {
+                    background-color: $grey-color;
+                }
+            }
+            &-year-container {
+                text-align: center;
+            }
+            &-year,
+            &-category.grid_col {
+                padding: 20px 15px;
+            }
         }
-      }
-    }
-  }
-  &-table {
-    &_header {
-      background-color: $brand-color;
-      color: $light-color;
-      &-year-container {
-        text-align: center;
-      }
-      &-year, &-category.grid_col {
-        padding: 20px 15px;
-      }
-    }
-    &_body {
-      &-row {
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        &:nth-child(even) {
-          background-color: $grey-color;
+        &_item {
+            display: inline-block;
+            margin-right: 15px;
+            @include font-size(18px);
+            font-weight: normal;
+            &~.module_item {
+                margin-right: 5px;
+            }
+            &--empty {
+                opacity: 0.1;
+            }
+            @include layout-medium() {
+                margin-right: 10px;
+            }
+            @include layout-small() {
+                margin: 5px;
+            }
         }
-      }
-      &-year-container {
-        text-align: center;
-      }
-      &-year, &-category.grid_col {
-        padding: 20px 15px;
-      }
+        .slick {
+            &-slider {
+                display: inline-block;
+                padding: 0;
+            }
+            &-slide:focus {
+                outline: none;
+            }
+            &-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                cursor: pointer;
+                z-index: 10;
+            }
+            &-prev {
+                left: 10px;
+            }
+            &-next {
+                right: 10px;
+            }
+            &-disabled {
+                opacity: 0.1;
+                cursor: default;
+            }
+        }
     }
-    &_item {
-      display: inline-block;
-      margin-right: 15px;
-      @include font-size(18px);
-      font-weight: normal;
-      & ~ .module_item {
-        margin-right: 5px;
-      }
-      &--empty {
-        opacity: 0.1;
-      }
-      @include layout-medium() {
-        margin-right: 10px;
-      }
-      @include layout-small() {
-        margin: 5px;
-      }
+    &-mashup {
+        .module_body {
+            max-height: 300px;
+            overflow: hidden;
+            position: relative;
+            &>*:first-child,
+            &>style+p {
+                margin-top: 0;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+                z-index: 1;
+                background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+                background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70ffffff', endColorstr='#ffffff', GradientType=0);
+            }
+        }
+        .module-financial-mashup_documents .module_links {
+            &+h4 {
+                margin-top: 30px;
+            }
+            &>div {
+                background-color: $grey-color;
+                padding: 15px;
+                margin-bottom: 1px;
+            }
+            .module_link {
+                margin: 0;
+            }
+        }
+        .q4-icon_chevron-right {
+            @include font-size(10px);
+            margin-left: 5px;
+        }
     }
-    .slick {
-      &-slider {
-        display: inline-block;
-        padding: 0;
-      }
-      &-slide:focus {
-        outline: none;
-      }
-      &-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        cursor: pointer;
-        z-index: 10;
-      }
-      &-prev {
-        left: 10px;
-      }
-      &-next {
-        right: 10px;
-      }
-      &-disabled {
-        opacity: 0.1;
-        cursor: default;
-      }
-    }
-  }
-  &-mashup {
-    .module_body {
-      max-height: 300px;
-      overflow: hidden;
-      position: relative;
-      & > *:first-child, & > style + p {
-        margin-top:0;
-      }
-      &:before {
-        content: '';
-        position: absolute;
-        left:0;
-        right:0;
-        bottom:0;
-        height: 50px;
-        z-index: 1;
-        background: -moz-linear-gradient(top,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 70%, rgba(255,255,255,1) 100%);
-        background: -webkit-linear-gradient(top,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 100%);
-        background: linear-gradient(to bottom,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70ffffff', endColorstr='#ffffff',GradientType=0 );
-      }
-    }
-    .module-financial-mashup_documents .module_links {
-      & + h4 {
-        margin-top: 30px;
-      }
-      & > div {
-        background-color: $grey-color;
-        padding: 15px;
-        margin-bottom: 1px;
-      }
-      .module_link {
-        margin: 0;
-      }
-    }
-    .q4-icon_chevron-right {
-      @include font-size(10px);
-      margin-left: 5px;
-    }
-  }
 }
+
 
 /* Latest Quarterly Result Widget */
 
 .module-latest-quarter {
-  .module {
-    &_item {
-      margin: 50px 0;
-      padding: 0;
-      & ~ .module_item {
-        border: none;
-      }
-    }
-    &_links {
-      margin: 0;
-      border-left: 2px solid rgba($light-color, 0.5);
-      text-align: left;
-      & > div {
-        display: inline-block;
-        text-align: center;
-      }
-    }
-    &_link {
-      margin: 0;
-      &:before {
-        display: inline-block;
-        @include font-size(55px);
-        padding: 0;
-      }
-      &-text {
-        display: block;
-        margin: 15px 0 0;
-        @include font-size(16px);
-        text-transform: none;
-        font-weight: normal;
-      }
-    }
-  }
-  .module-financial_type-text,
-  .module-financial_year-text {
-    display: inline-block;
-    width: 100%;
-  }
-  .module-financial_type-text {
-    @include font-size(55px);
-    font-weight: normal;
-  }
-  .module-financial_year-text {
-    margin-top: 15px;
-    @include font-size(24px);
-  }
-  .grid_col {
-    vertical-align: bottom;
-  }
-  @include layout-legacy {
     .module {
-      &_links {
-        border-left: 0;
-      }
-      &_link {
-        margin: 0 0 15px;
-      }
+        &_item {
+            margin: 50px 0;
+            padding: 0;
+            &~.module_item {
+                border: none;
+            }
+        }
+        &_links {
+            margin: 0;
+            border-left: 2px solid rgba($light-color, 0.5);
+            text-align: left;
+            &>div {
+                display: inline-block;
+                text-align: center;
+            }
+        }
+        &_link {
+            margin: 0;
+            &:before {
+                display: inline-block;
+                @include font-size(55px);
+                padding: 0;
+            }
+            &-text {
+                display: block;
+                margin: 15px 0 0;
+                @include font-size(16px);
+                text-transform: none;
+                font-weight: normal;
+            }
+        }
+    }
+    .module-financial_type-text,
+    .module-financial_year-text {
+        display: inline-block;
+        width: 100%;
+    }
+    .module-financial_type-text {
+        @include font-size(55px);
+        font-weight: normal;
+    }
+    .module-financial_year-text {
+        margin-top: 15px;
+        @include font-size(24px);
     }
     .grid_col {
-      vertical-align: middle;
+        vertical-align: bottom;
     }
-  }
-  @include layout-medium {
-    .module {
-      &_item {
-        & > div:first-child {
-          margin-bottom: 30px;
+    @include layout-legacy {
+        .module {
+            &_links {
+                border-left: 0;
+            }
+            &_link {
+                margin: 0 0 15px;
+            }
         }
-      }
+        .grid_col {
+            vertical-align: middle;
+        }
     }
-  }
+    @include layout-medium {
+        .module {
+            &_item {
+                &>div:first-child {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
 }
-

@@ -1,26 +1,29 @@
 /*----- Download List Module -----*/
 
 .module-downloads {
-  .module {
-    &_nav {
-      display: none;
+    .module {
+        &_nav {
+            display: none;
+        }
+        &_item {
+            padding: 15px 0;
+        }
     }
-    &_item {
-      padding: 15px 0;
+    &_thumbnail,
+    &_description,
+    &_date {
+        display: none;
     }
-  }
-  &_thumbnail, &_description, &_date {
-    display: none;
-  }
-  &_title {
-    position: relative;
-    &-link {
-      margin: 0 20px 0 0;
-      &:before {
-        position: absolute;
-        top: 50%; right: 0;
-        transform: translate(0,-50%);
-      }
+    &_title {
+        position: relative;
+        &-link {
+            margin: 0 20px 0 0;
+            &:before {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0, -50%);
+            }
+        }
     }
-  }
 }

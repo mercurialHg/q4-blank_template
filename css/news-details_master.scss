@@ -1,21 +1,21 @@
 .module-news-details {
-  img {
-    float: left;
-    padding: 5px 10px 5px 0;
-  }
-  table {
-    width: 100%;
-  }
-  pre {
-    font-family: "arial", sans-serif;
-  }
-  .module_body i {
-    font: inherit;
-    color: inherit;
-    text-transform: inherit;
-    font-style: italic;
-  } //newswire
-  @import 'newswire/_gnw';
-  @import 'newswire/_bw';
-  @import 'newswire/_cnw';
+    img {
+        float: left;
+        padding: 5px 10px 5px 0;
+    }
+    table {
+        width: 100%;
+    }
+    pre {
+        font-family: "arial", sans-serif;
+    }
+    .module_body i {
+        font: inherit;
+        color: inherit;
+        text-transform: inherit;
+        font-style: italic;
+    } //newswire
+    @import 'newswire/_gnw';
+    @import 'newswire/_bw';
+    @import 'newswire/_cnw';
 }

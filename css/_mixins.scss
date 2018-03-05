@@ -1,15 +1,15 @@
 /// A function used to convert pixel font sizes to rem size. This is a supporting function for the font-size mixin.
 /// @param {px} $size font-size in pixels
 @function calculateRem($size) {
-  $remSize: $size / $body-size;
-  @return $remSize * 1rem;
+    $remSize: $size / $body-size;
+    @return $remSize * 1rem;
 }
 
 /// A function used to convert rem sizes to pixel size. This is a supporting function for the property-with-rem mixin.
 /// @param {px} $size font-size in pixels
 @function calculatePixels($size) {
-  $pixelSize: $size / 1rem * $body-size;
-  @return $pixelSize;
+    $pixelSize: $size / 1rem * $body-size;
+    @return $pixelSize;
 }
 
 /// Use to assign font-size using rem with px size fall-back.
@@ -25,13 +25,13 @@
 /// }
 /// </pre>
 @mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+    font-size: $size;
+    font-size: calculateRem($size);
 }
 
 /// Used as an internal function to convert strings to unicode. Used to fix a bug in Sass 3.4.0.
 @function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+    @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
 }
 
 /// Use this to include all the necessary icon style attributes by only passing through the icon code.
@@ -57,17 +57,17 @@
 /// }
 /// </pre>
 @mixin icon($code) {
-  font-family: $icon-font;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  // Better Font Rendering
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: unicode($code);
+    font-family: $icon-font;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    // Better Font Rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: unicode($code);
 }
 
 /// Used to assign styling for certain breakpoints quickly.
@@ -84,24 +84,24 @@
 ///   }
 /// }
 @mixin layout-large {
-  @media only screen and (max-width: $layout-large) {
-    @content;
-  }
+    @media only screen and (max-width: $layout-large) {
+        @content;
+    }
 }
 @mixin layout-legacy {
-  @media only screen and (max-width: $layout-legacy) {
-    @content;
-  }
+    @media only screen and (max-width: $layout-legacy) {
+        @content;
+    }
 }
 @mixin layout-medium {
-  @media only screen and (max-width: $layout-medium) {
-    @content;
-  }
+    @media only screen and (max-width: $layout-medium) {
+        @content;
+    }
 }
 @mixin layout-small {
-  @media only screen and (max-width: $layout-small) {
-    @content;
-  }
+    @media only screen and (max-width: $layout-small) {
+        @content;
+    }
 }
 
 /// used to set a max-width as well as center an element
@@ -118,14 +118,14 @@
 /// }
 /// </pre>
 @mixin fit-and-center($width) {
-  max-width: $width;
-  margin-left: auto;
-  margin-right: auto;
-  @include layout-legacy {
-    max-width: none;
-    padding-left: $toast-gutter-width;
-    padding-right: $toast-gutter-width;
-  }
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+    @include layout-legacy {
+        max-width: none;
+        padding-left: $toast-gutter-width;
+        padding-right: $toast-gutter-width;
+    }
 }
 
 /// used to quickly apply screen-reader-only styling
@@ -146,12 +146,12 @@
 /// }
 /// </pre>
 @mixin sr-only() {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }

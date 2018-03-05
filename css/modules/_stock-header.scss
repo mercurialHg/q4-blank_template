@@ -1,61 +1,61 @@
 /*------ Stock Header Module -----*/
 
 .module-stock-header {
-  text-align: right;
-  @include layout-legacy {
-    text-align: center;
-  }
-  .module_container--outer {
-    display: inline-block;
-    padding: 40px 55px;
-    background: $dark-overlay;
-    text-align: center;
-  }
-  &_description1 {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  &_stock-price {
-    &:before {
-      content: '$';
+    text-align: right;
+    @include layout-legacy {
+        text-align: center;
     }
-    display: block;
-    margin-bottom: 8px;
-    @include font-size(45px);
-    color: $light-color;
-  }
-  &_change,
-  &_percent-change {
-    display: inline-block;
-    margin-bottom: 24px;
-    @include font-size(20px);
-  }
-  &_percent-change {
-    &:before {
-      content: '(';
+    .module_container--outer {
+        display: inline-block;
+        padding: 40px 55px;
+        background: $dark-overlay;
+        text-align: center;
     }
-    .module-stock-header_indicator {
-      display: none;
+    &_description1 {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 16px;
     }
-    &:after {
-      content: ')';
+    &_stock-price {
+        &:before {
+            content: '$';
+        }
+        display: block;
+        margin-bottom: 8px;
+        @include font-size(45px);
+        color: $light-color;
     }
-  }
-  &_volume {
-    &:before {
-      content: 'Volume ';
-      font-weight: bold;
+    &_change,
+    &_percent-change {
+        display: inline-block;
+        margin-bottom: 24px;
+        @include font-size(20px);
     }
-    display: block;
-    margin-bottom: 32px;
-  }
-  &_description3 {
-    display: block;
-    @include font-size(12px);
-  }
-  &_volume-text,
-  &_date {
-    display: none;
-  }
+    &_percent-change {
+        &:before {
+            content: '(';
+        }
+        .module-stock-header_indicator {
+            display: none;
+        }
+        &:after {
+            content: ')';
+        }
+    }
+    &_volume {
+        &:before {
+            content: 'Volume ';
+            font-weight: bold;
+        }
+        display: block;
+        margin-bottom: 32px;
+    }
+    &_description3 {
+        display: block;
+        @include font-size(12px);
+    }
+    &_volume-text,
+    &_date {
+        display: none;
+    }
 }

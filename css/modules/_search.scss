@@ -1,42 +1,42 @@
 /*-------- Search Modules --------*/
 
 .module-search {
-  position: relative;
-  text-align: right;
-  &_input[type="text"] {
-    display: inline-block;
-    width: 90%;
-    padding: 7px;
-    border: 1px solid $darken-color;
-    background: $light-color;
-    @include font-size(14px);
-  }
-  &_button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    border: 0;
-    background: transparent url($host+'/design/svg/q4-icon_buttons.svg');
-    background-size: 300%;
-    font-size: 0;
-    cursor: pointer;
-  }
-  &-result {
-    &_link {
-      margin-bottom: 15px;
+    position: relative;
+    text-align: right;
+    &_input[type="text"] {
+        display: inline-block;
+        width: 90%;
+        padding: 7px;
+        border: 1px solid $darken-color;
+        background: $light-color;
+        @include font-size(14px);
     }
-    &_description {
-      display: block;
-      margin-bottom: 15px;
-      &:after {
-        content: "...";
-      }
+    &_button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        padding: 0;
+        border: 0;
+        background: transparent url($host+'/design/svg/q4-icon_buttons.svg');
+        background-size: 300%;
+        font-size: 0;
+        cursor: pointer;
     }
-    &_url {
-      display: none;
+    &-result {
+        &_link {
+            margin-bottom: 15px;
+        }
+        &_description {
+            display: block;
+            margin-bottom: 15px;
+            &:after {
+                content: "...";
+            }
+        }
+        &_url {
+            display: none;
+        }
     }
-  }
 }

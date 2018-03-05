@@ -1,86 +1,82 @@
 /*- MailingList Subscribe Module -*/
 
 .module-subscribe {
-  &_table {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    tbody {
-      width: 100%;
-      display: block;
-    }
-  }
-  &_form {
-    // Markup Space fix
-    font-size: 0;
-    tr {
-      display: inline-block;
-      width: 50%;
-      margin-bottom: 20px;
-      vertical-align: top;
-      // Markup Space Fix
-      @include font-size(16px);
-      &:nth-child(even) {
-        padding-left: 10px;
-      }
-      &:nth-child(odd) {
-        padding-right: 10px;
-      }
-      // Specific Inputs
-      &.module-subscribe_notes-text {
-        margin: 0;
-      }
-      &.module-subscribe_notes-text,
-      &.module-subscribe_notes-input {
+    &_table {
         display: block;
         width: 100%;
-        padding: 0;
-      }
-      @include layout-medium {
-        width: 100%;
-        &:nth-child(even) {
-          padding-left: 0;
+        margin-bottom: 10px;
+        tbody {
+            width: 100%;
+            display: block;
         }
-        &:nth-child(odd) {
-          padding-right: 0;
+    }
+    &_form {
+        // Markup Space fix
+        font-size: 0;
+        tr {
+            display: inline-block;
+            width: 50%;
+            margin-bottom: 20px;
+            vertical-align: top; // Markup Space Fix
+            @include font-size(16px);
+            &:nth-child(even) {
+                padding-left: 10px;
+            }
+            &:nth-child(odd) {
+                padding-right: 10px;
+            } // Specific Inputs
+            &.module-subscribe_notes-text {
+                margin: 0;
+            }
+            &.module-subscribe_notes-text,
+            &.module-subscribe_notes-input {
+                display: block;
+                width: 100%;
+                padding: 0;
+            }
+            @include layout-medium {
+                width: 100%;
+                &:nth-child(even) {
+                    padding-left: 0;
+                }
+                &:nth-child(odd) {
+                    padding-right: 0;
+                }
+            }
         }
-      }
-    }
-    td {
-      display: block;
-    }
-    label {
-      display: inline-block;
-      margin-bottom: 5px;
-      @include font-size(14px);
-    }
-  }
-  &_mailing-list {
-    tr {
-      &.module-subscribe_list-header {
         td {
-          padding-bottom: 15px;
+            display: block;
         }
-      }
-      // Checkbox Table
-      table {
-        td {
-          padding-bottom: 10px;
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            @include font-size(14px);
         }
-        tr:last-child td {
-          padding-bottom: 0;
-        }
-      }
     }
-  }
-  // Required Star
-  .module_required {
-    @include font-size(14px);
-  }
-  .CaptchaContainer {
-    width: 50%;
-    @include layout-medium {
-      width: 100%;
+    &_mailing-list {
+        tr {
+            &.module-subscribe_list-header {
+                td {
+                    padding-bottom: 15px;
+                }
+            } // Checkbox Table
+            table {
+                td {
+                    padding-bottom: 10px;
+                }
+                tr:last-child td {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    } // Required Star
+    .module_required {
+        @include font-size(14px);
     }
-  }
+    .CaptchaContainer {
+        width: 50%;
+        @include layout-medium {
+            width: 100%;
+        }
+    }
 }

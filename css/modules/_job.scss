@@ -1,94 +1,85 @@
 /*---------- Job Modules ---------*/
 
 .module-job {
-  // Job List Module
-  &-list {
-
-  }
-  // Job Details Module
-  &-details {
-    &_description-container {
-      margin-bottom: 35px;
-      border-top: 1px solid $darken-color;
+    // Job List Module
+    &-list {}
+    // Job Details Module
+    &-details {
+        &_description-container {
+            margin-bottom: 35px;
+            border-top: 1px solid $darken-color;
+        }
+        &_description {
+            border-bottom: 1px solid $darken-color;
+            label {
+                font-weight: normal;
+            }
+            input {
+                width: auto;
+                max-width: none;
+                padding: 0;
+                border: none;
+                float: right;
+                font-family: $body-font;
+                @include font-size(16px);
+                font-weight: 300; // IE Fix
+                line-height: 0;
+            }
+            @include layout-small {
+                label:after {
+                    content: ":"
+                }
+                input {
+                    display: block;
+                    float: none;
+                    margin-top: calculatePixels(0.5rem);
+                }
+            }
+        }
+        .grid_col {
+            padding: 15px 20px;
+        }
+    } // Job Application Module
+    &-application {
+        &_table {
+            display: block;
+            width: 100%;
+            margin-left: -20px; // Markup Space Fix
+            font-size: 0;
+            tr {
+                display: inline-block;
+                width: 50%;
+                margin-bottom: 20px;
+                padding-left: 20px;
+                vertical-align: top; // Markup Space Fix
+                @include font-size(16px);
+                &:last-child {
+                    margin-bottom: 0;
+                } // Specific Inputs
+                &.module-job-application_cover-letter-text,
+                &.module-job-application_resume-text {
+                    width: 100%;
+                }
+                td {
+                    display: block;
+                    position: relative;
+                }
+                label {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    @include font-size(14px);
+                }
+            }
+            @include layout-medium {
+                margin-left: 0;
+                tr {
+                    width: 100%;
+                    padding-left: 0;
+                }
+            }
+        } // Required Star
+        .module_required {
+            @include font-size(14px);
+        }
     }
-    &_description {
-      border-bottom: 1px solid $darken-color;
-      label {
-        font-weight: normal;
-      }
-      input {
-        width: auto;
-        max-width: none;
-        padding: 0;
-        border: none;
-        float: right;
-        font-family: $body-font;
-        @include font-size(16px);
-        font-weight: 300;
-        // IE Fix
-        line-height: 0;
-      }
-      @include layout-small {
-        label:after {
-          content: ":"
-        }
-        input {
-          display: block;
-          float: none;
-          margin-top: calculatePixels(0.5rem);
-        }
-      }
-    }
-    .grid_col {
-      padding: 15px 20px;
-    }
-  }
-  // Job Application Module
-  &-application {
-    &_table {
-      display: block;
-      width: 100%;
-      margin-left: -20px;
-      // Markup Space Fix
-      font-size: 0;
-      tr {
-        display: inline-block;
-        width: 50%;
-        margin-bottom: 20px;
-        padding-left: 20px;
-        vertical-align: top;
-        // Markup Space Fix
-        @include font-size(16px);
-        &:last-child {
-          margin-bottom: 0;
-        }
-        // Specific Inputs
-        &.module-job-application_cover-letter-text,
-        &.module-job-application_resume-text {
-          width: 100%;
-        }
-        td {
-          display: block;
-          position: relative;
-        }
-        label {
-          display: inline-block;
-          margin-bottom: 5px;
-          @include font-size(14px);
-        }
-      }
-      @include layout-medium {
-        margin-left: 0;
-        tr {
-          width: 100%;
-          padding-left: 0;
-        }
-      }
-    }
-
-    // Required Star
-    .module_required {
-      @include font-size(14px);
-    }
-  }
 }

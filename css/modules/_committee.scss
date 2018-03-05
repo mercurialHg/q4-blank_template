@@ -1,70 +1,70 @@
 /*- Committee Composition Widget -*/
 
 .module-committee {
-  .module {
-    &_container {
-      &--desktop {
-        @include layout-medium {
-          display: none;
+    .module {
+        &_container {
+            &--desktop {
+                @include layout-medium {
+                    display: none;
+                }
+            }
+            &--tablet {
+                display: none;
+                @include layout-medium {
+                    display: block;
+                }
+            }
         }
-      }
-      &--tablet {
-        display: none;
-        @include layout-medium {
-          display: block;
+        &_header {
+            display: block;
+            border-bottom: 2px solid $darken-color;
+            font-weight: normal;
         }
-      }
+        &_item {
+            padding: 0;
+            &~.module_item {
+                border: 0;
+            }
+            &:nth-child(even) {
+                background: $darken-color;
+            }
+        }
     }
-    &_header {
-      display: block;
-      border-bottom: 2px solid $darken-color;
-      font-weight: normal;
+    .grid_col {
+        padding: 20px 15px;
+        text-align: center;
+        &:first-child {
+            text-align: left;
+        }
     }
-    &_item {
-      padding: 0;
-      & ~ .module_item {
-        border: 0;
-      }
-      &:nth-child(even) {
-        background: $darken-color;
-      }
+    &_category {
+        &.js--active {
+            .module_header i:before {
+                content: "\edc2";
+            }
+        }
     }
-  }
-  .grid_col {
-    padding: 20px 15px;
-    text-align: center;
-    &:first-child {
-      text-align: left;
+    &_custom-role {
+        margin-left: 5px;
     }
-  }
-  &_category {
-    &.js--active {
-      .module_header i:before {
-        content: "\edc2";
-      }
+    &_bio {
+        padding: 0 15px 20px;
+        text-align: left;
+        p {
+            margin: 0;
+            &:not(:last-of-type) {
+                margin-bottom: 16px;
+            }
+        }
     }
-  }
-  &_custom-role {
-    margin-left: 5px;
-  }
-  &_bio {
-    padding: 0 15px 20px;
-    text-align: left;
-    p {
-      margin: 0;
-      &:not(:last-of-type) {
-        margin-bottom: 16px;
-      }
+    &_legend-container {
+        padding: 20px 15px;
     }
-  }
-  &_legend-container {
-    padding: 20px 15px;
-  }
-  &_legend {
-    display: inline-block;
-    margin-right: 30px;
-    i {
-      margin-right: 5px;
+    &_legend {
+        display: inline-block;
+        margin-right: 30px;
+        i {
+            margin-right: 5px;
+        }
     }
-  }
 }

@@ -1,70 +1,66 @@
 /*- Investment Calculator Widget -*/
 
 .module-calculator {
-  &_input {
-    &:not(:last-of-type) {
-      margin-bottom: 20px;
-    }
-    h4 {
-      margin-bottom: 12px;
-    }
-    label {
-      display: inline-block;
-      @include font-size(16px);
-      margin-bottom: 5px;
-    }
-    input[type="text"] {
-      border: 2px solid $brand-color;
-    }
-    input[type="checkbox"] + label {
-      margin: 0;
-    }
-    &-row {
-      padding-bottom: 10px;
-      input[type="text"] {
-        margin-top: 10px;
-        max-width: 300px;
-      }
-      &--other {
+    &_input {
+        &:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+        h4 {
+            margin-bottom: 12px;
+        }
+        label {
+            display: inline-block;
+            @include font-size(16px);
+            margin-bottom: 5px;
+        }
         input[type="text"] {
-          display: none;
-          &.js--revealed {
-            display: block;
-          }
+            border: 2px solid $brand-color;
         }
-      }
-    }
-    // Specific Inputs
-    &.module-calculator_compare {
-      // margin-bottom: 0;
-    }
-  }
-  &_popup-container {
-    @media screen and (min-width: 1024px) {
-      min-width: 920px;
-    }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      .table {
-        thead {
-          display: none;
+        input[type="checkbox"]+label {
+            margin: 0;
         }
-        tbody {
-          border-top: 2px solid $brand-color;
-          border-bottom: 2px solid $brand-color;
+        &-row {
+            padding-bottom: 10px;
+            input[type="text"] {
+                margin-top: 10px;
+                max-width: 300px;
+            }
+            &--other {
+                input[type="text"] {
+                    display: none;
+                    &.js--revealed {
+                        display: block;
+                    }
+                }
+            }
         }
-        td {
-          display: block;
-          &:before {
-            content: attr(data-heading) ": ";
-            font-weight: bold;
-          }
+    }
+    &_popup-container {
+        @media screen and (min-width: 1024px) {
+            min-width: 920px;
         }
-      }
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            .table {
+                thead {
+                    display: none;
+                }
+                tbody {
+                    border-top: 2px solid $brand-color;
+                    border-bottom: 2px solid $brand-color;
+                }
+                td {
+                    display: block;
+                    &:before {
+                        content: attr(data-heading) ": ";
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
     }
-  }
-  &_info {
-    td:first-child:before {
-      content: none;
+    &_info {
+        td:first-child:before {
+            content: none;
+        }
     }
-  }
 }

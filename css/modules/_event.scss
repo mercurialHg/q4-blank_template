@@ -1,211 +1,218 @@
 /*--------- Event Module ---------*/
+
 .module-event {
-  // Event List Module
-  .module {
-    &_location, &_speakers h4, &_body {
-      display: none;
-    }
-    &_options {
-      margin-bottom: 0;
-      padding-bottom: 15px;
-      border-bottom: 1px solid $grey-dark-color;
-    }
-  }
-  // Details Module
-  &-details {
+    // Event List Module
     .module {
-      &_speakers h4 {
-        display: none;
-      }
-    }
-  }
-  // Event Latest Widget
-  &-latest {
-    .module {
-      &_container--content {
-        margin-bottom: 20px;
-      }
-      &_item {
-        margin: 10px 0;
-        border: none;
-        text-align: left;
-        padding-top: 0;
-        padding-bottom: 0;
-        @include layout-medium {
-          &:first-child {
-            width: 100%;
-          }
+        &_location,
+        &_speakers h4,
+        &_body {
+            display: none;
         }
-      }
-      &_item.grid_col {
-        padding-left: 20px;
-      }
-      &_item-wrap {
-        padding: 30px;
-        background-color: $grey-color;
-      }
-      &_date-time {
-        margin-bottom: 15px;
-        font-weight: normal;
-      }
-      &_headline {
-        line-height: 150%;
-        font-weight: 200;
-      }
-      &_links {
-        margin: 0;
-      }
-    }
-    &.background--grey {
-      .module {
-        &_item-wrap {
-          background-color: $light-color;
+        &_options {
+            margin-bottom: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid $grey-dark-color;
         }
-      }
-    }
-    &.module-event-list {
-      .module {
-        &_item {
-          padding-left: 0;
-          padding-top: 20px;
-          & + .module_item {
-            border-top: 1px solid $grey-dark-color;
-          }
+    } // Details Module
+    &-details {
+        .module {
+            &_speakers h4 {
+                display: none;
+            }
         }
-      }
-    }
-  }
-  // Upcoming Event Module
-  &-upcoming {
-    .module {
-      &_nav {
-        display: none;
-      }
-      &_item {
-        padding: 0 0 10px;
-        & ~ .module_item {
-          padding: 30px 0 10px;
+    } // Event Latest Widget
+    &-latest {
+        .module {
+            &_container--content {
+                margin-bottom: 20px;
+            }
+            &_item {
+                margin: 10px 0;
+                border: none;
+                text-align: left;
+                padding-top: 0;
+                padding-bottom: 0;
+                @include layout-medium {
+                    &:first-child {
+                        width: 100%;
+                    }
+                }
+            }
+            &_item.grid_col {
+                padding-left: 20px;
+            }
+            &_item-wrap {
+                padding: 30px;
+                background-color: $grey-color;
+            }
+            &_date-time {
+                margin-bottom: 15px;
+                font-weight: normal;
+            }
+            &_headline {
+                line-height: 150%;
+                font-weight: 200;
+            }
+            &_links {
+                margin: 0;
+            }
         }
-      }
-    }
-  }
-  // Event Calendar Widget
-  &-calendar {
-    display: table;
-    width: 100%;
-    &_calendar-container, &_event-container {
-      display: table-cell;
-      width: 50%;
-      text-align: center;
-      vertical-align: middle;
-    }
-    &_calendar-container {
-      padding-right: 20px;
-    }
-    &_event-container {
-      padding: 50px;
-      background-color: $grey-color;
-    }
-    &_splash {
-      i {
-        @include font-size(40px);
-        color: $brand-color;
-      }
-      p {
-        @include font-size(14px);
-        line-height: 1.2;
-      }
-    }
-    &_controls {
-      padding: 20px 15px;
-      background-color: $brand-color;
-      font-weight: bold;
-      color: $light-color;
-    }
-    &_previous-month, &_month, &_next-month {
-      display: inline-block;
-    }
-    &_previous-month, &_next-month {
-      cursor: pointer;
-    }
-    &_previous-month {
-      float: left;
-    }
-    &_next-month {
-      float: right;
-    }
-    &_day-container {
-      border-bottom: 1px solid rgba($brand-color, 0.2);
-    }
-    &_day {
-      position: relative;
-      width: 14.285%;
-      margin: 0;
-      padding: 8px 0 25px;
-      border-top: 1px solid rgba($brand-color, 0.2);
-      border-left: 1px solid rgba($brand-color, 0.2);
-      &.calendar-dow-6 {
-        border-right: 1px solid rgba($brand-color, 0.2);
-      }
-      &--name {
-        padding: 15px 0 10px;
-        border: none;
-      }
-      &--today {
-        background: $grey-color;
-      }
-      &--event {
-        cursor: pointer;
-        &:after {
-          content: "";
-          position: absolute;
-          right: 10px; bottom: 10px; left: 10px;
-          display: block;
-          height: 4px;
-          background-color: $brand-color;
+        &.background--grey {
+            .module {
+                &_item-wrap {
+                    background-color: $light-color;
+                }
+            }
         }
-      }
-      &--selected {
-        background-color: $brand-color;
-        color: $light-color;
-        &:after {
-          background-color: $light-color;
+        &.module-event-list {
+            .module {
+                &_item {
+                    padding-left: 0;
+                    padding-top: 20px;
+                    &+.module_item {
+                        border-top: 1px solid $grey-dark-color;
+                    }
+                }
+            }
         }
-      }
-      &--adjacent-month {
-        color: rgba($body-color, 0.1);
-        pointer-events: none;
-        &:after {
-            content: none;
+    } // Upcoming Event Module
+    &-upcoming {
+        .module {
+            &_nav {
+                display: none;
+            }
+            &_item {
+                padding: 0 0 10px;
+                &~.module_item {
+                    padding: 30px 0 10px;
+                }
+            }
         }
-      }
-      @include layout-small {
-        display: inline-block;
-      }
-    }
-    .module {
-      &_item {
-        padding: 0;
-      }
-      &_date-time, &_headline {
-        margin-bottom: 20px;
-      }
-      &_add-to-calendar {
-        margin: 0;
-      }
-    }
-    @include layout-medium {
-      display: block;
-      &_calendar-container, &_event-container {
-        display: block;
+    } // Event Calendar Widget
+    &-calendar {
+        display: table;
         width: 100%;
-      }
-      &_calendar-container {
-        padding-right: 0;
-      }
-      &_event-container {
-        margin-top: 20px;
-      }
+        &_calendar-container,
+        &_event-container {
+            display: table-cell;
+            width: 50%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        &_calendar-container {
+            padding-right: 20px;
+        }
+        &_event-container {
+            padding: 50px;
+            background-color: $grey-color;
+        }
+        &_splash {
+            i {
+                @include font-size(40px);
+                color: $brand-color;
+            }
+            p {
+                @include font-size(14px);
+                line-height: 1.2;
+            }
+        }
+        &_controls {
+            padding: 20px 15px;
+            background-color: $brand-color;
+            font-weight: bold;
+            color: $light-color;
+        }
+        &_previous-month,
+        &_month,
+        &_next-month {
+            display: inline-block;
+        }
+        &_previous-month,
+        &_next-month {
+            cursor: pointer;
+        }
+        &_previous-month {
+            float: left;
+        }
+        &_next-month {
+            float: right;
+        }
+        &_day-container {
+            border-bottom: 1px solid rgba($brand-color, 0.2);
+        }
+        &_day {
+            position: relative;
+            width: 14.285%;
+            margin: 0;
+            padding: 8px 0 25px;
+            border-top: 1px solid rgba($brand-color, 0.2);
+            border-left: 1px solid rgba($brand-color, 0.2);
+            &.calendar-dow-6 {
+                border-right: 1px solid rgba($brand-color, 0.2);
+            }
+            &--name {
+                padding: 15px 0 10px;
+                border: none;
+            }
+            &--today {
+                background: $grey-color;
+            }
+            &--event {
+                cursor: pointer;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    left: 10px;
+                    display: block;
+                    height: 4px;
+                    background-color: $brand-color;
+                }
+            }
+            &--selected {
+                background-color: $brand-color;
+                color: $light-color;
+                &:after {
+                    background-color: $light-color;
+                }
+            }
+            &--adjacent-month {
+                color: rgba($body-color, 0.1);
+                pointer-events: none;
+                &:after {
+                    content: none;
+                }
+            }
+            @include layout-small {
+                display: inline-block;
+            }
+        }
+        .module {
+            &_item {
+                padding: 0;
+            }
+            &_date-time,
+            &_headline {
+                margin-bottom: 20px;
+            }
+            &_add-to-calendar {
+                margin: 0;
+            }
+        }
+        @include layout-medium {
+            display: block;
+            &_calendar-container,
+            &_event-container {
+                display: block;
+                width: 100%;
+            }
+            &_calendar-container {
+                padding-right: 0;
+            }
+            &_event-container {
+                margin-top: 20px;
+            }
+        }
     }
-  }
 }
