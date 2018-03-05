@@ -1121,7 +1121,7 @@ a:focus {
     animation: spin 0.8s infinite linear;
 }
 .js--hidden {
-    display: none;
+    display: none !important;
 }
 .js--visible {
     display: block;
