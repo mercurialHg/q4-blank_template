@@ -625,7 +625,7 @@ var q4Defaults = {
                     errors = inst._mailingListValidation( $parent );
 
                 if ( !errors.length ) {
-                    $parent.find('.CaptchaContainer').data( 'container', $parent.attr('id') );
+                    $parent.find('.CaptchaContainer').removeClass('js--hidden').data( 'container', $parent.attr('id') );
 
                     $.fancybox.open({
                         src  : $parent.find('.CaptchaContainer'),
