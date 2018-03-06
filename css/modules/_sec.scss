@@ -1,84 +1,89 @@
 /*-------- SEC Module CSS --------*/
 
 .module-sec {
-  .module {
-    &_header {
-      display: block;
-      background-color: $brand-color;
-      &-text {
-        padding: 15px 8px;
-        color: $light-color;
-      }
-    }
-    &_item {
-      padding: 0;
-      & ~ .module_item {
-        border: 0;
-      }
-      &:nth-child(odd) {
-        background-color: $darken-color;
-      }
-      .grid_col {
-        vertical-align: middle;
-        padding: 15px 8px;
-      }
-      .module-sec_filing {
-        font-weight: bold;
-      }
-    }
-    @include layout-medium {
-      &_header {
-        display: none;
-        // For the Module
-        & + .module_item {
-          border-top: 2px solid $brand-color;
+    .module {
+        &_header {
+            display: block;
+            background-color: $brand-color;
+            &-text {
+                padding: 15px 8px;
+                color: $light-color;
+            }
         }
-      }
-      &_item {
-        padding: 15px 0;
-        // For the widget
-        &:first-child {
-          border-top: 2px solid $brand-color;
+        &_item {
+            padding: 0;
+            &~.module_item {
+                border: 0;
+            }
+            &:nth-child(odd) {
+                background-color: $darken-color;
+            }
+            .grid_col {
+                vertical-align: middle;
+                padding: 15px 8px;
+            }
+            .module-sec_filing {
+                font-weight: bold;
+            }
         }
-        &:last-child {
-          border-bottom: 2px solid $brand-color;
+        @include layout-medium {
+            &_header {
+                display: none; // For the Module
+                &+.module_item {
+                    border-top: 2px solid $brand-color;
+                }
+            }
+            &_item {
+                padding: 15px 0; // For the widget
+                &:first-child {
+                    border-top: 2px solid $brand-color;
+                }
+                &:last-child {
+                    border-bottom: 2px solid $brand-color;
+                }
+                .grid_col {
+                    padding: 0 5px;
+                } // For the module
+                &+.module_footer {
+                    border-bottom: 2px solid $brand-color;
+                }
+            }
         }
-        .grid_col {
-          padding: 0 5px;
-        }
-        // For the module
-        & + .module_footer {
-          border-bottom: 2px solid $brand-color;
-        }
-      }
-    }
-  }
-  &_download-list {
-    &-item {
-      display: inline-block;
-      @include font-size(24px);
-    }
-    &-item:not(:last-of-type) {
-      margin-right: 5px;
-    }
-  }
-  @include layout-medium {
-    &_date, &_filer, &_filing, &_description {
-      margin-bottom: 15px;
-    }
-  }
-  &-details {
-    &_date, &_description {
-      margin-bottom: 15px;
     }
     &_download-list {
-      &-item {
-        display: inline-block;
-        @include font-size(24px);
-      }
-      &-item:not(:last-of-type) {
-        margin-right: 5px;
-      }
+        &-item {
+            display: inline-block;
+        }
+        .module_link {
+            margin: 0;
+            &:before {
+                @include font-size(24px);
+            }
+        }
     }
-  }
+    @include layout-medium {
+        &_date,
+        &_filer,
+        &_filing,
+        &_description {
+            margin-bottom: 15px;
+        }
+    }
+    &-details {
+        &_date,
+        &_description {
+            margin-bottom: 15px;
+        }
+        &_download-list {
+            &-item {
+                display: inline-block;
+            }
+            .module_link {
+                margin: 0;
+                &:before {
+                    @include font-size(24px);
+                }
+            }
+        }
+    }
 }

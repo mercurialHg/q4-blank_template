@@ -247,7 +247,7 @@ var q4Defaults = {
         });
 
         if ($el.find('.module_confirmation-container').text().trim().length) {
-            $('.module-subscribe').addClass('js--hidden');
+            $('.module-subscribe').not(inst.options.mailingListConfig.location+' .module-subscribe').addClass('js--hidden');
             $el.find('.module_introduction, .module-unsubscribe_table, .module_actions').addClass('js--hidden');
             inst.scrollTo($el);
         }
@@ -360,6 +360,7 @@ var q4Defaults = {
      * Accessible Navigation powered by Superfish
      * @param {$nav} [element]  the nav element (or ul element) you would like to apply superfish to
      * @param {options} [object]  options to be passed into superfish
+     * @param {initAndroid} [boolean] (optional) if true, the androidTap function is initialized. Defaults to true
      * @example app.superfish($('.nav--secondary .level2'), {cssArrows:false}, 1024)
      */
     superfish: function($nav, options, initAndroid) {
@@ -624,7 +625,7 @@ var q4Defaults = {
                     errors = inst._mailingListValidation( $parent );
 
                 if ( !errors.length ) {
-                    $parent.find('.CaptchaContainer').data( 'container', $parent.attr('id') );
+                    $parent.find('.CaptchaContainer').removeClass('js--hidden').data( 'container', $parent.attr('id') );
 
                     $.fancybox.open({
                         src  : $parent.find('.CaptchaContainer'),

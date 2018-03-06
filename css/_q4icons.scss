@@ -1,54 +1,70 @@
 /*==================================
  -------- Q4 Modules Icons ---------
 ==================================*/
+
 .module_q4-icon-links {
-  .module_link:before {
-    @include icon(eecd);
-    font-size: 16px;
-    vertical-align: middle;
-    display: inline-block;
-    padding-right: 5px;
-  }
-  .module_add-to-calendar-reveal:before {
-    content: "\ea5f";
-    padding-right: 5px;
-  }
-  .module_link[href$=".mp3"]:before,
-  .module_link[href$=".wmv"]:before,
-  .module_link[href$=".MP3"]:before,
-  .module_link[href$=".WMV"]:before {
-    content: "\e952";
-  }
-  .module_link[href$=".xls"]:before,
-  .module_link[href$=".csv"]:before,
-  .module_link[href$=".XLS"]:before,
-  .module_link[href$=".CSV"]:before {
-    content: "\eeae";
-  }
-  .module_link[href$=".mp4"]:before,
-  .module_link[href$=".flv"]:before,
-  .module_link[href$=".avi"]:before,
-  .module_link[href$=".MP4"]:before,
-  .module_link[href$=".FLV"]:before,
-  .module_link[href$=".AVI"]:before {
-    content: "\e95e";
-  }
-  .module_link[href$=".pdf"]:before,
-  .module_link[href$=".PDF"]:before {
-    content: "\e900";
-  }
-  .module_link.module_link-webcast:before,
-  .module_webcast-link:before {
-    content: "\e989";
-  }
-  .module_link.module_link-news:before,
-  .module_link.module_link-transcript:before {
-    content: "\e99b";
-  }
-  .module_link.module_link-presentation:before {
-    content: "\e95c";
-  }
-  .module_link.module_link-file:before {
-    content: "\eb81";
-  }
+    .module_link:before {
+        @include icon(eecd);
+        font-size: 16px;
+        vertical-align: middle;
+        display: inline-block;
+        padding-right: 5px;
+    }
+    .module_add-to-calendar-reveal:before {
+        content: "\ea5f";
+        padding-right: 5px;
+    }
+    .module_link[href$=".mp3"]:before,
+    .module_link[href$=".wmv"]:before,
+    .module_link[href$=".MP3"]:before,
+    .module_link[href$=".WMV"]:before {
+        content: "\e952";
+    }
+    .module_link[href$=".xls"]:before,
+    .module_link[href$=".csv"]:before,
+    .module_link[href$=".XLS"]:before,
+    .module_link[href$=".CSV"]:before {
+        content: "\eeae";
+    }
+    .module_link[href$=".mp4"]:before,
+    .module_link[href$=".flv"]:before,
+    .module_link[href$=".avi"]:before,
+    .module_link[href$=".MP4"]:before,
+    .module_link[href$=".FLV"]:before,
+    .module_link[href$=".AVI"]:before {
+        content: "\e95e";
+    }
+    .module_link[href$=".pdf"]:before,
+    .module_link[href$=".PDF"]:before {
+        content: "\e900";
+    }
+    .module_link.module_link-webcast:before,
+    .module_webcast-link:before {
+        content: "\e989";
+    }
+    .module_link.module_link-news:before,
+    .module_link.module_link-transcript:before {
+        content: "\e99b";
+    }
+    .module_link.module_link-presentation:before {
+        content: "\e95c";
+    }
+    .module_link.module_link-file:before {
+        content: "\eb81";
+    }
+    .module_link.module_link-sec:before {
+        content: "\e9bb";
+    }
+    .module_link.module_link-sec[href$=".pdf"]:before {
+        content: "\ef3e";
+    }
+    .module_link.module_link-sec[href$=".rtf"]:before {
+        content: "\ef40";
+    }
+    .module_link.module_link-sec[href$=".xls"]:before {
+        content: "\ef41";
+    }
+    .module_link.module_link-sec[href$=".zip"]:before {
+        content: "\e9b9";
+    }
 }

@@ -1,19 +1,25 @@
 /*==================================
  --------- ACCESSIBILITY ----------
 ==================================*/
+*:focus {
+    outline: none;
+}
+
 a:focus {
-  text-decoration: underline !important;
+    text-decoration: underline !important;
 }
+
 .sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0,0,0,0) !important;
-  border: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
 }
+
 #maincontent:focus {
-  outline: 0px;
+    outline: 0px;
 }

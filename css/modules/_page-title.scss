@@ -1,9 +1,8 @@
 /*---------- Page Title ----------*/
-
 .module-page-title {
-  .module {
-    &_title {
-      @include font-size(50px);
+    .module {
+        &_title {
+            @include font-size(50px);
+        }
     }
-  }
 }

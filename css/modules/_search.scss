@@ -1,50 +1,49 @@
 /*-------- Search Modules --------*/
-
 .module-search {
-  position: relative;
-  &_input[type="text"] {
-    display: inline-block;
-    padding: 7px;
-    border: 1px solid $light-color;
-    color: $light-color;
-    background: transparent;
-    @include font-size(14px);
-    &::-webkit-input-placeholder {
-      color: inherit;
+    position: relative;
+    &_input[type="text"] {
+        display: inline-block;
+        padding: 7px;
+        border: 1px solid $light-color;
+        color: $light-color;
+        background: transparent;
+        @include font-size(14px);
+        &::-webkit-input-placeholder {
+            color: inherit;
+        }
+        &::-moz-placeholder {
+            color: inherit;
+        }
+        &::-ms-input-placeholder {
+            color: inherit;
+        }
     }
-    &::-moz-placeholder {
-      color: inherit;
+    &_button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        padding: 0;
+        border: 0;
+        font-size: 0;
+        cursor: pointer;
+        background: transparent url($host+'/design/svg/search-white.svg');
+        background-size: 100%;
     }
-    &::-ms-input-placeholder {
-      color: inherit;
+    &-result {
+        &_link {
+            margin-bottom: 15px;
+        }
+        &_description {
+            display: block;
+            margin-bottom: 15px;
+            &:after {
+                content: "...";
+            }
+        }
+        &_url {
+            display: none;
+        }
     }
-  }
-  &_button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    border: 0;
-    font-size: 0;
-    cursor: pointer;
-    background: transparent url($host+'/files/design/svg/search-white.svg');
-    background-size: 100%;
-  }
-  &-result {
-    &_link {
-      margin-bottom: 15px;
-    }
-    &_description {
-      display: block;
-      margin-bottom: 15px;
-      &:after {
-        content: "...";
-      }
-    }
-    &_url {
-      display: none;
-    }
-  }
 }

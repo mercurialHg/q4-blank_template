@@ -3,324 +3,329 @@
 ==================================*/
 
 /*-------- All Module CSS --------*/
-
 .module {
-  // Hidden
-  &_header, &_back-to-top, &_anchor-target,
-  &_file-size, &_file-type, &_file-text {
-    display: none;
-  }
-  // Small Spacing
-  &_nav, &_headline, &_location, &_speakers,
-  &_links, &_body,
-  &_options, &_not-found {
-    margin-bottom: 15px;
-  }
-  // Large Spacing
-  &_error-container {
-    margin-bottom: 30px;
-    color: $error-color;
-  }
-  &_add-to-calendar {
-    &-reveal {
-      color: $brand-color;
-      cursor: pointer;
-      &:focus {
-        text-decoration: underline;
-      }
-    }
-    &-list {
-      display: none;
-      &:after {
-        content: "Select your Calendar";
-        display: block;
-        margin-top: 15px;
-        @include font-size(14px);
-        text-align: center;
-      }
-      @at-root .fancybox-container & {
-        padding: 70px;
-      }
-    }
-    &-item {
-      display: inline-block;
-      margin: 0 10px;
-      &--ics {
+    // Hidden
+    &_header,
+    &_back-to-top,
+    &_anchor-target,
+    &_file-size,
+    &_file-type,
+    &_file-text {
         display: none;
-      }
-    }
-    &-link {
-      @include font-size(24px);
-      outline: none;
-    }
-    @at-root .fancybox-container .module_add-to-calendar-link:focus {
-        outline: auto;
-    }
-    &.js--hidden {
-      display: none;
-    }
-  }
-  &_actions, &_pager {
-    margin-top: 20px;
-  }
-  &_date-time {
-    margin-bottom: 5px;
-    @include font-size(14px);
-  }
-  &_error-container {
-    display: block;
-    ul {
-      padding-left: 18px;
-      list-style-type: disc;
-      & > li {
-        line-height: 1.5;
-      }
-    }
-    & > br {
-      display: none;
-    }
-    & > span {
-      display: block;
-      line-height: 1.5;
-      &:before {
-        @include icon("ec6b");
-        margin-right: 5px;
-      }
-    }
-  }
-  &_headline {
-    font-weight: normal;
-    &-link, &-link:visited {
-      color: $body-color;
-    }
-  }
-  &_image {
-    display: inline-block;
-    max-width: 30%;
-    margin-bottom: 16px;
-    &--right {
-      float: right;
-      margin-left: 32px;
-    }
-    &--left {
-      float: left;
-      margin-right: 32px;
-    }
-  }
-  &_introduction {
-    margin-bottom: 35px;
-  }
-  &_item {
-    padding: 30px 0 10px;
-    & ~ .module_item {
-      border-top: 1px solid $grey-dark-color;
-    }
-  }
-  &_label {
-    display: inline-block;
-    margin-bottom: 5px;
-    @include font-size(14px);
-    & + .module_required {
-      @include font-size(14px);
-    }
-  }
-  &_links {
-    > *, li, .module_presentation {
-      display: inline;
-      @include layout-small {
-        display: block;
-      }
-    }
-  }
-  &_links {
-    &.module_links--stack {
-      > *, li, .module_presentation {
-        display: block;
-      }
-    }
-  }
-  &_link {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 15px 5px 0;
-    @include font-size(14px);
-    font-weight: bold;
-    text-transform: uppercase;
-    // i, &:before {
-    //   display: inline-block;
-    //   padding-right: 2px;
-    // }
-    // Make sure the icons are center aligned
-    & > &-text, & > i {
-      vertical-align: middle;
-    }
-    & > i:before {
-      display: block;
-    }
-    // CMS Module Definition work-around
-    &[style="DISPLAY:block;"], &[style="display: block;"] {
-      display: inline-block !important;
-    }
-  }
-  &_loader {
-    display: inline-block;
-    animation: spin 1s linear infinite;
-  }
-  &_message {
-    display: block;
-    margin: 16px 0;
-    // Overwrite Default Module Functionality
-    &[style$="hidden;"], &:empty {
-      display: none;
-    }
-    &--success {
-      color: $success-color;
-      &:before {
-        @include icon("ed71");
-        margin-right: 5px;
-      }
-    }
-    &--error {
-      color: $error-color;
-      &:before {
-        @include icon("ed4f");
-        margin-right: 5px;
-      }
-    }
-  }
-  &_nav {
-    &-link, .ModuleYearLink,
-    &-link:visited, .ModuleYearLink:visited {
-      display: inline-block;
-      margin-right: 5px;
-      padding: 15px 20px;
-      border: 2px solid $brand-color;
-      color: $body-color;
-      font-weight: normal;
-      &.selected, &.selected:visited {
-        background-color: $brand-color;
-        color: $light-color;
-      }
-      @include layout-small {
-        margin-bottom: 10px;
-      }
-    }
-  }
-  &_options {
-    &-label, &-select {
-      margin-right: 10px;
-    }
-    @include layout-medium {
-      &-label, &-select, &-submit {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-    @include layout-small {
-       &-label, &-select, &-submit {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-  }
-  &_pager {
-    a {
-      color: $body-color;
-      &[href] {
-        color: $brand-color;
-      }
-    }
-  }
-  &_reminder {
-    .module_input.module_reminder-period, .module_input.module_reminder-email {
-      margin-right: 10px;
-    }
-    &.js--reminded {
-      display: none;
-    }
-  }
-  &_required {
-    color: $body-color;
-  }
-  &_required {
-    &-text {
-      @include font-size(13px);
-      color: $body-color;
-    }
-  }
-  &_rss {
-    float: right;
-  }
-  &_speakers {
-    li {
-      margin-bottom: 5px;
-    }
-  }
-  &_title {
-    text-transform: uppercase;
-  }
-  &_view-all-link {
-    @include font-size(14px);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-
-  // All Inputs
-  &_input[type="text"], &_input[type="email"],
-  &_input[type="file"], &_dropdown, textarea.module_input {
-    display: block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* Text area demands width*/
-    width: 100%;
-    max-width: none;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 0;
-    background-color: $grey-color;
-    font-family: $body-font;
-    @include font-size(16px);
-    font-weight: 300;
-    &::-ms-clear {
-      display: none;
-    }
-  }
-  textarea.module_input {
-    resize: vertical;    
-  }
-  &_input[type="file"], &_dropdown {
-    cursor: pointer;
-  }
-  &_input[type="file"] {
-    line-height: 1;
-  }
-  &_input {
-    &--brand[type="text"] {
-      display: inline-block;
-      width: auto;
-      padding: 15px 20px;
-      border: 2px solid $brand-color;
-      background: transparent;
-    }
-  }
-  &_dropdown {
-    background: $grey-color url($host+'/files/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
-    background-size: 14px 14px;
-    &::-ms-expand {
-      display: none;
-    }
-  }
-
-  // All details modules
-  &-details {
-    .module {
-      &_date-time {
+    } // Small Spacing
+    &_nav,
+    &_headline,
+    &_location,
+    &_speakers,
+    &_links,
+    &_body,
+    &_options,
+    &_not-found {
         margin-bottom: 15px;
-      }
+    } // Large Spacing
+    &_error-container {
+        margin-bottom: 30px;
+        color: $error-color;
     }
-  }
+    &_add-to-calendar {
+        &-reveal {
+            color: $brand-color;
+            cursor: pointer;
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+        &-list {
+            display: none;
+            &:after {
+                content: "Select your Calendar";
+                display: block;
+                margin-top: 15px;
+                @include font-size(14px);
+                text-align: center;
+            }
+            @at-root .fancybox-container & {
+                padding: 70px;
+            }
+        }
+        &-item {
+            display: inline-block;
+            margin: 0 10px;
+            &--ics {
+                display: none;
+            }
+        }
+        &-link {
+            @include font-size(24px);
+        }
+        &.js--hidden {
+            display: none;
+        }
+    }
+    &_actions,
+    &_pager {
+        margin-top: 20px;
+    }
+    &_date-time {
+        margin-bottom: 5px;
+        @include font-size(14px);
+    }
+    &_error-container {
+        display: block;
+        ul {
+            padding-left: 18px;
+            list-style-type: disc;
+            &>li {
+                line-height: 1.5;
+            }
+        }
+        &>br {
+            display: none;
+        }
+        &>span {
+            display: block;
+            line-height: 1.5;
+            &:before {
+                @include icon("ec6b");
+                margin-right: 5px;
+            }
+        }
+    }
+    &_headline {
+        font-weight: normal;
+        &-link,
+        &-link:visited {
+            color: $body-color;
+        }
+    }
+    &_image {
+        display: inline-block;
+        max-width: 30%;
+        margin-bottom: 16px;
+        &--right {
+            float: right;
+            margin-left: 32px;
+        }
+        &--left {
+            float: left;
+            margin-right: 32px;
+        }
+    }
+    &_introduction {
+        margin-bottom: 35px;
+    }
+    &_item {
+        padding: 30px 0 10px;
+        &~.module_item {
+            border-top: 1px solid $grey-dark-color;
+        }
+    }
+    &_label {
+        display: inline-block;
+        margin-bottom: 5px;
+        @include font-size(14px);
+        &+.module_required {
+            @include font-size(14px);
+        }
+    }
+    &_links {
+        >*,
+        li,
+        .module_presentation {
+            display: inline;
+            @include layout-small {
+                display: block;
+            }
+        }
+    }
+    &_links {
+        &.module_links--stack {
+            >*,
+            li,
+            .module_presentation {
+                display: block;
+            }
+        }
+    }
+    &_link {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 15px 5px 0;
+        @include font-size(14px);
+        font-weight: bold;
+        text-transform: uppercase;
+        // Make sure the icons are center aligned
+        &>&-text,
+        &>i,
+        &>span {
+            vertical-align: middle;
+        }
+        &>i:before {
+            display: block;
+        } // CMS Module Definition work-around
+        &[style="DISPLAY:block;"],
+        &[style="display: block;"] {
+            display: inline-block !important;
+        }
+    }
+    &_loader {
+        display: inline-block;
+        animation: spin 1s linear infinite;
+    }
+    &_message {
+        display: block;
+        margin: 16px 0; // Overwrite Default Module Functionality
+        &[style$="hidden;"],
+        &:empty {
+            display: none;
+        }
+        &--success {
+            color: $success-color;
+            &:before {
+                @include icon("ed71");
+                margin-right: 5px;
+            }
+        }
+        &--error {
+            color: $error-color;
+            &:before {
+                @include icon("ed4f");
+                margin-right: 5px;
+            }
+        }
+    }
+    &_nav {
+        &-link,
+        .ModuleYearLink,
+        &-link:visited,
+        .ModuleYearLink:visited {
+            display: inline-block;
+            margin-right: 5px;
+            padding: 15px 20px;
+            border: 2px solid $brand-color;
+            color: $body-color;
+            font-weight: normal;
+            &.selected,
+            &.selected:visited {
+                background-color: $brand-color;
+                color: $light-color;
+            }
+            @include layout-small {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &_options {
+        &-label,
+        &-select {
+            margin-right: 10px;
+        }
+        @include layout-small {
+            &-label,
+            &-select,
+            &-submit {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &_pager {
+        a {
+            color: $body-color;
+            &[href] {
+                color: $brand-color;
+            }
+        }
+    }
+    &_reminder {
+        .module_input.module_reminder-period,
+        .module_input.module_reminder-email {
+            margin-right: 10px;
+        }
+        &.js--reminded {
+            display: none;
+        }
+    }
+    &_required {
+        color: $body-color;
+    }
+    &_required {
+        &-text {
+            @include font-size(13px);
+            color: $body-color;
+        }
+    }
+    &_rss {
+        float: right;
+    }
+    &_speakers {
+        li {
+            margin-bottom: 5px;
+        }
+    }
+    &_title {
+        text-transform: uppercase;
+    }
+    &_view-all-link {
+        @include font-size(14px);
+        font-weight: bold;
+        text-transform: uppercase;
+    } // All Inputs
+    &_input[type="text"],
+    &_input[type="email"],
+    &_input[type="file"],
+    &_dropdown,
+    textarea.module_input {
+        display: block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        /* Text area demands width*/
+        width: 100%;
+        max-width: none;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 0;
+        background-color: $grey-color;
+        font-family: inherit;
+        @include font-size(16px);
+        font-weight: 300;
+        &::-ms-clear {
+            display: none;
+        }
+    }
+    textarea.module_input {
+        resize: vertical;
+    }
+    &_input[type="file"],
+    &_dropdown {
+        cursor: pointer;
+    }
+    &_input[type="file"] {
+        line-height: 1;
+    }
+    &_input {
+        &--brand[type="text"] {
+            display: inline-block;
+            width: auto;
+            padding: 15px 20px;
+            border: 2px solid $brand-color;
+            background: transparent;
+        }
+    }
+    &_dropdown {
+        background: $grey-color url($host+'/design/svg/q4-icon_chevron-down-black.svg') no-repeat right 20px center;
+        background-size: 14px 14px;
+        &::-ms-expand {
+            display: none;
+        }
+    } // All details modules
+    &-details {
+        .module {
+            &_date-time {
+                margin-bottom: 15px;
+            }
+        }
+    }
 }

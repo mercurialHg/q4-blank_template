@@ -1,68 +1,85 @@
 /*------ Stock Quote Module ------*/
-
 .module-stock {
-  .module_options {
-    margin-bottom: 30px;
-  }
-  .module_container--content {
-    border-top: 1px solid rgba($dark-color, 0.2);
-  }
-  &.module-stock-historical .module-stock_empty {
-    @include layout-medium {
-      display: none;
+    .module_options {
+        margin-bottom: 30px;
     }
-  }
-  .stock-historical-range {
-    .module_options > *:not(:last-of-type) {
-      margin-bottom: 20px;
+    .module_container--content {
+        border-top: 1px solid rgba($dark-color, 0.2);
     }
-  }
-  &_lookup-title {
-    padding-left:20px;
-    @include layout-medium {
-      padding-left: 10px;
+    &.module-stock-historical .module-stock_empty {
+        @include layout-medium {
+            display: none;
+        }
     }
-    @include layout-small {
-      padding-left: 5px;
+    &-historical {
+        .module_options {
+            &-label,
+            &-select,
+            &-submit {
+                @include layout-medium {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
     }
-  }
-  &_label, &_value {
-    border-bottom: 1px solid rgba($dark-color, 0.2);
-    > span {
-      display: block;
-      padding: 15px 20px;
-      @include layout-medium {
-        padding: 15px 10px;
-      }
-      @include layout-small {
-        padding: 15px 0 15px 5px;
-      }
+    .stock-historical-range {
+        .module_options>*:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
     }
-  }
-  &_up {
-    color: $success-color;
-  }
-  &_down {
-    color: $error-color;
-  }
-  &_label {
-    font-weight: normal;
-  }
-  &_value {
-    .module-stock_price:before, .module-stock_high:before, .module-stock_low:before,
-    .module-stock_open:before, .module-stock_close:before,
-    .module-stock_week-low:before, .module-stock_week-high:before,
-    .module-stock_previous-close:before {
-      content: "$"
+    &_lookup-title {
+        padding-left: 20px;
+        @include layout-medium {
+            padding-left: 10px;
+        }
+        @include layout-small {
+            padding-left: 5px;
+        }
     }
-  }
-  &_date {
-    margin-top: 25px;
-    @include font-size(14px);
-    font-style: italic;
-    text-align: right;
-    &-text {
-      margin-right: 15px;
+    &_label,
+    &_value {
+        border-bottom: 1px solid rgba($dark-color, 0.2);
+        >span {
+            display: block;
+            padding: 15px 20px;
+            @include layout-medium {
+                padding: 15px 10px;
+            }
+            @include layout-small {
+                padding: 15px 0 15px 5px;
+            }
+        }
     }
-  }
+    &_up {
+        color: $success-color;
+    }
+    &_down {
+        color: $error-color;
+    }
+    &_label {
+        font-weight: normal;
+    }
+    &_value {
+        .module-stock_price:before,
+        .module-stock_high:before,
+        .module-stock_low:before,
+        .module-stock_open:before,
+        .module-stock_close:before,
+        .module-stock_week-low:before,
+        .module-stock_week-high:before,
+        .module-stock_previous-close:before {
+            content: "$"
+        }
+    }
+    &_date {
+        margin-top: 25px;
+        @include font-size(14px);
+        font-style: italic;
+        text-align: right;
+        &-text {
+            margin-right: 15px;
+        }
+    }
 }

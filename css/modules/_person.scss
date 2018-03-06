@@ -1,225 +1,222 @@
 /*------ Person List Module ------*/
-
 .module-person {
-  // Person Module
-  .module-person_description, .module-person_res-photo-container,
-  .module_comma {
-    display: none;
-  }
-  .module_item {
-    position: relative;
-    padding: 0 0 20px 20px;
-    border: none;
-    &:hover, &:focus {
-      .module-person_name-container {
-        opacity: 1;
-        // visibility: visible;
-      }
-    }
-    &:focus {
-        // outline: none;
-    }
-  }
-  .module-person_photo-container {
-    border-radius: 100%;
-    overflow: hidden;
-    img {
-      width: 100%;
-    }
-  }
-  .module-person_name-container {
-    position: absolute;
-    top: 0; right: 0; bottom: 20px; left: 20px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 100%;
-    opacity: 0;
-    // visibility: hidden;
-    text-align: center;
-    cursor: pointer;
-    &:focus {
-        opacity: 1;
-    }
-    h3 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      margin: 0;
-      transform: translate(-50%,-50%);
-      color: $light-color;
-    }
-    a {
-      color: $light-color;
-    }
-  }
-  .module-person_name {
-    display: block;
-    @include font-size(18px);
-    text-transform: uppercase;
-  }
-  .module-person_suffix, &_title {
-    @include font-size(13px);
-  }
-  // Fancybox popup
-  @at-root .fancybox-container & {
-    .module_item {
-      max-width: 940px;
-      padding: 70px;
-    }
-    &_photo-container, &_name-container {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    &_name-container {
-      position: static;
-      background: transparent;
-      text-align: left;
-      opacity: 1;
-      cursor: initial;
-      outline: none;
-      h3 {
-        position: static;
-        transform: none;
-      }
-      a {
-        color: $body-color;
-      }
-    }
-    &_photo-container {
-      max-width: 30%;
-      margin-right: 40px;
-      @include layout-medium {
-        margin-right: 15px;
-        margin-bottom: 35px;
-      }
-      @include layout-small {
-        margin-right: 0;
-        max-width: none;
-      }
-    }
-    &_name {
-      display: block;
-      margin-bottom: 10px;
-      @include font-size(36px);
-      line-height: 1.45;
-      color: $brand-color;
-      @include layout-small {
-        @include font-size(24px);
-        line-height: 1.2;
-      }
-    }
-    &_title {
-      @include font-size(24px);
-      @include layout-small {
-        @include font-size(18px);
-        line-height: 1.125;
-      }
-    }
-    &_description-container {
-      margin-top: 40px;
-    }
-    &_description {
-      display: block;
-    }
-  }
-  // Person Accordion
-  &-accordion {
-    .module-person_name-container {
-      padding: 20px 15px;
-      margin-bottom: 10px;
-      background-color: $brand-color;
-      color: $light-color;
-      cursor: pointer;
-      h3 {
-        @include font-size(18px);
-        font-weight: bold;
-        color: inherit;
-        margin: 0;
-        &:before {
-          float: right;
-          @include icon('ed5d');
-        }
-      }
-    }
-    .module_item {
-      padding: 0;
-      border: 0 none;
-      &.js--active h3:before {
-        content: "\ed5e";
-      }
-    }
-    .module-person_name {
-      margin-right: 10px;
-    }
-    .module-person_title {
-      @include font-size(14px);
-    }
+    // Person Module
+    .module-person_description,
+    .module-person_res-photo-container,
     .module_comma {
-      display: none
+        display: none;
     }
-    .module-person_description-container {
-      padding: 15px;
+    .module_item {
+        position: relative;
+        padding: 0 0 20px 20px;
+        border: none;
+        &:hover {
+            .module-person_name-container {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
     }
     .module-person_photo-container {
-      float: left;
-      margin:0 25px 15px 0;
-      @include layout-medium {
-        float: none;
-        margin: 0 auto 15px auto;
+        border-radius: 100%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .module-person_name-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 100%;
+        opacity: 0;
+        visibility: hidden;
         text-align: center;
-      }
-      img {
+        cursor: pointer;
+        h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            color: $light-color;
+        }
+        a {
+            color: $light-color;
+        }
+    }
+    .module-person_name {
         display: block;
-        margin:auto;
-      }
+        @include font-size(18px);
+        text-transform: uppercase;
     }
-    .module-person_description > *:first-child {
-      margin-top: 0;
-    }
-    .module-person_res-photo-container > span {
-      margin-right: 10px;
-      @include layout-medium {
-        display: block;
-        margin: 0 0 10px 0;
-      }
-    }
-  }
-  // Person Details Module
-  &-details {
-    .module_title {
-      display: none;
-    }
-    .module_comma {
-      display: none;
-    }
-    &_photo-container, &_name-container {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    &_photo-container {
-      max-width: 30%;
-      margin-right: 40px;
-      @include layout-medium {
-        margin-right: 15px;
-        margin-bottom: 35px;
-      }
-      @include layout-small {
-        margin-right: 0;
-        max-width: none;
-      }
-    }
-    &_name {
-      display: block;
-      margin-bottom: 10px;
-      @include font-size(36px);
-      color: $brand-color;
-    }
+    .module-person_suffix,
     &_title {
-      display: block;
-      @include font-size(24px);
+        @include font-size(13px);
+    } // Fancybox popup
+    @at-root .fancybox-container & {
+        .module_item {
+            max-width: $layout-width;
+            padding: 70px;
+        }
+        &_photo-container,
+        &_name-container {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &_name-container {
+            position: static;
+            background: transparent;
+            text-align: left;
+            opacity: 1;
+            visibility: visible;
+            cursor: initial;
+            h3 {
+                position: static;
+                transform: none;
+            }
+            a {
+                color: $body-color;
+            }
+        }
+        &_photo-container {
+            max-width: 30%;
+            margin-right: 40px;
+            @include layout-medium {
+                margin-right: 15px;
+                margin-bottom: 35px;
+            }
+            @include layout-small {
+                margin-right: 0;
+                max-width: none;
+            }
+        }
+        &_name {
+            display: block;
+            margin-bottom: 10px;
+            @include font-size(36px);
+            line-height: 1.45;
+            color: $brand-color;
+            @include layout-small {
+                @include font-size(24px);
+                line-height: 1.2;
+            }
+        }
+        &_title {
+            @include font-size(24px);
+            @include layout-small {
+                @include font-size(18px);
+                line-height: 1.125;
+            }
+        }
+        &_description-container {
+            margin-top: 40px;
+        }
+        &_description {
+            display: block;
+        }
+    } // Person Accordion
+    &-accordion {
+        .module-person_name-container {
+            padding: 20px 15px;
+            margin-bottom: 10px;
+            background-color: $brand-color;
+            color: $light-color;
+            cursor: pointer;
+            h3 {
+                @include font-size(18px);
+                font-weight: bold;
+                color: inherit;
+                margin: 0;
+                &:before {
+                    float: right;
+                    @include icon('ed5d');
+                }
+            }
+        }
+        .module_item {
+            padding: 0;
+            border: 0 none;
+            &.js--active h3:before {
+                content: "\ed5e";
+            }
+        }
+        .module-person_name {
+            margin-right: 10px;
+        }
+        .module-person_title {
+            @include font-size(14px);
+        }
+        .module_comma {
+            display: none
+        }
+        .module-person_description-container {
+            padding: 15px;
+        }
+        .module-person_photo-container {
+            float: left;
+            margin: 0 25px 15px 0;
+            @include layout-medium {
+                float: none;
+                margin: 0 auto 15px auto;
+                text-align: center;
+            }
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+        .module-person_description>*:first-child {
+            margin-top: 0;
+        }
+        .module-person_res-photo-container>span {
+            margin-right: 10px;
+            @include layout-medium {
+                display: block;
+                margin: 0 0 10px 0;
+            }
+        }
+    } // Person Details Module
+    &-details {
+        .module_title {
+            display: none;
+        }
+        .module_comma {
+            display: none;
+        }
+        &_photo-container,
+        &_name-container {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &_photo-container {
+            max-width: 30%;
+            margin-right: 40px;
+            @include layout-medium {
+                margin-right: 15px;
+                margin-bottom: 35px;
+            }
+            @include layout-small {
+                margin-right: 0;
+                max-width: none;
+            }
+        }
+        &_name {
+            display: block;
+            margin-bottom: 10px;
+            @include font-size(36px);
+            color: $brand-color;
+        }
+        &_title {
+            display: block;
+            @include font-size(24px);
+        }
+        &_description-container {
+            margin-top: 40px;
+        }
     }
-    &_description-container {
-      margin-top: 40px;
-    }
-  }
 }

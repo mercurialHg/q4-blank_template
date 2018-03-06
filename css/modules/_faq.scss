@@ -1,28 +1,27 @@
 /*---------- FAQ Module ----------*/
-
 .module-faq {
-	&_question {
-    margin-top: 0;
-		cursor: pointer;
-	}
-	&_answer {
-		p {
-			margin: 0;
-			padding: 0 0 calculatePixels(1rem);
-		}
-	}
-  .toggle-all {
-    a {
-      &:before {
-        content: "Show all";
-      }
+    &_question {
+        margin-top: 0;
+        cursor: pointer;
     }
-    &.js--active {
-      a {
-        &:before {
-        content: "Hide all";
+    &_answer {
+        p {
+            margin: 0;
+            padding: 0 0 calculatePixels(1rem);
         }
-      }
     }
-  }
+    .toggle-all {
+        a {
+            &:before {
+                content: "Show all";
+            }
+        }
+        &.js--active {
+            a {
+                &:before {
+                    content: "Hide all";
+                }
+            }
+        }
+    }
 }

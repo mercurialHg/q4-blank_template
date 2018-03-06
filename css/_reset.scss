@@ -1,7 +1,6 @@
 /*==================================
  ------------ RESET CSS -----------
 ==================================*/
-
 html, body, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, blockquote, pre,
 abbr, acronym, address, big, cite, code,
@@ -14,8 +13,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video
-/* div, p, a, ol, ul, li, span */ {
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,43 +21,59 @@ time, mark, audio, video
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 html {
-  font-size: $body-size;
+    font-size: $body-size;
 }
-nav, .list--reset {
-  ol, ul:not(.list) {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+
+nav,
+.list--reset {
+    ol,
+    ul:not(.list) {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
-blockquote, q {
-  quotes: none;
+
+blockquote,
+q {
+    quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
 }
+
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 em {
-  font-style: italic;
+    font-style: italic;
 }

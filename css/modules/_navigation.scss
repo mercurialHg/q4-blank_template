@@ -1,246 +1,264 @@
 /*------ Navigation Modules ------*/
-
 .nav {
-  // Header Pane Nav
-  &--main {
-    margin-bottom: 15px;
-    li {
-        position: relative;
-      a {
-        display: block;
-        padding: 20px 0;;
-        border-bottom: 2px solid transparent;
-        color: #fff;
-        font-weight: normal;
-      }
-      &:hover > a, &.selected > a, &.expanded > a,
-      a:hover, a:focus {
-        border-bottom: 2px solid #fff;
-        color: #fff;
-        outline: none;
-      }
-      &.has-children:hover > ul {
-        display: block;
-      }
-    }
-    .level2 {
-        border-left: 20px solid $brand-color;
-        min-width: 220px;
-        background: darken($brand-color, 7.5%);
-        &, .level3 {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            z-index: 200;
-            white-space: nowrap;
-        }
+    // Header Pane Nav
+    &--main {
+        margin-bottom: 15px;
         li {
-            &:hover, &.selected, &.expanded {
-                background: $brand-color;
-            }
-            &:hover > a, &.selected > a, &.expanded > a,
-            a:hover, a:focus {
-                border-bottom: 0 none;
-            }
-        }
-        a {
-            border-bottom: 0 none;
-            padding: 20px;
-        }
-    }
-    .level3 {
-        background-color: $brand-color;
-        li {
-            &:hover, &.selected, &.expanded {
-                background: darken($brand-color, 7.5%);
-            }
-            &:hover > a, &.selected > a, &.expanded > a,
-            a:hover, a:focus {
-                border-bottom: 0 none;
-            }
-        }
-    }
-  }
-  // Navigation Page Nav
-  &--secondary {
-    background: $brand-color;
-    text-align: center;
-    font-weight: 400;
-    letter-spacing: 1.6px;
-    .level1 {
-      & > li {
-        display: none;
-        &.selected, &.expanded {
-          display: block;
-            & > a {
-              display: none;
-            }
-        }
-      }
-    }
-    .level2 {
-      display: table;
-      width: 100%;
-      & > li {
-        position: relative;
-        display: table-cell;
-        &:hover, &.selected, &.expanded {
-          background: darken($brand-color, 7.5%);
-        }
-        &.has-children:hover > ul {
-            display: block
-        }
-        a {
-          display: block;
-          padding: 20px;
-          @include font-size(14px);
-          &:focus {
-            outline: none;
-          }
-        }
-      }
-    }
-    .level3 {
-      position: absolute;
-      z-index: 100;
-      top: 100%;
-      left: 0;
-      display: none;
-      width: 100%;
-      min-width: 200px;
-      border-top: 2px solid $light-color;
-      & > li {
-        text-align: left;
-        a {
-          background: darken($brand-color, 7.5%);
-          &:hover, &:focus {
-            outline: none;
-            background: $brand-color;
-          }
-        }
-        &.selected {
-          a {
-            background: $brand-color;
-          }
-        }
-      }
-    }
-    @include layout-legacy {
-      text-align: left;
-      li {
-        border-top: 1px solid $darken-color;
-        &.has-children {
-          & > a:before {
-            float: right;
-            @include icon("edbe");
-          }
-        }
-        &.js--expanded {
-          & > a:before {
-            content: "\edc2";
-          }
-        }
-      }
-      a {
-        display: block;
-        text-transform: uppercase;
-        font-weight: normal;
-      }
-      .level1 {
-        & > li {
-          display: block;
-          &.selected, &.expanded {
+            position: relative;
             a {
-              display: block;
+                display: block;
+                padding: 20px 0;
+                ;
+                border-bottom: 2px solid transparent;
+                color: #fff;
+                font-weight: normal;
             }
-          }
-          &.js--expanded {
+            &:hover>a,
+            &.selected>a,
+            &.expanded>a,
+            a:hover,
+            a:focus {
+                border-bottom: 2px solid #fff;
+                color: #fff;
+                outline: none;
+            }
+            &.has-children:hover>ul {
+                display: block;
+            }
+        }
+        .level2 {
+            border-left: 20px solid $brand-color;
+            min-width: 220px;
             background: darken($brand-color, 7.5%);
+            &,
+            .level3 {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                z-index: 200;
+                white-space: nowrap;
+            }
+            li {
+                &:hover,
+                &.selected,
+                &.expanded {
+                    background: $brand-color;
+                }
+                &:hover>a,
+                &.selected>a,
+                &.expanded>a,
+                a:hover,
+                a:focus {
+                    border-bottom: 0 none;
+                }
+            }
             a {
-              display: block;
+                border-bottom: 0 none;
+                padding: 20px;
+            }
+        }
+        .level3 {
+            background-color: $brand-color;
+            li {
+                &:hover,
+                &.selected,
+                &.expanded {
+                    background: darken($brand-color, 7.5%);
+                }
+                &:hover>a,
+                &.selected>a,
+                &.expanded>a,
+                a:hover,
+                a:focus {
+                    border-bottom: 0 none;
+                }
+            }
+        }
+    } // Navigation Page Nav
+    &--secondary {
+        background: $brand-color;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 1.6px;
+        .level1 {
+            &>li {
+                display: none;
+                &.selected,
+                &.expanded {
+                    display: block;
+                    &>a {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .level2 {
+            display: table;
+            width: 100%;
+            &>li {
+                position: relative;
+                display: table-cell;
+                &:hover,
+                &.selected,
+                &.expanded {
+                    background: darken($brand-color, 7.5%);
+                }
+                &.has-children:hover>ul {
+                    display: block
+                }
+                a {
+                    display: block;
+                    padding: 20px;
+                    @include font-size(14px);
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+        .level3 {
+            position: absolute;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+            display: none;
+            width: 100%;
+            min-width: 200px;
+            border-top: 2px solid $light-color;
+            &>li {
+                text-align: left;
+                a {
+                    background: darken($brand-color, 7.5%);
+                    &:hover,
+                    &:focus {
+                        outline: none;
+                        background: $brand-color;
+                    }
+                }
+                &.selected {
+                    a {
+                        background: $brand-color;
+                    }
+                }
+            }
+        }
+        @include layout-legacy {
+            text-align: left;
+            li {
+                border-top: 1px solid $darken-color;
+                &.has-children {
+                    &>a:before {
+                        float: right;
+                        @include icon("edbe");
+                    }
+                }
+                &.js--expanded {
+                    &>a:before {
+                        content: "\edc2";
+                    }
+                }
+            }
+            a {
+                display: block;
+                text-transform: uppercase;
+                font-weight: normal;
+            }
+            .level1 {
+                &>li {
+                    display: block;
+                    &.selected,
+                    &.expanded {
+                        a {
+                            display: block;
+                        }
+                    }
+                    &.js--expanded {
+                        background: darken($brand-color, 7.5%);
+                        a {
+                            display: block;
+                        }
+                        .level2 {
+                            display: block;
+                        }
+                    }
+                    &>a {
+                        padding: 20px;
+                    }
+                }
             }
             .level2 {
-              display: block;
+                display: none;
+                &>li {
+                    display: block;
+                    &.js--expanded {
+                        .level3 {
+                            display: block;
+                        }
+                    }
+                    &>a {
+                        padding: 20px 20px 20px 48px;
+                        @include font-size(16px);
+                    }
+                }
             }
-          }
-          & > a {
-            padding: 20px;
-          }
-        }
-      }
-      .level2 {
-        display: none;
-        & > li {
-          display: block;
-          &.js--expanded {
             .level3 {
-              display: block;
+                position: static;
+                border: none;
+                &>li {
+                    display: block;
+                    &>a {
+                        padding: 20px 20px 20px 72px;
+                        @include font-size(16px);
+                    }
+                }
             }
-          }
-          & > a {
-            padding: 20px 20px 20px 48px;
-            @include font-size(16px);
-          }
+        } // iOS Actionbar fix
+        @media screen and (max-width: 765px) and (orientation:landscape) {
+            // Height of actionbar
+            padding-bottom: 85px;
         }
-      }
-      .level3 {
-        position: static;
-        border: none;
-        & > li {
-          display: block;
-          & > a {
-            padding: 20px 20px 20px 72px;
-            @include font-size(16px);
-          }
+    } // Page Not Found
+    &--sitemap {
+        @include fit-and-center($layout-width);
+        padding-bottom: $module-vspace;
+        a {
+            display: inline-block;
         }
-      }
-    }
-    // iOS Actionbar fix
-    @media screen and (max-width: 765px) and (orientation:landscape) {
-      // Height of actionbar
-      padding-bottom: 85px;
-    }
-  }
-  // Page Not Found
-  &--sitemap {
-    @include fit-and-center($layout-width);
-    padding-bottom: $module-vspace;
-    a {
-      display: inline-block;
-    }
-    .level1 {
-      & > li:not(:last-of-type) {
-        margin-bottom: 35px;
-      }
-      & > li {
-        & > a, & > a:visited {
-          margin-bottom: 15px;
-          @include font-size(24px);
-          color: $dark-color;
-          text-transform: uppercase;
+        .level1 {
+            &>li:not(:last-of-type) {
+                margin-bottom: 35px;
+            }
+            &>li {
+                &>a,
+                &>a:visited {
+                    margin-bottom: 15px;
+                    @include font-size(24px);
+                    color: $dark-color;
+                    text-transform: uppercase;
+                }
+            }
         }
-      }
-    }
-    .level2, .level3 {
-      & > li {
-        padding: 5px 0;
-        & > a {
-          @include font-size(14px);
-          font-weight: bold;
-          text-transform: uppercase;
+        .level2,
+        .level3 {
+            &>li {
+                padding: 5px 0;
+                &>a {
+                    @include font-size(14px);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
         }
-      }
+        .level2 {
+            &>li>a {
+                margin-bottom: 5px;
+            }
+        }
+        .level3 {
+            &>li {
+                padding-left: 15px;
+            }
+        }
     }
-    .level2 {
-      & > li > a {
-        margin-bottom: 5px;
-      }
-    }
-    .level3 {
-      & > li {
-        padding-left: 15px;
-      }
-    }
-  }
 }
