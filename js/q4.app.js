@@ -470,15 +470,15 @@ var q4Defaults = {
             e.preventDefault();
             $(this).parent().toggleClass('js--active');
             if ( $(this).parent().is('.js--active') ) {
-                $container.find(toggle).attr('aria-expanded', 'true');
-                $container.find(item).addClass('js--active');
-                $container.find(panel).slideDown(400, function() {
+                $(this).closest($container).find(toggle).attr('aria-expanded', 'true');
+                $(this).closest($container).find(item).addClass('js--active');
+                $(this).closest($container).find(panel).slideDown(400, function() {
                     $(this).removeClass('js--hidden');
                 });
             } else {
-                $container.find(toggle).attr('aria-expanded', 'false');
-                $container.find(item).removeClass('js--active');
-                $container.find(panel).slideUp(400, function() {
+                $(this).closest($container).find(toggle).attr('aria-expanded', 'false');
+                $(this).closest($container).find(item).removeClass('js--active');
+                $(this).closest($container).find(panel).slideUp(400, function() {
                     $(this).addClass('js--hidden');
                 });
             }
