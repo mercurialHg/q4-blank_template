@@ -441,7 +441,8 @@ iframe {
 /*==================================
  -------- Q4 Modules Icons ---------
 ==================================*/
-.module_q4-icon-links .module_link:before {
+.module_q4-icon-links .module_link:before,
+.module_q4-icon-links .module_rss-link:before {
     font-family: "q4-icons";
     speak: none;
     font-style: normal;
@@ -456,6 +457,10 @@ iframe {
     vertical-align: middle;
     display: inline-block;
     padding-right: 5px;
+}
+.module_q4-icon-links .module_rss-link:before,
+.module_q4-icon-links .module_link.module_link-rss:before {
+    content: "\eefa";
 }
 .module_q4-icon-links .module_add-to-calendar-reveal:before {
     content: "\ea5f";
